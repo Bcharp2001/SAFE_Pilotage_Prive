@@ -475,7 +475,7 @@ a {
   background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-space) 100%);
   border-top: 1px solid rgba(255,255,255,0.05);
 }
-.cta-container h2 { font-size: 2.5rem; font-weight: 400; margin-bottom: 1rem;}
+.cta-container h2 { font-size: 3rem; font-weight: 400; margin-bottom: 1.5rem;}
 .cta-container p { font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
 .contact-direct a { color: var(--text-white); text-decoration: none; border-bottom: 1px dashed rgba(255,255,255,0.3); padding-bottom: 2px;}
 
@@ -545,7 +545,7 @@ a {
   
   /* Reduction des textes et espaces vides inline */
   .section-header h2 { font-size: 1.8rem; }
-  .split-content h2, .legal-content h2 { font-size: 1.6rem !important; }
+  .split-content h2, .legal-content h2, .cta-container h2 { font-size: 1.6rem !important; margin-bottom: 1rem; }
   .py-xxl, .pt-xxl { padding-top: 4rem !important; }
   .py-xxl, .pb-xl { padding-bottom: 4rem !important; }
   .py-xl { padding-top: 3rem !important; padding-bottom: 3rem !important; }
