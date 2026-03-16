@@ -1,59 +1,57 @@
 <!DOCTYPE html>
-<html lang="fr" class="dark-theme">
+<html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>S.A.F.E. x Artech — Le Pitch Partenaire</title>
+  <title>S.A.F.E. x Artech — Présentation Exécutive</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Reveal.js CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
   
-  <!-- Google Fonts : Inter -->
+  <!-- Google Fonts : Playfair Display (Luxe/Prestige) & Inter (Lisibilité) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      --bg-space: #05070A;
-      --bg-surface: #0a0f16;
-      --primary: #38bdf8;
-      --text-white: #f8fafc;
-      --text-muted: #cbd5e1;
+      --bg-color: #FAFAFA;       /* Blanc cassé très élégant */
+      --text-main: #1F2937;      /* Gris très sombre, plus doux que le noir */
+      --text-muted: #4B5563;     /* Gris intermédiaire */
+      --accent: #B48D51;         /* Or / Bronze architectural */
+      --accent-dark: #1E3A8A;    /* Bleu marine très profond (Institutionnel) */
     }
     
-    /* Surcouche Theme S.A.F.E. Pilotage Privé */
-    body { background-color: var(--bg-space); }
+    body { background-color: var(--bg-color); }
     .reveal { font-family: 'Inter', sans-serif; color: var(--text-muted); }
-    .reveal .slide-background {
-      background-color: var(--bg-space);
-      background-image: radial-gradient(circle at top, rgba(11, 17, 26, 0.8) 0%, var(--bg-space) 100%);
-    }
+    .reveal .slide-background { background-color: var(--bg-color); }
     
-    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
-      font-family: 'Inter', sans-serif;
+    .reveal h1, .reveal h2, .reveal h3 {
+      font-family: 'Playfair Display', serif;
       text-transform: none;
-      color: var(--text-white);
-      letter-spacing: -0.02em;
+      color: var(--accent-dark);
+      letter-spacing: -0.01em;
     }
-    .reveal h1 { font-size: 3.5rem; font-weight: 500; line-height: 1.1; margin-bottom: 2rem; }
-    .reveal h2 { font-size: 2.5rem; font-weight: 400; color: var(--primary); margin-bottom: 2rem; }
-    .reveal h3 { font-size: 1.6rem; font-weight: 500; margin-bottom: 1rem; color: var(--text-white); }
-    .reveal p, .reveal li { font-size: 1.15rem; line-height: 1.6; font-weight: 300; }
+    .reveal h1 { font-size: 3.5rem; font-weight: 600; line-height: 1.1; margin-bottom: 2rem; }
+    .reveal h2 { font-size: 2.5rem; font-weight: 600; margin-bottom: 2rem; }
+    .reveal h3 { font-size: 1.6rem; font-weight: 600; margin-bottom: 1rem; color: var(--accent); }
+    
+    .reveal p, .reveal li { font-size: 1.15rem; line-height: 1.6; font-weight: 300; color: var(--text-muted); }
     .reveal li { margin-bottom: 0.75rem; }
     
-    .accent { color: var(--primary); font-weight: 500; }
+    .accent { color: var(--accent); font-weight: 600; }
+    .accent-dark { color: var(--accent-dark); font-weight: 600; }
     
     .badge {
       display: inline-block;
       padding: 0.5rem 1.5rem;
-      background: rgba(56, 189, 248, 0.05);
-      border: 1px solid rgba(56, 189, 248, 0.3);
+      border: 1px solid var(--accent);
       border-radius: 50px;
       font-size: 0.85rem;
-      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--primary);
+      color: var(--accent);
       margin-bottom: 2rem;
     }
     
@@ -66,27 +64,19 @@
     .split > div { flex: 1; }
     
     .card {
-      background: var(--bg-surface);
-      border: 1px solid rgba(255,255,255,0.05);
+      background: #FFFFFF;
+      border: 1px solid rgba(0,0,0,0.05);
       padding: 2.5rem;
-      border-radius: 16px;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 15px 40px rgba(0,0,0,0.5);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
     }
     
     .highlight-box {
-      border-left: 3px solid var(--primary);
-      background: rgba(56, 189, 248, 0.05);
-      padding: 2rem;
-      border-radius: 0 12px 12px 0;
+      border-left: 3px solid var(--accent);
+      background: rgba(180, 141, 81, 0.05);
+      padding: 2.5rem;
       text-align: left;
       margin-top: 2rem;
-    }
-    
-    .image-glow {
-      box-shadow: 0 0 60px rgba(56, 189, 248, 0.15);
-      border-radius: 16px;
-      border: 1px solid rgba(56, 189, 248, 0.2);
-      max-width: 100%;
     }
     
     .grid-3 {
@@ -94,9 +84,9 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
     }
-    .grid-3 .card { padding: 1.5rem; }
-    .grid-3 .card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--primary); }
-    .grid-3 .card p { font-size: 0.95rem; margin: 0; }
+    .grid-3 .card { padding: 2rem; }
+    .grid-3 .card h3 { font-size: 1.25rem; margin-bottom: 1rem; color: var(--accent-dark); font-family: 'Inter', sans-serif; font-weight: 600;}
+    .grid-3 .card p { font-size: 1rem; margin: 0; }
   </style>
 </head>
 <body>
@@ -106,151 +96,137 @@
       <!-- SLIDE 1 : Titre -->
       <section class="text-center">
         <div class="badge">S.A.F.E. Pilotage Privé x Artech</div>
-        <h1 class="fragment fade-up">L'Alliance de la Tradition<br>et de l'Intelligence.</h1>
-        <p class="fragment fade-up" style="font-size: 1.4rem; max-width: 800px; margin: 2rem auto 0 auto;">
-          Inscrire le génie artisanal dans la modernité tactique et transformer la méthodologie Artech en un capital industriel immuable.
+        <h1 class="fragment fade-up">Pérenniser l'Excellence.</h1>
+        <p class="fragment fade-up" style="font-size: 1.4rem; max-width: 800px; margin: 2rem auto 0 auto; color: var(--text-main);">
+          Inscrire 30 ans de savoir-faire artisanal dans une démarche technologique souveraine, pour une transmission parfaite et scalable.
         </p>
       </section>
 
-      <!-- SLIDE 2 : Le Constat -->
+      <!-- SLIDE 2 : Le Défi du Fondateur -->
       <section>
-        <div class="badge">Le Contexte & Le Mur</div>
-        <h2>30 Ans d'Excellence Artisanale</h2>
+        <div class="badge">La Vision</div>
+        <h2>Transmettre sans Diluer</h2>
         <div class="split" style="margin-top: 3rem;">
            <div class="card fragment fade-right">
-              <h3>L'ADN Artech</h3>
-              <p>Votre entreprise s'est bâtie sur la rigueur, l'œil expert et une méthode éprouvée sur le chantier, forgeant une relation de confiance inégalée avec des clients particulièrement exigeants (VIP).</p>
+              <h3>L'Héritage Artech</h3>
+              <p>Une réputation d'excellence absolue, forgée par 30 ans d'opérations sur des chantiers de prestige et une méthode reconnue par une clientèle VIP intransigeante.</p>
            </div>
-           <div class="card fragment fade-left" style="border-color: rgba(239, 68, 68, 0.3);">
-              <h3 style="color: #ef4444;">Le Défi de l'Échelle</h3>
-              <p>Face à la demande et à la création de votre licence : <em>Comment transmettre et démultiplier cette expertise si particulière à des tiers, sans jamais en diluer la qualité originelle ?</em></p>
+           <div class="card fragment fade-left">
+              <h3>Le Défi de la Licence</h3>
+              <p>Comment s'assurer que vos futurs franchisés ou collaborateurs appliqueront l'exigence Artech avec la même minutie que vous, sans dégrader l'image de la marque ?</p>
            </div>
         </div>
       </section>
 
-      <!-- SLIDE 3 : Les limites du logiciel classique -->
+      <!-- SLIDE 3 : Le Défi Opérationnel -->
       <section>
-        <h2>Le Logiciel Seul ne Suffit Plus</h2>
+        <div class="badge">Le Terrain</div>
+        <h2>La Limite de l'Outil Classique</h2>
         <div class="split">
            <div>
-               <p>Une simple application métier permet de <em>stocker</em> et de <em>saisir</em> l'information. <strong>Mais elle ne réfléchit pas.</strong></p>
+               <p>Un logiciel métier traditionnel permet de <em>stocker</em> de l'information, mais il ne contrôle pas sa qualité technique.</p>
                <ul style="margin-top: 1.5rem;">
-                   <li class="fragment fade-up">Le contrôle qualité repose toujours sur le cerveau de quelques experts internes (goulots d'étranglement).</li>
-                   <li class="fragment fade-up">Le risque d'erreur humaine perdure lors d'une surcharge.</li>
-                   <li class="fragment fade-up">Le risque <span style="color: #ef4444;">Shadow AI</span> : Vos équipes et clients risquent d'utiliser des IA grand public, fuyotant vos secrets industriels.</li>
+                   <li class="fragment fade-up">La recherche d'écarts normatifs (DTU, matériaux complexes) repose toujours sur la vigilance humaine.</li>
+                   <li class="fragment fade-up">Vos contrôleurs qualité constituent un goulot d'étranglement : la charge de relecture est immense.</li>
+                   <li class="fragment fade-up">Face à la fatigue, le risque de non-conformité perdure et peut coûter cher sur des chantiers de luxe.</li>
                </ul>
            </div>
            <div class="fragment fade-in">
-               <div class="highlight-box" style="border-color: #ef4444; background: rgba(239, 68, 68, 0.05);">
-                  <p style="font-style: italic; font-size: 1.3rem; color: #fff; margin:0;">
-                    « Assurer que chaque collaborateur, à chaque instant, applique la grille d'analyse du meilleur ingénieur Artech. »
+               <div class="highlight-box">
+                  <p style="font-style: italic; font-size: 1.3rem; color: var(--text-main); margin:0;">
+                    L'enjeu n'est pas de numériser des rapports, mais de <span class="accent">garantir que la méthode Artech est respectée à la virgule près</span> sur chaque chantier.
                   </p>
                </div>
            </div>
         </div>
       </section>
 
-      <!-- SLIDE 4 : La vision S.A.F.E -->
+      <!-- SLIDE 4 : La Solution S.A.F.E -->
       <section>
-        <div class="badge">La Solution</div>
-        <h2 style="margin-bottom: 0.5rem;">La Couche d'Intelligence Souveraine</h2>
-        <p style="margin-bottom: 3rem; text-align: left;">S.A.F.E. Pilotage Privé n'est pas un énième outil. <strong>C'est le "Système Nerveux" qui se greffe à votre logiciel.</strong></p>
+        <div class="badge">La Stratégie S.A.F.E.</div>
+        <h2 style="margin-bottom: 0.5rem;">Le "Jumeau Numérique" de votre Rigueur</h2>
+        <p style="margin-bottom: 3rem; text-align: left;">S.A.F.E. Pilotage Privé n'est pas un système informatique de plus.</p>
         
-        <div class="split">
-           <div>
-               <p>Une "Escouade d'agents intelligents", privée et barricadée, nourrie <em>exclusivement</em> de vos 30 ans d'archives, de vos DTU, et de vos méthodes opératoires secrètes (ex: KEIM).</p>
-               <p class="fragment fade-up" style="margin-top: 1.5rem; color: #fff; font-size: 1.25em;">
-                  Il ne remplace pas l'homme. <span class="accent">Il agit comme l'ombre de vos meilleurs inspecteurs.</span>
-               </p>
-           </div>
-           <div style="text-align: center;">
-               <img src="data/images/organigramme_agents_ia_SAFE_pilotage_securise_arriere_plan_transparent.png" class="image-glow" alt="S.A.F.E Agents">
-           </div>
+        <div class="highlight-box fragment fade-up">
+            <p style="font-size: 1.25rem; color: var(--text-main); font-weight: 500;">
+                C'est une Couche d'Intelligence Experte qui s'intègre à vos processus pour devenir le gardien infatigable de la norme Artech.
+            </p>
         </div>
+        <ul style="margin-top: 2rem; width: 100%;">
+            <li class="fragment fade-up">Nourri <strong>strictement et uniquement</strong> par vos archives, vos DTU, et vos critères.</li>
+            <li class="fragment fade-up">Totalement <strong>privé et confidentiel</strong> (Souveraineté des données, hébergement français garanti).</li>
+        </ul>
       </section>
 
-      <!-- SLIDE 5 : Enjeu 1 : La Valeur de la Franchise -->
+      <!-- SLIDE 5 : Axe Fondateur -->
       <section>
-        <div class="badge">Axe 1</div>
-        <h2>Sanctuariser et Valoriser</h2>
+        <div class="badge">Pour la Direction</div>
+        <h2>Démultiplier la Valeur de la Licence</h2>
         <div class="split" style="margin-top: 2rem;">
            <div class="fragment fade-up">
-               <h3 style="color: var(--primary);">🚀 Explosion de la Valeur de Licence</h3>
-               <p>En encapsulant l'IA S.A.F.E. dans votre offre commerciale, vous ne revendez plus un "logiciel de suivi". Vous commercialisez une <strong style="color:#fff;">Licence d'Intelligence Artech Certifiée</strong>. La proposition de valeur sur le marché change de dimension.</p>
+               <h3 style="color: var(--accent-dark);">L'Actif Immatériel Sécurisé</h3>
+               <p>En encapsulant cette IA experte dans votre offre, Artech ne commercialise plus seulement un "outil de suivi de chantier".</p>
            </div>
-           <div class="fragment fade-up" data-fragment-index="2">
-               <h3 style="color: var(--primary);">🔒 Souveraineté Totale Garantie</h3>
-               <p>Contrairement aux IA publiques (ChatGPT), <strong>rien ne sort de vos serveurs (Ingénierie Française)</strong>. Votre capital immatériel devient votre base de données d'apprentissage privée, hermétiquement protégée face aux concurrents.</p>
+           <div class="card fragment fade-up" data-fragment-index="2" style="background: var(--accent-dark); border: none;">
+               <p style="color: white; font-size: 1.3rem; font-weight: 500; margin: 0; text-align: center;">
+                   Vous commercialisez un <br><span style="color: var(--accent); font-size: 1.6rem;">Système Expert Certifié</span>
+               </p>
+               <p style="color: rgba(255,255,255,0.8); margin-top: 1rem; font-size: 1rem; text-align: center;">
+                   Chaque partenaire bénéficie de "l'œil Artech", justifiant une tarification premium et sécurisant votre réputation.
+               </p>
            </div>
         </div>
       </section>
 
-      <!-- SLIDE 6 : Enjeu 2 : L'escouade -->
+      <!-- SLIDE 6 : Axe Associé -->
       <section>
-        <div class="badge">Axe 2</div>
-        <h2>Le "Copilote" de l'Excellence</h2>
-        <p style="text-align: center; max-width: 900px; margin: 0 auto 3rem auto;">S.A.F.E. relit instantanément tous les rapports et épaule vos contrôleurs. Le but : <strong>Zéro surcharge, zéro oubli.</strong></p>
+        <div class="badge">Pour l'Opérationnel</div>
+        <h2>L'Assistance de Bout en Bout</h2>
+        <p style="text-align: center; max-width: 900px; margin: 0 auto 3rem auto;">S.A.F.E. analyse instantanément les flux d'informations, libérant vos équipes des tâches laborieuses de vérification.</p>
         
         <div class="grid-3">
             <div class="card fragment fade-up" data-fragment-index="1">
-                <h3>L'Agent Cadrage</h3>
-                <p>Audite instantanément les notes de démarrage pour détecter ce qu'un œil humain surchargé aurait pu manquer. Standardisation dès l'amorce du chantier.</p>
+                <h3>Vigilance Normative</h3>
+                <p>Analyse croisée d'un rapport avec des milliers de pages de fiches techniques et de DTU en quelques secondes pour isoler les incompatibilités (ex: enduits, peintures KEIM).</p>
             </div>
             <div class="card fragment fade-up" data-fragment-index="2">
-                <h3>L'Agent Matériaux</h3>
-                <p>Sonde en 2 secondes vos immenses fiches techniques (peintures, enduits chimiques complexes) pour isoler les incompatibilités ou les non-conformités normatives.</p>
+                <h3>Zéro Oubli</h3>
+                <p>Cadrage implacable des notes de démarrage et audits automatiques permettant d'intercepter les erreurs avant même qu'elles n'atteignent le contrôleur humain.</p>
             </div>
             <div class="card fragment fade-up" data-fragment-index="3">
-                <h3>L'Agent Restitution</h3>
-                <p>Analyse les remontées et génère des synthèses luxueuses et structurées, au "ton Artech", honorant l'exigence de vos clients VIP, en une fraction de seconde.</p>
+                <h3>Restitution Prestige</h3>
+                <p>Génération de synthèses claires, structurées et sans faute pour vos clients VIP, honorant le standing Artech de la communication finale.</p>
             </div>
         </div>
-        
-        <p class="fragment fade-in text-center" style="margin-top: 2rem; color: #fff; font-size: 1.25rem;">
-            Vos experts retrouvent du temps pour <strong>se recentrer exclusivement sur la décision d'enjeu et le geste métier</strong>.
-        </p>
       </section>
 
-      <!-- SLIDE 7 : Enjeu 3 : RAG-Q -->
+      <!-- SLIDE 7 : Rigueur Technique -->
       <section>
-         <div class="badge">Axe 3</div>
-         <h2 style="font-size: 2.3rem;">La Méthode RAG-Q : L'Anti-Hallucination</h2>
+         <div class="badge">Sécurité</div>
+         <h2>L'Infaillibilité, au Service de Qualiopi</h2>
          <div class="split">
-             <div style="flex: 0.8;">
-                 <img src="data/images/RAG_SAFE_pilotage_.jpg" class="image-glow" alt="RAG-Q Diagram">
-             </div>
-             <div style="flex: 1.2;">
-                 <p style="margin-bottom: 2rem;">L'hallucination de la machine est mortelle dans nos métiers. S.A.F.E. est une <strong>IA sous haute discipline</strong>.</p>
+             <div style="flex: 1;">
+                 <p style="margin-bottom: 2rem;">La technologie intégrée par S.A.F.E. obéit à une discipline stricte, incompatible avec les IA grand public fantaisistes.</p>
                  <ul style="list-style-type: none; padding: 0; margin: 0;">
-                     <li class="fragment fade-up" style="margin-bottom: 1rem;"><strong style="color: var(--primary);">✓ Lecture Textuelle Fermée :</strong> Elle ne répond <em>que</em> sur la base de vos méthodes certifiées, sans jamais rien inventer.</li>
-                     <li class="fragment fade-up" style="margin-bottom: 1rem;"><strong style="color: var(--primary);">✓ Traçabilité Forensic :</strong> Elle justifie toute alerte en fournissant le lien direct vers le document PDF source.</li>
-                     <li class="fragment fade-up" style="margin-bottom: 1rem;"><strong style="color: var(--primary);">✓ Gouvernance Hiérarchique :</strong> Elle respecte scrupuleusement l'organigramme de décision d'Artech avant de déclencher des alertes.</li>
+                     <li class="fragment fade-up" style="margin-bottom: 1.5rem;"><strong style="color: var(--accent-dark);">1. Preuve Documentaire :</strong> Elle ne déduit aucune information de l'extérieur. Elle cite systématiquement la source de votre base.</li>
+                     <li class="fragment fade-up" style="margin-bottom: 1.5rem;"><strong style="color: var(--accent-dark);">2. Gouvernance Interne :</strong> Elle respecte les niveaux de validation avant toute décision métier.</li>
                  </ul>
+             </div>
+             <div class="fragment fade-in card" style="text-align: center; flex: 0.8; border: 2px solid var(--accent);">
+                 <p style="font-size: 1.5rem; color: var(--accent-dark); font-weight: 600; margin: 0;">
+                     Le bras armé technologique idéal pour auditer et soutenir votre certification Qualiopi au quotidien.
+                 </p>
              </div>
          </div>
       </section>
 
       <!-- SLIDE 8 : Conclusion FINALE -->
       <section class="text-center">
-         <h2>La Dimension Qualiopi</h2>
-         <p style="font-size: 1.4rem; max-width: 800px; margin: 0 auto;">Votre certification atteste solennellement de votre rigueur procédurale.</p>
-         
-         <div class="highlight-box fragment zoom-in" style="display: inline-block; text-align: center; margin-top: 3rem; border: 1px solid rgba(56, 189, 248, 0.4); border-left: 4px solid var(--primary); padding: 3rem 4rem;">
-             <p style="font-size: 1.8rem; color: #fff; margin: 0; font-weight: 500;">
-               S.A.F.E. Pilotage Privé est le <br><strong>bras armé technologique</strong><br> de cette certification.
-             </p>
-         </div>
-         
-         <p class="fragment fade-up" style="font-size: 1.35rem; color: var(--primary); margin-top: 3rem;">
-             Garantissez à vos futurs franchisés qu'ils produiront de la qualité "Artech", <br>avec la même fiabilité implacable qu'à Sainte-Maxime.
+         <h2 style="font-size: 3.5rem;">Place à l'Expertise.</h2>
+         <p style="font-size: 1.4rem; color: var(--text-main); max-width: 800px; margin: 2rem auto;">
+             Achevez de libérer vos experts de la fastidieuse extraction de données.<br>
+             Rendons-leur le temps précieux de l'arbitrage, du relationnel client et du geste métier, protégés par l'ingénierie S.A.F.E.
          </p>
-      </section>
-
-      <!-- FINAL -->
-      <section class="text-center">
-         <img src="data/images/logo_safe_pilotage_prive.jpg" style="height: 100px; border-radius: 12px; margin-bottom: 2rem;">
-         <h1 style="font-size: 4rem;">Place au Cas Pratique.</h1>
-         <p style="color: var(--text-muted);">S.A.F.E. Pilotage Privé — Démonstration Opérationnelle</p>
       </section>
 
     </div>
@@ -266,7 +242,7 @@
       margin: 0.1,
       minScale: 0.2,
       maxScale: 2.0,
-      transition: 'fade',             // Transition statutaire et sobre
+      transition: 'fade',
       backgroundTransition: 'fade',
       controls: true,
       progress: true,
