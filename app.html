@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark-theme">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.A.F.E. Pilotage Privé | Cockpit Opérationnel</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+    <div class="cockpit-layout">
+        
+        <!-- Left Sidebar: Command Panel -->
+        <aside class="sidebar">
+            
+            <!-- Brand Plate -->
+            <div class="brand-plate">
+                <div class="brand-shield">
+                    <svg viewBox="0 0 24 24" fill="none" class="shield-icon" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <h1>S.A.F.E.</h1>
+                    <span class="brand-subtitle">PILOTAGE PRIVÉ</span>
+                </div>
+                <div class="connection-status">
+                    <div class="pulse-dot"></div>
+                    <span>Réseau Sécurisé</span>
+                </div>
+            </div>
+
+            <!-- Main Navigation (Tabs) -->
+            <nav class="cockpit-nav">
+                <ul class="nav-list">
+                    <li class="nav-item active">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                        <span>Chat Sécurisé</span>
+                    </li>
+                    <li class="nav-item">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        <span>Agents Méthode</span>
+                    </li>
+                    <li class="nav-item">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                        <span>Audit & Traçabilité</span>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-divider"></div>
+
+            <!-- Methodology Library / Sources -->
+            <div class="library-section">
+                <div class="library-header">
+                    <h3>Environnement Opérationnel</h3>
+                </div>
+                
+                <div class="library-folder">
+                    <div class="folder-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
+                        Méthodologie Artech
+                    </div>
+                    <ul class="folder-contents">
+                        <li><span>Protocole Qualité.md</span></li>
+                        <li><span>Directives_Validation.pdf</span></li>
+                    </ul>
+                </div>
+                
+                <div class="library-folder">
+                    <div class="folder-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-4-1.79-8-4"></path></svg>
+                        Sources Indexées (Local)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-footer">
+                <div class="governance-badge">
+                    GOUVERNANCE LOCALE ACTIVE
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Center Panel -->
+        <main class="main-panel">
+            
+            <!-- Top Status Bar -->
+            <header class="status-bar">
+                <div class="status-card">
+                    <div class="status-icon success-glow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                    <div class="status-details">
+                        <span class="status-label">Intégrité Système</span>
+                        <span class="status-value">Local / Optimal</span>
+                    </div>
+                </div>
+                
+                <div class="status-card">
+                    <div class="status-icon blue-glow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
+                    <div class="status-details">
+                        <span class="status-label">Exécution Confiée</span>
+                        <span class="status-value">Agents IA prêts</span>
+                    </div>
+                </div>
+
+                <div class="status-card">
+                    <div class="status-icon neutral-glow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg></div>
+                    <div class="status-details">
+                        <span class="status-label">Confidentialité</span>
+                        <span class="status-value">Chiffrement AES-256</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Center Core Area -->
+            <div class="core-area">
+                <div class="welcome-monument">
+                    <h2 class="welcome-title">Poste de Commandement</h2>
+                    <p class="welcome-subtitle">L'environnement est sécurisé. Les méthodes sont chargées. En attente d'instruction stratégique.</p>
+                </div>
+            </div>
+
+            <!-- Bottom Input Area (Integrated Cockpit Style) -->
+            <div class="input-console-wrapper">
+                
+                <!-- Context Chips -->
+                <div class="context-chips">
+                    <span class="chip-label">CONTEXTE ACTIF :</span>
+                    <button class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> Analyse Financière</button>
+                    <button class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> Répertoire Client A</button>
+                    <button class="chip chip-add">+ Ajouter contexte métier</button>
+                </div>
+
+                <!-- Input Console -->
+                <div class="input-console">
+                    <div class="input-badge">SÉCURISÉ</div>
+                    <textarea class="console-textarea" placeholder="Saisissez une instruction, un document à analyser, ou une procédure à exécuter..." rows="1"></textarea>
+                    <button class="execute-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </button>
+                </div>
+                <div class="console-footer">
+                    S.A.F.E. Engine v2.4 — Gouvernance stricte appliquée aux résultats.
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>
