@@ -45,6 +45,9 @@
                 <a href="mailto:contact@safe-pilotage-prive.fr" class="btn btn-outline">contact@safe-pilotage-prive.fr</a>
                 <a href="index.html#contact" class="btn btn-primary">Demander une démo</a>
             </div>
+            <button class="menu-toggle" aria-label="Menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
         </div>
     </header>
 
@@ -194,5 +197,22 @@
         </div>
     </footer>
 
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinksMenu = document.querySelector('.nav-links');
+        const navItems = document.querySelectorAll('.nav-links a');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navLinksMenu.classList.toggle('active');
+            });
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    navLinksMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
 </body>
 </html>
