@@ -339,13 +339,17 @@
             <!-- Etape 2 -->
             <div id="step-2" class="form-step" style="display: none;">
                 <div class="ragq-badge" style="margin-bottom: 1rem; color: #94a3b8; background: rgba(255,255,255,0.05); border: none;">Étape 2 sur 3</div>
-                <h3 style="margin-bottom: 1.5rem; font-size: 1.4rem; color: white;">Quel est votre cas d'usage prioritaire ?</h3>
-                <div class="radio-group" style="display: flex; flex-direction: column; gap: 0.8rem;">
-                    <label class="form-option"><input type="radio" name="usecase" value="Docs Juridiques"> ⚖️ Revue de documents juridiques</label>
-                    <label class="form-option"><input type="radio" name="usecase" value="RH & Paie"> 👥 Traitement de données RH sensibles (Paie)</label>
-                    <label class="form-option"><input type="radio" name="usecase" value="Procédures RAG"> 📚 Interrogation de procédures internes complexes</label>
-                    <label class="form-option"><input type="radio" name="usecase" value="Autre"> 💡 Autre besoin stratégique</label>
-                </div>
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.4rem; color: white;">Quel département est prioritaire ?</h3>
+                <select id="lead-department" style="width: 100%; padding: 1.1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; margin-bottom: 1rem; font-family: inherit; font-size: 1.05rem; cursor: pointer; appearance: auto;">
+                    <option value="" disabled selected>Sélectionnez un département...</option>
+                    <option value="Direction / Stratégie">👑 Direction / Stratégie</option>
+                    <option value="Ventes / Commercial">📈 Ventes / Commercial</option>
+                    <option value="Ressources Humaines">👥 Ressources Humaines (Paie...)</option>
+                    <option value="Comptabilité / Finance">📊 Comptabilité / Finance</option>
+                    <option value="Juridique / Compliance">⚖️ Juridique / Compliance</option>
+                    <option value="Opérations / RAG Interne">📚 Opérations (Base de savoir)</option>
+                    <option value="Autre">💡 Autre besoin stratégique</option>
+                </select>
                 <div style="display: flex; gap: 1rem; margin-top: 2rem;">
                     <button onclick="nextStep(1)" class="btn btn-outline" style="flex: 1; border-color: rgba(255,255,255,0.1);">Retour</button>
                     <button onclick="nextStep(3)" class="btn btn-primary" style="flex: 2; justify-content: center;">Continuer ➔</button>
@@ -425,7 +429,8 @@
 
         function submitForm() {
             const size = document.querySelector('input[name="size"]:checked')?.value || 'Non précisé';
-            const usecase = document.querySelector('input[name="usecase"]:checked')?.value || 'Non précisé';
+            const selectEl = document.getElementById('lead-department');
+            const usecase = (selectEl && selectEl.value) ? selectEl.value : 'Non précisé';
             const name = document.getElementById('lead-name').value;
             const email = document.getElementById('lead-email').value;
             
@@ -451,7 +456,7 @@
                     Nom: name,
                     Email: email,
                     Taille_Entreprise: size,
-                    Cas_Usage: usecase
+                    Departement_Concerne: usecase
                 })
             })
             .then(response => response.json())
