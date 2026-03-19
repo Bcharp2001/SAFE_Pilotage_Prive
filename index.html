@@ -138,41 +138,75 @@
         </div>
     </section>
 
-    <!-- 4. RAG-Q et Organigramme IA -->
-    <section id="ragq" class="py-xxl" style="padding-top: 8rem; padding-bottom: 10rem;">
-        <div class="container layout-split reverse" style="gap: 6rem;">
-            <div class="split-content">
-                <div class="ragq-badge">MÉTHODE RAG-Q™</div>
-                <h2>L'intelligence artificielle sous supervision stricte.</h2>
-                <p style="font-size: 1.1rem; border-left: 2px solid var(--primary); padding-left: 1rem; color: var(--text-white); margin-top: 1.5rem; margin-bottom: 1.5rem;">
-                    Une IA classique peut produire du flou ou inventer des informations. Notre approche RAG-Q encadre la machine avec vos seules sources expertes et lui impose un puissant filtre de qualité.
-                </p>
-                
-                <div class="process-steps mt-md">
-                    <div class="step">
-                        <div class="step-content">
-                            <h3>1. Lecture littérale</h3>
-                            <p>Extraction exacte dans vos bases, mot pour mot, en empêchant toute forme de "créativité" algorithmique.</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-content">
-                            <h3>2. Confrontation croisée</h3>
-                            <p>Une organisation d'agents vérificateurs teste la solidité de la donnée extraite selon votre grille de conformité.</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-content">
-                            <h3>3. Restitution irréfutable</h3>
-                            <p>Le document final vous est soumis de manière lisible, avec un lien de traçabilité direct vers le document PDF source.</p>
-                        </div>
-                    </div>
+    <!-- NOUVEAU : 4.5. Architecture Interactive & Cas Pratiques -->
+    <section id="architecture" class="py-xxl" style="padding-top: 6rem; padding-bottom: 6rem; border-top: 1px solid rgba(255,255,255,0.05); background: radial-gradient(circle at center, rgba(15,23,42,0.8) 0%, transparent 100%);">
+        <div class="container">
+            <div class="section-header text-center mb-lg">
+                <div class="ragq-badge" style="margin-bottom: 1.5rem; background: rgba(56, 189, 248, 0.1); color: var(--primary);">VUE SOUS LE CAPOT</div>
+                <h2>Architecture Sanctuarisée S.A.F.E.</h2>
+                <p style="font-size: 1.15rem; color: var(--text-white); max-width: 800px; margin: 0 auto;">Plongée dans notre système confiné. Les données ne sortent jamais, nos escouades d'agents locaux (Analyse, Synthèse, Contrôle) s'en chargent sous supervision.</p>
+            </div>
+
+            <!-- Architecture SVG Container -->
+            <div class="visual-showcase mb-xl" style="background: rgba(15,23,42,0.4); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <!-- Oject est idéal pour un SVG interactif car il exécute les scripts internes du SVG -->
+                <object data="data/images/safe_architecture_concept.svg" type="image/svg+xml" style="width: 100%; height: auto; min-height: 450px; border-radius: 12px;"></object>
+                <div style="display: flex; gap: 1rem; align-items: center; margin-top: 1.5rem; color: var(--text-muted); font-size: 0.95rem; font-weight: 500;">
+                    <svg viewBox="0 0 24 24" width="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"></path><path d="M10 14L21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+                    Schéma interactif : Cliquez sur les éléments de l'architecture pour explorer le flux souverain.
                 </div>
             </div>
-            <div class="split-visual">
-                <div class="visual-block">
-                    <img src="data/images/RAG_SAFE_pilotage_.jpg" alt="Organigramme et Flux d'Agents IA">
+
+            <div class="grid grid-2 mt-xxl" style="gap: 4rem;">
+                
+                <!-- Use Case 1: Procédures Internes -->
+                <div class="use-case-card" style="background: rgba(255,255,255,0.02); padding: 2.5rem; border: 1px solid rgba(56, 189, 248, 0.15); border-radius: 16px; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top:0; left:0; width:100%; height:4px; background: linear-gradient(90deg, var(--primary), transparent);"></div>
+                    <div class="badge mb-md" style="background: rgba(56,189,248,0.1); color: var(--primary);">Cas #1 : Base de Connaissance RAG</div>
+                    <h3 class="mb-sm">Transformation des Procédures</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6;">Vos manuels de procédures de 80 pages deviennent un savoir vivant et immédiatement interrogeable, ancré dans vos textes officiels (ni plus, ni moins).</p>
+                    
+                    <ul class="feature-list" style="margin-bottom: 2rem;">
+                        <li style="margin-bottom: 0.5rem;"><strong style="color: var(--text-white);">Ingestion sans altération :</strong> Découpage en fragments intelligents.</li>
+                        <li><strong style="color: var(--text-white);">Sanctuarisation locale :</strong> Indexation sémantique confinée.</li>
+                    </ul>
+
+                    <div class="comparison" style="background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1.5rem;">
+                        <div style="margin-bottom: 1.5rem; padding-left: 1rem; border-left: 2px solid #ef4444;">
+                            <strong style="color: #ef4444; font-size: 0.85rem; text-transform: uppercase; display: flex; align-items: center; gap: 0.5rem;"><svg width="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> Avant S.A.F.E.</strong>
+                            <p style="font-size: 0.95rem; margin-top: 0.5rem; color: var(--text-white);">Un responsable RH fouille 3 dossiers SharePoint, relit un PDF de 60 pages. <strong>2 heures de perdues.</strong></p>
+                        </div>
+                        <div style="padding-left: 1rem; border-left: 2px solid var(--primary);">
+                            <strong style="color: var(--primary); font-size: 0.85rem; text-transform: uppercase; display: flex; align-items: center; gap: 0.5rem;"><svg width="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Avec S.A.F.E.</strong>
+                            <p style="font-size: 0.95rem; margin-top: 0.5rem; color: var(--text-white);">Il tape "étapes d'onboarding"... Réponse en <strong>8 secondes</strong>, directement sourcée à la page 14 du manuel v2.3.</p>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Use Case 2: Sécurité RH -->
+                <div class="use-case-card" style="background: rgba(255,255,255,0.02); padding: 2.5rem; border: 1px solid rgba(139, 92, 246, 0.15); border-radius: 16px; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top:0; left:0; width:100%; height:4px; background: linear-gradient(90deg, #8b5cf6, transparent);"></div>
+                    <div class="badge mb-md" style="background: rgba(139,92,246,0.1); color: #8b5cf6;">Cas #2 : Anti-Shadow AI</div>
+                    <h3 class="mb-sm">Gestion des Fiches de Paie (RH)</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6;">Le cas d'usage qui effraie les DRH : empêcher l'envoi de documents sensibles sur des modèles cloud publics (type ChatGPT) par les collaborateurs.</p>
+
+                    <ul class="feature-list" style="margin-bottom: 2rem;">
+                        <li style="margin-bottom: 0.5rem;"><strong style="color: var(--text-white);">Confinement absolu :</strong> Aucune transmission externe de la masse salariale.</li>
+                        <li><strong style="color: var(--text-white);">Isolement algorithmique :</strong> Les agents extraient sans exposer les PII.</li>
+                    </ul>
+
+                    <div class="comparison" style="background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1.5rem;">
+                        <div style="margin-bottom: 1.5rem; padding-left: 1rem; border-left: 2px solid #ef4444;">
+                            <strong style="color: #ef4444; font-size: 0.85rem; text-transform: uppercase; display: flex; align-items: center; gap: 0.5rem;"><svg width="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> Avant S.A.F.E.</strong>
+                            <p style="font-size: 0.95rem; margin-top: 0.5rem; color: var(--text-white);">Cohérence de paie étudiée manuellement (45 min par dossier) ou risquée sur Cloud US. Fraude RGPD potentielle.</p>
+                        </div>
+                        <div style="padding-left: 1rem; border-left: 2px solid #8b5cf6;">
+                            <strong style="color: #8b5cf6; font-size: 0.85rem; text-transform: uppercase; display: flex; align-items: center; gap: 0.5rem;"><svg width="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Avec S.A.F.E.</strong>
+                            <p style="font-size: 0.95rem; margin-top: 0.5rem; color: var(--text-white);">Validation en <strong>quelques secondes</strong> des cohérences de montants dans un bunker de conformité technique.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
