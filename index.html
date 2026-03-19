@@ -356,11 +356,11 @@
             <div id="step-3" class="form-step" style="display: none;">
                 <div class="ragq-badge" style="margin-bottom: 1rem; color: var(--primary); background: rgba(56, 189, 248, 0.1); border: none;">Dernière Étape</div>
                 <h3 style="margin-bottom: 1.5rem; font-size: 1.4rem; color: white;">Où pouvons-nous vous recontacter ?</h3>
-                <input type="text" id="lead-name" placeholder="Votre Prénom et Nom" style="width: 100%; padding: 1.1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; margin-bottom: 1rem; font-family: inherit; font-size: 1rem;">
-                <input type="email" id="lead-email" placeholder="Email professionnel" style="width: 100%; padding: 1.1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; margin-bottom: 1rem; font-family: inherit; font-size: 1rem;">
+                <input type="text" id="lead-name" required placeholder="Votre Prénom et Nom" style="width: 100%; padding: 1.1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; margin-bottom: 1rem; font-family: inherit; font-size: 1rem;">
+                <input type="email" id="lead-email" required placeholder="Email professionnel" style="width: 100%; padding: 1.1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; margin-bottom: 1rem; font-family: inherit; font-size: 1rem;">
                 <div style="display: flex; gap: 1rem; margin-top: 1rem;">
                     <button onclick="nextStep(2)" class="btn btn-outline" style="flex: 1; border-color: rgba(255,255,255,0.1);">Retour</button>
-                    <button onclick="submitForm()" class="btn btn-primary" style="flex: 2; background: var(--primary); color: #000; justify-content: center; font-weight: 700;">Soumettre ma demande</button>
+                    <button id="submit-btn" onclick="submitForm()" class="btn btn-primary" style="flex: 2; background: var(--primary); color: #000; justify-content: center; font-weight: 700;">Soumettre ma demande</button>
                 </div>
             </div>
             
@@ -426,17 +426,53 @@
         function submitForm() {
             const size = document.querySelector('input[name="size"]:checked')?.value || 'Non précisé';
             const usecase = document.querySelector('input[name="usecase"]:checked')?.value || 'Non précisé';
-            const name = document.getElementById('lead-name').value || 'Anonyme';
-            const email = document.getElementById('lead-email').value || 'Anonyme';
+            const name = document.getElementById('lead-name').value;
+            const email = document.getElementById('lead-email').value;
             
-            const subject = encodeURIComponent("Demande de démo S.A.F.E - " + name);
-            const body = encodeURIComponent(`Bonjour,\n\nJe souhaite planifier une démonstration de l'environnement S.A.F.E.\n\n-- Profil Qualifié --\nNom: ${name}\nEmail: ${email}\nTaille de l'entreprise: ${size}\nCas d'usage prioritaire: ${usecase}\n\nMerci de me proposer des créneaux.\n`);
-            
-            // Redirect to prefilled mail as a "no-code" backend
-            window.location.href = `mailto:contact@safe-pilotage-prive.fr?subject=${subject}&body=${body}`;
-            
-            // Close form
-            document.getElementById('typeform-modal').style.display = 'none';
+            if (!name || !email) {
+                alert("Merci de renseigner votre prénom, nom et une adresse email.");
+                return;
+            }
+
+            const btn = document.getElementById('submit-btn');
+            btn.innerText = "Envoi en cours...";
+            btn.disabled = true;
+            btn.style.opacity = "0.7";
+
+            // Envoi en tâche de fond via l'API FormSubmit
+            fetch("https://formsubmit.co/ajax/contact@safe-pilotage-prive.fr", {
+                method: "POST",
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    _subject: "Nouvelle Demande Démo S.A.F.E : " + name,
+                    Nom: name,
+                    Email: email,
+                    Taille_Entreprise: size,
+                    Cas_Usage: usecase
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Remplacer l'étape 3 par un message de Success HTML
+                document.getElementById('step-3').innerHTML = `
+                    <div style="text-align: center; padding: 2rem 0;">
+                        <svg viewBox="0 0 24 24" width="60" height="60" fill="none" stroke="#22c55e" stroke-width="2" style="margin-bottom: 1.5rem;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <h3 style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">Demande envoyée avec succès !</h3>
+                        <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 2rem; line-height: 1.5;">Nous vous recontacterons très vite sur l'email <br><b style="color: white;">${email}</b><br>pour vous proposer des créneaux de démonstration.</p>
+                        <button onclick="closeForm({target: {id: 'typeform-modal'}})" class="btn btn-outline" style="border-color: rgba(255,255,255,0.2);">Fermer la fenêtre</button>
+                    </div>
+                `;
+            })
+            .catch(error => {
+                console.error(error);
+                alert("Une erreur technique s'est produite. Veuillez nous écrire directement sur contact@safe-pilotage-prive.fr");
+                btn.innerText = "Soumettre ma demande";
+                btn.disabled = false;
+                btn.style.opacity = "1";
+            });
         }
 
         // Select all images inside visual blocks to be clickable
