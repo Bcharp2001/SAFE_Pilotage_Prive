@@ -100,9 +100,7 @@
 
             <!-- Immersive Hero Visual Placement -->
             <div class="visual-showcase mt-xl" style="background: rgba(15,23,42,0.4); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.08);">
-                <div class="visual-placeholder" style="min-height: 400px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.9rem; border: 1px dashed rgba(255,255,255,0.2); border-radius: 12px;">
-                    [ EMPLACEMENT VISUEL : Cockpit S.A.F.E. configuré pour les métriques RH ]
-                </div>
+                <img src="data/images/rh_cockpit_ui.png" alt="Cockpit S.A.F.E. configuré pour les métriques RH" style="border-radius: 12px; width: 100%;">
             </div>
         </div>
     </section>
@@ -196,8 +194,8 @@
             </div>
             
             <!-- Visuel optionnel pour illustrer les agents RH -->
-            <div class="visual-placeholder mt-xl" style="min-height: 250px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.9rem; border: 1px dashed rgba(255,255,255,0.2); border-radius: 12px; background: rgba(0,0,0,0.3);">
-                [ EMPLACEMENT VISUEL : Organigramme Agents IA RH ]
+            <div class="visual-showcase mt-xl" style="border-radius: 12px; background: rgba(0,0,0,0.3);">
+                <img src="data/images/rh_ai_agents.png" alt="Organigramme Agents IA RH" style="border-radius: 12px; width: 100%;">
             </div>
         </div>
     </section>
@@ -236,8 +234,8 @@
                 </div>
             </div>
             
-            <div class="visual-placeholder mt-md" style="min-height: 150px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.9rem; border: 1px dashed rgba(255,255,255,0.2); border-radius: 12px; background: rgba(0,0,0,0.3);">
-                [ EMPLACEMENT VISUEL : Tableau Avant/Après stylisé ]
+            <div class="visual-showcase mt-md" style="margin-bottom: 2rem; border-radius: 12px; background: rgba(0,0,0,0.3);">
+                <img src="data/images/rh_before_after.png" alt="Tableau Avant/Après stylisé" style="border-radius: 12px; width: 100%;">
             </div>
 
             <div class="roi-banner text-center" style="max-width: 800px; margin-left: auto; margin-right: auto;">
@@ -361,7 +359,7 @@
     </section>
 
     <!-- Modale Typeform Intégrée (Copie exacte de index.html) -->
-    <div id="typeform-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000; background: rgba(5,7,10,0.95); backdrop-filter: blur(8px); align-items: center; justify-content: center; flex-direction: column; opacity: 0; transition: opacity 0.3s ease;">
+    <div id="typeform-modal" class="lightbox" style="display: none; justify-content: center; align-items: center; z-index: 2000; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);" onclick="closeForm(event)">
         <div style="position: absolute; top: 2rem; right: 2rem; cursor: pointer; color: white;" onclick="closeForm({target: {id: 'typeform-modal'}})">
             <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </div>
@@ -459,6 +457,12 @@
             </div>
         </div>
     </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
 
     <script>
         // Modal Formulaire "Typeform" Logic
@@ -560,6 +564,31 @@
                     selectEl.value = 'Ressources Humaines';
                 }
             }
+        });
+
+        // Select all images inside visual blocks to be clickable
+        const images = document.querySelectorAll('.visual-showcase img, .visual-block img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        images.forEach(img => {
+            img.style.cursor = 'zoom-in';
+            img.addEventListener('click', function(e) {
+                e.stopPropagation();
+                lightbox.style.display = 'flex';
+                lightboxImg.src = this.src;
+                setTimeout(() => lightbox.classList.add('show'), 10);
+            });
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('show');
+            setTimeout(() => lightbox.style.display = 'none', 300);
+        }
+
+        // Close on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
         });
 
         // Mobile Menu Toggle
