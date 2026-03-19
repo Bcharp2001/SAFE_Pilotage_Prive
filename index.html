@@ -543,8 +543,8 @@
 
             const form = document.createElement('form');
             form.method = 'POST';
-            // Utilisation exclusive du token d'alias validé "geyumo" pour éviter les filtres de sécurité
-            form.action = 'https://formsubmit.co/geyumo';
+            // Remise de l'adresse brute, car le token geyumo n'est pas un UUID d'alias valide pour FormSubmit
+            form.action = 'https://formsubmit.co/contact@safe-pilotage-prive.fr';
             
             form.appendChild(createHiddenInput('_captcha', 'false'));
             const returnUrl = window.location.href.split('#')[0] + '#success';
