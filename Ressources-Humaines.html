@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark-theme">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA Souveraine pour les RH — Analyse bulletins de paie & contrats | S.A.F.E.</title>
+    
+    <meta name="description" content="Votre DRH passe 3h par mois à vérifier des bulletins de paie à la main. S.A.F.E. le fait en 8 minutes, en local, sans jamais exposer vos données RH à un cloud public.">
+    <link rel="canonical" href="https://www.safe-pilotage-prive.fr/Ressources-Humaines" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific page styles inherited from main theme */
+        .stat-box { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px; text-align: center; }
+        .stat-value { font-family: monospace; font-size: 2.5rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; }
+        .stat-label { color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        
+        .agent-row { display: grid; grid-template-columns: 1fr 2fr 1.5fr; gap: 2rem; background: rgba(255,255,255,0.02); padding: 2rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 1.5rem; transition: all 0.2s ease; }
+        .agent-row:hover { background: rgba(255,255,255,0.04); border-color: rgba(56, 189, 248, 0.2); }
+        .agent-title { font-size: 1.25rem; font-weight: 600; color: white; display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; }
+        
+        .testimonial-block { background: rgba(15,23,42,0.6); border-left: 4px solid var(--primary); padding: 2rem; border-radius: 0 16px 16px 0; margin: 4rem 0; font-style: italic; font-size: 1.15rem; line-height: 1.6; color: rgba(255,255,255,0.9); }
+        .testimonial-author { display: block; font-style: normal; font-size: 0.95rem; color: var(--primary); font-weight: 600; margin-top: 1rem; }
+        
+        .roi-banner { background: linear-gradient(90deg, rgba(16,185,129,0.1), transparent); border: 1px solid rgba(16,185,129,0.2); padding: 2rem; border-radius: 16px; margin: 3rem 0; }
+        
+        @media (max-width: 768px) {
+            .agent-row { grid-template-columns: 1fr; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="container navbar-container">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: center; text-decoration: none; color: inherit; gap: 1rem;">
+                    <img src="data/images/logo_safe_pilotage_prive.jpg" alt="S.A.F.E. Logo">
+                    <div style="display: flex; flex-direction: column;">
+                        <span class="logo-text">S.A.F.E.</span>
+                        <span class="logo-span">PILOTAGE PRIVÉ</span>
+                    </div>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html#solution">Architecture</a>
+                <a href="index.html#ragq">Méthode RAG-Q</a>
+                <a href="index.html#benefices">Bénéfices</a>
+                <a href="apropos.html">À propos</a>
+                <a href="mailto:contact@safe-pilotage-prive.fr" class="btn btn-outline">contact@safe-pilotage-prive.fr</a>
+                <a href="javascript:openForm()" class="btn btn-primary">Demander une démo</a>
+            </div>
+            <button class="menu-toggle" aria-label="Menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- 1. Hero Section -->
+    <section class="hero text-center pt-xxl pb-xl">
+        <div class="container hero-content">
+            <div class="badge">
+                <div class="pulse-dot"></div>
+                L'IA souveraine qui accélère vos processus RH
+            </div>
+            
+            <h1 style="max-width: 900px; margin-left: auto; margin-right: auto;">Sécurisez et automatisez <br><span class="text-accent">vos analyses paie & contrats.</span></h1>
+            
+            <p class="subtitle" style="max-width: 800px; margin-left: auto; margin-right: auto;">Votre DRH passe 3 heures par mois à vérifier des bulletins de paie à la main. S.A.F.E. le fait en 8 minutes — en local, sans jamais exposer vos données à un cloud public.</p>
+            
+            <div class="grid grid-4 mt-lg mb-xl" style="gap: 1.5rem; text-align: left;">
+                <div class="stat-box">
+                    <div class="stat-value" style="color: #10B981;">Zéro</div>
+                    <div class="stat-label">Fuite de données</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">8s</div>
+                    <div class="stat-label">Réponse sourcée</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">Conforme RGPD</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">&lt; 6 mois</div>
+                    <div class="stat-label">ROI mesuré</div>
+                </div>
+            </div>
+
+            <div class="hero-actions">
+                <a href="javascript:openForm()" class="btn btn-primary btn-cta">Demander une démonstration RH</a>
+                <a href="#agents" class="btn btn-secondary">Voir les agents RH ↓</a>
+            </div>
+
+            <!-- Immersive Hero Visual Placement -->
+            <div class="visual-showcase mt-xl" style="background: rgba(15,23,42,0.4); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.08);">
+                <div class="visual-placeholder" style="min-height: 400px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.9rem; border: 1px dashed rgba(255,255,255,0.2); border-radius: 12px;">
+                    [ EMPLACEMENT VISUEL : Cockpit S.A.F.E. configuré pour les métriques RH ]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Le problème -->
+    <section class="py-xxl" style="padding-top: 5rem;">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>La croissance RH implique le contrôle.</h2>
+                <p>Les équipes RH exigeantes se heurtent à des risques opérationnels et réglementaires croissants que les outils généralistes ne peuvent pas adresser.</p>
+            </div>
+            <div class="grid grid-4 mt-lg">
+                <div class="card">
+                    <div class="card-icon" style="color: #ef4444;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+                    <h3>Shadow AI & RGPD</h3>
+                    <p>65% des collaborateurs avouent envoyer des fiches de paie sur ChatGPT. Chaque envoi est une violation potentielle du RGPD exposant l'entreprise à des amendes CNIL.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon" style="color: var(--primary);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                    <h3>Vérification manuelle des paies</h3>
+                    <p>Un responsable RH passe 45 minutes par dossier pour contrôler la cohérence des montants. Sur 80 salariés, c'est 60 heures perdues par mois sur une tâche mécanique.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon" style="color: var(--primary);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
+                    <h3>Contrats non conformes</h3>
+                    <p>Les clauses abusives ou non conformes au droit du travail passent inaperçues lors des révisions manuelles. Le risque prud'homal est sous-estimé faute de temps.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon" style="color: var(--primary);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg></div>
+                    <h3>Savoir siloté</h3>
+                    <p>Les manuels RH dorment sur SharePoint. Chaque nouvelle recrue ou manager perd des heures à chercher la bonne procédure dans les mauvais dossiers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Agents RH -->
+    <section id="agents" class="py-xxl" style="background: rgba(255,255,255,0.01);">
+        <div class="container">
+            <div class="section-header text-center mb-lg">
+                <div class="ragq-badge" style="margin-bottom: 1.5rem;">S.A.F.E. IA RH</div>
+                <h2>Trois agents. Un seul commandant : vous.</h2>
+                <p>S.A.F.E. déploie une équipe d'agents IA spécialisés sur vos données RH. Ils lisent, croisent et restituent — vous validez et décidez.</p>
+            </div>
+            
+            <div class="mt-lg">
+                <div class="agent-row">
+                    <div>
+                        <div class="agent-title">💰 Agent Extraction Paie</div>
+                    </div>
+                    <div>
+                        <p style="color: var(--text-white); line-height: 1.6;">Analyse chaque bulletin de paie, extrait les variables clés (brut, net, cotisations, heures sup.) et détecte les incohérences de montants en quelques secondes.</p>
+                    </div>
+                    <div>
+                        <div class="badge" style="background: rgba(255,255,255,0.05); color: var(--text-muted); margin-bottom: 0.5rem;">Extraction variables</div>
+                        <div class="badge" style="background: rgba(255,255,255,0.05); color: var(--text-muted); margin-bottom: 0.5rem;">Détection anomalies</div>
+                        <div class="badge" style="background: rgba(255,255,255,0.05); color: var(--text-muted); margin-bottom: 0.5rem;">Cohérence URSSAF</div>
+                        <div class="badge" style="background: rgba(255,255,255,0.05); color: var(--text-muted);">PII confinées</div>
+                    </div>
+                </div>
+                
+                <div class="agent-row">
+                    <div>
+                        <div class="agent-title">⚖️ Agent Contrôle Contrats</div>
+                    </div>
+                    <div>
+                        <p style="color: var(--text-white); line-height: 1.6;">Parcourt vos contrats de travail et avenants pour identifier les clauses à risques, les non-conformités légales et les points d'alerte à soumettre à vos juristes.</p>
+                    </div>
+                    <div>
+                        <div class="badge" style="background: rgba(255,255,255,0.05); color: var(--text-muted); margin-bottom: 0.5rem;">Clauses à risques</div>
+                        <div class="badge" style="background: rgba(255,255,255,0.05); color: var(--text-muted); margin-bottom: 0.5rem;">Conformité droit social</div>
+                        <div class="badge" style="background: rgba(255,255,255,0.05); color: var(--text-muted); margin-bottom: 0.5rem;">Alertes juristes</div>
+                        <div class="badge" style="background: rgba(255,255,255,0.05); color: var(--text-muted);">Traçabilité forensic</div>
+                    </div>
+                </div>
+                
+                <div class="agent-row">
+                    <div>
+                        <div class="agent-title">🧠 Agent Onboarding</div>
+                    </div>
+                    <div>
+                        <p style="color: var(--text-white); line-height: 1.6;">Transforme vos manuels RH et procédures d'intégration en une base de connaissance interrogeable. Réponse sourcée en 8 secondes.</p>
+                    </div>
+                    <div>
+                        <div class="badge" style="background: rgba(255,255,255,0.05); color: var(--text-muted); margin-bottom: 0.5rem;">Base RAG souveraine</div>
+                        <div class="badge" style="background: rgba(255,255,255,0.05); color: var(--text-muted); margin-bottom: 0.5rem;">Réponse sourcée</div>
+                        <div class="badge" style="background: rgba(255,255,255,0.05); color: var(--text-muted); margin-bottom: 0.5rem;">Procédures vivantes</div>
+                        <div class="badge" style="background: rgba(255,255,255,0.05); color: var(--text-muted);">Zéro hallucination</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Visuel optionnel pour illustrer les agents RH -->
+            <div class="visual-placeholder mt-xl" style="min-height: 250px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.9rem; border: 1px dashed rgba(255,255,255,0.2); border-radius: 12px; background: rgba(0,0,0,0.3);">
+                [ EMPLACEMENT VISUEL : Organigramme Agents IA RH ]
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Chiffres & Avant/Après -->
+    <section class="py-xxl">
+        <div class="container">
+            <div class="section-header text-center mb-lg">
+                <h2>La différence en chiffres.</h2>
+                <p>Étude de cas sur une ETI de 80 salariés, équipe RH de 3 personnes.</p>
+            </div>
+            
+            <div class="grid grid-2 mt-md" style="gap: 2rem;">
+                <!-- Avant -->
+                <div style="background: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.2); border-top: 4px solid #ef4444; border-radius: 12px; padding: 2rem;">
+                    <h3 style="color: #ef4444; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem;"><svg width="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg> AVANT S.A.F.E.</h3>
+                    
+                    <ul class="feature-list">
+                        <li style="margin-bottom: 1.5rem;"><strong>45 min par dossier de paie</strong> vérifiés manuellement, soit 60h perdues/mois pour 80 salariés.</li>
+                        <li style="margin-bottom: 1.5rem;"><strong>Risque RGPD permanent :</strong> les collaborateurs envoient des fiches de paie sur ChatGPT pour gagner du temps.</li>
+                        <li style="margin-bottom: 1.5rem;"><strong>Contrats relus en diagonale :</strong> les clauses à risques passent inaperçues faute de temps.</li>
+                        <li><strong>2 heures perdues</strong> à fouiller SharePoint pour retrouver la procédure d'onboarding correcte.</li>
+                    </ul>
+                </div>
+                
+                <!-- Après -->
+                <div style="background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); border-top: 4px solid #10B981; border-radius: 12px; padding: 2rem;">
+                    <h3 style="color: #10B981; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem;"><svg width="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> AVEC S.A.F.E.</h3>
+                    
+                    <ul class="feature-list" style="color: white; list-style-type: none; padding: 0;">
+                        <li style="margin-bottom: 1.5rem; display: flex; gap: 1rem;"><svg style="flex-shrink:0; color:#10B981" width="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <span>Validation en <strong>quelques secondes</strong> des cohérences de montants dans un bunker de conformité technique.</span></li>
+                        <li style="margin-bottom: 1.5rem; display: flex; gap: 1rem;"><svg style="flex-shrink:0; color:#10B981" width="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <span><strong>Confinement absolu :</strong> aucune donnée personnelle ne sort de l'environnement de l'entreprise. Conformité RGPD garantie.</span></li>
+                        <li style="margin-bottom: 1.5rem; display: flex; gap: 1rem;"><svg style="flex-shrink:0; color:#10B981" width="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <span><strong>Alertes automatiques</strong> sur les clauses à risques, sourcées et prêtes à être soumises aux juristes.</span></li>
+                        <li style="display: flex; gap: 1rem;"><svg style="flex-shrink:0; color:#10B981" width="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <span>Réponse en <strong>8 secondes</strong>, directement sourcée à la page 14 du manuel v2.3 — sans fouiller aucun dossier.</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="visual-placeholder mt-md" style="min-height: 150px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.9rem; border: 1px dashed rgba(255,255,255,0.2); border-radius: 12px; background: rgba(0,0,0,0.3);">
+                [ EMPLACEMENT VISUEL : Tableau Avant/Après stylisé ]
+            </div>
+
+            <div class="roi-banner text-center" style="max-width: 800px; margin-left: auto; margin-right: auto;">
+                <h3 style="color: #10B981; font-size: 1.5rem; margin-bottom: 1rem;">ROI : 31 320 € / an</h3>
+                <p style="color: var(--text-white); margin: 0; font-size: 1.1rem; opacity: 0.9; line-height: 1.5;">économisés par an pour une ETI de 80 salariés (basé sur la sauvegarde de 60h/mois d'heures-experts à 43,5€/h). Retour sur investissement typiquement mesuré <strong>entre 3 et 6 mois</strong>.</p>
+            </div>
+
+            <div class="testimonial-block" style="max-width: 900px; margin-left: auto; margin-right: auto;">
+                "Ce n'est pas l'IA qui gère nos RH. C'est notre DRH qui gère l'IA. La différence, c'est qu'elle passe maintenant son temps à analyser et décider, pas à fouiller des PDF."
+                <span class="testimonial-author">— Directrice des Ressources Humaines, Cabinet de conseil B2B (80 collaborateurs)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Fonctionnalités & Sécurité -->
+    <section class="py-xxl" style="background: rgba(255,255,255,0.01);">
+        <div class="container">
+            <div class="section-header text-center mb-lg">
+                <h2>S.A.F.E. augmente vos RH. Il ne les remplace pas.</h2>
+                <p>La machine ne prend aucune décision. Elle prépare, structure et alerte. Votre équipe RH reste le seul commandant à l'arrivée.</p>
+            </div>
+            
+            <div class="bento-grid mt-lg">
+                <div class="bento-item span-2 bento-primary">
+                    <div style="color: var(--primary); margin-bottom: 1rem;">✅</div>
+                    <h3>Validation humaine obligatoire</h3>
+                    <p>Chaque restitution de l'agent est soumise à la validation d'un collaborateur. Aucune action n'est automatisée sans supervision stricte.</p>
+                </div>
+                
+                <div class="bento-item">
+                    <div style="color: var(--text-muted); margin-bottom: 1rem;">🔒</div>
+                    <h3>Confinement absolu</h3>
+                    <p>Vos fiches de paie, contrats et données personnelles ne quittent jamais l'environnement de l'entreprise. Zéro transmission externe.</p>
+                </div>
+                
+                <div class="bento-item">
+                    <div style="color: var(--text-muted); margin-bottom: 1rem;">📎</div>
+                    <h3>Traçabilité forensic</h3>
+                    <p>Chaque information remontée par un agent affiche instantanément le document source (PDF, page, version exacte).</p>
+                </div>
+                
+                <div class="bento-item span-2">
+                    <div style="color: var(--primary); margin-bottom: 1rem;">🌍</div>
+                    <h3>Hébergement souverain européen</h3>
+                    <p>Déploiement On-Premise (sur site) ou Cloud SecNumCloud. Aucune donnée ne transite par des serveurs soumis au Cloud Act américain.</p>
+                </div>
+                
+                <div class="bento-item">
+                    <div style="color: var(--text-muted); margin-bottom: 1rem;">🔑</div>
+                    <h3>Droits d'accès granulaires</h3>
+                    <p>Chaque collaborateur n'accède qu'aux données et agents correspondant à son propre périmètre de responsabilité. Gouvernance totale garantie.</p>
+                </div>
+                
+                <div class="bento-item">
+                    <div style="color: var(--text-muted); margin-bottom: 1rem;">🔄</div>
+                    <h3>Amélioration continue supervisée</h3>
+                    <p>Les mises à jour algorithmiques sont transparentes. Votre base de connaissance métier s'enrichit sous votre contrôle exclusif.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. About -->
+    <section class="py-xxl">
+        <div class="container text-center">
+            <div class="ragq-badge" style="margin-bottom: 1.5rem;">À PROPOS DE S.A.F.E.</div>
+            <h2 class="mb-sm">Conçu par des experts en sécurité pour des organisations exigeantes.</h2>
+            <p style="color: var(--text-white); font-size: 1.1rem; max-width: 900px; margin: 0 auto 2rem; line-height: 1.6;">
+                S.A.F.E. Pilotage Privé est une solution d'ingénierie française née d'un constat simple : les outils d'IA générative publics sont incompatibles avec les exigences de confidentialité des entreprises qui traitent des données sensibles. 
+                <br><br>
+                Fiches de paie, contrats, bilans financiers — ces documents constituent le capital immatériel de votre organisation. Ils ne doivent jamais alimenter des modèles extérieurs.
+            </p>
+            <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 800px; margin: 0 auto 4rem; line-height: 1.6;">
+                Notre architecture sanctuarisée déploie des agents IA coordonnés directement dans votre environnement, sans jamais en sortir. Vous bénéficiez de la puissance de l'intelligence artificielle avec la rigueur d'un système de sécurité industriel.
+            </p>
+
+            <div class="grid grid-4" style="gap: 1.5rem; margin-bottom: 3rem;">
+                <div style="background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 8px;">
+                    <div style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.05em;">Souveraineté</div>
+                    <div style="font-weight: 600; font-size: 1.25rem;">100% Souveraineté Data</div>
+                </div>
+                <div style="background: rgba(16,185,129,0.05); border: 1px solid rgba(16,185,129,0.2); padding: 1.5rem; border-radius: 8px;">
+                    <div style="color: #10B981; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.05em;">Rentabilité</div>
+                    <div style="font-weight: 600; font-size: 1.25rem; color: #10B981;">3–6m ROI mesuré</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 8px;">
+                    <div style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.05em;">Tarification</div>
+                    <div style="font-weight: 600; font-size: 1.25rem;">0 Token facturé</div>
+                </div>
+                <div style="background: rgba(56,189,248,0.05); border: 1px solid rgba(56,189,248,0.2); padding: 1.5rem; border-radius: 8px;">
+                    <div style="color: var(--primary); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.05em;">Origine</div>
+                    <div style="font-weight: 600; font-size: 1.25rem; color: var(--primary);">Ingénierie Française</div>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; color: var(--text-muted); font-weight: 500;">
+                <span style="display: flex; align-items: center; gap: 0.5rem;"><svg viewBox="0 0 24 24" width="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Conforme RGPD</span>
+                <span style="display: flex; align-items: center; gap: 0.5rem;"><svg viewBox="0 0 24 24" width="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Conforme AI Act</span>
+                <span style="display: flex; align-items: center; gap: 0.5rem;"><svg viewBox="0 0 24 24" width="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> SecNumCloud éligible</span>
+                <span style="display: flex; align-items: center; gap: 0.5rem;"><svg viewBox="0 0 24 24" width="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> On-Premise disponible</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CTA / Formulaire intégré -->
+    <a id="formulaire"></a>
+    <section class="py-xxl" style="background: linear-gradient(to top, rgba(15,23,42,1) 0%, rgba(5,7,10,1) 100%); border-top: 1px solid rgba(255,255,255,0.05);">
+        <div class="container text-center">
+            <h2 class="mb-sm">Prêt à industrialiser votre exigence RH ?</h2>
+            <p style="color: var(--text-white); font-size: 1.15rem; max-width: 600px; margin: 0 auto 3rem;">Vos experts RH passent trop de temps sur l'extraction de base. Offrez-leur un environnement souverain pour se recentrer sur l'analyse et la décision.</p>
+            
+            <button onclick="openForm()" class="btn btn-primary btn-cta" style="margin-bottom: 2rem;">Vérifier mon éligibilité & Démo RH →</button>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">(Réponse sous 24h. Démo sur vos propres documents sous NDA)</p>
+            
+            <div style="margin-top: 3rem; color: var(--text-muted); max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.5; font-size: 0.9rem; padding: 1.5rem; background: rgba(0,0,0,0.3); border-radius: 8px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom: 0.5rem;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg><br>
+                Vos données ne sont utilisées qu'à des fins de qualification.<br>Conformément au RGPD, vous disposez d'un droit d'accès et de suppression.<br><br>
+                Besoin d'un retour sur un cas d'usage précis ? Échangez directement : <br><a href="mailto:contact@safe-pilotage-prive.fr" style="color: var(--primary);">contact@safe-pilotage-prive.fr</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modale Typeform Intégrée (Copie exacte de index.html) -->
+    <div id="typeform-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000; background: rgba(5,7,10,0.95); backdrop-filter: blur(8px); align-items: center; justify-content: center; flex-direction: column; opacity: 0; transition: opacity 0.3s ease;">
+        <div style="position: absolute; top: 2rem; right: 2rem; cursor: pointer; color: white;" onclick="closeForm({target: {id: 'typeform-modal'}})">
+            <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </div>
+
+        <div style="width: 100%; max-width: 500px; padding: 2rem;">
+            
+            <!-- Step 1: Taille -->
+            <div id="step-1">
+                <div class="ragq-badge" style="margin-bottom: 1rem;">1 / 3</div>
+                <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Quelle est la taille de votre organisation ?</h2>
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <label class="form-option">
+                        <input type="radio" name="size" value="1-15"> <span>1 à 15 collaborateurs</span>
+                    </label>
+                    <label class="form-option">
+                        <input type="radio" name="size" value="16-50"> <span>16 à 50 collaborateurs</span>
+                    </label>
+                    <label class="form-option">
+                        <input type="radio" name="size" value="51-250"> <span>51 à 250 collaborateurs</span>
+                    </label>
+                    <label class="form-option">
+                        <input type="radio" name="size" value="250+"> <span>Plus de 250 collaborateurs</span>
+                    </label>
+                </div>
+                <div style="margin-top: 2rem; text-align: right;">
+                    <button onclick="nextStep(2)" class="btn btn-primary">Continuer</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Contexte -->
+            <div id="step-2" style="display: none;">
+                <div class="ragq-badge" style="margin-bottom: 1rem;">2 / 3</div>
+                <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Quel est votre département prioritaire concernant l'IA ?</h2>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <select id="lead-department" style="width: 100%; padding: 1.1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; font-family: inherit; font-size: 1rem; appearance: auto;">
+                        <option value="" disabled selected>Sélectionnez un département...</option>
+                        <option value="Direction / Stratégie">Direction de l'entreprise / Stratégie</option>
+                        <option value="Ressources Humaines">Ressources Humaines</option>
+                        <option value="Finances / Comptabilité">Finances / Comptabilité</option>
+                        <option value="Juridique / Conformité">Juridique / Conformité</option>
+                        <option value="Opérations / Exploitation">Opérations / Exploitation</option>
+                        <option value="Autre">Autre département</option>
+                    </select>
+                </div>
+
+                <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                    <button onclick="nextStep(1)" class="btn btn-outline" style="flex: 1; border-color: rgba(255,255,255,0.1);">Retour</button>
+                    <button onclick="nextStep(3)" class="btn btn-primary" style="flex: 1;">Continuer</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Coordonnées -->
+            <div id="step-3" style="display: none;">
+                <div class="ragq-badge" style="margin-bottom: 1rem;">3 / 3</div>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">C'est noté.</h2>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">Qui de la direction technique doit vous recontacter ?</p>
+                <input type="text" id="lead-name" required placeholder="Prénom Nom" style="width: 100%; padding: 1.1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; margin-bottom: 1rem; font-family: inherit; font-size: 1rem;">
+                <input type="email" id="lead-email" required placeholder="Email professionnel" style="width: 100%; padding: 1.1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; margin-bottom: 1rem; font-family: inherit; font-size: 1rem;">
+                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                    <button onclick="nextStep(2)" class="btn btn-outline" style="flex: 1; border-color: rgba(255,255,255,0.1);">Retour</button>
+                    <button id="submit-btn" onclick="submitForm()" class="btn btn-primary" style="flex: 2; background: var(--primary); color: #000; justify-content: center; font-weight: 700;">Soumettre ma demande</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Styles additionnels Modal -->
+    <style>
+        .form-option {
+            display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1rem; border-radius: 8px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: all 0.2s ease;
+        }
+        .form-option:hover {
+            background: rgba(255,255,255,0.08); border-color: rgba(56, 189, 248, 0.4);
+        }
+    </style>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <div class="logo-text mb-sm" style="font-size: 1.25rem;">S.A.F.E. PILOTAGE PRIVÉ</div>
+            <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 2rem;">Cockpit d'intelligence opérationnelle pour structures exigeantes.</p>
+            
+            <div style="display: flex; justify-content: center; gap: 2.5rem; margin-bottom: 2.5rem; color: #CBD5E1; font-size: 0.9rem; font-weight: 500;">
+                <span style="display: flex; align-items: center; gap: 0.5rem;"><svg width="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> Conforme RGPD</span>
+                <span style="display: flex; align-items: center; gap: 0.5rem;"><svg width="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg> Ingénierie Française</span>
+            </div>
+
+            <div class="footer-links" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.5rem;">
+                <a href="mailto:contact@safe-pilotage-prive.fr" style="color: var(--text-white); font-weight: 500; font-size: 1rem; letter-spacing: 0.03em;">contact@safe-pilotage-prive.fr</a>
+                <span class="separator" style="margin: 0 0.5rem; color: rgba(255,255,255,0.1);">|</span>
+                <a href="mentions-legales.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">Mentions Légales & Confidentialité</a>
+                <span class="separator" style="margin: 0 0.5rem; color: rgba(255,255,255,0.1);">|</span>
+                <span style="font-size: 0.9rem;">© 2026 S.A.F.E. Pilotage Privé — Tous droits réservés</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Modal Formulaire "Typeform" Logic
+        function openForm() {
+            document.getElementById('typeform-modal').style.display = 'flex';
+            setTimeout(() => document.getElementById('typeform-modal').classList.add('show'), 10);
+            nextStep(1); // Reset to first step
+        }
+        
+        function closeForm(e) {
+            if(e && e.target.id !== 'typeform-modal') return;
+            document.getElementById('typeform-modal').style.display = 'none';
+        }
+
+        function nextStep(stepNumber) {
+            document.getElementById('step-1').style.display = 'none';
+            document.getElementById('step-2').style.display = 'none';
+            document.getElementById('step-3').style.display = 'none';
+            document.getElementById('step-' + stepNumber).style.display = 'block';
+        }
+
+        function submitForm() {
+            const size = document.querySelector('input[name="size"]:checked')?.value || 'Non précisé';
+            const selectEl = document.getElementById('lead-department');
+            const usecase = (selectEl && selectEl.value) ? selectEl.value : 'Non précisé';
+            const name = document.getElementById('lead-name').value;
+            const email = document.getElementById('lead-email').value;
+            
+            if (!name || !email) {
+                alert("Merci de renseigner votre prénom, nom et une adresse email.");
+                return;
+            }
+
+            const btn = document.getElementById('submit-btn');
+            btn.innerText = "Envoi en cours...";
+            btn.disabled = true;
+            btn.style.opacity = "0.7";
+
+            // Envoi via le lien formulaire Brevo dans une Iframe invisible
+            let iframe = document.getElementById('brevo-iframe');
+            if (!iframe) {
+                iframe = document.createElement('iframe');
+                iframe.name = 'brevo-iframe';
+                iframe.id = 'brevo-iframe';
+                iframe.style.display = 'none';
+                document.body.appendChild(iframe);
+            }
+
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://315b5753.sibforms.com/serve/MUIFAMK0lOYlsV-Aqzo1LDjfpCglpBr-Txt78xkq53MWdPT5rAnBpM4SWNzzfkvZ_YbGZnHuvICPR-4TjAZTPptPnENMd9InUti4NEF2ZBGMvVxXwGmKI3Wmp2WsJeQV5L7g2MCJILixEJqXNEs7NsnG9ymCRhHQHzTRYB0l5aERTNfEzOu_45KmjyExKzomuDuOB9KQk7lp4bzbCg==';
+            form.target = 'brevo-iframe'; 
+
+            form.appendChild(createHiddenInput('EMAIL', email));
+            form.appendChild(createHiddenInput('NOM', name));
+            form.appendChild(createHiddenInput('TAILLE_ENTREPRISE', size));
+            form.appendChild(createHiddenInput('DEPARTEMENT_CONCERNE', usecase));
+
+            document.body.appendChild(form);
+            form.submit();
+
+            setTimeout(() => {
+                document.getElementById('step-1').style.display = 'none';
+                document.getElementById('step-2').style.display = 'none';
+                document.getElementById('step-3').style.display = 'block';
+                document.getElementById('step-3').innerHTML = `
+                    <div style="text-align: center; padding: 2rem 0;">
+                        <svg viewBox="0 0 24 24" width="60" height="60" fill="none" stroke="#22c55e" stroke-width="2" style="margin-bottom: 1.5rem;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <h3 style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">Demande envoyée avec succès</h3>
+                        <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 2rem; line-height: 1.5;">Vérifiez votre boîte mail, une confirmation vient de vous être envoyée.<br>La direction technique S.A.F.E. vous recontactera sous peu.</p>
+                        <button onclick="closeForm({target: {id: 'typeform-modal'}})" class="btn btn-outline" style="border-color: rgba(255,255,255,0.2);">Fermer la fenêtre</button>
+                    </div>
+                `;
+                document.body.removeChild(form);
+            }, 1500);
+        }
+
+        function createHiddenInput(name, value) {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = name;
+            input.value = value;
+            return input;
+        }
+
+        // --- DEPARTEMENT AUTO-SELECTION SCRIPT ---
+        window.addEventListener('load', () => {
+            // Check URL parameters for department
+            const urlParams = new URLSearchParams(window.location.search);
+            const deptParam = urlParams.get('dept');
+            
+            // Or default to HR since this is the specific HR landing page
+            const selectEl = document.getElementById('lead-department');
+            if (selectEl) {
+                if (deptParam === 'rh' || deptParam === 'RH') {
+                    selectEl.value = 'Ressources Humaines';
+                } else {
+                    // Toujours présélectionner RH par défaut sur cette Landing Page spécifique si aucun paramètre
+                    selectEl.value = 'Ressources Humaines';
+                }
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinksMenu = document.querySelector('.nav-links');
+        const navItems = document.querySelectorAll('.nav-links a');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navLinksMenu.classList.toggle('active');
+            });
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    navLinksMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
