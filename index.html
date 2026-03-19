@@ -34,7 +34,7 @@
                 <a href="#benefices">Bénéfices Métiers</a>
                 <a href="apropos.html">À propos</a>
                 <a href="mailto:contact@safe-pilotage-prive.fr" class="btn btn-outline">contact@safe-pilotage-prive.fr</a>
-                <a href="#contact" class="btn btn-primary">Demander une démo</a>
+                <a href="javascript:openForm()" class="btn btn-primary">Demander une démo</a>
             </div>
             <button class="menu-toggle" aria-label="Menu">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
@@ -59,7 +59,7 @@
             </p>
             
             <div class="hero-actions">
-                <a href="#contact" class="btn btn-primary btn-cta">Demander une démonstration</a>
+                <a href="javascript:openForm()" class="btn btn-primary btn-cta">Demander une démonstration</a>
                 <a href="#benefices" class="btn btn-secondary">Découvrir les bénéfices</a>
             </div>
             
@@ -312,14 +312,70 @@
             <h2>Prêt à industrialiser votre exigence ?</h2>
             <p style="font-size: 1.25rem;">Vos experts passent trop de temps sur l'extraction de base. Offrez-leur un environnement souverain pour se recentrer sur l'analyse et la décision.</p>
             <div class="mt-lg" style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                <a href="mailto:contact@safe-pilotage-prive.fr" class="btn btn-primary btn-cta" style="font-size: 1.15rem; padding: 1.25rem 3rem;">Programmer une démonstration</a>
-                <a href="mailto:contact@safe-pilotage-prive.fr" class="btn btn-secondary" style="font-size: 1.15rem; padding: 1.25rem 3rem;">Échanger sur votre contexte</a>
+                <a href="javascript:openForm()" class="btn btn-primary btn-cta" style="font-size: 1.15rem; padding: 1.25rem 3rem;">Vérifier mon éligibilité & Démo</a>
             </div>
             <p class="contact-direct mt-lg" style="margin-top: 3rem;">
-                Besoin d'un retour sur un cas d'usage précis ? Échangez avec notre direction :<br><br><strong><a href="mailto:contact@safe-pilotage-prive.fr" style="font-size: 1.2rem;">contact@safe-pilotage-prive.fr</a></strong>
+                Besoin d'un retour sur un cas d'usage précis ? Échangez directement :<br><br><strong><a href="mailto:contact@safe-pilotage-prive.fr" style="font-size: 1.2rem;">contact@safe-pilotage-prive.fr</a></strong>
             </p>
         </div>
     </section>
+
+    <!-- Typeform-style Lead Gen Modal -->
+    <div id="typeform-modal" class="lightbox" style="display: none; justify-content: center; align-items: center; z-index: 2000; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);" onclick="closeForm(event)">
+        <div class="form-container" onclick="event.stopPropagation()" style="background: #0f172a; padding: 3rem; border-radius: 20px; border: 1px solid rgba(56, 189, 248, 0.2); width: 100%; max-width: 600px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);">
+            
+            <!-- Etape 1 -->
+            <div id="step-1" class="form-step">
+                <div class="ragq-badge" style="margin-bottom: 1rem; color: #94a3b8; background: rgba(255,255,255,0.05); border: none;">Étape 1 sur 3</div>
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.4rem; color: white;">Quelle est la taille de votre organisation ?</h3>
+                <div class="radio-group" style="display: flex; flex-direction: column; gap: 0.8rem;">
+                    <label class="form-option"><input type="radio" name="size" value="1-15"> Moins de 15 collaborateurs</label>
+                    <label class="form-option"><input type="radio" name="size" value="16-50"> Entre 16 et 50 collaborateurs</label>
+                    <label class="form-option"><input type="radio" name="size" value="50+"> Plus de 50 collaborateurs</label>
+                </div>
+                <button onclick="nextStep(2)" class="btn btn-primary mt-lg" style="width: 100%; justify-content: center;">Continuer ➔</button>
+            </div>
+            
+            <!-- Etape 2 -->
+            <div id="step-2" class="form-step" style="display: none;">
+                <div class="ragq-badge" style="margin-bottom: 1rem; color: #94a3b8; background: rgba(255,255,255,0.05); border: none;">Étape 2 sur 3</div>
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.4rem; color: white;">Quel est votre cas d'usage prioritaire ?</h3>
+                <div class="radio-group" style="display: flex; flex-direction: column; gap: 0.8rem;">
+                    <label class="form-option"><input type="radio" name="usecase" value="Docs Juridiques"> ⚖️ Revue de documents juridiques</label>
+                    <label class="form-option"><input type="radio" name="usecase" value="RH & Paie"> 👥 Traitement de données RH sensibles (Paie)</label>
+                    <label class="form-option"><input type="radio" name="usecase" value="Procédures RAG"> 📚 Interrogation de procédures internes complexes</label>
+                    <label class="form-option"><input type="radio" name="usecase" value="Autre"> 💡 Autre besoin stratégique</label>
+                </div>
+                <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                    <button onclick="nextStep(1)" class="btn btn-outline" style="flex: 1; border-color: rgba(255,255,255,0.1);">Retour</button>
+                    <button onclick="nextStep(3)" class="btn btn-primary" style="flex: 2; justify-content: center;">Continuer ➔</button>
+                </div>
+            </div>
+            
+            <!-- Etape 3 -->
+            <div id="step-3" class="form-step" style="display: none;">
+                <div class="ragq-badge" style="margin-bottom: 1rem; color: var(--primary); background: rgba(56, 189, 248, 0.1); border: none;">Dernière Étape</div>
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.4rem; color: white;">Où pouvons-nous vous recontacter ?</h3>
+                <input type="text" id="lead-name" placeholder="Votre Prénom et Nom" style="width: 100%; padding: 1.1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; margin-bottom: 1rem; font-family: inherit; font-size: 1rem;">
+                <input type="email" id="lead-email" placeholder="Email professionnel" style="width: 100%; padding: 1.1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; margin-bottom: 1rem; font-family: inherit; font-size: 1rem;">
+                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                    <button onclick="nextStep(2)" class="btn btn-outline" style="flex: 1; border-color: rgba(255,255,255,0.1);">Retour</button>
+                    <button onclick="submitForm()" class="btn btn-primary" style="flex: 2; background: var(--primary); color: #000; justify-content: center; font-weight: 700;">Soumettre ma demande</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Styles additionnels Modal -->
+    <style>
+        .form-option {
+            display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1rem; border-radius: 8px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: all 0.2s ease;
+        }
+        .form-option:hover {
+            background: rgba(255,255,255,0.08); border-color: rgba(56, 189, 248, 0.4);
+        }
+    </style>
 
     <footer class="footer">
         <div class="container text-center">
@@ -348,6 +404,41 @@
     </div>
 
     <script>
+        // Modal Formulaire "Typeform" Logic
+        function openForm() {
+            document.getElementById('typeform-modal').style.display = 'flex';
+            setTimeout(() => document.getElementById('typeform-modal').classList.add('show'), 10);
+            nextStep(1); // Reset to first step
+        }
+        
+        function closeForm(e) {
+            if(e && e.target.id !== 'typeform-modal' && e.target.className !== 'lightbox-close') return;
+            document.getElementById('typeform-modal').style.display = 'none';
+        }
+
+        function nextStep(stepNumber) {
+            document.getElementById('step-1').style.display = 'none';
+            document.getElementById('step-2').style.display = 'none';
+            document.getElementById('step-3').style.display = 'none';
+            document.getElementById('step-' + stepNumber).style.display = 'block';
+        }
+
+        function submitForm() {
+            const size = document.querySelector('input[name="size"]:checked')?.value || 'Non précisé';
+            const usecase = document.querySelector('input[name="usecase"]:checked')?.value || 'Non précisé';
+            const name = document.getElementById('lead-name').value || 'Anonyme';
+            const email = document.getElementById('lead-email').value || 'Anonyme';
+            
+            const subject = encodeURIComponent("Demande de démo S.A.F.E - " + name);
+            const body = encodeURIComponent(`Bonjour,\n\nJe souhaite planifier une démonstration de l'environnement S.A.F.E.\n\n-- Profil Qualifié --\nNom: ${name}\nEmail: ${email}\nTaille de l'entreprise: ${size}\nCas d'usage prioritaire: ${usecase}\n\nMerci de me proposer des créneaux.\n`);
+            
+            // Redirect to prefilled mail as a "no-code" backend
+            window.location.href = `mailto:contact@safe-pilotage-prive.fr?subject=${subject}&body=${body}`;
+            
+            // Close form
+            document.getElementById('typeform-modal').style.display = 'none';
+        }
+
         // Select all images inside visual blocks to be clickable
         const images = document.querySelectorAll('.visual-showcase img, .visual-block img');
         const lightbox = document.getElementById('lightbox');
