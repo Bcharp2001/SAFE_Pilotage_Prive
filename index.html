@@ -494,9 +494,11 @@
                 body: JSON.stringify({
                     _subject: "Nouvelle Demande Démo S.A.F.E : " + name,
                     Nom: name,
-                    Email: email,
+                    Email: email, // Garder la majuscule pour l'archive
+                    email: email, // Requis en minuscule par FormSubmit pour identifier le destinataire de la réponse auto
                     Taille_Entreprise: size,
-                    Departement_Concerne: usecase
+                    Departement_Concerne: usecase,
+                    _autoresponse: `Bonjour ${name},\n\nNous confirmons la bonne réception de votre demande pour S.A.F.E. Pilotage Privé.\n\nVotre intérêt lié aux enjeux de votre pôle "${usecase}" a bien été noté.\nLa direction technique prendra contact avec vous d'ici 24 heures pour planifier un échange confidentiel.\n\nÀ très bientôt,\n\n--\nL'équipe S.A.F.E. Pilotage Privé\nhttps://www.safe-pilotage-prive.fr`
                 })
             })
             .then(response => response.json())
