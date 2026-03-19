@@ -530,43 +530,61 @@
             btn.disabled = true;
             btn.style.opacity = "0.7";
 
-            // Envoi en tâche de fond via l'API FormSubmit
-            fetch("https://formsubmit.co/ajax/contact@safe-pilotage-prive.fr", {
-                method: "POST",
-                headers: { 
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    _subject: "Nouvelle Demande Démo S.A.F.E : " + name,
-                    Nom: name,
-                    Email: email, // Garder la majuscule pour l'archive
-                    email: email, // Requis en minuscule par FormSubmit pour identifier le destinataire de la réponse auto
-                    Taille_Entreprise: size,
-                    Departement_Concerne: usecase,
-                    _autoresponse: `Bonjour ${name},\n\nNous confirmons la bonne réception de votre demande pour S.A.F.E. Pilotage Privé.\n\nVotre intérêt lié aux enjeux de votre pôle "${usecase}" a bien été noté.\nLa direction technique prendra contact avec vous d'ici 24 heures pour planifier un échange confidentiel.\n\nÀ très bientôt,\n\n--\nL'équipe S.A.F.E. Pilotage Privé\nhttps://www.safe-pilotage-prive.fr`
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Remplacer l'étape 3 par un message de Success HTML
+            // Redirection et soumission native FormSubmit
+            document.getElementById('step-3').innerHTML = `
+                <div style="text-align: center; padding: 2rem 0;">
+                    <div style="margin-bottom: 1.5rem;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation: spin 1s linear infinite;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg></div>
+                    <h3 style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">Connexion sécurisée en cours...</h3>
+                    <p style="color: var(--text-muted); font-size: 1rem;">Le système transmet vos données à l'escouade.</p>
+                </div>
+                <style>@keyframes spin { 100% { transform: rotate(360deg); } }</style>
+            `;
+            nextStep(3);
+
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://formsubmit.co/contact@safe-pilotage-prive.fr';
+            
+            form.appendChild(createHiddenInput('_captcha', 'false'));
+            const returnUrl = window.location.href.split('#')[0] + '#success';
+            form.appendChild(createHiddenInput('_next', returnUrl));
+            form.appendChild(createHiddenInput('_subject', "Nouvelle Demande Démo S.A.F.E : " + name));
+            form.appendChild(createHiddenInput('_autoresponse', `Bonjour ${name},\n\nNous confirmons la bonne réception de votre demande pour S.A.F.E. Pilotage Privé.\n\nVotre intérêt lié aux enjeux de votre pôle "${usecase}" a bien été noté.\nLa direction technique prendra contact avec vous d'ici 24 heures pour planifier un échange confidentiel.\n\nÀ très bientôt,\n\n--\nL'équipe S.A.F.E. Pilotage Privé\nhttps://www.safe-pilotage-prive.fr`));
+
+            form.appendChild(createHiddenInput('Nom', name));
+            form.appendChild(createHiddenInput('email', email));
+            form.appendChild(createHiddenInput('Taille_Entreprise', size));
+            form.appendChild(createHiddenInput('Departement_Concerne', usecase));
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+
+        function createHiddenInput(name, value) {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = name;
+            input.value = value;
+            return input;
+        }
+
+        // Vérifier si retour de formulaire (succès)
+        window.addEventListener('load', () => {
+            if(window.location.hash === '#success') {
+                openForm();
+                document.getElementById('step-1').style.display = 'none';
+                document.getElementById('step-2').style.display = 'none';
+                document.getElementById('step-3').style.display = 'block';
                 document.getElementById('step-3').innerHTML = `
                     <div style="text-align: center; padding: 2rem 0;">
                         <svg viewBox="0 0 24 24" width="60" height="60" fill="none" stroke="#22c55e" stroke-width="2" style="margin-bottom: 1.5rem;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                        <h3 style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">Demande envoyée avec succès !</h3>
-                        <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 2rem; line-height: 1.5;">Nous vous recontacterons très vite sur l'email <br><b style="color: white;">${email}</b><br>pour vous proposer des créneaux de démonstration.</p>
-                        <button onclick="closeForm({target: {id: 'typeform-modal'}})" class="btn btn-outline" style="border-color: rgba(255,255,255,0.2);">Fermer la fenêtre</button>
+                        <h3 style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">Demande envoyée avec succès</h3>
+                        <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 2rem; line-height: 1.5;">L'e-mail de confirmation est expédié.<br>Nos dirigeants vous recontacteront sous peu.</p>
+                        <button onclick="closeForm({target: {id: 'typeform-modal'}}); history.replaceState(null, null, ' ');" class="btn btn-outline" style="border-color: rgba(255,255,255,0.2);">Fermer la fenêtre</button>
                     </div>
                 `;
-            })
-            .catch(error => {
-                console.error(error);
-                alert("Une erreur technique s'est produite. Veuillez nous écrire directement sur contact@safe-pilotage-prive.fr");
-                btn.innerText = "Soumettre ma demande";
-                btn.disabled = false;
-                btn.style.opacity = "1";
-            });
-        }
+            }
+        });
 
         // Select all images inside visual blocks to be clickable
         const images = document.querySelectorAll('.visual-showcase img, .visual-block img');
