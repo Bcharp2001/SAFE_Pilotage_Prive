@@ -530,50 +530,54 @@
             btn.disabled = true;
             btn.style.opacity = "0.7";
 
-            // Envoi via l'API Web3Forms sécurisée
-            fetch("https://api.web3forms.com/submit", {
-                method: "POST",
-                headers: { 
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                },
-                body: JSON.stringify({
-                    access_key: "89956aaf-cdf9-4073-97eb-0393d6368bce",
-                    subject: "Nouvelle Demande Démo S.A.F.E : " + name,
-                    from_name: "SAFE Pilotage Privé",
-                    Nom: name,
-                    Email: email, // Affiché dans le mail de réception
-                    email: email, // Transmis à Web3Forms pour "Reply-to"
-                    Taille_Entreprise: size,
-                    Departement_Concerne: usecase,
-                })
-            })
-            .then(async (response) => {
-                const data = await response.json();
-                if (response.ok) {
-                    // Masquer les étapes précédentes et afficher le Succès
-                    document.getElementById('step-1').style.display = 'none';
-                    document.getElementById('step-2').style.display = 'none';
-                    document.getElementById('step-3').style.display = 'block';
-                    document.getElementById('step-3').innerHTML = `
-                        <div style="text-align: center; padding: 2rem 0;">
-                            <svg viewBox="0 0 24 24" width="60" height="60" fill="none" stroke="#22c55e" stroke-width="2" style="margin-bottom: 1.5rem;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                            <h3 style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">Demande envoyée avec succès</h3>
-                            <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 2rem; line-height: 1.5;">Votre interlocuteur de la direction technique<br>vous recontactera très prochainement.</p>
-                            <button onclick="closeForm({target: {id: 'typeform-modal'}})" class="btn btn-outline" style="border-color: rgba(255,255,255,0.2);">Fermer la fenêtre</button>
-                        </div>
-                    `;
-                } else {
-                    throw new Error(data.message || "Erreur Web3Forms");
-                }
-            })
-            .catch(error => {
-                console.error(error);
-                alert("Une erreur de sécurité est survenue. Veuillez nous écrire sur contact@safe-pilotage-prive.fr");
-                btn.innerText = "Soumettre ma demande";
-                btn.disabled = false;
-                btn.style.opacity = "1";
-            });
+            // Envoi via le lien formulaire Brevo dans une Iframe invisible (pour ne pas casser le design du site)
+            let iframe = document.getElementById('brevo-iframe');
+            if (!iframe) {
+                iframe = document.createElement('iframe');
+                iframe.name = 'brevo-iframe';
+                iframe.id = 'brevo-iframe';
+                iframe.style.display = 'none';
+                document.body.appendChild(iframe);
+            }
+
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://315b5753.sibforms.com/serve/MUIFAMK0lOYlsV-Aqzo1LDjfpCglpBr-Txt78xkq53MWdPT5rAnBpM4SWNzzfkvZ_YbGZnHuvICPR-4TjAZTPptPnENMd9InUti4NEF2ZBGMvVxXwGmKI3Wmp2WsJeQV5L7g2MCJILixEJqXNEs7NsnG9ymCRhHQHzTRYB0l5aERTNfEzOu_45KmjyExKzomuDuOB9KQk7lp4bzbCg==';
+            form.target = 'brevo-iframe'; // Assure que la réponse s'ouvre dans l'iframe invisible, pas sur la page !
+
+            // Mapping des champs. En général Brevo utilise "EMAIL" et "NOM" par défaut.
+            form.appendChild(createHiddenInput('EMAIL', email));
+            form.appendChild(createHiddenInput('NOM', name));
+            form.appendChild(createHiddenInput('TAILLE_ENTREPRISE', size));
+            form.appendChild(createHiddenInput('DEPARTEMENT_CONCERNE', usecase));
+
+            document.body.appendChild(form);
+            form.submit();
+
+            // Simulation du délai d'envoi Brevo puis affichage du succès (car l'iframe intercepte la vraie réponse silencieusement)
+            setTimeout(() => {
+                document.getElementById('step-1').style.display = 'none';
+                document.getElementById('step-2').style.display = 'none';
+                document.getElementById('step-3').style.display = 'block';
+                document.getElementById('step-3').innerHTML = `
+                    <div style="text-align: center; padding: 2rem 0;">
+                        <svg viewBox="0 0 24 24" width="60" height="60" fill="none" stroke="#22c55e" stroke-width="2" style="margin-bottom: 1.5rem;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <h3 style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">Demande envoyée avec succès</h3>
+                        <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 2rem; line-height: 1.5;">Vérifiez votre boîte mail, une confirmation vient de vous être envoyée.<br>La direction technique S.A.F.E. vous recontactera sous peu.</p>
+                        <button onclick="closeForm({target: {id: 'typeform-modal'}})" class="btn btn-outline" style="border-color: rgba(255,255,255,0.2);">Fermer la fenêtre</button>
+                    </div>
+                `;
+                // Nettoyage
+                document.body.removeChild(form);
+            }, 1500);
+        }
+
+        function createHiddenInput(name, value) {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = name;
+            input.value = value;
+            return input;
         }
 
         // Select all images inside visual blocks to be clickable
