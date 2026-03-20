@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IA Souveraine pour Professions Réglementées | S.A.F.E. Pilotage Privé</title>
+  <meta name="description" content="Notaires, Avocats, Experts-Comptables : l'IA générative souveraine qui respecte le secret professionnel. Déploiement local, zéro cloud public." />
+  <link rel="canonical" href="https://www.safe-pilotage-prive.fr/professions/index.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy:       #0A1128;
+      --navy-mid:   #0F1E3D;
+      --blue:       #2563EB;
+      --blue-light: #3B82F6;
+      --gold:       #D4A373;
+      --white:      #FFFFFF;
+      --off-white:  #F8FAFC;
+      --gray-200:   #E2E8F0;
+      --gray-400:   #94A3B8;
+      --gray-600:   #475569;
+      --text-dark:  #0F172A;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+      --font-mono:    'Space Mono', 'Courier New', monospace;
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--text-dark); background: var(--off-white); line-height: 1.7; overflow-x: hidden; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .section { padding: 100px 0; }
+    h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; }
+    h1 { font-size: clamp(36px, 5vw, 64px); font-weight: 900; letter-spacing: -0.01em; color: var(--white); }
+    h2 { font-size: clamp(26px, 3.5vw, 44px); font-weight: 700; letter-spacing: -0.01em; }
+    
+    .label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 6px 14px; border-radius: 100px; margin-bottom: 20px;
+    }
+    .label--blue { background: rgba(37,99,235,0.12); color: var(--blue-light); border: 1px solid rgba(37,99,235,0.3); }
+    .label .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: var(--radius-md); font-family: var(--font-body); font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; border: none; transition: var(--transition); }
+    .btn--primary { background: var(--blue); color: var(--white); box-shadow: 0 4px 20px rgba(37,99,235,0.35); }
+    .btn--primary:hover { background: var(--blue-light); transform: translateY(-2px); }
+    .btn--outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.3); }
+    .btn--outline:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.05); }
+
+    /* NAVBAR (Identique) */
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,17,40,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .navbar__inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; height: 72px; display: flex; align-items: center; gap: 40px; }
+    .navbar__logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .navbar__logo-icon { width: 40px; height: 40px; background: var(--blue); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: var(--white); }
+    .navbar__logo-text { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--white); display: block; }
+    .navbar__logo-sub { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray-400); display: block; }
+    .navbar__nav { display: flex; list-style: none; gap: 8px; margin-left: auto; }
+    .navbar__nav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; font-weight: 500; padding: 8px 12px; border-radius: var(--radius-sm); transition: var(--transition); }
+    .navbar__nav a:hover, .navbar__nav a.active { color: var(--white); background: rgba(255,255,255,0.08); }
+    
+    .navbar__dropdown { position: relative; }
+    .navbar__dropdown > a { display: flex; align-items: center; gap: 6px; }
+    .navbar__dropdown > a::after { content: '▾'; font-size: 10px; opacity: 0.6; transition: var(--transition); }
+    .navbar__dropdown:hover > a::after { opacity: 1; transform: rotate(180deg); }
+    .navbar__dropdown-menu {
+      display: none; position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+      background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md);
+      padding: 8px; min-width: 240px; box-shadow: var(--shadow-lg); z-index: 200;
+    }
+    .navbar__dropdown:hover .navbar__dropdown-menu { display: block; }
+    .navbar__dropdown-menu a {
+      display: flex; align-items: center; gap: 10px; padding: 10px 14px; font-size: 13px;
+      color: rgba(255,255,255,0.7); text-decoration: none; border-radius: var(--radius-sm);
+      transition: var(--transition); white-space: nowrap;
+    }
+    .navbar__dropdown-menu a:hover { background: rgba(37,99,235,0.15); color: var(--white); }
+    
+    .navbar__actions { display: flex; gap: 12px; align-items: center; }
+    .navbar__hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; margin-left: auto; }
+    .navbar__hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .navbar__hamburger.open span:nth-child(2) { opacity: 0; }
+    .navbar__hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .navbar__mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: var(--navy); padding: 24px 32px; border-bottom: 1px solid rgba(255,255,255,0.08); z-index: 99; flex-direction: column; gap: 8px; }
+    .navbar__mobile-menu.open { display: flex; }
+    .navbar__mobile-menu a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 16px; font-weight: 500; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+
+    /* HERO HUB */
+    .hero-hub { padding: 180px 0 120px; background: var(--navy); text-align: center; position: relative; overflow: hidden; }
+    .hero-hub__bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(37,99,235,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.04) 1px, transparent 1px); background-size: 60px 60px; }
+    .hero-hub__glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 800px; height: 400px; background: radial-gradient(ellipse, rgba(37,99,235,0.15) 0%, transparent 70%); border-radius: 50%; }
+    .hero-hub__content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+    .hero-hub h1 em { color: var(--blue-light); font-style: italic; }
+    .hero-hub p { font-size: 20px; color: rgba(255,255,255,0.7); margin: 24px auto 0; max-width: 600px; line-height: 1.6; }
+
+    /* GRID PROFESSIONS */
+    .professions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: -60px; position: relative; z-index: 10; padding-bottom: 100px; }
+    .prof-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 40px 32px; text-align: center; text-decoration: none; color: var(--text-dark); transition: var(--transition); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; height: 100%; }
+    .prof-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); border-color: var(--blue); }
+    .prof-card__icon { font-size: 48px; margin-bottom: 24px; }
+    .prof-card h3 { font-size: 24px; margin-bottom: 16px; }
+    .prof-card p { color: var(--gray-600); font-size: 15px; margin-bottom: 32px; flex: 1; }
+    .prof-card__btn { display: inline-block; font-family: var(--font-body); font-weight: 600; color: var(--blue); font-size: 15px; }
+    .prof-card:hover .prof-card__btn { color: var(--blue-light); text-decoration: underline; }
+
+    /* FOOTER */
+    .footer { background: var(--navy); padding: 80px 0 40px; border-top: 1px solid rgba(255,255,255,0.06); }
+    .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+    .footer__brand { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .footer__brand-icon { width: 36px; height: 36px; background: var(--blue); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--white); }
+    .footer__brand-name { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--white); }
+    .footer__desc { font-size: 13px; color: var(--gray-400); line-height: 1.7; max-width: 280px; }
+    .footer__col-title { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 20px; }
+    .footer__links { list-style: none; }
+    .footer__links li { margin-bottom: 10px; }
+    .footer__links a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 14px; transition: var(--transition); }
+    .footer__links a:hover { color: var(--white); }
+    .footer__bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer__copy { font-size: 13px; color: var(--gray-400); }
+    .footer__badges { display: flex; gap: 12px; }
+    .footer__badge { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; background: rgba(255,255,255,0.05); color: var(--gray-400); border: 1px solid rgba(255,255,255,0.08); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1100px) and (min-width: 769px) {
+      .navbar__inner { gap: 16px; }
+      .navbar__nav { gap: 0; }
+      .navbar__nav a { padding: 8px 8px; font-size: 12px; white-space: nowrap; }
+      .navbar__actions .btn--outline { display: none; }
+      .navbar__actions .btn--primary { padding: 8px 14px; font-size: 12px; }
+    }
+    @media (max-width: 768px) {
+      .navbar__nav, .navbar__actions { display: none; }
+      .navbar__hamburger { display: flex; }
+      .professions-grid { grid-template-columns: 1fr; margin-top: 40px; padding: 0 20px 60px; }
+      .hero-hub { padding: 120px 20px 40px; }
+      .footer__grid { grid-template-columns: 1fr; gap: 40px; padding: 0 20px; }
+      .footer__bottom { flex-direction: column; text-align: center; padding: 32px 20px 0; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar__inner">
+    <a href="../index.html" class="navbar__logo">
+      <div class="navbar__logo-icon">S.F.</div>
+      <div>
+        <span class="navbar__logo-text">S.A.F.E.</span>
+        <span class="navbar__logo-sub">Pilotage Privé</span>
+      </div>
+    </a>
+    <ul class="navbar__nav">
+      <li><a href="../index.html#architecture">Architecture</a></li>
+      <li><a href="../index.html#methode">Méthode RAG-Q</a></li>
+      <li class="navbar__dropdown">
+        <a href="#">Solutions</a>
+        <div class="navbar__dropdown-menu">
+          <a href="../solutions/direction-strategie.html">👑 Direction / Stratégie</a>
+          <a href="../solutions/commercial.html">📈 Ventes / Commercial</a>
+          <a href="../solutions/rh-paie.html">👥 Ressources Humaines</a>
+          <a href="../solutions/finance-comptabilite.html">📊 Comptabilité / Finance</a>
+          <a href="../solutions/juridique-compliance.html">⚖️ Juridique / Compliance</a>
+          <a href="../solutions/operations.html">📋 Opérations / Savoir</a>
+          <a href="../solutions/achats-stock.html">📦 Achats / Stock</a>
+        </div>
+      </li>
+      <li class="navbar__dropdown">
+        <a href="#" class="active">Professions</a>
+        <div class="navbar__dropdown-menu">
+          <a href="index.html">🏢 Vue d'ensemble</a>
+          <div class="dropdown-divider" style="height: 1px; background: rgba(255,255,255,0.06); margin: 6px 0;"></div>
+          <a href="notaires.html">🏛️ Notaires</a>
+          <a href="avocats.html">⚖️ Avocats</a>
+          <a href="experts-comptables.html">📊 Experts-Comptables</a>
+        </div>
+      </li>
+      <li><a href="../a-propos.html">À propos</a></li>
+    </ul>
+    <div class="navbar__actions">
+      <a href="mailto:contact@safe-pilotage-prive.fr" class="btn btn--outline" style="padding:10px 16px;font-size:13px;">contact@safe-pilotage-prive.fr</a>
+      <a href="../index.html" class="btn btn--primary">Demander une démo</a>
+    </div>
+    <button class="navbar__hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="navbar__mobile-menu" id="mobileMenu">
+  <a href="../index.html#architecture" onclick="closeMobileMenu()">Architecture</a>
+  <a href="../index.html#methode" onclick="closeMobileMenu()">Méthode RAG-Q</a>
+  <a href="../solutions/direction-strategie.html" onclick="closeMobileMenu()">Solutions Métier</a>
+  <a href="index.html" onclick="closeMobileMenu()">Professions Réglementées</a>
+  <a href="../a-propos.html" onclick="closeMobileMenu()">À propos</a>
+</div>
+
+<section class="hero-hub">
+  <div class="hero-hub__bg">
+    <div class="hero-hub__glow"></div>
+  </div>
+  <div class="hero-hub__content container">
+    <div class="label label--blue"><span class="dot"></span>Zéro cloud public</div>
+    <h1>Le secret professionnel <em>enfin compatible</em> avec l'IA.</h1>
+    <p>S.A.F.E. est la seule solution d'intelligence artificielle générative conçue spécifiquement pour les exigences de souveraineté et de confidentialité des professions réglementées.</p>
+  </div>
+</section>
+
+<div class="container">
+  <div class="professions-grid">
+    <a href="notaires.html" class="prof-card">
+      <div class="prof-card__icon">🏛️</div>
+      <h3>Notaires</h3>
+      <p>Recherche instantanée dans vos actes historiques et aide à la rédaction de clauses, sans jamais exposer les données de l'étude.</p>
+      <span class="prof-card__btn">Découvrir la solution Notaires →</span>
+    </a>
+    <a href="avocats.html" class="prof-card">
+      <div class="prof-card__icon">⚖️</div>
+      <h3>Avocats</h3>
+      <p>Analyse de dossiers contentieux et recherche dans votre propre jurisprudence. Des réponses 100% traçables, zéro hallucination.</p>
+      <span class="prof-card__btn">Découvrir la solution Avocats →</span>
+    </a>
+    <a href="experts-comptables.html" class="prof-card">
+      <div class="prof-card__icon">📊</div>
+      <h3>Experts-Comptables</h3>
+      <p>Automatisation de l'analyse des liasses fiscales et préparation des bilans. Accélérez votre transition vers le conseil.</p>
+      <span class="prof-card__btn">Découvrir la solution Experts-Comptables →</span>
+    </a>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand">
+          <div class="footer__brand-icon">S.F.</div>
+          <span class="footer__brand-name">S.A.F.E. Pilotage Privé</span>
+        </div>
+        <p class="footer__desc">Intelligence artificielle souveraine pour les structures exigeantes. Vos données restent les vôtres, toujours.</p>
+      </div>
+      <div>
+        <div class="footer__col-title">Professions</div>
+        <ul class="footer__links">
+          <li><a href="notaires.html">Notaires</a></li>
+          <li><a href="avocats.html">Avocats</a></li>
+          <li><a href="experts-comptables.html">Experts-Comptables</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Produit</div>
+        <ul class="footer__links">
+          <li><a href="../index.html#architecture">Architecture</a></li>
+          <li><a href="../index.html#methode">Méthode RAG-Q™</a></li>
+          <li><a href="../index.html#benefices">Bénéfices</a></li>
+          <li><a href="../a-propos.html">À propos</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Contact</div>
+        <ul class="footer__links">
+          <li><a href="mailto:contact@safe-pilotage-prive.fr">contact@safe-pilotage-prive.fr</a></li>
+          <li><a href="#">Mentions Légales</a></li>
+          <li><a href="#">Confidentialité</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2026 S.A.F.E. Pilotage Privé — Tous droits réservés</p>
+      <div class="footer__badges">
+        <span class="footer__badge">RGPD</span>
+        <span class="footer__badge">Cloud EU</span>
+        <span class="footer__badge">IA Souveraine</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMobileMenu() {
+    const btn = document.getElementById('hamburgerBtn');
+    const menu = document.getElementById('mobileMenu');
+    btn.classList.toggle('open');
+    menu.classList.toggle('open');
+  }
+  function closeMobileMenu() {
+    document.getElementById('hamburgerBtn').classList.remove('open');
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+</script>
+</body>
+</html>

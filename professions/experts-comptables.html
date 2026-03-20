@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IA pour Achats & Stock PME : Optimisez votre Gestion avec S.A.F.E. | S.A.F.E. Pilotage Privé</title>
-  <meta name="description" content="Optimisez vos achats et stocks PME avec l'IA souveraine de S.A.F.E. Pilotage Privé. Réduisez les coûts, anticipez la demande et sécurisez vos données." />
-  <meta name="keywords" content="gestion des stocks IA PME, logiciel gestion achats PME, optimisation stock intelligence artificielle, IA pour achats PME, solution IA gestion stock, logiciel gestion achats PME France; optimisation stock IA prédictive PME; solution IA souveraine gestion achats; automatisation achats PME IA; réduction coûts stock IA PME; logiciel e-procurement PME; gestion approvisionnement IA PME; outil IA prévision demande stock" />
-  <meta property="og:title" content="IA pour Achats & Stock PME : Optimisez votre Gestion avec S.A.F.E." />
-  <meta property="og:description" content="Optimisez vos achats et stocks PME avec l'IA souveraine de S.A.F.E. Pilotage Privé. Réduisez les coûts, anticipez la demande et sécurisez vos données." />
+  <title>IA RAG pour Experts-Comptables | S.A.F.E. Pilotage Privé | S.A.F.E. Pilotage Privé</title>
+  <meta name="description" content="Moins de saisie, plus de conseil. Sécurisez l'analyse de vos liasses fiscales et la révision comptable avec une IA 100% souveraine." />
+  <meta name="keywords" content="IA RAG cabinets comptables, logiciel IA analyse liasses fiscales, automatisation comptable intelligence artificielle, solution IA expert-comptable" />
+  <meta property="og:title" content="IA RAG pour Experts-Comptables | S.A.F.E. Pilotage Privé" />
+  <meta property="og:description" content="Moins de saisie, plus de conseil. Sécurisez l'analyse de vos liasses fiscales et la révision comptable avec une IA 100% souveraine." />
   <meta property="og:type" content="website" />
-  <link rel="canonical" href="https://www.safe-pilotage-prive.fr/solutions/achats-stock" />
+  <link rel="canonical" href="https://www.safe-pilotage-prive.fr/professions/experts-comptables.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
@@ -95,9 +95,27 @@
     .navbar__nav { display: flex; list-style: none; gap: 8px; margin-left: auto; }
     .navbar__nav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; font-weight: 500; padding: 8px 12px; border-radius: var(--radius-sm); transition: var(--transition); }
     .navbar__nav a:hover, .navbar__nav a.active { color: var(--white); background: rgba(255,255,255,0.08); }
+    
+    /* DROPDOWN SOLUTIONS & PROFESSIONS */
+    .navbar__dropdown { position: relative; }
+    .navbar__dropdown > a { display: flex; align-items: center; gap: 6px; }
+    .navbar__dropdown > a::after { content: '▾'; font-size: 10px; opacity: 0.6; transition: var(--transition); }
+    .navbar__dropdown:hover > a::after { opacity: 1; transform: rotate(180deg); }
+    .navbar__dropdown-menu {
+      display: none; position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+      background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md);
+      padding: 8px; min-width: 240px; box-shadow: var(--shadow-lg); z-index: 200;
+    }
+    .navbar__dropdown:hover .navbar__dropdown-menu { display: block; }
+    .navbar__dropdown-menu a {
+      display: flex; align-items: center; gap: 10px; padding: 10px 14px; font-size: 13px;
+      color: rgba(255,255,255,0.7); text-decoration: none; border-radius: var(--radius-sm);
+      transition: var(--transition); white-space: nowrap;
+    }
+    .navbar__dropdown-menu a:hover { background: rgba(37,99,235,0.15); color: var(--white); }
+    
     .navbar__actions { display: flex; gap: 12px; align-items: center; }
     .navbar__hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; margin-left: auto; }
-    .navbar__hamburger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; transition: var(--transition); }
     .navbar__hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .navbar__hamburger.open span:nth-child(2) { opacity: 0; }
     .navbar__hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -143,7 +161,6 @@
     .roi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
     .roi-item { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-lg); padding: 36px 28px; text-align: center; }
     .roi-item__value { font-family: var(--font-display); font-size: clamp(22px, 3vw, 32px); font-weight: 800; color: var(--gold); display: block; margin-bottom: 8px; }
-    .roi-citation { margin-top: 48px; padding: 32px 40px; background: rgba(37,99,235,0.08); border-left: 3px solid var(--blue); border-radius: 0 var(--radius-md) var(--radius-md) 0; font-family: var(--font-display); font-style: italic; font-size: 18px; color: rgba(255,255,255,0.85); line-height: 1.6; }
 
     /* CTA SECTION */
     .cta-metier { padding: 120px 0; background: var(--navy-mid); text-align: center; position: relative; overflow: hidden; }
@@ -244,13 +261,6 @@
       .modal { padding: 32px 24px; }
     }
   </style>
-  <!-- Favicon S.A.F.E. -->
-  <link rel="icon" type="image/x-icon" href="../favicon.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-  <meta name="theme-color" content="#0A1128">
 </head>
 <body>
 
@@ -268,25 +278,25 @@
       <li><a href="../index.html#architecture">Architecture</a></li>
       <li><a href="../index.html#methode">Méthode RAG-Q</a></li>
       <li class="navbar__dropdown">
-        <a href="#" class="active">Solutions</a>
+        <a href="#">Solutions</a>
         <div class="navbar__dropdown-menu">
-          <a href="direction-strategie.html">👑 Direction / Stratégie</a>
-          <a href="commercial.html">📈 Ventes / Commercial</a>
-          <a href="rh-paie.html">👥 Ressources Humaines</a>
-          <a href="finance-comptabilite.html">📊 Comptabilité / Finance</a>
-          <a href="juridique-compliance.html">⚖️ Juridique / Compliance</a>
-          <a href="operations.html">📋 Opérations / Savoir</a>
-          <a href="achats-stock.html">📦 Achats / Stock</a>
+          <a href="../solutions/direction-strategie.html">👑 Direction / Stratégie</a>
+          <a href="../solutions/commercial.html">📈 Ventes / Commercial</a>
+          <a href="../solutions/rh-paie.html">👥 Ressources Humaines</a>
+          <a href="../solutions/finance-comptabilite.html">📊 Comptabilité / Finance</a>
+          <a href="../solutions/juridique-compliance.html">⚖️ Juridique / Compliance</a>
+          <a href="../solutions/operations.html">📋 Opérations / Savoir</a>
+          <a href="../solutions/achats-stock.html">📦 Achats / Stock</a>
         </div>
       </li>
       <li class="navbar__dropdown">
-        <a href="../professions/index.html">Professions</a>
+        <a href="#" class="active">Professions</a>
         <div class="navbar__dropdown-menu">
-          <a href="../professions/index.html">🏢 Vue d'ensemble</a>
-          <div class="dropdown-divider" style="height:1px;background:rgba(255,255,255,0.06);margin:6px 0;"></div>
-          <a href="../professions/notaires.html">🏛️ Notaires</a>
-          <a href="../professions/avocats.html">⚖️ Avocats</a>
-          <a href="../professions/experts-comptables.html">📊 Experts-Comptables</a>
+          <a href="index.html">🏢 Vue d'ensemble</a>
+          <div class="dropdown-divider" style="height: 1px; background: rgba(255,255,255,0.06); margin: 6px 0;"></div>
+          <a href="notaires.html">🏛️ Notaires</a>
+          <a href="avocats.html">⚖️ Avocats</a>
+          <a href="experts-comptables.html">📊 Experts-Comptables</a>
         </div>
       </li>
       <li><a href="../a-propos.html">À propos</a></li>
@@ -300,35 +310,36 @@
     </button>
   </div>
 </nav>
+
+<!-- MOBILE MENU -->
 <div class="navbar__mobile-menu" id="mobileMenu">
   <a href="../index.html#architecture" onclick="closeMobileMenu()">Architecture</a>
-  <a href="../index.html#methode" onclick="closeMobileMenu()">Méthode RAG-Q™</a>
-  <a href="../index.html#benefices" onclick="closeMobileMenu()">Bénéfices</a>
+  <a href="../index.html#methode" onclick="closeMobileMenu()">Méthode RAG-Q</a>
+  <a href="../solutions/direction-strategie.html" onclick="closeMobileMenu()">Solutions Métier</a>
+  <a href="index.html" onclick="closeMobileMenu()">Professions Réglementées</a>
   <a href="../a-propos.html" onclick="closeMobileMenu()">À propos</a>
-  <a href="#" class="btn btn--primary" onclick="closeMobileMenu(); openModal(event);">Demander une démo</a>
+  <a href="#" class="btn btn--primary" onclick="closeMobileMenu(); openModal(event)">Demander une démo</a>
 </div>
 
-<!-- HERO -->
+<!-- SECTION 1 : HERO -->
 <section class="hero-metier">
   <div class="hero-metier__bg">
     <div class="hero-metier__grid"></div>
     <div class="hero-metier__glow"></div>
   </div>
-  <div class="container">
-    <div class="hero-metier__content fade-in">
-      <div class="hero-metier__breadcrumb">
-        <a href="../index.html">Accueil</a>
-        <span>›</span>
-        <span>Solutions</span>
-        <span>›</span>
-        <span>Achats / Stock</span>
-      </div>
-      <div class="label label--blue"><span class="dot"></span>Agent IA Achats & Stock — Actif</div>
-      <h1>IA pour Achats & Stock PME : Optimisez votre Gestion avec S.A.F.E.</h1>
-      <p class="hero-metier__subtitle">Transformez vos processus d'achats et de gestion des stocks avec une IA souveraine qui sécurise vos données et optimise vos coûts.</p>
+  <div class="hero-metier__content container">
+    <div class="hero-metier__breadcrumb fade-in">
+      <a href="../index.html">Accueil</a> <span>/</span>
+      <a href="index.html">Professions Réglementées</a> <span>/</span>
+      <span style="color:var(--white);">Experts-Comptables</span>
+    </div>
+    <div class="fade-in fade-in-delay-1">
+      <div class="label label--blue"><span class="dot"></span>S.A.F.E. pour Experts-Comptables</div>
+      <h1>Moins de saisie. Plus de conseil. <em>Un cabinet qui dure.</em></h1>
+      <p class="hero-metier__subtitle">Vos collaborateurs juniors coûtent cher pour des tâches que S.A.F.E. fait en secondes. Réaffectez-les là où ils créent de la valeur, en toute sécurité.</p>
       <div class="hero-metier__ctas">
-        <a href="#" class="btn btn--primary" onclick="openModal(event)">→ Demander une démonstration</a>
-        <a href="../index.html#architecture" class="btn btn--outline">Voir l'architecture S.A.F.E.</a>
+        <a href="#" class="btn btn--primary" onclick="openModal(event)">→ Calculer le ROI pour votre cabinet</a>
+        <a href="../index.html#architecture" class="btn btn--outline">Voir l'architecture sécurisée</a>
       </div>
     </div>
   </div>
@@ -338,26 +349,26 @@
 <section class="section section--white">
   <div class="container">
     <div class="section-header fade-in">
-      <div class="label label--gold">Problèmes identifiés</div>
-      <h2 class="section-title">Ce que Achats / Stock subit chaque jour sans IA</h2>
-      <p class="section-subtitle">Sans IA souveraine, ces obstacles freinent chaque jour la performance de votre structure.</p>
+      <div class="label label--gold">Contexte & Enjeux</div>
+      <h2 class="section-title">La transformation inévitable de la profession</h2>
+      <p class="section-subtitle">La tenue comptable se banalise. L'avenir appartient aux cabinets qui maîtrisent l'IA pour monter en gamme.</p>
     </div>
     <div class="pain-grid">
       
         <div class="pain-card">
           <div class="pain-card__icon">📉</div>
-          <h3 class="pain-card__title">Coûts cachés</h3>
-          <p class="pain-card__desc">Les erreurs de prévision et les ruptures de stock inattendues grèvent votre budget. Sans visibilité précise, chaque décision est un pari risqué.</p>
+          <h3 class="pain-card__title">Fin de la Tenue Pure</h3>
+          <p class="pain-card__desc">L'automatisation et la facturation électronique érodent les marges historiques liées à la simple saisie comptable.</p>
         </div>
         <div class="pain-card">
-          <div class="pain-card__icon">⏳</div>
-          <h3 class="pain-card__title">Processus lents</h3>
-          <p class="pain-card__desc">La gestion manuelle des commandes, des inventaires et des fournisseurs consomme un temps précieux. Vos équipes sont submergées par des tâches répétitives à faible valeur ajoutée.</p>
+          <div class="pain-card__icon">🧑‍🎓</div>
+          <h3 class="pain-card__title">Crise d'Attractivité</h3>
+          <p class="pain-card__desc">Difficulté à recruter et retenir des talents pour des tâches répétitives et chronophages, particulièrement en période fiscale.</p>
         </div>
         <div class="pain-card">
-          <div class="pain-card__icon">🛡️</div>
-          <h3 class="pain-card__title">Données vulnérables</h3>
-          <p class="pain-card__desc">Stocker vos informations sensibles sur des clouds publics expose votre PME à des risques de fuites. La conformité RGPD devient un défi constant et coûteux.</p>
+          <div class="pain-card__icon">🔐</div>
+          <h3 class="pain-card__title">Données Financières</h3>
+          <p class="pain-card__desc">Le secret professionnel et le RGPD interdisent de confier les liasses et données sociales de vos clients à des IA non souveraines.</p>
         </div>
     </div>
   </div>
@@ -368,41 +379,33 @@
   <div class="container">
     <div class="section-header fade-in">
       <div class="label label--blue">Cas d'usage concrets</div>
-      <h2 class="section-title" style="color:var(--white);">Ce que S.A.F.E. fait concrètement pour Achats / Stock</h2>
-      <p class="section-subtitle section-subtitle--light">Des agents IA spécialisés, entraînés sur vos documents internes, opérant en circuit fermé.</p>
+      <h2 class="section-title" style="color:var(--white);">Le moteur de votre transition vers le conseil</h2>
+      <p class="section-subtitle section-subtitle--light">S.A.F.E. automatise l'analyse, vous gardez la relation client.</p>
     </div>
     <div class="usecase-list">
       
         <div class="usecase-card">
-          <div class="usecase-card__num">1</div>
+          <div class="usecase-card__num">01</div>
           <div class="usecase-card__body">
-            <h3 class="usecase-card__title">Optimisation des commandes</h3>
-            <p class="usecase-card__desc">L'IA analyse vos historiques et prévisions pour suggérer les quantités optimales à commander. Elle réduit les surstocks et les ruptures, assurant une disponibilité constante des produits.</p>
-            <div class="usecase-card__gain">−15% de coûts d'approvisionnement</div>
+            <h3 class="usecase-card__title">Analyse intelligente des liasses</h3>
+            <p class="usecase-card__desc">S.A.F.E. croise les liasses fiscales avec l'historique du client pour identifier instantanément les anomalies ou opportunités d'optimisation.</p>
+            <div class="usecase-card__gain">Révision accélérée</div>
           </div>
         </div>
         <div class="usecase-card">
-          <div class="usecase-card__num">2</div>
+          <div class="usecase-card__num">02</div>
           <div class="usecase-card__body">
-            <h3 class="usecase-card__title">Gestion intelligente des fournisseurs</h3>
-            <p class="usecase-card__desc">S.A.F.E. évalue la performance de vos fournisseurs et identifie les meilleures opportunités. Négociez avec des données précises et renforcez vos partenariats stratégiques.</p>
-            <div class="usecase-card__gain">+10% de marge sur les achats</div>
+            <h3 class="usecase-card__title">Préparation des RDV bilans</h3>
+            <p class="usecase-card__desc">Génération automatique d'une synthèse narrative des points clés de l'année, prête à être présentée au dirigeant.</p>
+            <div class="usecase-card__gain">Focus sur le conseil</div>
           </div>
         </div>
         <div class="usecase-card">
-          <div class="usecase-card__num">3</div>
+          <div class="usecase-card__num">03</div>
           <div class="usecase-card__body">
-            <h3 class="usecase-card__title">Prévision de la demande</h3>
-            <p class="usecase-card__desc">Anticipez les fluctuations du marché grâce à des modèles prédictifs basés sur vos données internes. Adaptez vos stocks en temps réel pour maximiser la satisfaction client.</p>
-            <div class="usecase-card__gain">−20% de stock dormant</div>
-          </div>
-        </div>
-        <div class="usecase-card">
-          <div class="usecase-card__num">4</div>
-          <div class="usecase-card__body">
-            <h3 class="usecase-card__title">Audit et conformité</h3>
-            <p class="usecase-card__desc">L'agent IA contrôle la conformité de vos contrats et documents d'achats. Il détecte les anomalies et assure le respect des réglementations, y compris le RGPD.</p>
-            <div class="usecase-card__gain">−5h/semaine de vérifications manuelles</div>
+            <h3 class="usecase-card__title">Veille réglementaire intégrée</h3>
+            <p class="usecase-card__desc">Interrogez l'IA sur l'impact d'une nouvelle loi de finances sur un portefeuille spécifique de clients.</p>
+            <div class="usecase-card__gain">Réponses sourcées</div>
           </div>
         </div>
     </div>
@@ -414,16 +417,15 @@
   <div class="container">
     <div class="section-header text-center fade-in">
       <div class="label label--gold">Résultats mesurables</div>
-      <h2 class="section-title" style="color:var(--white);">Ce que ça change en 30 jours</h2>
-      <p class="section-subtitle section-subtitle--light" style="margin:0 auto;">Des gains concrets, mesurables dès les premières semaines de déploiement.</p>
+      <h2 class="section-title" style="color:var(--white);">L'impact sur votre rentabilité</h2>
+      <p class="section-subtitle section-subtitle--light" style="margin:0 auto;">Augmentez le PNB par collaborateur sans augmenter le temps de travail.</p>
     </div>
     <div class="roi-grid">
-      <div class="roi-item"><span class="roi-item__value">−15% de coûts d'approvisionnement</span></div>
-<div class="roi-item"><span class="roi-item__value">+10% de marge sur les achats</span></div>
-<div class="roi-item"><span class="roi-item__value">−20% de stock dormant</span></div>
+      <div class="roi-item"><span class="roi-item__value">+30% de productivité</span></div>
+<div class="roi-item"><span class="roi-item__value">Transition vers le conseil</span></div>
+<div class="roi-item"><span class="roi-item__value">Cloisonnement client garanti</span></div>
 
     </div>
-    <blockquote class="roi-citation">"« S.A.F.E. a transformé notre gestion des stocks, nous permettant de nous concentrer sur la croissance. » (Sophie, Directrice PME industrielle)"</blockquote>
   </div>
 </section>
 
@@ -432,10 +434,10 @@
   <div class="cta-metier__glow"></div>
   <div class="cta-metier__content container">
     <div class="label label--white" style="margin:0 auto 24px;"><span class="dot"></span>Déploiement sur mesure</div>
-    <h2>Votre Achats / Stock mérite une IA qui lui ressemble.</h2>
-    <p class="cta-metier__subtitle">Un audit gratuit de vos besoins, une démonstration adaptée à votre secteur. Réponse sous 24h.</p>
+    <h2>Calculer le ROI pour votre cabinet</h2>
+    <p class="cta-metier__subtitle">Découvrez comment S.A.F.E. peut transformer votre période fiscale et sécuriser vos marges.</p>
     <div class="cta-metier__buttons">
-      <a href="#" class="btn btn--primary" onclick="openModal(event)">→ Demander une démonstration Achats / Stock</a>
+      <a href="#" class="btn btn--primary" onclick="openModal(event)">→ Calculer le ROI pour votre cabinet</a>
       <a href="../a-propos.html" class="btn btn--outline">Rencontrer Bertrand Charpilloz</a>
     </div>
   </div>
@@ -450,18 +452,14 @@
           <div class="footer__brand-icon">S.F.</div>
           <span class="footer__brand-name">S.A.F.E. Pilotage Privé</span>
         </div>
-        <p class="footer__desc">Intelligence artificielle souveraine pour les PME exigeantes. Vos données restent les vôtres, toujours.</p>
+        <p class="footer__desc">Intelligence artificielle souveraine pour les structures exigeantes. Vos données restent les vôtres, toujours.</p>
       </div>
       <div>
-        <div class="footer__col-title">Solutions</div>
+        <div class="footer__col-title">Professions</div>
         <ul class="footer__links">
-          <li><a href="direction-strategie.html">Direction</a></li>
-          <li><a href="commercial.html">Commercial</a></li>
-          <li><a href="rh-paie.html">RH & Paie</a></li>
-          <li><a href="finance-comptabilite.html">Finance</a></li>
-          <li><a href="juridique-compliance.html">Juridique</a></li>
-          <li><a href="operations.html">Opérations</a></li>
-          <li><a href="achats-stock.html">Achats & Stock</a></li>
+          <li><a href="notaires.html">Notaires</a></li>
+          <li><a href="avocats.html">Avocats</a></li>
+          <li><a href="experts-comptables.html">Experts-Comptables</a></li>
         </ul>
       </div>
       <div>
@@ -501,45 +499,44 @@
     <!-- Étape 1 : Taille -->
     <div class="modal__step active" id="step1">
       <div class="modal__progress">Étape 1 sur 3</div>
-      <h2 class="modal__title">Quelle est la taille de votre structure ?</h2>
+      <h2 class="modal__title">Quelle est la taille de votre cabinet ?</h2>
       <p class="modal__subtitle">Nous adapterons la démonstration à votre contexte.</p>
       <div class="size-grid">
-        <div class="size-option" onclick="selectSize(this, '0-15')">
-          <div class="size-option__label">Petite structure</div>
-          <div class="size-option__value">0 – 15</div>
+        
+        <div class="size-option" onclick="selectSize(this, '1-5 collaborateurs')">
+          <div class="size-option__label">Petit cabinet</div>
+          <div class="size-option__value">1-5 collaborateurs</div>
         </div>
-        <div class="size-option" onclick="selectSize(this, '16-50')">
-          <div class="size-option__label">PME</div>
-          <div class="size-option__value">16 – 50</div>
+        <div class="size-option" onclick="selectSize(this, '6-15 collaborateurs')">
+          <div class="size-option__label">Cabinet moyen</div>
+          <div class="size-option__value">6-15 collaborateurs</div>
         </div>
-        <div class="size-option" onclick="selectSize(this, '51-100')">
-          <div class="size-option__label">PME structurée</div>
-          <div class="size-option__value">51 – 100</div>
+        <div class="size-option" onclick="selectSize(this, '16-50 collaborateurs')">
+          <div class="size-option__label">Cabinet structuré</div>
+          <div class="size-option__value">16-50 collaborateurs</div>
         </div>
-        <div class="size-option" onclick="selectSize(this, '+100')">
-          <div class="size-option__label">Organisation</div>
-          <div class="size-option__value">+100</div>
+        <div class="size-option" onclick="selectSize(this, '+50 collaborateurs')">
+          <div class="size-option__label">Grand cabinet</div>
+          <div class="size-option__value">+50 collaborateurs</div>
         </div>
       </div>
       <button class="modal__btn" id="step1Btn" disabled onclick="goToStep(2)">Continuer →</button>
     </div>
 
-    <!-- Étape 2 : Département -->
+    <!-- Étape 2 : Besoin/Domaine -->
     <div class="modal__step" id="step2">
       <div class="modal__progress">Étape 2 sur 3</div>
-      <h2 class="modal__title">Quel département est prioritaire ?</h2>
-      <p class="modal__subtitle">Nous adapterons la démonstration à votre cas d'usage.</p>
+      <h2 class="modal__title">Quelle est votre priorité actuelle ?</h2>
+      <p class="modal__subtitle">Pour préparer un cas d'usage pertinent lors de la démo.</p>
       <div class="form-group">
         <select id="deptSelect" onchange="selectDept(this)">
-          <option value="">Sélectionnez un département...</option>
-          <option value="Direction / Stratégie">👑 Direction / Stratégie</option>
-          <option value="Ventes / Commercial">📈 Ventes / Commercial</option>
-          <option value="Ressources Humaines (Paie...)">👥 Ressources Humaines (Paie...)</option>
-          <option value="Comptabilité / Finance">📊 Comptabilité / Finance</option>
-          <option value="Juridique / Compliance">⚖️ Juridique / Compliance</option>
-          <option value="Opérations (Base de savoir)">📋 Opérations (Base de savoir)</option>
-          <option value="Achats / Stock">📦 Achats / Stock</option>
-          <option value="Autre besoin stratégique">💡 Autre besoin stratégique</option>
+          <option value="">Sélectionnez une priorité...</option>
+<option value="Réduire le temps de révision">Réduire le temps de révision</option>
+<option value="Développer les missions de conseil">Développer les missions de conseil</option>
+<option value="Sécuriser les données clients">Sécuriser les données clients</option>
+<option value="Améliorer la préparation des bilans">Améliorer la préparation des bilans</option>
+<option value="Autre priorité">Autre priorité</option>
+
         </select>
       </div>
       <button class="modal__btn" id="step2Btn" disabled onclick="goToStep(3)">Continuer →</button>
@@ -562,7 +559,7 @@
       </div>
       <div class="form-group">
         <label>Email professionnel *</label>
-        <input type="email" id="inputEmail" placeholder="sophie@entreprise.fr" oninput="validateEmail()" />
+        <input type="email" id="inputEmail" placeholder="sophie@cabinet.fr" oninput="validateEmail()" />
       </div>
       <button class="modal__btn" id="step3Btn" disabled onclick="submitForm()">Envoyer ma demande →</button>
       <p class="rgpd-note">🔒 Vos données sont traitées conformément au RGPD et ne quittent jamais nos serveurs européens.</p>
@@ -583,13 +580,13 @@
   const BREVO_API_KEY = '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';
   const LIST_ID = 3;
   const ADMIN_TPL_ID = 5;
-  const CONFIRM_TPL_ID = 2;
+  const CONFIRM_TPL_ID = 6;
   const SENDER_EMAIL = 'contact@safe-pilotage-prive.fr';
   const SENDER_NAME = 'S.A.F.E. Pilotage Privé';
   const ADMIN_EMAIL = 'contact@safe-pilotage-prive.fr';
 
   let selectedSize = '';
-  let selectedDept = 'Achats / Stock';
+  let selectedDept = '';
 
   function openModal(e) { if(e) e.preventDefault(); document.getElementById('modalOverlay').classList.add('open'); document.body.style.overflow = 'hidden'; }
   function closeModal() { document.getElementById('modalOverlay').classList.remove('open'); document.body.style.overflow = ''; }
@@ -640,7 +637,7 @@
           PRENOM: firstname, NOM: lastname,
           TAILLE_ENTREPRISE: selectedSize,
           DEPARTEMENT: selectedDept,
-          SOURCE_PAGE: 'solutions/achats-stock'
+          SOURCE_PAGE: 'professions/experts-comptables'
         }
       });
       await brevoRequest('/smtp/email', 'POST', {
@@ -657,8 +654,8 @@
       });
       const recap = document.getElementById('successRecap');
       recap.innerHTML = `
-        <div class="success-recap__item"><span class="success-recap__label">Taille</span><span class="success-recap__value">${selectedSize} personnes</span></div>
-        <div class="success-recap__item"><span class="success-recap__label">Département</span><span class="success-recap__value">${selectedDept}</span></div>
+        <div class="success-recap__item"><span class="success-recap__label">Taille</span><span class="success-recap__value">${selectedSize}</span></div>
+        <div class="success-recap__item"><span class="success-recap__label">Besoin</span><span class="success-recap__value">${selectedDept}</span></div>
         <div class="success-recap__item"><span class="success-recap__label">Email</span><span class="success-recap__value">${email}</span></div>`;
       goToStep(4);
     } catch(err) {
@@ -683,21 +680,6 @@
     entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
-
-  // Pre-select department if coming from modal
-  if(selectedDept) {
-    const sel = document.getElementById('deptSelect');
-    if(sel) {
-      for(let i=0; i<sel.options.length; i++) {
-        if(sel.options[i].value.includes('Achats')) {
-          sel.selectedIndex = i;
-          selectedDept = sel.options[i].value;
-          document.getElementById('step2Btn').disabled = false;
-          break;
-        }
-      }
-    }
-  }
 </script>
 </body>
 </html>
