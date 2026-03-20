@@ -280,7 +280,7 @@
         </div>
       </li>
       <li class="navbar__dropdown">
-        <a href="../professions/index.html">Professions</a>
+        <a href="#">Professions</a>
         <div class="navbar__dropdown-menu">
           <a href="../professions/index.html">🏢 Vue d'ensemble</a>
           <div class="dropdown-divider" style="height:1px;background:rgba(255,255,255,0.06);margin:6px 0;"></div>
@@ -690,12 +690,11 @@
     (function() {
       var dropdowns = document.querySelectorAll('.navbar__dropdown');
       dropdowns.forEach(function(dd) {
-        var trigger = dd.querySelector('a');
+        var trigger = dd.querySelector(':scope > a');
+        if (!trigger) return;
         trigger.addEventListener('click', function(e) {
-          // Si le lien a un vrai href (pas #), laisser naviguer
-          var href = trigger.getAttribute('href');
-          if (href && href !== '#') return;
           e.preventDefault();
+          e.stopPropagation();
           var isOpen = dd.classList.contains('open');
           // Fermer tous les dropdowns
           dropdowns.forEach(function(d) { d.classList.remove('open'); });

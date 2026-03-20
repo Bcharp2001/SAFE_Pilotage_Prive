@@ -57,13 +57,13 @@
 
     /* NAVBAR (Identique) */
     .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,17,40,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .navbar__inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; height: 72px; display: flex; align-items: center; gap: 40px; }
+    .navbar__inner { max-width: 1400px; margin: 0 auto; padding: 0 32px; height: 72px; display: flex; align-items: center; gap: 16px; }
     .navbar__logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
     .navbar__logo-icon { width: 40px; height: 40px; background: var(--blue); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: var(--white); }
     .navbar__logo-text { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--white); display: block; }
     .navbar__logo-sub { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray-400); display: block; }
-    .navbar__nav { display: flex; list-style: none; gap: 8px; margin-left: auto; }
-    .navbar__nav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; font-weight: 500; padding: 8px 12px; border-radius: var(--radius-sm); transition: var(--transition); }
+    .navbar__nav { display: flex; list-style: none; gap: 2px; margin-left: auto; }
+    .navbar__nav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; font-weight: 500; padding: 6px 10px; border-radius: var(--radius-sm); transition: var(--transition); white-space: nowrap; }
     .navbar__nav a:hover, .navbar__nav a.active { color: var(--white); background: rgba(255,255,255,0.08); }
     
     .navbar__dropdown { position: relative; }
@@ -83,7 +83,8 @@
     }
     .navbar__dropdown-menu a:hover { background: rgba(37,99,235,0.15); color: var(--white); }
     
-    .navbar__actions { display: flex; gap: 12px; align-items: center; }
+    .navbar__actions { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+    .navbar__actions .btn--outline { display: none; }
     .navbar__hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; margin-left: auto; }
     .navbar__hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .navbar__hamburger.open span:nth-child(2) { opacity: 0; }
@@ -129,11 +130,10 @@
 
     /* RESPONSIVE */
     @media (max-width: 1100px) and (min-width: 769px) {
-      .navbar__inner { gap: 16px; }
+      .navbar__inner { gap: 8px; }
       .navbar__nav { gap: 0; }
-      .navbar__nav a { padding: 8px 8px; font-size: 12px; white-space: nowrap; }
-      .navbar__actions .btn--outline { display: none; }
-      .navbar__actions .btn--primary { padding: 8px 14px; font-size: 12px; }
+      .navbar__nav a { padding: 6px 6px; font-size: 12px; white-space: nowrap; }
+      .navbar__actions .btn--primary { padding: 8px 12px; font-size: 12px; }
     }
     @media (max-width: 768px) {
       .navbar__nav, .navbar__actions { display: none; }
@@ -294,5 +294,31 @@
     document.getElementById('mobileMenu').classList.remove('open');
   }
 </script>
+
+  <!-- Dropdown toggle JS -->
+  <script>
+    (function() {
+      var dropdowns = document.querySelectorAll('.navbar__dropdown');
+      dropdowns.forEach(function(dd) {
+        var trigger = dd.querySelector(':scope > a');
+        if (!trigger) return;
+        trigger.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          var isOpen = dd.classList.contains('open');
+          // Fermer tous les dropdowns
+          dropdowns.forEach(function(d) { d.classList.remove('open'); });
+          // Ouvrir celui-ci si il était fermé
+          if (!isOpen) dd.classList.add('open');
+        });
+      });
+      // Fermer au clic en dehors
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.navbar__dropdown')) {
+          dropdowns.forEach(function(d) { d.classList.remove('open'); });
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
