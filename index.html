@@ -1218,6 +1218,15 @@
       justify-content: center;
     }
 
+    /* ===========================  TABLETTE (iPad) =========================== */
+    @media (max-width: 1100px) and (min-width: 769px) {
+      .navbar__inner { gap: 16px; }
+      .navbar__nav { gap: 0; }
+      .navbar__nav a { padding: 8px 8px; font-size: 12px; white-space: nowrap; }
+      .navbar__actions .btn--outline { display: none; } /* masquer l'email, trop long */
+      .navbar__actions .btn--primary { padding: 8px 14px; font-size: 12px; }
+    }
+
     @media (max-width: 768px) {
       /* Navbar */
       .navbar { padding: 0 20px; }
@@ -1329,11 +1338,11 @@
     }
   </style>
   <!-- Favicon S.A.F.E. -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=2">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=2">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=2">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <meta name="theme-color" content="#0A1128">
 </head>
 <body>
