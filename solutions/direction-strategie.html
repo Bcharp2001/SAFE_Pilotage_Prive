@@ -699,5 +699,32 @@
     }
   }
 </script>
+
+  <!-- Dropdown toggle JS -->
+  <script>
+    (function() {
+      var dropdowns = document.querySelectorAll('.navbar__dropdown');
+      dropdowns.forEach(function(dd) {
+        var trigger = dd.querySelector('a');
+        trigger.addEventListener('click', function(e) {
+          // Si le lien a un vrai href (pas #), laisser naviguer
+          var href = trigger.getAttribute('href');
+          if (href && href !== '#') return;
+          e.preventDefault();
+          var isOpen = dd.classList.contains('open');
+          // Fermer tous les dropdowns
+          dropdowns.forEach(function(d) { d.classList.remove('open'); });
+          // Ouvrir celui-ci si il était fermé
+          if (!isOpen) dd.classList.add('open');
+        });
+      });
+      // Fermer au clic en dehors
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.navbar__dropdown')) {
+          dropdowns.forEach(function(d) { d.classList.remove('open'); });
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
