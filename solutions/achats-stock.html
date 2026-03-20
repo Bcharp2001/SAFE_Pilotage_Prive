@@ -215,6 +215,15 @@
     .success-recap__value { color: var(--white); font-weight: 600; }
 
     /* RESPONSIVE */
+    /* Tablette (iPad) */
+    @media (max-width: 1100px) and (min-width: 769px) {
+      .navbar__inner { gap: 16px; }
+      .navbar__nav { gap: 0; }
+      .navbar__nav a { padding: 8px 8px; font-size: 12px; white-space: nowrap; }
+      .navbar__actions .btn--outline { display: none; }
+      .navbar__actions .btn--primary { padding: 8px 14px; font-size: 12px; }
+    }
+
     @media (max-width: 768px) {
       .container { padding: 0 20px; }
       .section { padding: 60px 0; }
