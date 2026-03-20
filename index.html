@@ -243,6 +243,41 @@
     .navbar__actions { display: flex; align-items: center; gap: 12px; }
     .navbar__actions .btn { padding: 10px 20px; font-size: 14px; }
 
+    /* DROPDOWN SOLUTIONS */
+    .navbar__dropdown { position: relative; }
+    .navbar__dropdown > a { display: flex; align-items: center; gap: 6px; }
+    .navbar__dropdown > a::after { content: '▾'; font-size: 10px; opacity: 0.6; transition: var(--transition); }
+    .navbar__dropdown:hover > a::after { opacity: 1; transform: rotate(180deg); }
+    .navbar__dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--navy-mid);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-md);
+      padding: 8px;
+      min-width: 240px;
+      box-shadow: var(--shadow-lg);
+      z-index: 200;
+    }
+    .navbar__dropdown:hover .navbar__dropdown-menu { display: block; }
+    .navbar__dropdown-menu a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+    .navbar__dropdown-menu a:hover { background: rgba(37,99,235,0.15); color: var(--white); }
+    .navbar__dropdown-menu .dropdown-divider { height: 1px; background: rgba(255,255,255,0.06); margin: 6px 0; }
+
     /* ===========================  HERO  =========================== */
     .hero {
       min-height: 100vh;
@@ -1309,6 +1344,18 @@
     <ul class="navbar__nav">
       <li><a href="#architecture">Architecture</a></li>
       <li><a href="#methode">Méthode RAG-Q</a></li>
+      <li class="navbar__dropdown">
+        <a href="#">Solutions</a>
+        <div class="navbar__dropdown-menu">
+          <a href="solutions/direction-strategie.html">👑 Direction / Stratégie</a>
+          <a href="solutions/commercial.html">📈 Ventes / Commercial</a>
+          <a href="solutions/rh-paie.html">👥 Ressources Humaines</a>
+          <a href="solutions/finance-comptabilite.html">📊 Comptabilité / Finance</a>
+          <a href="solutions/juridique-compliance.html">⚖️ Juridique / Compliance</a>
+          <a href="solutions/operations.html">📋 Opérations / Savoir</a>
+          <a href="solutions/achats-stock.html">📦 Achats / Stock</a>
+        </div>
+      </li>
       <li><a href="#benefices">Bénéfices</a></li>
       <li><a href="a-propos.html">À propos</a></li>
     </ul>
@@ -1326,6 +1373,13 @@
 <div class="navbar__mobile-menu" id="mobileMenu">
   <a href="#architecture" onclick="closeMobileMenu()">Architecture</a>
   <a href="#methode" onclick="closeMobileMenu()">Méthode RAG-Q™</a>
+  <a href="solutions/direction-strategie.html" onclick="closeMobileMenu()">👑 Direction / Stratégie</a>
+  <a href="solutions/commercial.html" onclick="closeMobileMenu()">📈 Ventes / Commercial</a>
+  <a href="solutions/rh-paie.html" onclick="closeMobileMenu()">👥 Ressources Humaines</a>
+  <a href="solutions/finance-comptabilite.html" onclick="closeMobileMenu()">📊 Comptabilité / Finance</a>
+  <a href="solutions/juridique-compliance.html" onclick="closeMobileMenu()">⚖️ Juridique / Compliance</a>
+  <a href="solutions/operations.html" onclick="closeMobileMenu()">📋 Opérations / Savoir</a>
+  <a href="solutions/achats-stock.html" onclick="closeMobileMenu()">📦 Achats / Stock</a>
   <a href="#benefices" onclick="closeMobileMenu()">Bénéfices</a>
   <a href="a-propos.html" onclick="closeMobileMenu()">À propos</a>
   <a href="#" class="btn btn--primary" onclick="closeMobileMenu(); openModal(event);">Demander une démo</a>
