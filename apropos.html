@@ -1,119 +1,991 @@
 <!DOCTYPE html>
-<html lang="fr" class="dark-theme">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À propos | S.A.F.E. Pilotage Privé</title>
-    
-    <meta name="description" content="Bertrand Charpilloz, Ingénieur Conseil en Organisation et Gestion d'Entreprise, créateur de S.A.F.E. Pilotage Privé.">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>À propos — Bertrand Charpilloz | S.A.F.E. Pilotage Privé</title>
+  <meta name="description" content="Bertrand Charpilloz, Concepteur & Fondateur de S.A.F.E. Pilotage Privé. Conseil en structuration, méthode et intelligence artificielle pour les organisations exigeantes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* ===========================
+       DESIGN SYSTEM — "PRÉCISION SOUVERAINE"
+       Identique à index.html
+    =========================== */
+
+    :root {
+      --navy:       #0A1128;
+      --navy-mid:   #0F1E3D;
+      --navy-light: #162347;
+      --blue:       #2563EB;
+      --blue-light: #3B82F6;
+      --blue-glow:  rgba(37, 99, 235, 0.25);
+      --gold:       #D4A373;
+      --gold-light: #E8C99A;
+      --white:      #FFFFFF;
+      --off-white:  #F8FAFC;
+      --gray-100:   #F1F5F9;
+      --gray-200:   #E2E8F0;
+      --gray-400:   #94A3B8;
+      --gray-600:   #475569;
+      --gray-800:   #1E293B;
+      --text-dark:  #0F172A;
+      --success:    #10B981;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+      --font-mono:    'Space Mono', 'Courier New', monospace;
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-xl: 32px;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+      --shadow-md: 0 8px 32px rgba(0,0,0,0.12);
+      --shadow-lg: 0 24px 64px rgba(0,0,0,0.18);
+      --shadow-glow: 0 0 40px rgba(37, 99, 235, 0.3);
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text-dark);
+      background: var(--off-white);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ===========================  UTILITIES  =========================== */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+
+    h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; }
+    h1 { font-size: clamp(36px, 5vw, 64px); font-weight: 900; letter-spacing: -0.01em; }
+    h2 { font-size: clamp(26px, 3.5vw, 42px); font-weight: 700; letter-spacing: -0.01em; }
+    h3 { font-size: clamp(18px, 2.5vw, 22px); font-weight: 600; }
+    h4 { font-size: 16px; font-weight: 600; }
+
+    .text-blue  { color: var(--blue-light); }
+    .text-gold  { color: var(--gold); }
+    .text-muted { color: var(--gray-400); }
+    .accent { color: var(--blue-light); font-style: italic; }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .label--gold {
+      background: rgba(212, 163, 115, 0.12);
+      color: var(--gold);
+      border: 1px solid rgba(212, 163, 115, 0.3);
+    }
+    .label--blue {
+      background: rgba(37, 99, 235, 0.12);
+      color: var(--blue-light);
+      border: 1px solid rgba(37, 99, 235, 0.3);
+    }
+    .label .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    /* ===========================  BUTTONS  =========================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+    }
+    .btn--primary {
+      background: var(--blue);
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35);
+    }
+    .btn--primary:hover {
+      background: var(--blue-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(37, 99, 235, 0.45);
+    }
+    .btn--outline {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255,255,255,0.25);
+    }
+    .btn--outline:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.5);
+    }
+    .btn--outline-dark {
+      background: transparent;
+      color: var(--text-dark);
+      border: 1.5px solid var(--gray-200);
+    }
+    .btn--outline-dark:hover {
+      background: var(--gray-100);
+      border-color: var(--gray-400);
+    }
+
+    /* ===========================  NAVBAR  =========================== */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(10, 17, 40, 0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: var(--transition);
+    }
+    .navbar__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+    .navbar__logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .navbar__logo-icon {
+      width: 40px; height: 40px;
+      background: var(--blue);
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.05em;
+    }
+    .navbar__logo-text {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+    }
+    .navbar__logo-sub {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-top: 3px;
+    }
+    .navbar__nav {
+      display: flex;
+      list-style: none;
+      gap: 8px;
+      margin-left: auto;
+    }
+    .navbar__nav a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+    .navbar__nav a:hover,
+    .navbar__nav a.active {
+      color: var(--white);
+      background: rgba(255,255,255,0.06);
+    }
+    .navbar__actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .navbar__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      margin-left: auto;
+    }
+    .navbar__hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+    .navbar__hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .navbar__hamburger.open span:nth-child(2) { opacity: 0; }
+    .navbar__hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ===========================  MOBILE MENU  =========================== */
+    .navbar__mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      padding: 16px 24px 24px;
+      background: var(--navy);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .navbar__mobile-menu.open { display: flex; }
+    .navbar__mobile-menu a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+    .navbar__mobile-menu a:hover { background: rgba(255,255,255,0.06); color: var(--white); }
+    .navbar__mobile-menu .btn { margin-top: 8px; justify-content: center; }
+
+    /* ===========================  HERO À PROPOS  =========================== */
+    .about-hero {
+      background: var(--navy);
+      padding: 140px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-hero__bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .about-hero__grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(37,99,235,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37,99,235,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .about-hero__glow {
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(37,99,235,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .about-hero__content {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    /* ===========================  PHOTO  =========================== */
+    .about-photo-wrap {
+      position: relative;
+    }
+    .about-photo-frame {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg), 0 0 60px rgba(37,99,235,0.15);
+    }
+    .about-photo-frame::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(10,17,40,0.6) 100%);
+      z-index: 1;
+    }
+    .about-photo-frame img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .about-photo-badge {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      z-index: 2;
+      background: rgba(10,17,40,0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(212,163,115,0.3);
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+    }
+    .about-photo-badge__name {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .about-photo-badge__title {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 3px;
+    }
+    .about-photo-deco {
+      position: absolute;
+      top: -16px; left: -16px;
+      width: 80px; height: 80px;
+      border-top: 2px solid var(--gold);
+      border-left: 2px solid var(--gold);
+      border-radius: 4px 0 0 0;
+      opacity: 0.5;
+    }
+    .about-photo-deco-br {
+      position: absolute;
+      bottom: -16px; right: -16px;
+      width: 80px; height: 80px;
+      border-bottom: 2px solid var(--blue);
+      border-right: 2px solid var(--blue);
+      border-radius: 0 0 4px 0;
+      opacity: 0.5;
+    }
+
+    /* ===========================  BIO  =========================== */
+    .about-bio {
+      color: var(--white);
+    }
+    .about-bio h1 {
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .about-bio__subtitle {
+      font-family: var(--font-display);
+      font-size: clamp(18px, 2vw, 22px);
+      font-style: italic;
+      color: var(--blue-light);
+      margin-bottom: 32px;
+      line-height: 1.4;
+    }
+    .about-bio__text {
+      font-size: 16px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 20px;
+    }
+    .about-bio__text strong { color: var(--white); }
+    .about-bio__text em { color: var(--gold-light); font-style: italic; }
+
+    /* ===========================  CONVICTION  =========================== */
+    .conviction-block {
+      margin: 36px 0;
+      padding: 24px 28px;
+      background: rgba(37,99,235,0.08);
+      border-left: 3px solid var(--blue-light);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+    .conviction-block__label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .conviction-block__quote {
+      font-family: var(--font-display);
+      font-size: clamp(16px, 2vw, 20px);
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.5;
+    }
+
+    /* ===========================  CTA CONTACT  =========================== */
+    .about-bio__cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    /* ===========================  SECTION VALEURS  =========================== */
+    .values-section {
+      background: var(--white);
+      padding: 100px 0;
+    }
+    .values-section__header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 64px;
+    }
+    .values-section__header h2 { margin-bottom: 16px; }
+    .values-section__header p {
+      font-size: 17px;
+      color: var(--gray-600);
+      line-height: 1.7;
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .value-card {
+      padding: 36px 28px;
+      background: var(--off-white);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--gray-200);
+      transition: var(--transition);
+    }
+    .value-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(37,99,235,0.2);
+    }
+    .value-card__icon {
+      width: 52px; height: 52px;
+      background: rgba(37,99,235,0.08);
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .value-card h3 {
+      font-size: 18px;
+      margin-bottom: 12px;
+      color: var(--text-dark);
+    }
+    .value-card p {
+      font-size: 15px;
+      color: var(--gray-600);
+      line-height: 1.7;
+    }
+
+    /* ===========================  SECTION PARCOURS  =========================== */
+    .parcours-section {
+      background: var(--navy);
+      padding: 100px 0;
+      color: var(--white);
+    }
+    .parcours-section__header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 64px;
+    }
+    .parcours-section__header h2 { color: var(--white); margin-bottom: 16px; }
+    .parcours-section__header p { color: rgba(255,255,255,0.6); font-size: 17px; }
+
+    .timeline {
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(180deg, var(--blue) 0%, rgba(37,99,235,0.1) 100%);
+    }
+    .timeline-item {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 48px;
+      position: relative;
+    }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-dot {
+      flex-shrink: 0;
+      width: 40px; height: 40px;
+      background: var(--navy-mid);
+      border: 2px solid var(--blue);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .timeline-dot--gold { border-color: var(--gold); }
+    .timeline-content {
+      flex: 1;
+      padding-top: 6px;
+    }
+    .timeline-content__year {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .timeline-content h3 {
+      font-size: 18px;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .timeline-content p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+    }
+
+    /* ===========================  SECTION KPI  =========================== */
+    .kpi-section {
+      background: var(--navy-mid);
+      padding: 80px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+    .kpi-card {
+      padding: 40px 32px;
+      text-align: center;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+    }
+    .kpi-card:hover { background: rgba(37,99,235,0.06); }
+    .kpi-card__value {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .kpi-card__value span { color: var(--blue-light); }
+    .kpi-card__label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+    }
+
+    /* ===========================  SECTION CTA FINAL  =========================== */
+    .about-cta {
+      background: var(--navy);
+      padding: 100px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-cta__glow {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, rgba(37,99,235,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .about-cta__inner {
+      position: relative;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .about-cta h2 { color: var(--white); margin-bottom: 20px; }
+    .about-cta p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+    .about-cta__btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ===========================  FOOTER  =========================== */
+    .footer {
+      background: var(--gray-800);
+      color: rgba(255,255,255,0.5);
+      padding: 48px 0 32px;
+    }
+    .footer__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .footer__logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .footer__logo-icon {
+      width: 32px; height: 32px;
+      background: var(--blue);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .footer__logo-text {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.8);
+    }
+    .footer__links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .footer__links a {
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      font-size: 13px;
+      transition: var(--transition);
+    }
+    .footer__links a:hover { color: rgba(255,255,255,0.8); }
+    .footer__copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ===========================  FADE IN  =========================== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in-delay-1 { transition-delay: 0.15s; }
+    .fade-in-delay-2 { transition-delay: 0.3s; }
+    .fade-in-delay-3 { transition-delay: 0.45s; }
+
+    /* ===========================  RESPONSIVE  =========================== */
+    @media (max-width: 900px) {
+      .about-hero__content {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .about-photo-frame img { height: 380px; }
+      .values-grid { grid-template-columns: 1fr 1fr; }
+      .kpi-grid { grid-template-columns: 1fr 1fr; }
+      .navbar__nav,
+      .navbar__actions { display: none; }
+      .navbar__hamburger { display: flex; }
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 0 20px; }
+      .about-hero { padding: 120px 0 60px; }
+      .values-grid { grid-template-columns: 1fr; }
+      .kpi-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .about-bio__cta { flex-direction: column; }
+      .about-cta__btns { flex-direction: column; align-items: center; }
+      .footer__inner { flex-direction: column; text-align: center; }
+      .footer__links { justify-content: center; }
+      .timeline::before { left: 16px; }
+      .timeline-dot { width: 32px; height: 32px; font-size: 13px; }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <header class="navbar">
-        <div class="container navbar-container">
-            <div class="logo">
-                <a href="index.html" style="display: flex; align-items: center; text-decoration: none; color: inherit; gap: 1rem;">
-                    <img src="data/images/logo_safe_pilotage_prive.jpg" alt="S.A.F.E. Logo">
-                    <div style="display: flex; flex-direction: column;">
-                        <span class="logo-text">S.A.F.E.</span>
-                        <span class="logo-span">PILOTAGE PRIVÉ</span>
-                    </div>
-                </a>
-            </div>
-            <div class="nav-links">
-                <a href="index.html#solution">Architecture</a>
-                <a href="index.html#ragq">Méthode RAG-Q</a>
-                <a href="index.html#benefices">Bénéfices Métiers</a>
-                <a href="apropos.html" style="color: var(--primary);">À propos</a>
-                <a href="mailto:contact@safe-pilotage-prive.fr" class="btn btn-outline">contact@safe-pilotage-prive.fr</a>
-                <a href="index.html#contact" class="btn btn-primary">Demander une démo</a>
-            </div>
-            <button class="menu-toggle" aria-label="Menu">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-            </button>
+<!-- ===========================  NAVBAR  =========================== -->
+<nav class="navbar">
+  <div class="navbar__inner">
+    <a href="index.html" class="navbar__logo">
+      <div class="navbar__logo-icon">S.F.</div>
+      <div>
+        <span class="navbar__logo-text">S.A.F.E.</span>
+        <span class="navbar__logo-sub">Pilotage Privé</span>
+      </div>
+    </a>
+    <ul class="navbar__nav">
+      <li><a href="index.html#architecture">Architecture</a></li>
+      <li><a href="index.html#methode">Méthode RAG-Q</a></li>
+      <li><a href="index.html#benefices">Bénéfices</a></li>
+      <li><a href="a-propos.html" class="active">À propos</a></li>
+    </ul>
+    <div class="navbar__actions">
+      <a href="mailto:contact@safe-pilotage-prive.fr" class="btn btn--outline" style="padding:10px 16px;font-size:13px;">contact@safe-pilotage-prive.fr</a>
+      <a href="index.html#" class="btn btn--primary" onclick="window.location.href='index.html'; return false;">Demander une démo</a>
+    </div>
+    <button class="navbar__hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===========================  MOBILE MENU  =========================== -->
+<div class="navbar__mobile-menu" id="mobileMenu">
+  <a href="index.html#architecture" onclick="closeMobileMenu()">Architecture</a>
+  <a href="index.html#methode" onclick="closeMobileMenu()">Méthode RAG-Q™</a>
+  <a href="index.html#benefices" onclick="closeMobileMenu()">Bénéfices</a>
+  <a href="a-propos.html" class="active" onclick="closeMobileMenu()">À propos</a>
+  <a href="index.html" class="btn btn--primary" onclick="closeMobileMenu()">Demander une démo</a>
+</div>
+
+<!-- ===========================  HERO BIOGRAPHIE  =========================== -->
+<section class="about-hero">
+  <div class="about-hero__bg">
+    <div class="about-hero__grid"></div>
+    <div class="about-hero__glow"></div>
+  </div>
+  <div class="container">
+    <div class="about-hero__content">
+
+      <!-- Photo -->
+      <div class="about-photo-wrap fade-in">
+        <div class="about-photo-deco"></div>
+        <div class="about-photo-deco-br"></div>
+        <div class="about-photo-frame">
+          <img
+            src="https://res.cloudinary.com/dyhupsoe8/image/upload/v1770672012/Bertrand_Charpilloz_Portrait_lfjnfi.png"
+            alt="Bertrand Charpilloz — Concepteur & Fondateur S.A.F.E. Pilotage Privé"
+            loading="eager"
+          />
+          <div class="about-photo-badge">
+            <div class="about-photo-badge__name">Bertrand Charpilloz</div>
+            <div class="about-photo-badge__title">Concepteur & Fondateur</div>
+          </div>
         </div>
-    </header>
+      </div>
 
-    <!-- Bio Section -->
-    <section class="py-xxl" style="padding-top: 14rem; padding-bottom: 8rem; min-height: 80vh; display: flex; align-items: center;">
-        <div class="container layout-split" style="gap: 5rem;">
-            <div class="split-visual" style="text-align: right;">
-                <div class="visual-block" style="box-shadow: 0 0 60px rgba(56, 189, 248, 0.08); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; overflow: hidden; max-width: 440px; margin-left: auto; background: var(--bg-surface);">
-                    <img src="https://res.cloudinary.com/dyhupsoe8/image/upload/v1770672012/Bertrand_Charpilloz_Portrait_lfjnfi.png" alt="Bertrand Charpilloz" style="width: 100%; height: auto; display: block; filter: contrast(1.05) brightness(0.95); opacity: 0.9;">
-                </div>
-            </div>
+      <!-- Bio -->
+      <div class="about-bio fade-in fade-in-delay-1">
+        <div class="label label--gold"><span class="dot"></span> Concepteur & Fondateur</div>
+        <h1>Bertrand<br><span class="accent">Charpilloz</span></h1>
+        <p class="about-bio__subtitle">Conseil en structuration, méthode<br>et intelligence artificielle</p>
 
-            <div class="split-content">
-                <div class="ragq-badge" style="margin-bottom: 1.5rem;">CONCEPTEUR & FONDATEUR</div>
-                <h1 style="font-size: 2.8rem; font-weight: 500; margin-bottom: 0.25rem; letter-spacing: -0.02em;">Bertrand Charpilloz</h1>
-                <h2 style="color: var(--primary); font-size: 1.35rem; font-weight: 400; margin-bottom: 2.5rem; letter-spacing: 0.01em;">Conseil en structuration, méthode et intelligence artificielle</h2>
-                
-                <p style="font-size: 1.15rem; color: #CBD5E1; line-height: 1.7; margin-bottom: 1.5rem; font-weight: 300;">
-                    Spécialisé en intelligence artificielle pour les entreprises, j'accompagne en direct les structures exigeantes qui veulent franchir le cap technologique sans jamais sacrifier la rigueur de leurs opérations.
-                </p>
-                <p style="font-size: 1.15rem; color: #CBD5E1; line-height: 1.7; font-weight: 300;">
-                    J'ai développé <strong>S.A.F.E. Pilotage Privé</strong> face à un constat clair : les métiers d'expertise ne peuvent se permettre une adoption floue de l'intelligence artificielle. Pour en tirer un véritable bénéfice stratégique, les organisations exigent une machine encadrée, une méthode sécurisée et une <em>souveraineté maîtrisée</em>.
-                </p>
+        <p class="about-bio__text">
+          Spécialisé en intelligence artificielle pour les entreprises, j'accompagne en direct les structures exigeantes qui veulent franchir le cap technologique sans jamais sacrifier la rigueur de leurs opérations.
+        </p>
+        <p class="about-bio__text">
+          J'ai développé <strong>S.A.F.E. Pilotage Privé</strong> face à un constat clair : les métiers d'expertise ne peuvent se permettre une adoption floue de l'intelligence artificielle. Pour en tirer un véritable bénéfice stratégique, les organisations exigent une machine encadrée, une méthode sécurisée et une <em>souveraineté maîtrisée.</em>
+        </p>
 
-                <div style="margin-top: 2.5rem; padding: 1.5rem 2rem; border-left: 3px solid var(--primary); background: rgba(56, 189, 248, 0.05); border-radius: 0 8px 8px 0;">
-                    <div style="font-size: 0.85rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem; letter-spacing: 0.05em; text-transform: uppercase;">Ma conviction</div>
-                    <p style="font-size: 1.25rem; color: var(--text-white); font-style: italic; font-weight: 400; line-height: 1.5; margin: 0;">
-                        « L’IA n’a de valeur en entreprise que si elle est encadrée, gouvernée et mise au service d’une méthode claire. »
-                    </p>
-                </div>
-
-                <div class="mt-lg" style="margin-top: 3rem;">
-                    <a href="mailto:contact@safe-pilotage-prive.fr" class="btn btn-secondary" style="font-size: 1.05rem; padding: 1rem 2.5rem;">Me contacter en direct</a>
-                </div>
-            </div>
+        <div class="conviction-block">
+          <div class="conviction-block__label">Ma conviction</div>
+          <div class="conviction-block__quote">
+            « L'IA n'a de valeur en entreprise que si elle est encadrée, gouvernée et mise au service d'une méthode claire. »
+          </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container text-center">
-            <div class="logo-text mb-sm" style="font-size: 1.25rem;">S.A.F.E. PILOTAGE PRIVÉ</div>
-            <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 2rem;">Cockpit d'intelligence opérationnelle pour structures exigeantes.</p>
-            
-            <div style="display: flex; justify-content: center; gap: 2.5rem; margin-bottom: 2.5rem; color: #CBD5E1; font-size: 0.9rem; font-weight: 500;">
-                <span style="display: flex; align-items: center; gap: 0.5rem;"><svg width="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> Conforme RGPD</span>
-                <span style="display: flex; align-items: center; gap: 0.5rem;"><svg width="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg> Ingénierie Française</span>
-            </div>
-
-            <div class="footer-links" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.5rem;">
-                <a href="mailto:contact@safe-pilotage-prive.fr" style="color: var(--text-white); font-weight: 500; font-size: 1rem; letter-spacing: 0.03em;">contact@safe-pilotage-prive.fr</a>
-                <span class="separator" style="margin: 0 0.5rem; color: rgba(255,255,255,0.1);">|</span>
-                <a href="mentions-legales.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">Mentions Légales & Confidentialité</a>
-                <span class="separator" style="margin: 0 0.5rem; color: rgba(255,255,255,0.1);">|</span>
-                <span style="font-size: 0.9rem;">© 2026 S.A.F.E. Pilotage Privé — Tous droits réservés</span>
-            </div>
+        <div class="about-bio__cta">
+          <a href="mailto:contact@safe-pilotage-prive.fr" class="btn btn--primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Me contacter en direct
+          </a>
+          <a href="index.html" class="btn btn--outline">
+            Découvrir S.A.F.E.
+          </a>
         </div>
-    </footer>
+      </div>
 
-    <script>
-        // Mobile Menu Toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinksMenu = document.querySelector('.nav-links');
-        const navItems = document.querySelectorAll('.nav-links a');
-        
-        if (menuToggle) {
-            menuToggle.addEventListener('click', () => {
-                navLinksMenu.classList.toggle('active');
-            });
-            navItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    navLinksMenu.classList.remove('active');
-                });
-            });
-        }
-    </script>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================  KPI  =========================== -->
+<section class="kpi-section">
+  <div class="container">
+    <div class="kpi-grid">
+      <div class="kpi-card fade-in">
+        <div class="kpi-card__value"><span>100</span>%</div>
+        <div class="kpi-card__label">Souveraineté des données</div>
+      </div>
+      <div class="kpi-card fade-in fade-in-delay-1">
+        <div class="kpi-card__value"><span>0</span>ms</div>
+        <div class="kpi-card__label">Latence réseau externe</div>
+      </div>
+      <div class="kpi-card fade-in fade-in-delay-2">
+        <div class="kpi-card__value"><span>3</span>×</div>
+        <div class="kpi-card__label">Agents coordonnés</div>
+      </div>
+      <div class="kpi-card fade-in fade-in-delay-3">
+        <div class="kpi-card__value">∞</div>
+        <div class="kpi-card__label">Traçabilité des sources</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================  VALEURS  =========================== -->
+<section class="values-section">
+  <div class="container">
+    <div class="values-section__header fade-in">
+      <div class="label label--blue"><span class="dot"></span> Principes fondateurs</div>
+      <h2>Ce qui guide chaque déploiement S.A.F.E.</h2>
+      <p>Trois convictions opérationnelles qui ne souffrent d'aucun compromis, quelle que soit la taille de la structure accompagnée.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card fade-in">
+        <div class="value-card__icon">🔒</div>
+        <h3>Souveraineté absolue</h3>
+        <p>Vos données stratégiques — contrats, bilans, fiches de paie — ne quittent jamais votre périmètre. L'IA opère en circuit fermé, sans aucune transmission externe.</p>
+      </div>
+      <div class="value-card fade-in fade-in-delay-1">
+        <div class="value-card__icon">⚖️</div>
+        <h3>Gouvernance humaine</h3>
+        <p>La machine prépare, structure et alerte. Mais l'arbitrage final reste toujours entre vos mains. Vous êtes le commandant à l'arrivée, sans exception.</p>
+      </div>
+      <div class="value-card fade-in fade-in-delay-2">
+        <div class="value-card__icon">🎯</div>
+        <h3>Méthode avant tout</h3>
+        <p>S.A.F.E. n'est pas un outil générique. C'est une infrastructure méthodologique conçue sur mesure pour les organisations qui ne peuvent pas se permettre l'à-peu-près.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================  PARCOURS  =========================== -->
+<section class="parcours-section">
+  <div class="container">
+    <div class="parcours-section__header fade-in">
+      <div class="label label--gold"><span class="dot"></span> Parcours</div>
+      <h2>De la structuration à l'IA souveraine.</h2>
+      <p>Un chemin cohérent, construit autour d'une seule obsession : aider les organisations exigeantes à mieux fonctionner.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot">🏢</div>
+        <div class="timeline-content">
+          <div class="timeline-content__year">Fondation</div>
+          <h3>Conseil en structuration d'entreprise</h3>
+          <p>Accompagnement de PME et structures en croissance sur leur organisation interne, leurs processus opérationnels et leur gouvernance documentaire.</p>
+        </div>
+      </div>
+      <div class="timeline-item fade-in fade-in-delay-1">
+        <div class="timeline-dot timeline-dot--gold">🤖</div>
+        <div class="timeline-content">
+          <div class="timeline-content__year">Transition IA</div>
+          <h3>Spécialisation en intelligence artificielle appliquée</h3>
+          <p>Exploration et maîtrise des architectures RAG, des agents IA et des infrastructures locales souveraines. Conviction que l'IA doit être encadrée pour créer de la valeur réelle.</p>
+        </div>
+      </div>
+      <div class="timeline-item fade-in fade-in-delay-2">
+        <div class="timeline-dot">🚀</div>
+        <div class="timeline-content">
+          <div class="timeline-content__year">Création S.A.F.E.</div>
+          <h3>Lancement de S.A.F.E. Pilotage Privé</h3>
+          <p>Développement d'une solution clé en main combinant infrastructure souveraine, équipe d'agents IA spécialisés et méthode RAG-Q™. Déployée sur Antigravity avec hébergement cloud européen.</p>
+        </div>
+      </div>
+      <div class="timeline-item fade-in fade-in-delay-3">
+        <div class="timeline-dot timeline-dot--gold">🎯</div>
+        <div class="timeline-content">
+          <div class="timeline-content__year">Aujourd'hui</div>
+          <h3>Déploiements sur mesure pour PME exigeantes</h3>
+          <p>Audit des besoins, installation du conteneur, création de l'équipe d'agents et des skills métiers, formation des équipes. De 5 000 à 20 000 € selon la complexité du projet.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================  CTA FINAL  =========================== -->
+<section class="about-cta">
+  <div class="about-cta__glow"></div>
+  <div class="container">
+    <div class="about-cta__inner fade-in">
+      <div class="label label--blue" style="margin-bottom:24px;"><span class="dot"></span> Prêt à déployer S.A.F.E. ?</div>
+      <h2>Discutons de votre structure<br>et de vos besoins réels.</h2>
+      <p>Un échange direct et confidentiel pour évaluer la faisabilité et l'adéquation de S.A.F.E. à votre organisation. Réponse sous 24h ouvrées.</p>
+      <div class="about-cta__btns">
+        <a href="mailto:contact@safe-pilotage-prive.fr" class="btn btn--primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          contact@safe-pilotage-prive.fr
+        </a>
+        <a href="index.html" class="btn btn--outline">
+          Retour à l'accueil
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================  FOOTER  =========================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <a href="index.html" class="footer__logo">
+        <div class="footer__logo-icon">S.F.</div>
+        <span class="footer__logo-text">S.A.F.E. Pilotage Privé</span>
+      </a>
+      <div class="footer__links">
+        <a href="index.html#architecture">Architecture</a>
+        <a href="index.html#methode">Méthode RAG-Q™</a>
+        <a href="index.html#benefices">Bénéfices</a>
+        <a href="a-propos.html">À propos</a>
+        <a href="mailto:contact@safe-pilotage-prive.fr">Contact</a>
+      </div>
+      <div class="footer__copy">© 2026 S.A.F.E. Pilotage Privé — Ingénierie Française</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── NAVBAR SCROLL ──────────────────────────────────────────────────────────
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.navbar');
+    nav.style.background = window.scrollY > 20
+      ? 'rgba(10, 17, 40, 0.98)'
+      : 'rgba(10, 17, 40, 0.92)';
+  });
+
+  // ── MOBILE MENU ───────────────────────────────────────────────────────────
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const btn  = document.getElementById('hamburgerBtn');
+    menu.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+  function closeMobileMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.getElementById('hamburgerBtn').classList.remove('open');
+  }
+
+  // ── FADE IN ON SCROLL ─────────────────────────────────────────────────────
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
