@@ -1,509 +1,1792 @@
 <!DOCTYPE html>
-<html lang="fr" class="dark-theme">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S.A.F.E. Pilotage Privé | Cockpit Opérationnel & IA Souveraine</title>
-    
-    <meta name="description" content="S.A.F.E. ajoute une couche d'intelligence locale fiable au-dessus de vos outils existants. Automatisez les tâches chronophages et sécurisez vos données.">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>S.A.F.E. Pilotage Privé | Cockpit Opérationnel & IA Souveraine — Refonte Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* ===========================
+       DESIGN SYSTEM — "PRÉCISION SOUVERAINE"
+       Directeur Artistique : Manus AI
+    =========================== */
+
+    :root {
+      --navy:       #0A1128;
+      --navy-mid:   #0F1E3D;
+      --navy-light: #162347;
+      --blue:       #2563EB;
+      --blue-light: #3B82F6;
+      --blue-glow:  rgba(37, 99, 235, 0.25);
+      --gold:       #D4A373;
+      --gold-light: #E8C99A;
+      --white:      #FFFFFF;
+      --off-white:  #F8FAFC;
+      --gray-100:   #F1F5F9;
+      --gray-200:   #E2E8F0;
+      --gray-400:   #94A3B8;
+      --gray-600:   #475569;
+      --gray-800:   #1E293B;
+      --text-dark:  #0F172A;
+      --success:    #10B981;
+      --danger:     #EF4444;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+      --font-mono:    'Space Mono', 'Courier New', monospace;
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-xl: 32px;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+      --shadow-md: 0 8px 32px rgba(0,0,0,0.12);
+      --shadow-lg: 0 24px 64px rgba(0,0,0,0.18);
+      --shadow-glow: 0 0 40px rgba(37, 99, 235, 0.3);
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text-dark);
+      background: var(--off-white);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ===========================  UTILITIES  =========================== */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .section { padding: 100px 0; }
+    .section--dark { background: var(--navy); color: var(--white); }
+    .section--mid { background: var(--navy-mid); color: var(--white); }
+    .section--light { background: var(--off-white); }
+    .section--white { background: var(--white); }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .label--blue {
+      background: rgba(37, 99, 235, 0.12);
+      color: var(--blue-light);
+      border: 1px solid rgba(37, 99, 235, 0.3);
+    }
+    .label--gold {
+      background: rgba(212, 163, 115, 0.12);
+      color: var(--gold);
+      border: 1px solid rgba(212, 163, 115, 0.3);
+    }
+    .label--white {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .label .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; }
+
+    h1 { font-size: clamp(40px, 6vw, 72px); font-weight: 900; letter-spacing: -0.01em; font-style: normal; }
+    h2 { font-size: clamp(28px, 4vw, 48px); font-weight: 700; letter-spacing: -0.01em; }
+    h3 { font-size: clamp(18px, 2.5vw, 24px); font-weight: 600; letter-spacing: -0.005em; }
+    h4 { font-size: 16px; font-weight: 600; }
+
+    .text-blue { color: var(--blue-light); }
+    .text-gold { color: var(--gold); }
+    .text-muted { color: var(--gray-400); }
+    .text-center { text-align: center; }
+
+    /* ===========================  BUTTONS  =========================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+    .btn--primary {
+      background: var(--blue);
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+    }
+    .btn--primary:hover {
+      background: var(--blue-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(37, 99, 235, 0.5);
+    }
+    .btn--outline {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255,255,255,0.3);
+    }
+    .btn--outline:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.6);
+      transform: translateY(-2px);
+    }
+    .btn--outline-blue {
+      background: transparent;
+      color: var(--blue);
+      border: 1.5px solid var(--blue);
+    }
+    .btn--outline-blue:hover {
+      background: var(--blue);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+    .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    /* ===========================  NAVBAR  =========================== */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 32px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      background: rgba(10, 17, 40, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: var(--transition);
+    }
+    .navbar__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .navbar__logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .navbar__logo-icon {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, var(--blue), #1E40AF);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 500;
+      color: white;
+      letter-spacing: -0.05em;
+    }
+    .navbar__logo-text {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.02em;
+    }
+    .navbar__logo-sub {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--gray-400);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: block;
+      margin-top: -2px;
+    }
+    .navbar__nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+    }
+    .navbar__nav a {
+      padding: 8px 14px;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+    .navbar__nav a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+    .navbar__actions { display: flex; align-items: center; gap: 12px; }
+    .navbar__actions .btn { padding: 10px 20px; font-size: 14px; }
+
+    /* ===========================  HERO  =========================== */
+    .hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 72px;
+    }
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    .hero__grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(37, 99, 235, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37, 99, 235, 0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero__glow-1 {
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.18) 0%, transparent 70%);
+      top: -100px; right: -100px;
+    }
+    .hero__glow-2 {
+      position: absolute;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212, 163, 115, 0.08) 0%, transparent 70%);
+      bottom: 100px; left: 10%;
+    }
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      padding: 80px 0;
+    }
+    .hero__left { }
+    .hero__eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(37, 99, 235, 0.1);
+      border: 1px solid rgba(37, 99, 235, 0.25);
+      border-radius: 100px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--blue-light);
+      letter-spacing: 0.08em;
+    }
+    .hero__badge .status-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 8px var(--success);
+      animation: pulse 2s infinite;
+    }
+    .hero h1 { color: var(--white); margin-bottom: 24px; }
+    .hero h1 .accent {
+      background: linear-gradient(135deg, var(--blue-light), #60A5FA);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-style: italic;
+    }
+    .hero__sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 480px;
+    }
+    .hero__ctas {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .hero__trust {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-top: 48px;
+      padding-top: 48px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .hero__trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+    }
+    .hero__trust-item svg { color: var(--gold); width: 16px; height: 16px; }
+
+    /* Dashboard mockup */
+    .hero__right { position: relative; }
+    .hero__dashboard {
+      background: rgba(15, 30, 61, 0.8);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow-lg), 0 0 80px rgba(37, 99, 235, 0.15);
+      position: relative;
+    }
+    .hero__dashboard::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: 20px; right: 20px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--blue), transparent);
+    }
+    .dashboard__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .dashboard__title {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .dashboard__status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--success);
+    }
+    .dashboard__status::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 6px var(--success);
+    }
+    .dashboard__metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .metric-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-md);
+      padding: 14px;
+    }
+    .metric-card__label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--gray-400);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .metric-card__value {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .metric-card__delta {
+      font-size: 11px;
+      color: var(--success);
+      margin-top: 2px;
+    }
+    .dashboard__agents {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .agent-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: var(--radius-sm);
+    }
+    .agent-row__icon {
+      width: 28px; height: 28px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+    .agent-row__icon--blue { background: rgba(37, 99, 235, 0.2); }
+    .agent-row__icon--green { background: rgba(16, 185, 129, 0.2); }
+    .agent-row__icon--gold { background: rgba(212, 163, 115, 0.2); }
+    .agent-row__info { flex: 1; }
+    .agent-row__name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .agent-row__desc {
+      font-size: 10px;
+      color: var(--gray-400);
+      font-family: var(--font-mono);
+    }
+    .agent-row__status {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 100px;
+    }
+    .agent-row__status--active {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--success);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .dashboard__query {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      background: rgba(37, 99, 235, 0.08);
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      border-radius: var(--radius-sm);
+    }
+    .dashboard__query input {
+      flex: 1;
+      background: none;
+      border: none;
+      outline: none;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+    }
+    .dashboard__query-btn {
+      background: var(--blue);
+      border: none;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* ===========================  TRUST BAR  =========================== */
+    .trust-bar {
+      background: var(--navy-mid);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 20px 0;
+    }
+    .trust-bar__inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      font-weight: 500;
+    }
+    .trust-item svg { color: var(--gold); width: 18px; height: 18px; }
+    .trust-divider {
+      width: 1px; height: 24px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* ===========================  PROBLEMS  =========================== */
+    .problems { }
+    .problems__header { text-align: center; margin-bottom: 64px; }
+    .problems__header h2 { margin-bottom: 16px; }
+    .problems__header p {
+      font-size: 18px;
+      color: var(--gray-600);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .problems__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .problem-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .problem-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue), transparent);
+      opacity: 0;
+      transition: var(--transition);
+    }
+    .problem-card:hover {
+      border-color: rgba(37, 99, 235, 0.2);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+    }
+    .problem-card:hover::before { opacity: 1; }
+    .problem-card__icon {
+      width: 48px; height: 48px;
+      background: var(--gray-100);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      transition: var(--transition);
+    }
+    .problem-card:hover .problem-card__icon {
+      background: rgba(37, 99, 235, 0.1);
+    }
+    .problem-card__icon svg { width: 22px; height: 22px; color: var(--gray-600); }
+    .problem-card:hover .problem-card__icon svg { color: var(--blue); }
+    .problem-card h3 { margin-bottom: 12px; color: var(--text-dark); }
+    .problem-card p { color: var(--gray-600); font-size: 15px; line-height: 1.7; }
+
+    /* ===========================  ARCHITECTURE  =========================== */
+    .architecture { }
+    .architecture__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .architecture__left { }
+    .architecture__left h2 { color: var(--white); margin-bottom: 20px; }
+    .architecture__left p { color: rgba(255,255,255,0.6); font-size: 16px; margin-bottom: 32px; }
+    .arch-features { display: flex; flex-direction: column; gap: 20px; }
+    .arch-feature {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .arch-feature__icon {
+      width: 40px; height: 40px;
+      background: rgba(37, 99, 235, 0.15);
+      border: 1px solid rgba(37, 99, 235, 0.25);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .arch-feature__icon svg { width: 18px; height: 18px; color: var(--blue-light); }
+    .arch-feature h4 { color: var(--white); margin-bottom: 4px; }
+    .arch-feature p { color: rgba(255,255,255,0.5); font-size: 14px; }
+
+    /* Architecture diagram */
+    .arch-diagram {
+      background: rgba(15, 30, 61, 0.6);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      backdrop-filter: blur(10px);
+    }
+    .arch-diagram__title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--gray-400);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .arch-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .arch-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .arch-node {
+      flex: 1;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      text-align: center;
+    }
+    .arch-node--source {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .arch-node--process {
+      background: rgba(37, 99, 235, 0.15);
+      border: 1px solid rgba(37, 99, 235, 0.3);
+    }
+    .arch-node--output {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+    .arch-node__label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--gray-400);
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+    .arch-node__name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .arch-arrow {
+      color: var(--gray-400);
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .arch-separator {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 8px 0;
+    }
+    .arch-separator__line {
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.06);
+    }
+    .arch-separator__label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--gray-400);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .arch-agents {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .arch-agent {
+      padding: 12px;
+      background: rgba(37, 99, 235, 0.1);
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      border-radius: var(--radius-sm);
+      text-align: center;
+    }
+    .arch-agent__icon { font-size: 18px; margin-bottom: 4px; }
+    .arch-agent__name {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .arch-agent__role {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--blue-light);
+    }
+    .arch-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+      padding: 10px;
+      background: rgba(212, 163, 115, 0.08);
+      border: 1px solid rgba(212, 163, 115, 0.2);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+    }
+
+    /* ===========================  USE CASES  =========================== */
+    .usecases { }
+    .usecases__header { text-align: center; margin-bottom: 64px; }
+    .usecases__header h2 { margin-bottom: 16px; color: var(--white); }
+    .usecases__header p { color: rgba(255,255,255,0.5); font-size: 18px; max-width: 560px; margin: 0 auto; }
+    .usecases__tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .tab-btn {
+      padding: 10px 24px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1.5px solid rgba(255,255,255,0.12);
+      background: transparent;
+      color: rgba(255,255,255,0.5);
+      transition: var(--transition);
+      font-family: var(--font-body);
+    }
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: var(--white);
+    }
+    .usecase-panel {
+      display: none;
+    }
+    .usecase-panel.active {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .usecase-card {
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .usecase-card--before {
+      background: rgba(239, 68, 68, 0.05);
+      border-color: rgba(239, 68, 68, 0.15);
+    }
+    .usecase-card--after {
+      background: rgba(16, 185, 129, 0.05);
+      border-color: rgba(16, 185, 129, 0.15);
+    }
+    .usecase-card__tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .usecase-card--before .usecase-card__tag {
+      background: rgba(239, 68, 68, 0.1);
+      color: #FCA5A5;
+      border: 1px solid rgba(239, 68, 68, 0.2);
+    }
+    .usecase-card--after .usecase-card__tag {
+      background: rgba(16, 185, 129, 0.1);
+      color: #6EE7B7;
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+    .usecase-card h3 { color: var(--white); margin-bottom: 12px; font-size: 18px; }
+    .usecase-card p { color: rgba(255,255,255,0.55); font-size: 14px; line-height: 1.7; }
+    .usecase-card__metric {
+      margin-top: 20px;
+      padding: 16px;
+      background: rgba(255,255,255,0.04);
+      border-radius: var(--radius-sm);
+    }
+    .usecase-card__metric-value {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .usecase-card--before .usecase-card__metric-value { color: #FCA5A5; }
+    .usecase-card--after .usecase-card__metric-value { color: #6EE7B7; }
+    .usecase-card__metric-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      margin-top: 2px;
+    }
+
+    /* ===========================  BENEFITS  =========================== */
+    .benefits { }
+    .benefits__header { text-align: center; margin-bottom: 64px; }
+    .benefits__header h2 { margin-bottom: 16px; }
+    .benefits__header p { font-size: 18px; color: var(--gray-600); max-width: 560px; margin: 0 auto; }
+    .benefits__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .benefit-card {
+      padding: 32px;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      transition: var(--transition);
+    }
+    .benefit-card:hover {
+      border-color: rgba(37, 99, 235, 0.2);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+    }
+    .benefit-card__icon {
+      width: 44px; height: 44px;
+      background: rgba(37, 99, 235, 0.08);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .benefit-card__icon svg { width: 20px; height: 20px; color: var(--blue); }
+    .benefit-card h3 { margin-bottom: 10px; font-size: 17px; }
+    .benefit-card p { color: var(--gray-600); font-size: 14px; line-height: 1.7; }
+
+    /* ===========================  ABOUT  =========================== */
+    .about { }
+    .about__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about__left h2 { color: var(--white); margin-bottom: 20px; }
+    .about__left p {
+      color: rgba(255,255,255,0.6);
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .about__values {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .about__value {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+    }
+    .about__value::before {
+      content: '';
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .about__right { }
+    .about__card {
+      background: rgba(15, 30, 61, 0.8);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      backdrop-filter: blur(10px);
+    }
+    .about__card-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .about__stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .about__stat { }
+    .about__stat-value {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 6px;
+      font-style: italic;
+    }
+    .about__stat-value span { color: var(--blue-light); }
+    .about__stat-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+    }
+    .about__divider {
+      height: 1px;
+      background: rgba(255,255,255,0.06);
+      margin: 24px 0;
+    }
+    .about__certifs {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .about__certif {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+    }
+    .about__certif-icon {
+      width: 32px; height: 32px;
+      background: rgba(212, 163, 115, 0.1);
+      border: 1px solid rgba(212, 163, 115, 0.2);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    /* ===========================  CTA FINAL  =========================== */
+    .cta-section {
+      background: linear-gradient(135deg, var(--navy) 0%, #0D1F4A 50%, var(--navy) 100%);
+      padding: 120px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px; height: 400px;
+      background: radial-gradient(ellipse, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+    }
+    .cta-section__inner { position: relative; z-index: 1; }
+    .cta-section h2 { color: var(--white); margin-bottom: 20px; font-size: clamp(32px, 5vw, 56px); font-style: italic; font-weight: 700; }
+    .cta-section p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.55);
+      max-width: 520px;
+      margin: 0 auto 48px;
+    }
+    .cta-section__actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .cta-section__note {
+      margin-top: 24px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+      font-family: var(--font-mono);
+    }
+
+    /* ===========================  FOOTER  =========================== */
+    .footer {
+      background: #060D1E;
+      padding: 64px 0 32px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .footer__top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer__brand { }
+    .footer__brand p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.7;
+      margin-top: 16px;
+      max-width: 260px;
+    }
+    .footer__col-title {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      margin-bottom: 16px;
+    }
+    .footer__links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer__links a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .footer__links a:hover { color: var(--white); }
+    .footer__bottom {
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer__copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+      font-family: var(--font-mono);
+    }
+    .footer__badges {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .footer__badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: rgba(255,255,255,0.3);
+    }
+    .footer__badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--success);
+    }
+
+    /* ===========================  SCROLL ANIMATIONS  =========================== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in-delay-1 { transition-delay: 0.1s; }
+    .fade-in-delay-2 { transition-delay: 0.2s; }
+    .fade-in-delay-3 { transition-delay: 0.3s; }
+    .fade-in-delay-4 { transition-delay: 0.4s; }
+
+    /* ===========================  COMPARISON BANNER  =========================== */
+    .comparison-banner {
+      background: var(--navy-mid);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 16px 0;
+      overflow: hidden;
+    }
+    .comparison-banner__track {
+      display: flex;
+      gap: 48px;
+      animation: marquee 20s linear infinite;
+      white-space: nowrap;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .comparison-banner__item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      flex-shrink: 0;
+    }
+    .comparison-banner__item .sep {
+      color: var(--blue-light);
+      opacity: 0.5;
+    }
+
+    /* ===========================  DESIGN COMPARISON NOTE  =========================== */
+    .design-note {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--navy);
+      border: 1px solid rgba(37, 99, 235, 0.3);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      max-width: 280px;
+      z-index: 9999;
+      box-shadow: var(--shadow-lg);
+    }
+    .design-note__title {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .design-note__text {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.5;
+    }
+    .design-note__label {
+      display: inline-block;
+      margin-top: 10px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--blue-light);
+      background: rgba(37, 99, 235, 0.1);
+      padding: 3px 8px;
+      border-radius: 100px;
+    }
+    .design-note__close {
+      position: absolute;
+      top: 10px; right: 12px;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.3);
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 1;
+    }
+    .design-note__close:hover { color: var(--white); }
+  
+    .lightbox {
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2000; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;
+    }
+    .lightbox.show {
+      opacity: 1;
+    }
+    .form-option {
+      display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1rem; border-radius: 8px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: all 0.2s ease;
+    }
+    .form-option:hover {
+      background: rgba(255,255,255,0.08); border-color: rgba(37, 99, 235, 0.4);
+    }
+
+  </style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <header class="navbar">
-        <div class="container navbar-container">
-            <div class="logo">
-                <a href="#" style="display: flex; align-items: center; text-decoration: none; color: inherit; gap: 1rem;">
-                    <img src="data/images/logo_safe_pilotage_prive.jpg" alt="S.A.F.E. Logo">
-                    <div style="display: flex; flex-direction: column;">
-                        <span class="logo-text">S.A.F.E.</span>
-                        <span class="logo-span">PILOTAGE PRIVÉ</span>
-                    </div>
-                </a>
-            </div>
-            <div class="nav-links">
-                <a href="#solution">Architecture</a>
-                <a href="#ragq">Méthode RAG-Q</a>
-                <a href="#benefices">Bénéfices Métiers</a>
-                <a href="apropos.html">À propos</a>
-                <a href="mailto:contact@safe-pilotage-prive.fr" class="btn btn-outline">contact@safe-pilotage-prive.fr</a>
-                <a href="javascript:openForm()" class="btn btn-primary">Demander une démo</a>
-            </div>
-            <button class="menu-toggle" aria-label="Menu">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-            </button>
-        </div>
-    </header>
+<!-- ===========================  DESIGN NOTE  =========================== -->
+<div class="design-note" id="designNote">
+  <button class="design-note__close" onclick="document.getElementById('designNote').remove()">×</button>
+  <div class="design-note__title">Proposition de Refonte</div>
+  <div class="design-note__text">Prototype "Précision Souveraine" — Direction Artistique par Manus AI. Ce design remplace l'esthétique "hacker" par un positionnement premium institutionnel.</div>
+  <span class="design-note__label">DA — Manus AI © 2026</span>
+</div>
 
-    <!-- 1. Hero Section -->
-    <section class="hero text-center pt-xxl pb-xl">
-        <div class="container hero-content">
-            <div class="badge">
-                <div class="pulse-dot"></div>
-                Réseau Sécurisé & Environnement Confiné
-            </div>
-            
-            <h1>Le poste de pilotage privé <br><span class="text-accent">de vos opérations stratégiques.</span></h1>
-            
-            <p class="subtitle">S.A.F.E. ajoute une couche d’intelligence locale à vos outils existants. Gagnez du temps sur le traitement documentaire, réduisez les risques d'erreur et maîtrisez la qualité formelle de toutes vos restitutions expertes.</p>
-            
-            <p style="color: #CBD5E1; font-weight: 500; margin-bottom: 3.5rem; font-size: 1.05rem;">
-                Conçu pour les dirigeants, cabinets et entreprises de services exigeantes.
-            </p>
-            
-            <div class="hero-actions">
-                <a href="javascript:openForm()" class="btn btn-primary btn-cta">Demander une démonstration</a>
-                <a href="#benefices" class="btn btn-secondary">Découvrir les bénéfices</a>
-            </div>
-            
-            <div class="trust-marks">
-                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> 100% Souveraineté Data</span>
-                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg> Couche Superficielle Invisible</span>
-                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg> Contrôle Qualité Absolu</span>
-            </div>
-
-            <!-- Immersive Hero Visual -->
-            <div class="visual-showcase">
-                <img src="data/images/Dashboard_SAFE_pilotage_prive_arriere_plan_transparent.png" alt="Aperçu du Cockpit S.A.F.E. Pilotage Privé">
-            </div>
-        </div>
-    </section>
-
-    <!-- 2. Le problème (Dark mode Premium panels) -->
-    <section class="py-xxl" style="padding-top: 10rem;">
-        <div class="container">
-            <div class="section-header text-center">
-                <h2>La croissance implique le contrôle.</h2>
-                <p>Les structures exigeantes rencontrent des plafonds de verre opérationnels critiques face à l'abondance d'informations à traiter.</p>
-            </div>
-            <div class="grid grid-4 mt-lg">
-                <div class="card">
-                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
-                    <h3>Surcharge documentaire</h3>
-                    <p>Un temps précieux noyé dans la lecture, l'extraction de données et le tri de documents au détriment de l'analyse et de la décision.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></div>
-                    <h3>Baisse de rigueur (Scale)</h3>
-                    <p>Une fragilité et une perte de qualité dans les livrables lors des pics de charge ou de la croissance accélérée des équipes.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
-                    <h3>Savoir-faire siloté</h3>
-                    <p>Des processus de validation clés qui reposent entièrement sur les épaules de quelques cerveaux devenant des goulots d'étranglement.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
-                    <h3>Failles de sécurité (Shadow AI)</h3>
-                    <p>Le recours sauvage à des IA publiques génériques par vos équipes, exposant la confidentialité de vos informations sensibles.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. La solution S.A.F.E. -->
-    <section id="solution" class="py-xxl" style="background: rgba(255,255,255,0.01); padding-top: 10rem; padding-bottom: 8rem;">
-        <div class="container layout-split" style="gap: 6rem;">
-            <div class="split-content">
-                <div class="ragq-badge">ARCHITECTURE SOUVERAINE</div>
-                <h2>Une organisation d'agents spécialisés sur vos opérations complexes.</h2>
-                <p style="margin-top: 1.5rem;">S.A.F.E. ne s'appuie pas sur une IA générique aveugle. C'est le déploiement local d'une équipe d'agents coordonnés (Analyse, Synthèse, Contrôle) qui unissent leurs efforts sur vos données.</p>
-                <ul class="feature-list mt-lg">
-                    <li>
-                        <strong>Confidentialité structurelle</strong>
-                        <span>Vos contrats, fiches de paie ou bilans financiers ne nourrissent jamais de modèles extérieurs.</span>
-                    </li>
-                    <li>
-                        <strong>Gouvernance coordonnée</strong>
-                        <span>Les agents S.A.F.E. opèrent en équipe pour croiser les sources et lever les ambiguïtés. Vous restez le seul commandant à l'arrivée.</span>
-                    </li>
-                    <li>
-                        <strong>Assistance méthodique</strong>
-                        <span>La machine ne remplace pas votre expertise métier, elle en décuple la vitesse de préparation et la fiabilité formelle.</span>
-                    </li>
-                </ul>
-            </div>
-            <div class="split-visual">
-                <div class="visual-block" style="box-shadow: 0 0 60px rgba(56, 189, 248, 0.15); transform: scale(1.03); border-color: rgba(56, 189, 248, 0.3); transition: transform 0.3s ease;">
-                    <img src="data/images/organigramme_agents_ia_SAFE_pilotage_securise_arriere_plan_transparent.png" alt="S.A.F.E. Engine Core">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- NOUVEAU : 4.5. Architecture Interactive & Cas Pratiques -->
-    <section id="architecture" class="py-xxl" style="padding-top: 6rem; padding-bottom: 6rem; border-top: 1px solid rgba(255,255,255,0.05); background: radial-gradient(circle at center, rgba(15,23,42,0.8) 0%, transparent 100%);">
-        <div class="container">
-            <div class="section-header text-center mb-lg">
-                <div class="ragq-badge" style="margin-bottom: 1.5rem; background: rgba(56, 189, 248, 0.1); color: var(--primary);">VUE SOUS LE CAPOT</div>
-                <h2>Architecture Sanctuarisée S.A.F.E.</h2>
-                <p style="font-size: 1.15rem; color: var(--text-white); max-width: 800px; margin: 0 auto;">Plongée dans notre système confiné. Les données ne sortent jamais, nos escouades d'agents locaux (Analyse, Synthèse, Contrôle) s'en chargent sous supervision.</p>
-            </div>
-
-            <!-- Architecture SVG Container -->
-            <div class="visual-showcase mb-xl" style="background: rgba(15,23,42,0.4); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                <!-- Oject est idéal pour un SVG interactif car il exécute les scripts internes du SVG -->
-                <object data="data/images/safe_architecture_concept.svg" type="image/svg+xml" style="width: 100%; height: auto; min-height: 450px; border-radius: 12px;"></object>
-                <div style="display: flex; gap: 1rem; align-items: center; margin-top: 1.5rem; color: var(--text-muted); font-size: 0.95rem; font-weight: 500;">
-                    <svg viewBox="0 0 24 24" width="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"></path><path d="M10 14L21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
-                    Schéma interactif : Cliquez sur les éléments de l'architecture pour explorer le flux souverain.
-                </div>
-            </div>
-
-            <div class="grid grid-2 mt-xxl" style="gap: 4rem;">
-                
-                <!-- Use Case 1: Procédures Internes -->
-                <div class="use-case-card" style="background: rgba(255,255,255,0.02); padding: 2.5rem; border: 1px solid rgba(56, 189, 248, 0.15); border-radius: 16px; position: relative; overflow: hidden;">
-                    <div style="position: absolute; top:0; left:0; width:100%; height:4px; background: linear-gradient(90deg, var(--primary), transparent);"></div>
-                    <div class="badge mb-md" style="background: rgba(56,189,248,0.1); color: var(--primary);">Cas #1 : Base de Connaissance RAG</div>
-                    <h3 class="mb-sm">Transformation des Procédures</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6;">Vos manuels de procédures de 80 pages deviennent un savoir vivant et immédiatement interrogeable, ancré dans vos textes officiels (ni plus, ni moins).</p>
-                    
-                    <ul class="feature-list" style="margin-bottom: 2rem;">
-                        <li style="margin-bottom: 0.5rem;"><strong style="color: var(--text-white);">Ingestion sans altération :</strong> Découpage en fragments intelligents.</li>
-                        <li><strong style="color: var(--text-white);">Sanctuarisation locale :</strong> Indexation sémantique confinée.</li>
-                    </ul>
-
-                    <div class="comparison" style="background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1.5rem;">
-                        <div style="margin-bottom: 1.5rem; padding-left: 1rem; border-left: 2px solid #ef4444;">
-                            <strong style="color: #ef4444; font-size: 0.85rem; text-transform: uppercase; display: flex; align-items: center; gap: 0.5rem;"><svg width="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> Avant S.A.F.E.</strong>
-                            <p style="font-size: 0.95rem; margin-top: 0.5rem; color: var(--text-white);">Un responsable RH fouille 3 dossiers SharePoint, relit un PDF de 60 pages. <strong>2 heures de perdues.</strong></p>
-                        </div>
-                        <div style="padding-left: 1rem; border-left: 2px solid var(--primary);">
-                            <strong style="color: var(--primary); font-size: 0.85rem; text-transform: uppercase; display: flex; align-items: center; gap: 0.5rem;"><svg width="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Avec S.A.F.E.</strong>
-                            <p style="font-size: 0.95rem; margin-top: 0.5rem; color: var(--text-white);">Il tape "étapes d'onboarding"... Réponse en <strong>8 secondes</strong>, directement sourcée à la page 14 du manuel v2.3.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Use Case 2: Sécurité RH -->
-                <div class="use-case-card" style="background: rgba(255,255,255,0.02); padding: 2.5rem; border: 1px solid rgba(139, 92, 246, 0.15); border-radius: 16px; position: relative; overflow: hidden;">
-                    <div style="position: absolute; top:0; left:0; width:100%; height:4px; background: linear-gradient(90deg, #8b5cf6, transparent);"></div>
-                    <div class="badge mb-md" style="background: rgba(139,92,246,0.1); color: #8b5cf6;">Cas #2 : Anti-Shadow AI</div>
-                    <h3 class="mb-sm">Gestion des Fiches de Paie (RH)</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6;">Le cas d'usage qui effraie les DRH : empêcher l'envoi de documents sensibles sur des modèles cloud publics (type ChatGPT) par les collaborateurs.</p>
-
-                    <ul class="feature-list" style="margin-bottom: 2rem;">
-                        <li style="margin-bottom: 0.5rem;"><strong style="color: var(--text-white);">Confinement absolu :</strong> Aucune transmission externe de la masse salariale.</li>
-                        <li><strong style="color: var(--text-white);">Isolement algorithmique :</strong> Les agents extraient sans exposer les PII.</li>
-                    </ul>
-
-                    <div class="comparison" style="background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1.5rem;">
-                        <div style="margin-bottom: 1.5rem; padding-left: 1rem; border-left: 2px solid #ef4444;">
-                            <strong style="color: #ef4444; font-size: 0.85rem; text-transform: uppercase; display: flex; align-items: center; gap: 0.5rem;"><svg width="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> Avant S.A.F.E.</strong>
-                            <p style="font-size: 0.95rem; margin-top: 0.5rem; color: var(--text-white);">Cohérence de paie étudiée manuellement (45 min par dossier) ou risquée sur Cloud US. Fraude RGPD potentielle.</p>
-                        </div>
-                        <div style="padding-left: 1rem; border-left: 2px solid #8b5cf6;">
-                            <strong style="color: #8b5cf6; font-size: 0.85rem; text-transform: uppercase; display: flex; align-items: center; gap: 0.5rem;"><svg width="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Avec S.A.F.E.</strong>
-                            <p style="font-size: 0.95rem; margin-top: 0.5rem; color: var(--text-white);">Validation en <strong>quelques secondes</strong> des cohérences de montants dans un bunker de conformité technique.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. Bénéfices Métiers (Nouveau Bento Box) -->
-    <section id="benefices" class="py-xxl" style="background: rgba(255,255,255,0.01); padding-top: 10rem; padding-bottom: 10rem;">
-        <div class="container">
-            <div class="section-header text-center mb-lg">
-                <div class="ragq-badge" style="margin-bottom: 1.5rem;">CE QUE S.A.F.E. VOUS AIDE À FAIRE</div>
-                <h2>Là où l’orchestration S.A.F.E. crée de la valeur.</h2>
-                <p style="font-size: 1.15rem; color: var(--text-white); max-width: 700px; margin: 0 auto;">S.A.F.E. ne remplace en aucun cas vos experts. Il les équipe pour lire, vérifier, structurer et synthétiser plus intelligemment des volumes croissants d'information.</p>
-            </div>
-            
-            <div class="bento-grid mt-lg">
-                <!-- 1. Qualité -->
-                <div class="bento-item span-2 bento-primary">
-                    <div style="color: var(--primary); margin-bottom: 1rem;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
-                    <h3>Assurance Qualité & Conformité</h3>
-                    <p>Détecter en quelques secondes les écarts, les oublis manifestes et les non-conformités face à vos gabarits d'exigence avant la validation humaine d'un livrable.</p>
-                </div>
-                <!-- 2. Contrats / Juridique -->
-                <div class="bento-item">
-                    <div style="color: var(--text-muted); margin-bottom: 1rem;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
-                    <h3>Documents Sensibles</h3>
-                    <p>Survoler des liasses documentaires pour repérer immédiatement les clauses à risques et les points d'alerte à faire arbitrer par vos juristes.</p>
-                </div>
-                <!-- 3. Trésorerie / Finances -->
-                <div class="bento-item">
-                    <div style="color: var(--text-muted); margin-bottom: 1rem;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
-                    <h3>Analyse Financière</h3>
-                    <p>Extraire immédiatement les anomalies et indicateurs clés de vos bilans pour accélérer et sécuriser vos choix stratégiques.</p>
-                </div>
-                <!-- 4. Comptabilité -->
-                <div class="bento-item span-2">
-                    <div style="color: var(--primary); margin-bottom: 1rem;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg></div>
-                    <h3>Vérification Comptable</h3>
-                    <p>Croiser instantanément vos pièces et vos états pour isoler les incohérences chiffrées avant l'audit et la clôture.</p>
-                </div>
-                <!-- 5. Documentation Technique -->
-                <div class="bento-item span-2">
-                    <div style="color: var(--text-muted); margin-bottom: 1rem;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></div>
-                    <h3>Ingénierie & Documentation</h3>
-                    <p>Transformer de vastes corpus de procédures métier ou manuels complexes en un savoir immédiatement interrogeable.</p>
-                </div>
-                <!-- 6. Formation & Transmission -->
-                <div class="bento-item">
-                    <div style="color: var(--text-muted); margin-bottom: 1rem;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
-                    <h3>Transmission du Savoir</h3>
-                    <p>Transformer de simples transcriptions de réunions ou du savoir-faire oral en de solides supports de montée en compétence, standardisés et réutilisables.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6 & 7. Réassurance & Cible -->
-    <section class="py-xxl" style="padding-top: 8rem; padding-bottom: 6rem;">
-        <div class="container">
-            <div class="grid grid-2 align-items-center" style="gap: 5rem;">
-                <div class="target-audience">
-                    <h2>Conçu pour les organisations exigeantes.</h2>
-                    <p class="mb-md" style="margin-top: 1.5rem;">L'environnement S.A.F.E. accompagne les structures prêtes à industrialiser leur méthode sans accepter le moindre compromis sur la confidentialité :</p>
-                    <ul class="check-list mt-sm">
-                        <li>Dirigeants et CODIR cherchant agilité et sécurité stratégique</li>
-                        <li>Équipes juridiques, RH, Finance ou Comités d'experts</li>
-                        <li>Cabinets de conseil et entreprises de services B2B</li>
-                        <li>Organisations voulant intégrer l'IA tout en gardant une stricte gouvernance</li>
-                    </ul>
-                </div>
-                
-                <div class="reassurance-card">
-                    <h3 class="font-heading mb-md" style="font-weight: 500; font-size: 1.5rem;">Une infrastructure souveraine.</h3>
-                    <div class="reassurance-items mt-md">
-                        <div class="r-item">
-                            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
-                            <div>
-                                <strong>Déploiement sur-mesure</strong>
-                                <p>Hébergement garantissant les normes européennes (Cloud souverain ou architecture locale Edge).</p>
-                            </div>
-                        </div>
-                        <div class="r-item">
-                            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
-                            <div>
-                                <strong>Traçabilité Forensic (Preuves)</strong>
-                                <p>Toute information remontée par l'escouade d'agents affiche de manière transparente le document dont elle émane.</p>
-                            </div>
-                        </div>
-                        <div class="r-item">
-                            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
-                            <div>
-                                <strong>Sanctuarisation de vos méthodes</strong>
-                                <p>Vos bases de savoir constituent votre vrai capital immatériel, S.A.F.E. les protège via chiffrement intégral.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </section>
-
-    <!-- 7.2. Publications & Expertise (SEO & Autorité) -->
-    <section id="expertise" class="py-xxl" style="padding-top: 6rem; padding-bottom: 6rem; background: rgba(255,255,255,0.01);">
-        <div class="container">
-            <div class="section-header text-center mb-lg">
-                <div class="ragq-badge" style="margin-bottom: 1.5rem; background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">VEILLE EXPERTE</div>
-                <h2>Ressources & Stratégie B2B.</h2>
-                <p style="font-size: 1.15rem; color: var(--text-white); max-width: 800px; margin: 0 auto; line-height: 1.6;">Décryptez les enjeux géostratégiques, juridiques et technologiques liés au déploiement de l'IA.</p>
-            </div>
-            
-            <div class="grid grid-2 mt-md" style="gap: 2rem;">
-                <!-- Article 1: IA Souveraine -->
-                <div class="use-case-card p-xl" style="background: rgba(15,23,42,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; display: flex; flex-direction: column;">
-                    <span style="color: var(--primary); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; display: block;">🔍 IA Souveraine</span>
-                    <h3 style="margin-bottom: 1rem; font-size: 1.3rem;">Pourquoi le Cloud Public n'est plus une option.</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1;">Face au Cloud Act américain, les dirigeants doivent repenser leur architecture data. Seules des solutions hyper-locales (On-Premise) ou en Cloud SecNumCloud garantissent la totale protection de votre propriété intellectuelle et secrets industriels.</p>
-                    <a href="javascript:openForm()" class="btn btn-outline" style="align-self: flex-start; padding: 0.6rem 1.2rem; font-size: 0.9rem; border-color: rgba(255,255,255,0.1);">Échanger sur l'architecture ➔</a>
-                </div>
-
-                <!-- Article 2: RAG Entreprise -->
-                <div class="use-case-card p-xl" style="background: rgba(15,23,42,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; display: flex; flex-direction: column;">
-                    <span style="color: var(--primary); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; display: block;">🧠 RAG d'Entreprise</span>
-                    <h3 style="margin-bottom: 1rem; font-size: 1.3rem;">Fiabiliser l'IA grâce à vos référentiels.</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1;">Une Intelligence Artificielle générique tend naturellement vers "l'hallucination" (invention d'informations). Seule la technologie RAG permet de forcer le LLM à s'appuyer strictement sur vos processus, méthodes et archives internes documentées.</p>
-                    <a href="javascript:openForm()" class="btn btn-outline" style="align-self: flex-start; padding: 0.6rem 1.2rem; font-size: 0.9rem; border-color: rgba(255,255,255,0.1);">Découvrir la Méthode ➔</a>
-                </div>
-
-                <!-- Article 3: Conformité RGPD IA -->
-                <div class="use-case-card p-xl" style="background: rgba(15,23,42,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; display: flex; flex-direction: column;">
-                    <span style="color: #8b5cf6; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; display: block;">⚖️ RGPD & AI Act</span>
-                    <h3 style="margin-bottom: 1rem; font-size: 1.3rem;">Gérer les données personnelles sensibles.</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1;">Sous la loupe de la CNIL et du nouvel AI Act européen, traiter des fiches de paie ou des contrats contenant des données identifiables (PII) sur une IA non isolée fait basculer la structure dans l'illégalité.</p>
-                    <a href="javascript:openForm()" class="btn btn-outline" style="align-self: flex-start; padding: 0.6rem 1.2rem; font-size: 0.9rem; border-color: rgba(255,255,255,0.1);">Auditer mes risques ➔</a>
-                </div>
-
-                <!-- Article 4: Shadow AI -->
-                <div class="use-case-card p-xl" style="background: rgba(15,23,42,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; display: flex; flex-direction: column;">
-                    <span style="color: #ef4444; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; display: block;">🚨 Shadow AI</span>
-                    <h3 style="margin-bottom: 1rem; font-size: 1.3rem;">La fuite silencieuse du capital immatériel.</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1;">Aujourd'hui, 65% des collaborateurs avouent utiliser ChatGPT ou Gemini depuis leur téléphone pour résumer des notes confidentielles d'entreprise. Pour stopper la fuite, il faut déployer un outil sanctionné officiellement par la DSI.</p>
-                    <a href="javascript:openForm()" class="btn btn-outline" style="align-self: flex-start; padding: 0.6rem 1.2rem; font-size: 0.9rem; border-color: rgba(255,255,255,0.1);">Protéger mes équipes ➔</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 7.5. Pricing B2B (Indicatif) -->
-    <section id="pricing" class="py-xxl" style="padding-top: 6rem; padding-bottom: 8rem; background: rgba(255,255,255,0.01); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
-        <div class="container">
-            <div class="section-header text-center mb-lg">
-                <div class="ragq-badge" style="margin-bottom: 1.5rem; background: rgba(255, 255, 255, 0.05); color: #CBD5E1;">MODÈLE ÉCONOMIQUE</div>
-                <h2>Transparence et prédictibilité.</h2>
-                <p style="font-size: 1.15rem; color: var(--text-white); max-width: 800px; margin: 0 auto; line-height: 1.6;">L'opacité tarifaire n'a pas sa place dans les projets stratégiques B2B. S.A.F.E. propose une structure d'investissement claire, décorrélée des "jetons SaaS" imprévisibles.</p>
-            </div>
-            
-            <div class="grid grid-2" style="gap: 2.5rem; max-width: 900px; margin: 0 auto;">
-                <!-- Setup -->
-                <div class="pricing-card" style="background: rgba(15,23,42,0.6); padding: 3rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;">
-                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: white;">Audit & Intégration sur-mesure</h3>
-                    <div style="font-size: 2.2rem; font-weight: 700; color: white; margin-bottom: 1.5rem;">Sur devis <span style="font-size: 1rem; color: var(--text-muted); font-weight: 400;">/ Projet Initial</span></div>
-                    <p style="color: var(--text-muted); margin-bottom: 2rem; line-height: 1.6; min-height: 80px;">Cartographie de vos processus métier, nettoyage sécurisé de vos corpus documentaires et configuration de l'escouade d'agents.</p>
-                    <ul class="feature-list" style="color: var(--text-white);">
-                        <li style="margin-bottom: 0.8rem; display: flex; align-items: start; gap: 0.5rem;"><span style="color: var(--primary);">✓</span> Atelier de cadrage et prototypage</li>
-                        <li style="margin-bottom: 0.8rem; display: flex; align-items: start; gap: 0.5rem;"><span style="color: var(--primary);">✓</span> Déploiement souverain (Bunker)</li>
-                        <li style="display: flex; align-items: start; gap: 0.5rem;"><span style="color: var(--primary);">✓</span> Entraînement sur votre sémantique métier</li>
-                    </ul>
-                </div>
-                
-                <!-- Licence -->
-                <div class="pricing-card" style="background: linear-gradient(145deg, rgba(56, 189, 248, 0.05) 0%, rgba(15,23,42,0.8) 100%); padding: 3rem; border: 1px solid rgba(56,189,248,0.3); border-radius: 16px; position: relative; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);">
-                    <div style="position: absolute; top: 0; right: 2rem; transform: translateY(-50%); background: var(--primary); color: #000; padding: 0.4rem 1rem; border-radius: 20px; font-weight: 700; font-size: 0.85rem;">POPULAIRE</div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: white;">Licence S.A.F.E.</h3>
-                    <div style="font-size: 2.2rem; font-weight: 700; color: var(--primary); margin-bottom: 1.5rem;">Dès 990€ <span style="font-size: 1rem; color: var(--text-muted); font-weight: 400;">/ mois</span></div>
-                    <p style="color: var(--text-muted); margin-bottom: 2rem; line-height: 1.6; min-height: 80px;">Sérénité absolue : Maintien de l'environnement en conditions opérationnelles, hébergement privé et requêtes en illimité.</p>
-                    <ul class="feature-list" style="color: var(--text-white);">
-                        <li style="margin-bottom: 0.8rem; display: flex; align-items: start; gap: 0.5rem;"><span style="color: var(--primary);">✓</span> Sans facturation au "Token" (Mots générés)</li>
-                        <li style="margin-bottom: 0.8rem; display: flex; align-items: start; gap: 0.5rem;"><span style="color: var(--primary);">✓</span> Support ingénierie et supervision</li>
-                        <li style="display: flex; align-items: start; gap: 0.5rem;"><span style="color: var(--primary);">✓</span> Mises à jour algorithmiques transparentes</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <p class="text-center mt-xl" style="color: var(--text-muted); font-size: 0.95rem; background: rgba(0,0,0,0.2); display: inline-block; padding: 0.5rem 1.5rem; border-radius: 20px;">💡 ROI typiquement mesuré entre 3 et 6 mois grâce à la sauvegarde de centaines d'heures-experts.</p>
-        </div>
-    </section>
-
-    <!-- 8. Appel à l'action -->
-    <section id="contact" class="cta-section py-xxl text-center">
-        <div class="container cta-container">
-            <h2>Prêt à industrialiser votre exigence ?</h2>
-            <p style="font-size: 1.25rem;">Vos experts passent trop de temps sur l'extraction de base. Offrez-leur un environnement souverain pour se recentrer sur l'analyse et la décision.</p>
-            <div class="mt-lg" style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                <a href="javascript:openForm()" class="btn btn-primary btn-cta" style="font-size: 1.15rem; padding: 1.25rem 3rem;">Vérifier mon éligibilité & Démo</a>
-            </div>
-            <p class="contact-direct mt-lg" style="margin-top: 3rem;">
-                Besoin d'un retour sur un cas d'usage précis ? Échangez directement :<br><br><strong><a href="mailto:contact@safe-pilotage-prive.fr" style="font-size: 1.2rem;">contact@safe-pilotage-prive.fr</a></strong>
-            </p>
-        </div>
-    </section>
-
-    <!-- Typeform-style Lead Gen Modal -->
-    <div id="typeform-modal" class="lightbox" style="display: none; justify-content: center; align-items: center; z-index: 2000; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);" onclick="closeForm(event)">
-        <div class="form-container" onclick="event.stopPropagation()" style="background: #0f172a; padding: 3rem; border-radius: 20px; border: 1px solid rgba(56, 189, 248, 0.2); width: 100%; max-width: 600px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);">
-            
-            <!-- Etape 1 -->
-            <div id="step-1" class="form-step">
-                <div class="ragq-badge" style="margin-bottom: 1rem; color: #94a3b8; background: rgba(255,255,255,0.05); border: none;">Étape 1 sur 3</div>
-                <h3 style="margin-bottom: 1.5rem; font-size: 1.4rem; color: white;">Quelle est la taille de votre organisation ?</h3>
-                <div class="radio-group" style="display: flex; flex-direction: column; gap: 0.8rem;">
-                    <label class="form-option"><input type="radio" name="size" value="1-15"> Moins de 15 collaborateurs</label>
-                    <label class="form-option"><input type="radio" name="size" value="16-50"> Entre 16 et 50 collaborateurs</label>
-                    <label class="form-option"><input type="radio" name="size" value="50+"> Plus de 50 collaborateurs</label>
-                </div>
-                <button onclick="nextStep(2)" class="btn btn-primary mt-lg" style="width: 100%; justify-content: center;">Continuer ➔</button>
-            </div>
-            
-            <!-- Etape 2 -->
-            <div id="step-2" class="form-step" style="display: none;">
-                <div class="ragq-badge" style="margin-bottom: 1rem; color: #94a3b8; background: rgba(255,255,255,0.05); border: none;">Étape 2 sur 3</div>
-                <h3 style="margin-bottom: 1.5rem; font-size: 1.4rem; color: white;">Quel département est prioritaire ?</h3>
-                <select id="lead-department" style="width: 100%; padding: 1.1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; margin-bottom: 1rem; font-family: inherit; font-size: 1.05rem; cursor: pointer; appearance: auto;">
-                    <option value="" disabled selected>Sélectionnez un département...</option>
-                    <option value="Direction / Stratégie">👑 Direction / Stratégie</option>
-                    <option value="Ventes / Commercial">📈 Ventes / Commercial</option>
-                    <option value="Ressources Humaines">👥 Ressources Humaines (Paie...)</option>
-                    <option value="Comptabilité / Finance">📊 Comptabilité / Finance</option>
-                    <option value="Juridique / Compliance">⚖️ Juridique / Compliance</option>
-                    <option value="Opérations / RAG Interne">📚 Opérations (Base de savoir)</option>
-                    <option value="Autre">💡 Autre besoin stratégique</option>
-                </select>
-                <div style="display: flex; gap: 1rem; margin-top: 2rem;">
-                    <button onclick="nextStep(1)" class="btn btn-outline" style="flex: 1; border-color: rgba(255,255,255,0.1);">Retour</button>
-                    <button onclick="nextStep(3)" class="btn btn-primary" style="flex: 2; justify-content: center;">Continuer ➔</button>
-                </div>
-            </div>
-            
-            <!-- Etape 3 -->
-            <div id="step-3" class="form-step" style="display: none;">
-                <div class="ragq-badge" style="margin-bottom: 1rem; color: var(--primary); background: rgba(56, 189, 248, 0.1); border: none;">Dernière Étape</div>
-                <h3 style="margin-bottom: 1.5rem; font-size: 1.4rem; color: white;">Où pouvons-nous vous recontacter ?</h3>
-                <input type="text" id="lead-name" required placeholder="Votre Prénom et Nom" style="width: 100%; padding: 1.1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; margin-bottom: 1rem; font-family: inherit; font-size: 1rem;">
-                <input type="email" id="lead-email" required placeholder="Email professionnel" style="width: 100%; padding: 1.1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; margin-bottom: 1rem; font-family: inherit; font-size: 1rem;">
-                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
-                    <button onclick="nextStep(2)" class="btn btn-outline" style="flex: 1; border-color: rgba(255,255,255,0.1);">Retour</button>
-                    <button id="submit-btn" onclick="submitForm()" class="btn btn-primary" style="flex: 2; background: var(--primary); color: #000; justify-content: center; font-weight: 700;">Soumettre ma demande</button>
-                </div>
-            </div>
-            
-        </div>
+<!-- ===========================  NAVBAR  =========================== -->
+<nav class="navbar">
+  <div class="navbar__inner">
+    <a href="#" class="navbar__logo">
+      <div class="navbar__logo-icon">S.F.</div>
+      <div>
+        <span class="navbar__logo-text">S.A.F.E.</span>
+        <span class="navbar__logo-sub">Pilotage Privé</span>
+      </div>
+    </a>
+    <ul class="navbar__nav">
+      <li><a href="#architecture">Architecture</a></li>
+      <li><a href="#methode">Méthode RAG-Q</a></li>
+      <li><a href="#benefices">Bénéfices</a></li>
+      <li><a href="#apropos">À propos</a></li>
+    </ul>
+    <div class="navbar__actions">
+      <a href="mailto:contact@safe-pilotage-prive.fr" class="btn btn--outline" style="padding:10px 16px;font-size:13px;">contact@safe-pilotage-prive.fr</a>
+      <a href="javascript:openForm()" class="btn btn--primary">Demander une démo</a>
     </div>
+  </div>
+</nav>
 
-    <!-- Styles additionnels Modal -->
-    <style>
-        .form-option {
-            display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1rem; border-radius: 8px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: all 0.2s ease;
-        }
-        .form-option:hover {
-            background: rgba(255,255,255,0.08); border-color: rgba(56, 189, 248, 0.4);
-        }
-    </style>
-
-    <footer class="footer">
-        <div class="container text-center">
-            <div class="logo-text mb-sm" style="font-size: 1.25rem;">S.A.F.E. PILOTAGE PRIVÉ</div>
-            <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 2rem;">Cockpit d'intelligence opérationnelle pour structures exigeantes.</p>
-            
-            <div style="display: flex; justify-content: center; gap: 2.5rem; margin-bottom: 2.5rem; color: #CBD5E1; font-size: 0.9rem; font-weight: 500;">
-                <span style="display: flex; align-items: center; gap: 0.5rem;"><svg width="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> Conforme RGPD</span>
-                <span style="display: flex; align-items: center; gap: 0.5rem;"><svg width="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg> Ingénierie Française</span>
-            </div>
-
-            <div class="footer-links" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.5rem;">
-                <a href="mailto:contact@safe-pilotage-prive.fr" style="color: var(--text-white); font-weight: 500; font-size: 1rem; letter-spacing: 0.03em;">contact@safe-pilotage-prive.fr</a>
-                <span class="separator" style="margin: 0 0.5rem; color: rgba(255,255,255,0.1);">|</span>
-                <a href="mentions-legales.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">Mentions Légales & Confidentialité</a>
-                <span class="separator" style="margin: 0 0.5rem; color: rgba(255,255,255,0.1);">|</span>
-                <span style="font-size: 0.9rem;">© 2026 S.A.F.E. Pilotage Privé — Tous droits réservés</span>
-            </div>
+<!-- ===========================  HERO  =========================== -->
+<section class="hero">
+  <div class="hero__bg">
+    <div class="hero__grid"></div>
+    <div class="hero__glow-1"></div>
+    <div class="hero__glow-2"></div>
+  </div>
+  <div class="container">
+    <div class="hero__content">
+      <div class="hero__left fade-in">
+        <div class="hero__eyebrow">
+          <div class="hero__badge">
+            <span class="status-dot"></span>
+            Réseau Sécurisé & Environnement Confiné
+          </div>
         </div>
-    </footer>
+        <h1>Le poste de pilotage privé de vos <span class="accent">opérations stratégiques.</span></h1>
+        <p class="hero__sub">S.A.F.E. déploie une intelligence locale et souveraine sur vos données les plus sensibles. Zéro compromis sur la confidentialité, performance maximale sur l'analyse.</p>
+        <div class="hero__ctas">
+          <a href="javascript:openForm()" class="btn btn--primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            Demander une démonstration
+          </a>
+          <a href="#benefices" class="btn btn--outline">Découvrir les bénéfices</a>
+        </div>
+        <div class="hero__trust">
+          <div class="hero__trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            100% Souveraineté Data
+          </div>
+          <div class="hero__trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            Couche Invisible
+          </div>
+          <div class="hero__trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Contrôle Qualité Absolu
+          </div>
+        </div>
+      </div>
 
-    <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <span class="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightbox-img">
+      <div class="hero__right fade-in fade-in-delay-2">
+        <div class="hero__dashboard">
+          <div class="dashboard__header">
+            <div>
+              <div class="dashboard__title">S.A.F.E. Pilotage Privé</div>
+              <div style="font-family:var(--font-mono);font-size:10px;color:var(--gray-400);margin-top:2px;">Pilotage méthodologique</div>
+            </div>
+            <div class="dashboard__status">ENVIRONNEMENT ISOLÉ ACTIF</div>
+          </div>
+          <div class="dashboard__metrics">
+            <div class="metric-card">
+              <div class="metric-card__label">Documents actifs</div>
+              <div class="metric-card__value">142</div>
+              <div class="metric-card__delta">↑ Indexés localement</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-card__label">Passages vectorisés</div>
+              <div class="metric-card__value">8.5k</div>
+              <div class="metric-card__delta">↑ Mémoire confinée</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-card__label">Temps de réponse</div>
+              <div class="metric-card__value">8s</div>
+              <div class="metric-card__delta">vs 2h manuelles</div>
+            </div>
+          </div>
+          <div class="dashboard__agents">
+            <div class="agent-row">
+              <div class="agent-row__icon agent-row__icon--blue">🔍</div>
+              <div class="agent-row__info">
+                <div class="agent-row__name">Agent Analyse</div>
+                <div class="agent-row__desc">Extraction & lecture littérale</div>
+              </div>
+              <div class="agent-row__status agent-row__status--active">ACTIF</div>
+            </div>
+            <div class="agent-row">
+              <div class="agent-row__icon agent-row__icon--green">⚙️</div>
+              <div class="agent-row__info">
+                <div class="agent-row__name">Agent Synthèse</div>
+                <div class="agent-row__desc">Structuration & croisement</div>
+              </div>
+              <div class="agent-row__status agent-row__status--active">ACTIF</div>
+            </div>
+            <div class="agent-row">
+              <div class="agent-row__icon agent-row__icon--gold">✅</div>
+              <div class="agent-row__info">
+                <div class="agent-row__name">Agent Contrôle Qualité</div>
+                <div class="agent-row__desc">Validation & traçabilité</div>
+              </div>
+              <div class="agent-row__status agent-row__status--active">ACTIF</div>
+            </div>
+          </div>
+          <div class="dashboard__query">
+            <input type="text" value="Étapes d'onboarding collaborateur..." readonly />
+            <button class="dashboard__query-btn">Analyser →</button>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
 
-    <script>
-        // Modal Formulaire "Typeform" Logic
+<!-- ===========================  TRUST BAR  =========================== -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-bar__inner">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Conforme RGPD
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        Ingénierie Française
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Zéro Fuite de Données
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Traçabilité Forensic
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Cloud Souverain Européen
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===========================  PROBLEMS  =========================== -->
+<section class="section section--white" id="problemes">
+  <div class="container">
+    <div class="problems__header fade-in">
+      <div class="label label--blue"><span class="dot"></span> Diagnostic Opérationnel</div>
+      <h2>La croissance implique le contrôle.</h2>
+      <p>Les structures exigeantes rencontrent des plafonds de verre critiques face à l'abondance d'informations à traiter.</p>
+    </div>
+    <div class="problems__grid">
+      <div class="problem-card fade-in fade-in-delay-1">
+        <div class="problem-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Surcharge documentaire</h3>
+        <p>Un temps précieux noyé dans la lecture, l'extraction de données et le tri de documents, au détriment de l'analyse et de la décision à haute valeur ajoutée.</p>
+      </div>
+      <div class="problem-card fade-in fade-in-delay-2">
+        <div class="problem-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3>Baisse de rigueur (Scale)</h3>
+        <p>Une fragilité et une perte de qualité dans les livrables lors des pics de charge ou de la croissance accélérée des équipes, menaçant votre réputation d'excellence.</p>
+      </div>
+      <div class="problem-card fade-in fade-in-delay-3">
+        <div class="problem-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Savoir-faire siloté</h3>
+        <p>Des processus de validation clés qui reposent entièrement sur quelques cerveaux, créant des goulots d'étranglement et une vulnérabilité organisationnelle structurelle.</p>
+      </div>
+      <div class="problem-card fade-in fade-in-delay-4">
+        <div class="problem-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <h3>Failles de sécurité (Shadow AI)</h3>
+        <p>Le recours sauvage à des IA publiques génériques par vos équipes, exposant la confidentialité de vos informations les plus sensibles à des modèles entraînés sur vos données.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================  ARCHITECTURE  =========================== -->
+<section class="section section--dark" id="architecture">
+  <div class="container">
+    <div class="architecture__inner">
+      <div class="architecture__left fade-in">
+        <div class="label label--blue"><span class="dot"></span> Architecture Souveraine</div>
+        <h2>Une organisation d'agents spécialisés sur vos opérations complexes.</h2>
+        <p>S.A.F.E. ne s'appuie pas sur une IA générique aveugle. C'est le déploiement local d'une équipe d'agents coordonnés qui unissent leurs efforts sur vos données, sans jamais les exposer.</p>
+        <div class="arch-features">
+          <div class="arch-feature">
+            <div class="arch-feature__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <div>
+              <h4>Confidentialité structurelle</h4>
+              <p>Vos contrats, fiches de paie ou bilans financiers ne nourrissent jamais de modèles extérieurs.</p>
+            </div>
+          </div>
+          <div class="arch-feature">
+            <div class="arch-feature__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            </div>
+            <div>
+              <h4>Gouvernance coordonnée</h4>
+              <p>Les agents S.A.F.E. opèrent en équipe pour croiser les sources et lever les ambiguïtés. Vous restez le seul commandant à l'arrivée.</p>
+            </div>
+          </div>
+          <div class="arch-feature">
+            <div class="arch-feature__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div>
+              <h4>Assistance méthodique</h4>
+              <p>La machine ne remplace pas votre expertise métier, elle en décuple la vitesse de préparation et la fiabilité formelle.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="architecture__right fade-in fade-in-delay-2">
+        <div class="arch-diagram">
+          <div class="arch-diagram__title">Architecture Sanctuarisée S.A.F.E. — Vue Schématique</div>
+          <div class="arch-flow">
+            <div class="arch-row">
+              <div class="arch-node arch-node--source">
+                <div class="arch-node__label">Entrées</div>
+                <div class="arch-node__name">Contrats · Bilans · RH · Procédures</div>
+              </div>
+            </div>
+            <div style="text-align:center;color:rgba(255,255,255,0.2);font-size:20px;padding:4px 0;">↓</div>
+            <div class="arch-separator">
+              <div class="arch-separator__line"></div>
+              <div class="arch-separator__label">Périmètre Souverain — 100% Local</div>
+              <div class="arch-separator__line"></div>
+            </div>
+            <div class="arch-row">
+              <div class="arch-node arch-node--process" style="text-align:center;">
+                <div class="arch-node__label">Méthode</div>
+                <div class="arch-node__name">RAG-Q™ — IA sous supervision stricte</div>
+              </div>
+            </div>
+            <div style="text-align:center;color:rgba(255,255,255,0.2);font-size:20px;padding:4px 0;">↓</div>
+            <div class="arch-agents">
+              <div class="arch-agent">
+                <div class="arch-agent__icon">🔍</div>
+                <div class="arch-agent__name">Analyse</div>
+                <div class="arch-agent__role">Extrait</div>
+              </div>
+              <div class="arch-agent">
+                <div class="arch-agent__icon">⚙️</div>
+                <div class="arch-agent__name">Synthèse</div>
+                <div class="arch-agent__role">Structure</div>
+              </div>
+              <div class="arch-agent">
+                <div class="arch-agent__icon">✅</div>
+                <div class="arch-agent__name">Contrôle</div>
+                <div class="arch-agent__role">Valide</div>
+              </div>
+            </div>
+            <div style="text-align:center;color:rgba(255,255,255,0.2);font-size:20px;padding:4px 0;">↓</div>
+            <div class="arch-row" style="gap:8px;">
+              <div class="arch-node arch-node--output" style="flex:1;">
+                <div class="arch-node__label">Sortie</div>
+                <div class="arch-node__name">Synthèse vérifiée + source PDF</div>
+              </div>
+              <div class="arch-node arch-node--output" style="flex:1;">
+                <div class="arch-node__label">Alerte</div>
+                <div class="arch-node__name">Conformité & Écarts</div>
+              </div>
+            </div>
+            <div class="arch-badge">
+              🔒 Gouvernance Humaine — Commandant à l'arrivée : vous
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================  USE CASES  =========================== -->
+<section class="section section--mid" id="methode">
+  <div class="container">
+    <div class="usecases__header fade-in">
+      <div class="label label--gold"><span class="dot"></span> Méthode RAG-Q™</div>
+      <h2>Là où S.A.F.E. crée de la valeur.</h2>
+      <p>Des cas d'usage concrets, mesurables, immédiatement opérationnels dans votre environnement.</p>
+    </div>
+    <div class="usecases__tabs">
+      <button class="tab-btn active" onclick="showTab('rag')">Base de Connaissance RAG</button>
+      <button class="tab-btn" onclick="showTab('shadow')">Anti-Shadow AI</button>
+    </div>
+    <div class="usecase-panel active" id="tab-rag">
+      <div class="usecase-card usecase-card--before fade-in">
+        <div class="usecase-card__tag">✗ Avant S.A.F.E.</div>
+        <h3>Transformation des Procédures</h3>
+        <p>Un responsable RH fouille 3 dossiers SharePoint, relit un PDF de 60 pages pour retrouver les étapes d'onboarding. Processus chronophage et source d'erreurs humaines.</p>
+        <div class="usecase-card__metric">
+          <div class="usecase-card__metric-value">2h</div>
+          <div class="usecase-card__metric-label">perdues par recherche documentaire</div>
+        </div>
+      </div>
+      <div class="usecase-card usecase-card--after fade-in fade-in-delay-1">
+        <div class="usecase-card__tag">✓ Avec S.A.F.E.</div>
+        <h3>Transformation des Procédures</h3>
+        <p>Il tape "étapes d'onboarding"... Réponse sourcée en 8 secondes, directement ancrée à la page 14 du manuel v2.3. Ingestion sans altération, indexation sémantique confinée.</p>
+        <div class="usecase-card__metric">
+          <div class="usecase-card__metric-value">8s</div>
+          <div class="usecase-card__metric-label">réponse sourcée, traçabilité complète</div>
+        </div>
+      </div>
+    </div>
+    <div class="usecase-panel" id="tab-shadow">
+      <div class="usecase-card usecase-card--before fade-in">
+        <div class="usecase-card__tag">✗ Avant S.A.F.E.</div>
+        <h3>Gestion des Fiches de Paie (RH)</h3>
+        <p>Cohérence de paie étudiée manuellement (45 min par dossier) ou risquée sur Cloud US. Fraude RGPD potentielle, exposition de la masse salariale à des modèles étrangers.</p>
+        <div class="usecase-card__metric">
+          <div class="usecase-card__metric-value">45min</div>
+          <div class="usecase-card__metric-label">par dossier + risque RGPD critique</div>
+        </div>
+      </div>
+      <div class="usecase-card usecase-card--after fade-in fade-in-delay-1">
+        <div class="usecase-card__tag">✓ Avec S.A.F.E.</div>
+        <h3>Gestion des Fiches de Paie (RH)</h3>
+        <p>Validation en quelques secondes des cohérences de montants dans un bunker de conformité technique. Confinement absolu, aucune transmission externe de la masse salariale.</p>
+        <div class="usecase-card__metric">
+          <div class="usecase-card__metric-value">0 fuite</div>
+          <div class="usecase-card__metric-label">données confinées, conformité RGPD totale</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================  BENEFITS  =========================== -->
+<section class="section section--light" id="benefices">
+  <div class="container">
+    <div class="benefits__header fade-in">
+      <div class="label label--blue"><span class="dot"></span> Bénéfices Métiers</div>
+      <h2>Conçu pour les organisations exigeantes.</h2>
+      <p>S.A.F.E. ne remplace en aucun cas vos experts. Il les équipe pour lire, vérifier, structurer et synthétiser plus intelligemment.</p>
+    </div>
+    <div class="benefits__grid">
+      <div class="benefit-card fade-in fade-in-delay-1">
+        <div class="benefit-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3>Assurance Qualité & Conformité</h3>
+        <p>Détecter en quelques secondes les écarts, les oublis manifestes et les non-conformités face à vos gabarits d'exigence avant la validation humaine d'un livrable.</p>
+      </div>
+      <div class="benefit-card fade-in fade-in-delay-2">
+        <div class="benefit-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h3>Documents Sensibles</h3>
+        <p>Survoler des liasses documentaires pour repérer immédiatement les clauses à risques et les points d'alerte à faire arbitrer par vos juristes.</p>
+      </div>
+      <div class="benefit-card fade-in fade-in-delay-3">
+        <div class="benefit-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3>Analyse Financière</h3>
+        <p>Extraire immédiatement les anomalies et indicateurs clés de vos bilans pour accélérer et sécuriser vos choix stratégiques.</p>
+      </div>
+      <div class="benefit-card fade-in fade-in-delay-1">
+        <div class="benefit-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>Vérification Comptable</h3>
+        <p>Croiser instantanément vos pièces et vos états pour isoler les incohérences chiffrées avant l'audit et la clôture.</p>
+      </div>
+      <div class="benefit-card fade-in fade-in-delay-2">
+        <div class="benefit-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <h3>Ingénierie & Documentation</h3>
+        <p>Transformer de vastes corpus de procédures métier ou manuels complexes en un savoir immédiatement interrogeable et traçable.</p>
+      </div>
+      <div class="benefit-card fade-in fade-in-delay-3">
+        <div class="benefit-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Transmission du Savoir</h3>
+        <p>Transformer de simples transcriptions de réunions ou du savoir-faire oral en de solides supports de montée en compétence, standardisés et réutilisables.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================  ABOUT  =========================== -->
+<section class="section section--dark" id="apropos">
+  <div class="container">
+    <div class="about__inner">
+      <div class="about__left fade-in">
+        <div class="label label--gold"><span class="dot"></span> À Propos de S.A.F.E.</div>
+        <h2>Une infrastructure souveraine, conçue par des praticiens.</h2>
+        <p>S.A.F.E. est né d'un constat simple : les organisations les plus exigeantes ne peuvent pas se permettre de confier leurs données stratégiques à des modèles d'IA publics, mais elles ont besoin de la puissance de l'intelligence artificielle pour rester compétitives.</p>
+        <p>Nous avons conçu une solution qui réconcilie ces deux impératifs : performance analytique maximale et souveraineté totale des données. Chaque composant de l'architecture S.A.F.E. a été pensé pour opérer en circuit fermé, sans jamais exposer vos informations à l'extérieur.</p>
+        <div class="about__values">
+          <div class="about__value">Déploiement sur-mesure — hébergement garantissant les normes européennes</div>
+          <div class="about__value">Traçabilité Forensic — toute information affiche son document source</div>
+          <div class="about__value">Sanctuarisation des méthodes — chiffrement intégral de vos bases de savoir</div>
+          <div class="about__value">Gouvernance humaine — vous restez le commandant à l'arrivée</div>
+        </div>
+      </div>
+      <div class="about__right fade-in fade-in-delay-2">
+        <div class="about__card">
+          <div class="about__card-label">Indicateurs Clés</div>
+          <div class="about__stats">
+            <div class="about__stat">
+              <div class="about__stat-value">100<span>%</span></div>
+              <div class="about__stat-label">Souveraineté des données</div>
+            </div>
+            <div class="about__stat">
+              <div class="about__stat-value">0<span>ms</span></div>
+              <div class="about__stat-label">Latence réseau externe</div>
+            </div>
+            <div class="about__stat">
+              <div class="about__stat-value">3<span>×</span></div>
+              <div class="about__stat-label">Agents coordonnés</div>
+            </div>
+            <div class="about__stat">
+              <div class="about__stat-value">∞</div>
+              <div class="about__stat-label">Traçabilité des sources</div>
+            </div>
+          </div>
+          <div class="about__divider"></div>
+          <div class="about__certifs">
+            <div class="about__certif">
+              <div class="about__certif-icon">🇫🇷</div>
+              Ingénierie 100% Française
+            </div>
+            <div class="about__certif">
+              <div class="about__certif-icon">🔒</div>
+              Conforme RGPD — Traitement Local Sécurisé
+            </div>
+            <div class="about__certif">
+              <div class="about__certif-icon">🌍</div>
+              Cloud Souverain Européen ou Edge Local
+            </div>
+            <div class="about__certif">
+              <div class="about__certif-icon">⚖️</div>
+              Gouvernance Humaine Garantie
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================  CTA FINAL  =========================== -->
+<section class="cta-section" id="demo">
+  <div class="container">
+    <div class="cta-section__inner fade-in">
+      <div class="label label--blue" style="margin:0 auto 24px;display:inline-flex;"><span class="dot"></span> Prêt à industrialiser votre exigence ?</div>
+      <h2>Vos experts méritent de se concentrer sur l'essentiel.</h2>
+      <p>Offrez-leur un environnement souverain pour se recentrer sur l'analyse et la décision stratégique.</p>
+      <div class="cta-section__actions">
+        <a href="javascript:openForm()" class="btn btn--primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Vérifier mon éligibilité & Démo
+        </a>
+        <a href="mailto:contact@safe-pilotage-prive.fr" class="btn btn--outline">Échanger sur un cas d'usage</a>
+      </div>
+      <p class="cta-section__note">contact@safe-pilotage-prive.fr — Réponse sous 24h ouvrées</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================  FOOTER  =========================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="#" class="navbar__logo" style="text-decoration:none;">
+          <div class="navbar__logo-icon">S.F.</div>
+          <div>
+            <span class="navbar__logo-text">S.A.F.E.</span>
+            <span class="navbar__logo-sub">Pilotage Privé</span>
+          </div>
+        </a>
+        <p>Cockpit d'intelligence opérationnelle pour structures exigeantes. Souveraineté totale, performance maximale.</p>
+      </div>
+      <div>
+        <div class="footer__col-title">Solution</div>
+        <ul class="footer__links">
+          <li><a href="#architecture">Architecture</a></li>
+          <li><a href="#methode">Méthode RAG-Q™</a></li>
+          <li><a href="#benefices">Bénéfices Métiers</a></li>
+          <li><a href="javascript:openForm()">Demander une démo</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Secteurs</div>
+        <ul class="footer__links">
+          <li><a href="#">Cabinets de Conseil</a></li>
+          <li><a href="#">Équipes Juridiques</a></li>
+          <li><a href="#">Finance & Audit</a></li>
+          <li><a href="#">Ressources Humaines</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Contact</div>
+        <ul class="footer__links">
+          <li><a href="mailto:contact@safe-pilotage-prive.fr">contact@safe-pilotage-prive.fr</a></li>
+          <li><a href="#">Mentions Légales</a></li>
+          <li><a href="#">Confidentialité</a></li>
+          <li><a href="#apropos">À propos</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__copy">© 2026 S.A.F.E. Pilotage Privé — Tous droits réservés</div>
+      <div class="footer__badges">
+        <div class="footer__badge">Conforme RGPD</div>
+        <div class="footer__badge">Ingénierie Française</div>
+        <div class="footer__badge">Souveraineté Garantie</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===========================  SCRIPTS  =========================== -->
+<script>
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Tab switching
+  function showTab(id) {
+    document.querySelectorAll('.usecase-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar.style.background = 'rgba(6, 13, 30, 0.95)';
+    } else {
+      navbar.style.background = 'rgba(10, 17, 40, 0.85)';
+    }
+  });
+
+        // Modal Formulaire "Typeform" & Brevo Logic
         function openForm() {
             document.getElementById('typeform-modal').style.display = 'flex';
-            setTimeout(() => document.getElementById('typeform-modal').classList.add('show'), 10);
+            setTimeout(() => {
+                document.getElementById('typeform-modal').classList.add('show');
+            }, 10);
             nextStep(1); // Reset to first step
         }
         
         function closeForm(e) {
-            if(e && e.target.id !== 'typeform-modal' && e.target.className !== 'lightbox-close') return;
-            document.getElementById('typeform-modal').style.display = 'none';
+            if(e && e.target.id !== 'typeform-modal' && e.target.tagName !== 'BUTTON' && !e.target.closest('button')) return;
+            document.getElementById('typeform-modal').classList.remove('show');
+            setTimeout(() => {
+                document.getElementById('typeform-modal').style.display = 'none';
+            }, 300);
         }
 
         function nextStep(stepNumber) {
@@ -530,7 +1813,7 @@
             btn.disabled = true;
             btn.style.opacity = "0.7";
 
-            // Envoi via le lien formulaire Brevo dans une Iframe invisible (pour ne pas casser le design du site)
+            // Envoi via le lien formulaire Brevo dans une Iframe invisible
             let iframe = document.getElementById('brevo-iframe');
             if (!iframe) {
                 iframe = document.createElement('iframe');
@@ -543,9 +1826,16 @@
             const form = document.createElement('form');
             form.method = 'POST';
             form.action = 'https://315b5753.sibforms.com/serve/MUIFAMK0lOYlsV-Aqzo1LDjfpCglpBr-Txt78xkq53MWdPT5rAnBpM4SWNzzfkvZ_YbGZnHuvICPR-4TjAZTPptPnENMd9InUti4NEF2ZBGMvVxXwGmKI3Wmp2WsJeQV5L7g2MCJILixEJqXNEs7NsnG9ymCRhHQHzTRYB0l5aERTNfEzOu_45KmjyExKzomuDuOB9KQk7lp4bzbCg==';
-            form.target = 'brevo-iframe'; // Assure que la réponse s'ouvre dans l'iframe invisible, pas sur la page !
+            form.target = 'brevo-iframe';
 
-            // Mapping des champs. En général Brevo utilise "EMAIL" et "NOM" par défaut.
+            function createHiddenInput(name, value) {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = name;
+                input.value = value;
+                return input;
+            }
+
             form.appendChild(createHiddenInput('EMAIL', email));
             form.appendChild(createHiddenInput('NOM', name));
             form.appendChild(createHiddenInput('TAILLE_ENTREPRISE', size));
@@ -554,72 +1844,23 @@
             document.body.appendChild(form);
             form.submit();
 
-            // Simulation du délai d'envoi Brevo puis affichage du succès (car l'iframe intercepte la vraie réponse silencieusement)
+            // Simulate email confirmation display
             setTimeout(() => {
                 document.getElementById('step-1').style.display = 'none';
                 document.getElementById('step-2').style.display = 'none';
                 document.getElementById('step-3').style.display = 'block';
                 document.getElementById('step-3').innerHTML = `
                     <div style="text-align: center; padding: 2rem 0;">
-                        <svg viewBox="0 0 24 24" width="60" height="60" fill="none" stroke="#22c55e" stroke-width="2" style="margin-bottom: 1.5rem;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <svg viewBox="0 0 24 24" width="60" height="60" fill="none" stroke="#10B981" stroke-width="2" style="margin-bottom: 1.5rem;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                         <h3 style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">Demande envoyée avec succès</h3>
-                        <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 2rem; line-height: 1.5;">Vérifiez votre boîte mail, une confirmation vient de vous être envoyée.<br>La direction technique S.A.F.E. vous recontactera sous peu.</p>
-                        <button onclick="closeForm({target: {id: 'typeform-modal'}})" class="btn btn-outline" style="border-color: rgba(255,255,255,0.2);">Fermer la fenêtre</button>
+                        <p style="color: rgba(255,255,255,0.6); font-size: 1rem; margin-bottom: 2rem; line-height: 1.5;">Vérifiez votre boîte mail, une confirmation vient de vous être envoyée.<br>Notre direction vous recontactera sous peu.</p>
+                        <button onclick="closeForm({target: {id: 'typeform-modal'}})" class="btn btn--outline" style="border-color: rgba(255,255,255,0.2); color: white;">Fermer la fenêtre</button>
                     </div>
                 `;
-                // Nettoyage
                 document.body.removeChild(form);
             }, 1500);
         }
 
-        function createHiddenInput(name, value) {
-            const input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = name;
-            input.value = value;
-            return input;
-        }
-
-        // Select all images inside visual blocks to be clickable
-        const images = document.querySelectorAll('.visual-showcase img, .visual-block img');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-
-        images.forEach(img => {
-            img.style.cursor = 'zoom-in';
-            img.addEventListener('click', function(e) {
-                e.stopPropagation();
-                lightbox.style.display = 'flex';
-                lightboxImg.src = this.src;
-                setTimeout(() => lightbox.classList.add('show'), 10);
-            });
-        });
-
-        function closeLightbox() {
-            lightbox.classList.remove('show');
-            setTimeout(() => lightbox.style.display = 'none', 300);
-        }
-
-        // Close on escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeLightbox();
-        });
-
-        // Mobile Menu Toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinksMenu = document.querySelector('.nav-links');
-        const navItems = document.querySelectorAll('.nav-links a');
-        
-        if (menuToggle) {
-            menuToggle.addEventListener('click', () => {
-                navLinksMenu.classList.toggle('active');
-            });
-            navItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    navLinksMenu.classList.remove('active');
-                });
-            });
-        }
-    </script>
+</script>
 </body>
 </html>
