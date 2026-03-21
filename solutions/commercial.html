@@ -291,7 +291,113 @@
     .voir-aussi__card:hover { background: rgba(255,255,255,0.1); border-color: rgba(99,102,241,0.5); }
     .voir-aussi__card-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #6366f1; margin-bottom: 0.4rem; }
     .voir-aussi__card-desc { font-size: 0.9rem; color: rgba(255,255,255,0.7); }
-</style>
+
+    /* === FAQ Section === */
+    .faq-section {
+        padding: 80px 0;
+        background: linear-gradient(180deg, #0d1635 0%, #0a1128 100%);
+        border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .faq-section .container {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+    .faq-section__header {
+        text-align: center;
+        margin-bottom: 48px;
+    }
+    .faq-section__tag {
+        display: inline-block;
+        background: rgba(37,99,235,0.15);
+        border: 1px solid rgba(37,99,235,0.4);
+        color: #60a5fa;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 6px 14px;
+        border-radius: 4px;
+        margin-bottom: 16px;
+    }
+    .faq-section__title {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        font-weight: 700;
+        color: #ffffff;
+        margin: 0;
+    }
+    .faq-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .faq-item {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 10px;
+        overflow: hidden;
+        transition: border-color 0.2s ease;
+    }
+    .faq-item:hover {
+        border-color: rgba(37,99,235,0.4);
+    }
+    .faq-item__question {
+        width: 100%;
+        background: none;
+        border: none;
+        padding: 20px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        cursor: pointer;
+        text-align: left;
+        color: #e2e8f0;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.4;
+    }
+    .faq-item__question:hover {
+        color: #ffffff;
+    }
+    .faq-item__icon {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        background: rgba(37,99,235,0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease, background 0.2s ease;
+        color: #60a5fa;
+        font-size: 18px;
+        line-height: 1;
+    }
+    .faq-item.open .faq-item__icon {
+        transform: rotate(45deg);
+        background: rgba(37,99,235,0.4);
+    }
+    .faq-item__answer {
+        display: none;
+        padding: 0 24px 20px 24px;
+        color: #94a3b8;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        border-top: 1px solid rgba(255,255,255,0.06);
+        padding-top: 16px;
+    }
+    .faq-item.open .faq-item__answer {
+        display: block;
+    }
+
+    </style>
   <!-- Favicon S.A.F.E. -->
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -326,6 +432,38 @@
     <meta name="twitter:image" content="https://www.safe-pilotage-prive.fr/og/og-commercial.png">
 
     <meta name="robots" content="index, follow">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Comment l'IA S.A.F.E. améliore-t-elle la prospection commerciale ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "L'agent IA Commercial analyse l'historique de vos ventes, le comportement de vos clients et les données du marché pour scorer vos leads (Lead Scoring prédictif). Il identifie les prospects ayant la plus forte probabilité de conversion, permettant à vos commerciaux de concentrer leurs efforts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "L'IA peut-elle aider à réduire le taux d'attrition (churn) ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, S.A.F.E. détecte les signaux faibles de désengagement (baisse d'utilisation, tickets support récurrents, retards de paiement) bien avant que le client ne décide de partir. L'IA alerte vos équipes et suggère des actions de rétention personnalisées."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "L'IA S.A.F.E. s'intègre-t-elle avec mon CRM actuel ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolument. S.A.F.E. se connecte de manière sécurisée à votre CRM (Salesforce, Hubspot, etc.) pour enrichir vos données existantes. Il ne remplace pas votre CRM, il le rend intelligent en y injectant des prédictions et des recommandations d'actions."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -524,7 +662,49 @@
   </div>
 </section>
 
-<footer class="footer">
+
+    <!-- === FAQ Section === -->
+    <section class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+        <div class="container">
+            <div class="faq-section__header">
+                <span class="faq-section__tag">FAQ</span>
+                <h2 class="faq-section__title">FAQ : IA pour les Ventes et le Commercial</h2>
+            </div>
+            <ul class="faq-list">
+
+        <li class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-item__question" aria-expanded="false">
+                <span itemprop="name">Comment l'IA S.A.F.E. améliore-t-elle la prospection commerciale ?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">L'agent IA Commercial analyse l'historique de vos ventes, le comportement de vos clients et les données du marché pour scorer vos leads (Lead Scoring prédictif). Il identifie les prospects ayant la plus forte probabilité de conversion, permettant à vos commerciaux de concentrer leurs efforts.</p>
+            </div>
+        </li>
+        <li class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-item__question" aria-expanded="false">
+                <span itemprop="name">L'IA peut-elle aider à réduire le taux d'attrition (churn) ?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">Oui, S.A.F.E. détecte les signaux faibles de désengagement (baisse d'utilisation, tickets support récurrents, retards de paiement) bien avant que le client ne décide de partir. L'IA alerte vos équipes et suggère des actions de rétention personnalisées.</p>
+            </div>
+        </li>
+        <li class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-item__question" aria-expanded="false">
+                <span itemprop="name">L'IA S.A.F.E. s'intègre-t-elle avec mon CRM actuel ?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">Absolument. S.A.F.E. se connecte de manière sécurisée à votre CRM (Salesforce, Hubspot, etc.) pour enrichir vos données existantes. Il ne remplace pas votre CRM, il le rend intelligent en y injectant des prédictions et des recommandations d'actions.</p>
+            </div>
+        </li>
+            </ul>
+        </div>
+    </section>
+    <!-- === /FAQ Section === -->
+
+    <footer class="footer">
   <div class="container">
     <div class="footer__grid">
       <div>
@@ -811,5 +991,24 @@
       });
     })();
   </script>
+
+    <script>
+
+    // === FAQ Accordéon ===
+    document.querySelectorAll('.faq-item__question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var item = this.closest('.faq-item');
+            var isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item.open').forEach(function(el) {
+                el.classList.remove('open');
+                el.querySelector('.faq-item__question').setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+                item.classList.add('open');
+                this.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+    </script>
 </body>
 </html>

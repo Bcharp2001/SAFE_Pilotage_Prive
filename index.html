@@ -1339,7 +1339,113 @@
       #ctaModal .size-grid { grid-template-columns: 1fr !important; }
       #ctaModal .name-grid { grid-template-columns: 1fr !important; }
     }
-  </style>
+  
+    /* === FAQ Section === */
+    .faq-section {
+        padding: 80px 0;
+        background: linear-gradient(180deg, #0d1635 0%, #0a1128 100%);
+        border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .faq-section .container {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+    .faq-section__header {
+        text-align: center;
+        margin-bottom: 48px;
+    }
+    .faq-section__tag {
+        display: inline-block;
+        background: rgba(37,99,235,0.15);
+        border: 1px solid rgba(37,99,235,0.4);
+        color: #60a5fa;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 6px 14px;
+        border-radius: 4px;
+        margin-bottom: 16px;
+    }
+    .faq-section__title {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        font-weight: 700;
+        color: #ffffff;
+        margin: 0;
+    }
+    .faq-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .faq-item {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 10px;
+        overflow: hidden;
+        transition: border-color 0.2s ease;
+    }
+    .faq-item:hover {
+        border-color: rgba(37,99,235,0.4);
+    }
+    .faq-item__question {
+        width: 100%;
+        background: none;
+        border: none;
+        padding: 20px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        cursor: pointer;
+        text-align: left;
+        color: #e2e8f0;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.4;
+    }
+    .faq-item__question:hover {
+        color: #ffffff;
+    }
+    .faq-item__icon {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        background: rgba(37,99,235,0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease, background 0.2s ease;
+        color: #60a5fa;
+        font-size: 18px;
+        line-height: 1;
+    }
+    .faq-item.open .faq-item__icon {
+        transform: rotate(45deg);
+        background: rgba(37,99,235,0.4);
+    }
+    .faq-item__answer {
+        display: none;
+        padding: 0 24px 20px 24px;
+        color: #94a3b8;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        border-top: 1px solid rgba(255,255,255,0.06);
+        padding-top: 16px;
+    }
+    .faq-item.open .faq-item__answer {
+        display: block;
+    }
+
+    </style>
   <!-- Favicon S.A.F.E. -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -1389,6 +1495,46 @@
     <meta name="twitter:image" content="https://www.safe-pilotage-prive.fr/og/og-accueil.png">
 
     <meta name="robots" content="index, follow">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qu'est-ce qu'une IA souveraine pour PME ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Une IA souveraine est un système d'intelligence artificielle qui fonctionne de manière isolée et dont les données ne quittent jamais votre infrastructure. Contrairement aux solutions cloud publiques, S.A.F.E. garantit que vos informations stratégiques ne sont pas utilisées pour entraîner des modèles externes, assurant ainsi une confidentialité totale."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment S.A.F.E. s'intègre-t-il dans notre système d'information existant ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "S.A.F.E. se déploie comme un cockpit d'intelligence opérationnelle sécurisé. Il s'interface avec vos outils actuels (ERP, CRM, bases documentaires) via des connecteurs chiffrés, permettant aux agents IA d'analyser vos données en temps réel sans perturber vos flux de travail existants."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "L'IA S.A.F.E. est-elle conforme au RGPD et à l'AI Act européen ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolument. S.A.F.E. a été conçu dès l'origine selon le principe de Privacy by Design. Le traitement local des données et la traçabilité complète des décisions (audit log) assurent une conformité stricte au RGPD et anticipent les exigences de l'AI Act européen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien de temps faut-il pour déployer S.A.F.E. dans mon entreprise ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le déploiement de S.A.F.E. est structuré et méthodique. Une phase de cadrage de 2 à 4 semaines permet de définir les cas d'usage prioritaires et d'auditer vos données. Le déploiement des premiers agents IA opérationnels se fait généralement sous 6 à 8 semaines."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -1923,7 +2069,58 @@
 </section>
 
 <!-- ===========================  FOOTER  =========================== -->
-<footer class="footer">
+
+    <!-- === FAQ Section === -->
+    <section class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+        <div class="container">
+            <div class="faq-section__header">
+                <span class="faq-section__tag">FAQ</span>
+                <h2 class="faq-section__title">Questions fréquentes sur l'IA Souveraine S.A.F.E.</h2>
+            </div>
+            <ul class="faq-list">
+
+        <li class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-item__question" aria-expanded="false">
+                <span itemprop="name">Qu'est-ce qu'une IA souveraine pour PME ?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">Une IA souveraine est un système d'intelligence artificielle qui fonctionne de manière isolée et dont les données ne quittent jamais votre infrastructure. Contrairement aux solutions cloud publiques, S.A.F.E. garantit que vos informations stratégiques ne sont pas utilisées pour entraîner des modèles externes, assurant ainsi une confidentialité totale.</p>
+            </div>
+        </li>
+        <li class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-item__question" aria-expanded="false">
+                <span itemprop="name">Comment S.A.F.E. s'intègre-t-il dans notre système d'information existant ?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">S.A.F.E. se déploie comme un cockpit d'intelligence opérationnelle sécurisé. Il s'interface avec vos outils actuels (ERP, CRM, bases documentaires) via des connecteurs chiffrés, permettant aux agents IA d'analyser vos données en temps réel sans perturber vos flux de travail existants.</p>
+            </div>
+        </li>
+        <li class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-item__question" aria-expanded="false">
+                <span itemprop="name">L'IA S.A.F.E. est-elle conforme au RGPD et à l'AI Act européen ?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">Absolument. S.A.F.E. a été conçu dès l'origine selon le principe de Privacy by Design. Le traitement local des données et la traçabilité complète des décisions (audit log) assurent une conformité stricte au RGPD et anticipent les exigences de l'AI Act européen.</p>
+            </div>
+        </li>
+        <li class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-item__question" aria-expanded="false">
+                <span itemprop="name">Combien de temps faut-il pour déployer S.A.F.E. dans mon entreprise ?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">Le déploiement de S.A.F.E. est structuré et méthodique. Une phase de cadrage de 2 à 4 semaines permet de définir les cas d'usage prioritaires et d'auditer vos données. Le déploiement des premiers agents IA opérationnels se fait généralement sous 6 à 8 semaines.</p>
+            </div>
+        </li>
+            </ul>
+        </div>
+    </section>
+    <!-- === /FAQ Section === -->
+
+    <footer class="footer">
   <div class="container">
     <div class="footer__top">
       <div class="footer__brand">
@@ -2350,5 +2547,24 @@
       });
     })();
   </script>
+
+    <script>
+
+    // === FAQ Accordéon ===
+    document.querySelectorAll('.faq-item__question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var item = this.closest('.faq-item');
+            var isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item.open').forEach(function(el) {
+                el.classList.remove('open');
+                el.querySelector('.faq-item__question').setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+                item.classList.add('open');
+                this.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+    </script>
 </body>
 </html>

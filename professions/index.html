@@ -148,7 +148,113 @@
       .footer__grid { grid-template-columns: 1fr; gap: 40px; padding: 0 20px; }
       .footer__bottom { flex-direction: column; text-align: center; padding: 32px 20px 0; }
     }
-  </style>
+  
+    /* === FAQ Section === */
+    .faq-section {
+        padding: 80px 0;
+        background: linear-gradient(180deg, #0d1635 0%, #0a1128 100%);
+        border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .faq-section .container {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+    .faq-section__header {
+        text-align: center;
+        margin-bottom: 48px;
+    }
+    .faq-section__tag {
+        display: inline-block;
+        background: rgba(37,99,235,0.15);
+        border: 1px solid rgba(37,99,235,0.4);
+        color: #60a5fa;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 6px 14px;
+        border-radius: 4px;
+        margin-bottom: 16px;
+    }
+    .faq-section__title {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        font-weight: 700;
+        color: #ffffff;
+        margin: 0;
+    }
+    .faq-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .faq-item {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 10px;
+        overflow: hidden;
+        transition: border-color 0.2s ease;
+    }
+    .faq-item:hover {
+        border-color: rgba(37,99,235,0.4);
+    }
+    .faq-item__question {
+        width: 100%;
+        background: none;
+        border: none;
+        padding: 20px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        cursor: pointer;
+        text-align: left;
+        color: #e2e8f0;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.4;
+    }
+    .faq-item__question:hover {
+        color: #ffffff;
+    }
+    .faq-item__icon {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        background: rgba(37,99,235,0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease, background 0.2s ease;
+        color: #60a5fa;
+        font-size: 18px;
+        line-height: 1;
+    }
+    .faq-item.open .faq-item__icon {
+        transform: rotate(45deg);
+        background: rgba(37,99,235,0.4);
+    }
+    .faq-item__answer {
+        display: none;
+        padding: 0 24px 20px 24px;
+        color: #94a3b8;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        border-top: 1px solid rgba(255,255,255,0.06);
+        padding-top: 16px;
+    }
+    .faq-item.open .faq-item__answer {
+        display: block;
+    }
+
+    </style>
 
 <script type="application/ld+json">
 {
@@ -171,6 +277,38 @@
     <meta name="twitter:image" content="https://www.safe-pilotage-prive.fr/og/og-professions.png">
 
     <meta name="robots" content="index, follow">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Pourquoi les professions réglementées ont-elles besoin d'une IA spécifique ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les notaires, avocats et experts-comptables sont soumis au secret professionnel absolu. L'utilisation d'IA publiques expose les données de leurs clients à des risques de fuite. S.A.F.E. propose une IA souveraine, isolée et auditable, qui garantit le respect de la déontologie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qu'est-ce que l'architecture souveraine S.A.F.E. ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "C'est une infrastructure où le moteur d'IA (le LLM) et vos données sont hébergés sur des serveurs sécurisés en France (SecNumCloud) ou directement dans vos locaux. L'IA fonctionne en vase clos, sans aucune connexion avec les géants de la tech américains."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "L'IA S.A.F.E. peut-elle remplacer un expert métier ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. L'IA S.A.F.E. est un outil d'augmentation, pas de remplacement. Elle automatise les tâches chronophages (recherche jurisprudentielle, saisie comptable, analyse de contrats) pour libérer du temps. L'analyse finale et la responsabilité restent l'apanage exclusif du professionnel."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -262,7 +400,49 @@
   </div>
 </div>
 
-<footer class="footer">
+
+    <!-- === FAQ Section === -->
+    <section class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+        <div class="container">
+            <div class="faq-section__header">
+                <span class="faq-section__tag">FAQ</span>
+                <h2 class="faq-section__title">FAQ : IA Souveraine pour les Professions Réglementées</h2>
+            </div>
+            <ul class="faq-list">
+
+        <li class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-item__question" aria-expanded="false">
+                <span itemprop="name">Pourquoi les professions réglementées ont-elles besoin d'une IA spécifique ?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">Les notaires, avocats et experts-comptables sont soumis au secret professionnel absolu. L'utilisation d'IA publiques expose les données de leurs clients à des risques de fuite. S.A.F.E. propose une IA souveraine, isolée et auditable, qui garantit le respect de la déontologie.</p>
+            </div>
+        </li>
+        <li class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-item__question" aria-expanded="false">
+                <span itemprop="name">Qu'est-ce que l'architecture souveraine S.A.F.E. ?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">C'est une infrastructure où le moteur d'IA (le LLM) et vos données sont hébergés sur des serveurs sécurisés en France (SecNumCloud) ou directement dans vos locaux. L'IA fonctionne en vase clos, sans aucune connexion avec les géants de la tech américains.</p>
+            </div>
+        </li>
+        <li class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-item__question" aria-expanded="false">
+                <span itemprop="name">L'IA S.A.F.E. peut-elle remplacer un expert métier ?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">Non. L'IA S.A.F.E. est un outil d'augmentation, pas de remplacement. Elle automatise les tâches chronophages (recherche jurisprudentielle, saisie comptable, analyse de contrats) pour libérer du temps. L'analyse finale et la responsabilité restent l'apanage exclusif du professionnel.</p>
+            </div>
+        </li>
+            </ul>
+        </div>
+    </section>
+    <!-- === /FAQ Section === -->
+
+    <footer class="footer">
   <div class="container">
     <div class="footer__grid">
       <div>
@@ -351,5 +531,24 @@
       });
     })();
   </script>
+
+    <script>
+
+    // === FAQ Accordéon ===
+    document.querySelectorAll('.faq-item__question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var item = this.closest('.faq-item');
+            var isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item.open').forEach(function(el) {
+                el.classList.remove('open');
+                el.querySelector('.faq-item__question').setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+                item.classList.add('open');
+                this.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+    </script>
 </body>
 </html>

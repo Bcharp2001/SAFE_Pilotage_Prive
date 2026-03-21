@@ -272,7 +272,113 @@
     .voir-aussi__card:hover { background: rgba(255,255,255,0.1); border-color: rgba(99,102,241,0.5); }
     .voir-aussi__card-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #6366f1; margin-bottom: 0.4rem; }
     .voir-aussi__card-desc { font-size: 0.9rem; color: rgba(255,255,255,0.7); }
-</style>
+
+    /* === FAQ Section === */
+    .faq-section {
+        padding: 80px 0;
+        background: linear-gradient(180deg, #0d1635 0%, #0a1128 100%);
+        border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .faq-section .container {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+    .faq-section__header {
+        text-align: center;
+        margin-bottom: 48px;
+    }
+    .faq-section__tag {
+        display: inline-block;
+        background: rgba(37,99,235,0.15);
+        border: 1px solid rgba(37,99,235,0.4);
+        color: #60a5fa;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 6px 14px;
+        border-radius: 4px;
+        margin-bottom: 16px;
+    }
+    .faq-section__title {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        font-weight: 700;
+        color: #ffffff;
+        margin: 0;
+    }
+    .faq-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .faq-item {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 10px;
+        overflow: hidden;
+        transition: border-color 0.2s ease;
+    }
+    .faq-item:hover {
+        border-color: rgba(37,99,235,0.4);
+    }
+    .faq-item__question {
+        width: 100%;
+        background: none;
+        border: none;
+        padding: 20px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        cursor: pointer;
+        text-align: left;
+        color: #e2e8f0;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.4;
+    }
+    .faq-item__question:hover {
+        color: #ffffff;
+    }
+    .faq-item__icon {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        background: rgba(37,99,235,0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease, background 0.2s ease;
+        color: #60a5fa;
+        font-size: 18px;
+        line-height: 1;
+    }
+    .faq-item.open .faq-item__icon {
+        transform: rotate(45deg);
+        background: rgba(37,99,235,0.4);
+    }
+    .faq-item__answer {
+        display: none;
+        padding: 0 24px 20px 24px;
+        color: #94a3b8;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        border-top: 1px solid rgba(255,255,255,0.06);
+        padding-top: 16px;
+    }
+    .faq-item.open .faq-item__answer {
+        display: block;
+    }
+
+    </style>
 
 <script type="application/ld+json">
 {
@@ -303,6 +409,38 @@
     <meta name="twitter:image" content="https://www.safe-pilotage-prive.fr/og/og-experts-comptables.png">
 
     <meta name="robots" content="index, follow">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "L'IA S.A.F.E. va-t-elle faire disparaître la tenue comptable ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "L'IA automatise la quasi-totalité de la saisie, de l'imputation et du lettrage grâce à la reconnaissance avancée des documents. Le rôle du cabinet évolue : moins de temps sur la production des chiffres, plus de temps consacré à leur analyse et au conseil stratégique du dirigeant."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment l'IA aide-t-elle l'expert-comptable à conseiller ses clients ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "S.A.F.E. analyse en temps réel les données financières du client pour détecter des signaux d'alerte (baisse de marge, tension de trésorerie). L'IA génère des rapports narratifs clairs et suggère des pistes d'optimisation fiscale et sociale que l'expert peut présenter à son client."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Les données financières de mes clients sont-elles protégées ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La souveraineté est totale. Les FEC, bilans et données sociales traités par S.A.F.E. ne quittent pas votre environnement sécurisé. L'IA respecte le secret professionnel inhérent à l'Ordre des Experts-Comptables et garantit la conformité RGPD."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -508,7 +646,49 @@
   </div>
 </section>
 
-<footer class="footer">
+
+    <!-- === FAQ Section === -->
+    <section class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+        <div class="container">
+            <div class="faq-section__header">
+                <span class="faq-section__tag">FAQ</span>
+                <h2 class="faq-section__title">FAQ : IA pour les Experts-Comptables</h2>
+            </div>
+            <ul class="faq-list">
+
+        <li class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-item__question" aria-expanded="false">
+                <span itemprop="name">L'IA S.A.F.E. va-t-elle faire disparaître la tenue comptable ?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">L'IA automatise la quasi-totalité de la saisie, de l'imputation et du lettrage grâce à la reconnaissance avancée des documents. Le rôle du cabinet évolue : moins de temps sur la production des chiffres, plus de temps consacré à leur analyse et au conseil stratégique du dirigeant.</p>
+            </div>
+        </li>
+        <li class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-item__question" aria-expanded="false">
+                <span itemprop="name">Comment l'IA aide-t-elle l'expert-comptable à conseiller ses clients ?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">S.A.F.E. analyse en temps réel les données financières du client pour détecter des signaux d'alerte (baisse de marge, tension de trésorerie). L'IA génère des rapports narratifs clairs et suggère des pistes d'optimisation fiscale et sociale que l'expert peut présenter à son client.</p>
+            </div>
+        </li>
+        <li class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-item__question" aria-expanded="false">
+                <span itemprop="name">Les données financières de mes clients sont-elles protégées ?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">La souveraineté est totale. Les FEC, bilans et données sociales traités par S.A.F.E. ne quittent pas votre environnement sécurisé. L'IA respecte le secret professionnel inhérent à l'Ordre des Experts-Comptables et garantit la conformité RGPD.</p>
+            </div>
+        </li>
+            </ul>
+        </div>
+    </section>
+    <!-- === /FAQ Section === -->
+
+    <footer class="footer">
   <div class="container">
     <div class="footer__grid">
       <div>
@@ -775,5 +955,24 @@
       });
     })();
   </script>
+
+    <script>
+
+    // === FAQ Accordéon ===
+    document.querySelectorAll('.faq-item__question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var item = this.closest('.faq-item');
+            var isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item.open').forEach(function(el) {
+                el.classList.remove('open');
+                el.querySelector('.faq-item__question').setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+                item.classList.add('open');
+                this.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+    </script>
 </body>
 </html>
