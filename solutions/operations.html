@@ -281,7 +281,17 @@
       .form-row { grid-template-columns: 1fr; }
       .modal { padding: 32px 24px; }
     }
-  </style>
+  
+    /* Maillage interne - Voir aussi */
+    .voir-aussi { background: rgba(255,255,255,0.04); border-top: 1px solid rgba(255,255,255,0.1); padding: 3rem 0; }
+    .voir-aussi .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .voir-aussi__title { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 1.5rem; }
+    .voir-aussi__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+    .voir-aussi__card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 1.25rem 1.5rem; text-decoration: none; color: inherit; transition: background 0.2s, border-color 0.2s; display: block; }
+    .voir-aussi__card:hover { background: rgba(255,255,255,0.1); border-color: rgba(99,102,241,0.5); }
+    .voir-aussi__card-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #6366f1; margin-bottom: 0.4rem; }
+    .voir-aussi__card-desc { font-size: 0.9rem; color: rgba(255,255,255,0.7); }
+</style>
   <!-- Favicon S.A.F.E. -->
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -507,6 +517,28 @@
 </section>
 
 <!-- FOOTER -->
+
+
+<section class="voir-aussi">
+  <div class="container">
+    <div class="voir-aussi__title">Voir aussi</div>
+    <div class="voir-aussi__grid">
+      <a href="direction-strategie.html" class="voir-aussi__card">
+        <div class="voir-aussi__card-label">Direction & Strategie</div>
+        <div class="voir-aussi__card-desc">Alignez operations et strategie</div>
+      </a>
+      <a href="achats-stock.html" class="voir-aussi__card">
+        <div class="voir-aussi__card-label">Achats & Stock</div>
+        <div class="voir-aussi__card-desc">Optimisez la chaine logistique</div>
+      </a>
+      <a href="commercial.html" class="voir-aussi__card">
+        <div class="voir-aussi__card-label">Ventes & Commercial</div>
+        <div class="voir-aussi__card-desc">Connectez operations et ventes</div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
