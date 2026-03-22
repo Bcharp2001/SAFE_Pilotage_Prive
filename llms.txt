@@ -1,0 +1,20 @@
+# S.A.F.E. Pilotage Privé
+> IA Souveraine & Cockpit Opérationnel pour PME et Professions Réglementées
+
+S.A.F.E. est une solution d'intelligence artificielle locale et souveraine qui garantit le secret professionnel et la conformité RGPD. Elle s'adresse aux PME et aux professions réglementées (Notaires, Avocats, Experts-Comptables).
+
+## Fichiers de contexte pour LLMs
+Ce site fournit son contenu au format Markdown optimisé pour les modèles de langage (AEO).
+
+- [S.A.F.E. Pilotage Privé - IA Souveraine & Cockpit Opérationnel pour PME](https://www.safe-pilotage-prive.fr/md/index.md)
+- [À propos de S.A.F.E. Pilotage Privé | Bertrand Charpilloz](https://www.safe-pilotage-prive.fr/md/a-propos.md)
+- [IA Souveraine pour Direction PME : Stratégie & Décision](https://www.safe-pilotage-prive.fr/md/solutions-direction-strategie.md)
+- [IA Ventes PME : Prospection & Fidélisation Souveraine](https://www.safe-pilotage-prive.fr/md/solutions-commercial.md)
+- [IA RH & Paie PME : Solution Souveraine & Sécurisée](https://www.safe-pilotage-prive.fr/md/solutions-rh-paie.md)
+- [IA Comptabilité & Finance PME : Solution Souveraine](https://www.safe-pilotage-prive.fr/md/solutions-finance-comptabilite.md)
+- [IA Juridique & Compliance PME : Souveraineté Garantie](https://www.safe-pilotage-prive.fr/md/solutions-juridique-compliance.md)
+- [IA Opérations PME : Gestion des Connaissances & RAG](https://www.safe-pilotage-prive.fr/md/solutions-operations.md)
+- [IA Achats & Stock PME : Optimisez votre Gestion](https://www.safe-pilotage-prive.fr/md/solutions-achats-stock.md)
+- [IA Souveraine pour Notaires : Secret Professionnel Garanti](https://www.safe-pilotage-prive.fr/md/professions-notaires.md)
+- [IA Sécurisée pour Avocats : Jurisprudence & Confidentialité](https://www.safe-pilotage-prive.fr/md/professions-avocats.md)
+- [IA RAG pour Experts-Comptables : Moins de Saisie, Plus de Conseil](https://www.safe-pilotage-prive.fr/md/professions-experts-comptables.md)
