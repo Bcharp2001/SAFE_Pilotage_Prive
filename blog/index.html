@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog IA souveraine pour PME — S.A.F.E. Pilotage Privé</title>
+  <meta name="description" content="Guides et ressources sur l'IA souveraine pour PME. Par Bertrand Charpilloz, consultant IA." />
+  <link rel="canonical" href="https://www.safe-pilotage-prive.fr/blog" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Blog IA souveraine pour PME — S.A.F.E. Pilotage Privé" />
+  <meta property="og:description" content="Guides et ressources sur l'IA souveraine pour PME. Par Bertrand Charpilloz, consultant IA." />
+  <meta property="og:url" content="https://www.safe-pilotage-prive.fr/blog" />
+  <meta property="og:site_name" content="S.A.F.E. Pilotage Privé" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy:       #0A1128;
+      --navy-mid:   #0F1E3D;
+      --navy-light: #162347;
+      --blue:       #2563EB;
+      --blue-light: #3B82F6;
+      --blue-glow:  rgba(37, 99, 235, 0.25);
+      --gold:       #D4A373;
+      --gold-light: #E8C99A;
+      --white:      #FFFFFF;
+      --off-white:  #F8FAFC;
+      --gray-100:   #F1F5F9;
+      --gray-200:   #E2E8F0;
+      --gray-400:   #94A3B8;
+      --gray-600:   #475569;
+      --gray-800:   #1E293B;
+      --text-dark:  #0F172A;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+      --font-mono:    'Space Mono', 'Courier New', monospace;
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+      --shadow-md: 0 8px 32px rgba(0,0,0,0.12);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--text-dark); background: var(--off-white); line-height: 1.7; overflow-x: hidden; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+
+    /* NAV */
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,17,40,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 0 32px; height: 72px; }
+    .navbar__inner { display: flex; align-items: center; height: 100%; gap: 16px; }
+    .navbar__logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+    .navbar__logo-icon { width: 36px; height: 36px; background: linear-gradient(135deg, #2563EB, #3B82F6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: #fff; letter-spacing: -0.5px; }
+    .navbar__logo-text { font-family: var(--font-display); font-weight: 700; font-size: 18px; color: #fff; }
+    .navbar__logo-sub { display: block; font-size: 10px; color: rgba(255,255,255,0.4); font-family: var(--font-mono); letter-spacing: 0.08em; margin-top: -2px; }
+    .navbar__nav { display: flex; list-style: none; gap: 2px; margin-left: auto; }
+    .navbar__nav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; font-weight: 500; padding: 6px 10px; border-radius: var(--radius-sm); transition: var(--transition); white-space: nowrap; }
+    .navbar__nav a:hover, .navbar__nav a.active { color: var(--white); background: rgba(255,255,255,0.08); }
+    .navbar__actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-body); font-weight: 600; font-size: 14px; padding: 12px 24px; border-radius: var(--radius-sm); text-decoration: none; cursor: pointer; border: none; transition: var(--transition); }
+    .btn--primary { background: var(--blue); color: #fff; }
+    .btn--primary:hover { background: var(--blue-light); }
+    .btn--outline { background: transparent; color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.2); }
+    .btn--outline:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+    .navbar__dropdown { position: relative; }
+    .navbar__dropdown > a { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+    .navbar__dropdown > a::after { content: '▾'; font-size: 10px; opacity: 0.6; transition: var(--transition); }
+    .navbar__dropdown.open > a::after { opacity: 1; transform: rotate(180deg); }
+    .navbar__dropdown-menu { display: none; position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%); min-width: 220px; background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-md); padding: 8px; box-shadow: 0 24px 64px rgba(0,0,0,0.4); }
+    .navbar__dropdown.open .navbar__dropdown-menu { display: block; }
+    .navbar__dropdown-menu a { display: block; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; padding: 8px 12px; border-radius: var(--radius-sm); transition: var(--transition); }
+    .navbar__dropdown-menu a:hover { background: rgba(37,99,235,0.15); color: var(--white); }
+    .navbar__dropdown-menu .dropdown-divider { height: 1px; background: rgba(255,255,255,0.06); margin: 6px 0; }
+    .navbar__hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .navbar__hamburger span { display: block; width: 22px; height: 2px; background: rgba(255,255,255,0.7); border-radius: 2px; transition: var(--transition); }
+    .navbar__mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: var(--navy); padding: 24px 32px; border-bottom: 1px solid rgba(255,255,255,0.08); z-index: 99; flex-direction: column; gap: 8px; }
+    .navbar__mobile-menu.open { display: flex; }
+    .navbar__mobile-menu a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 16px; font-weight: 500; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+
+    /* HERO BLOG */
+    .blog-hero { background: var(--navy); padding: 120px 0 80px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .blog-hero__label { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-light); margin-bottom: 16px; }
+    .blog-hero h1 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--white); margin-bottom: 16px; }
+    .blog-hero p { font-size: 18px; color: rgba(255,255,255,0.6); max-width: 600px; }
+
+    /* GRID ARTICLES */
+    .blog-grid-section { padding: 80px 0; background: var(--off-white); }
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 32px; }
+    .article-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); overflow: hidden; text-decoration: none; color: inherit; transition: var(--transition); display: flex; flex-direction: column; }
+    .article-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+    .article-card__img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+    .article-card__body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+    .article-card__cat { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+    .article-card__title { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; line-height: 1.35; }
+    .article-card__desc { font-size: 0.9rem; color: var(--gray-600); line-height: 1.6; flex: 1; }
+    .article-card__meta { display: flex; align-items: center; gap: 12px; margin-top: 20px; font-size: 0.82rem; color: var(--gray-400); }
+    .article-card__cta { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: 0.88rem; font-weight: 600; color: var(--blue); }
+
+    /* FOOTER */
+    .footer { background: var(--navy); color: rgba(255,255,255,0.6); padding: 64px 0 32px; }
+    .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer__brand { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .footer__brand-icon { width: 32px; height: 32px; background: linear-gradient(135deg, #2563EB, #3B82F6); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 10px; font-weight: 700; color: #fff; }
+    .footer__brand-name { font-weight: 600; color: var(--white); font-size: 15px; }
+    .footer__desc { font-size: 13px; line-height: 1.7; }
+    .footer__col-title { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+    .footer__links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer__links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; transition: var(--transition); }
+    .footer__links a:hover { color: var(--white); }
+    .footer__bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 32px; display: flex; justify-content: space-between; align-items: center; }
+    .footer__copy { font-size: 12px; }
+    .footer__badges { display: flex; gap: 8px; }
+    .footer__badge { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; padding: 4px 10px; font-size: 11px; font-family: var(--font-mono); }
+
+    @media (max-width: 768px) {
+      .navbar { padding: 0 20px; }
+      .navbar__nav, .navbar__actions { display: none; }
+      .navbar__hamburger { display: flex; }
+      .blog-hero { padding: 100px 0 60px; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .footer__grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar">
+  <div class="navbar__inner">
+    <a href="../index.html" class="navbar__logo">
+      <div class="navbar__logo-icon">S.F.</div>
+      <div>
+        <span class="navbar__logo-text">S.A.F.E.</span>
+        <span class="navbar__logo-sub">Pilotage Privé</span>
+      </div>
+    </a>
+    <ul class="navbar__nav">
+      <li><a href="../index.html#architecture">Architecture</a></li>
+      <li><a href="../index.html#methode">Méthode RAG-Q</a></li>
+      <li class="navbar__dropdown">
+        <a href="#">Solutions</a>
+        <div class="navbar__dropdown-menu">
+          <a href="../solutions/direction-strategie.html">👑 Direction / Stratégie</a>
+          <a href="../solutions/commercial.html">📈 Ventes / Commercial</a>
+          <a href="../solutions/rh-paie.html">👥 Ressources Humaines</a>
+          <a href="../solutions/finance-comptabilite.html">📊 Comptabilité / Finance</a>
+          <a href="../solutions/juridique-compliance.html">⚖️ Juridique / Compliance</a>
+          <a href="../solutions/operations.html">📋 Opérations / Savoir</a>
+          <a href="../solutions/achats-stock.html">📦 Achats / Stock</a>
+        </div>
+      </li>
+      <li class="navbar__dropdown">
+        <a href="#">Professions</a>
+        <div class="navbar__dropdown-menu">
+          <a href="../professions/index.html">🏢 Vue d'ensemble</a>
+          <div class="dropdown-divider"></div>
+          <a href="../professions/notaires.html">🏛️ Notaires</a>
+          <a href="../professions/avocats.html">⚖️ Avocats</a>
+          <a href="../professions/experts-comptables.html">📊 Experts-Comptables</a>
+        </div>
+      </li>
+      <li><a href="../a-propos.html">À propos</a></li>
+      <li><a href="index.html" class="active">Blog</a></li>
+    </ul>
+    <div class="navbar__actions">
+      <a href="mailto:contact@safe-pilotage-prive.fr" class="btn btn--outline" style="padding:10px 16px;font-size:13px;">contact@safe-pilotage-prive.fr</a>
+      <a href="#" class="btn btn--primary" onclick="openModal(event)">Demander une démo</a>
+    </div>
+    <button class="navbar__hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="navbar__mobile-menu" id="mobileMenu">
+  <a href="../index.html#architecture" onclick="closeMobileMenu()">Architecture</a>
+  <a href="../index.html#methode" onclick="closeMobileMenu()">Méthode RAG-Q™</a>
+  <a href="../a-propos.html" onclick="closeMobileMenu()">À propos</a>
+  <a href="index.html" onclick="closeMobileMenu()">Blog</a>
+  <a href="#" class="btn btn--primary" onclick="closeMobileMenu(); openModal(event);">Demander une démo</a>
+</div>
+
+<!-- HERO BLOG -->
+<section class="blog-hero">
+  <div class="container">
+    <div class="blog-hero__label">Blog</div>
+    <h1>IA souveraine pour PME<br>— Guides & Ressources</h1>
+    <p>Analyses, définitions et cas pratiques sur l'intelligence artificielle souveraine. Par <a href="../a-propos.html" style="color:var(--gold);text-decoration:none;">Bertrand Charpilloz</a>, consultant IA.</p>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section class="blog-grid-section">
+  <div class="container">
+    <div class="blog-grid">
+
+      <a href="ia-souveraine-definition-pme/" class="article-card">
+        <img src="https://res.cloudinary.com/dyhupsoe8/image/upload/f_auto,q_auto,w_800/ia-locale-souveraine-pour-pme-safe-pilotage-prive_tyywri.jpg"
+             alt="IA souveraine pour PME — définition et enjeux 2026"
+             class="article-card__img" loading="lazy" decoding="async" />
+        <div class="article-card__body">
+          <div class="article-card__cat">Fondamentaux IA</div>
+          <h2 class="article-card__title">IA souveraine : définition, enjeux et guide PME 2026</h2>
+          <p class="article-card__desc">Cloud Act, RGPD, AI Act : pourquoi l'IA souveraine est devenue indispensable pour les PME françaises en 2026. Définition complète, risques réels et solutions locales.</p>
+          <div class="article-card__meta">
+            <span>Bertrand Charpilloz</span>
+            <span>·</span>
+            <span>Mars 2026</span>
+          </div>
+          <span class="article-card__cta">Lire l'article →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand">
+          <div class="footer__brand-icon">S.F.</div>
+          <span class="footer__brand-name">S.A.F.E. Pilotage Privé</span>
+        </div>
+        <p class="footer__desc">Intelligence artificielle souveraine pour les PME exigeantes. Vos données restent les vôtres, toujours.</p>
+      </div>
+      <div>
+        <div class="footer__col-title">Solutions</div>
+        <ul class="footer__links">
+          <li><a href="../solutions/direction-strategie.html">Direction</a></li>
+          <li><a href="../solutions/commercial.html">Commercial</a></li>
+          <li><a href="../solutions/rh-paie.html">RH &amp; Paie</a></li>
+          <li><a href="../solutions/finance-comptabilite.html">Finance</a></li>
+          <li><a href="../solutions/juridique-compliance.html">Juridique</a></li>
+          <li><a href="../solutions/operations.html">Opérations</a></li>
+          <li><a href="../solutions/achats-stock.html">Achats &amp; Stock</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Produit</div>
+        <ul class="footer__links">
+          <li><a href="../index.html#architecture">Architecture</a></li>
+          <li><a href="../index.html#methode">Méthode RAG-Q™</a></li>
+          <li><a href="../index.html#benefices">Bénéfices</a></li>
+          <li><a href="../a-propos.html">À propos</a></li>
+          <li><a href="index.html">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Contact</div>
+        <ul class="footer__links">
+          <li><a href="mailto:contact@safe-pilotage-prive.fr">contact@safe-pilotage-prive.fr</a></li>
+          <li><a href="../mentions-legales.html">Mentions Légales</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2026 S.A.F.E. Pilotage Privé — Tous droits réservés</p>
+      <div class="footer__badges">
+        <span class="footer__badge">RGPD</span>
+        <span class="footer__badge">Cloud EU</span>
+        <span class="footer__badge">IA Souveraine</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function openModal(e) { if(e) e.preventDefault(); }
+  function toggleMobileMenu() {
+    document.getElementById('hamburgerBtn').classList.toggle('open');
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+  function closeMobileMenu() {
+    document.getElementById('hamburgerBtn').classList.remove('open');
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+  (function() {
+    var dropdowns = document.querySelectorAll('.navbar__dropdown');
+    dropdowns.forEach(function(dd) {
+      var trigger = dd.querySelector(':scope > a');
+      if (trigger) {
+        trigger.addEventListener('click', function(e) {
+          e.preventDefault(); e.stopPropagation();
+          var isOpen = dd.classList.contains('open');
+          dropdowns.forEach(function(d) { d.classList.remove('open'); });
+          if (!isOpen) dd.classList.add('open');
+        });
+      }
+    });
+    document.addEventListener('click', function(e) {
+      if (e.target.closest && !e.target.closest('.navbar__dropdown')) {
+        dropdowns.forEach(function(d) { d.classList.remove('open'); });
+      }
+    });
+  })();
+</script>
+</body>
+</html>
