@@ -1,4 +1,11 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/ia-souveraine-definition-pme",
+      "destination": "/blog/ia-souveraine-definition-pme",
+      "permanent": true
+    }
+  ]
 }
