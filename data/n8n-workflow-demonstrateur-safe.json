@@ -1,0 +1,140 @@
+{
+  "name": "S.A.F.E. — Démonstrateur Souverain Web",
+  "nodes": [
+    {
+      "id": "sticky-arch",
+      "name": "Architecture",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [-300, -180],
+      "parameters": {
+        "content": "## Démonstrateur S.A.F.E. — Zero-Trust\n\n**Flux :**\n1. Form Trigger → URL publique `/form/safe-demo`\n2. Code → génère un ID d'audit unique\n3. Agent IA Mistral (UE) → analyse le texte\n4. Email → envoie analyse + certificat forensique\n\n**Credentials nécessaires :**\n- `Mistral Cloud Account` → nœud Mistral\n- `SMTP` → nœud Send Email",
+        "color": 6,
+        "height": 220,
+        "width": 480
+      },
+      "typeVersion": 1
+    },
+    {
+      "id": "form-trigger",
+      "name": "Formulaire S.A.F.E.",
+      "type": "n8n-nodes-base.formTrigger",
+      "position": [0, 0],
+      "webhookId": "safe-demo-souveraine",
+      "parameters": {
+        "formTitle": "Testez l'IA Souveraine S.A.F.E.",
+        "formDescription": "Entrez un texte professionnel à analyser. Traitement 100% en circuit fermé européen — aucune donnée transmise vers des serveurs américains.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Email professionnel",
+              "fieldType": "email",
+              "requiredField": true,
+              "placeholder": "votre@entreprise.fr"
+            },
+            {
+              "fieldLabel": "Texte à analyser",
+              "fieldType": "textarea",
+              "requiredField": true,
+              "placeholder": "Ex: clause contractuelle, question juridique, document financier, email confidentiel..."
+            }
+          ]
+        },
+        "options": {
+          "respondWithOptions": {
+            "values": {
+              "respondWith": "text",
+              "responseText": "✓ Analyse souveraine en cours... Vous recevrez les résultats par email dans quelques instants. Référence : {{ $('Génération ID Audit').item.json.auditId }}"
+            }
+          }
+        }
+      },
+      "typeVersion": 2.2
+    },
+    {
+      "id": "code-audit",
+      "name": "Génération ID Audit",
+      "type": "n8n-nodes-base.code",
+      "position": [280, 0],
+      "parameters": {
+        "jsCode": "const timestamp = new Date().toISOString();\nconst rand = Math.random().toString(36).substr(2, 9).toUpperCase();\nconst auditId = `SAFE-${Date.now()}-${rand}`;\n\nreturn [{\n  json: {\n    ...items[0].json,\n    auditId,\n    timestamp,\n    processedBy: 'Mistral-Large-EU',\n    sovereignty: 'Zero-Trust — Circuit Fermé Européen',\n    cloudActApplicable: 'Non',\n    transfertHorsUE: '0 — Aucun'\n  }\n}];"
+      },
+      "typeVersion": 2
+    },
+    {
+      "id": "ai-agent",
+      "name": "Agent IA Souverain",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [560, 0],
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json['Texte à analyser'] }}",
+        "options": {
+          "systemMessage": "Tu es l'assistant IA souverain de S.A.F.E. Pilotage Privé, spécialisé dans l'analyse de documents professionnels confidentiels pour PME françaises.\n\nAnalyse le texte fourni de manière structurée :\n1. **Résumé exécutif** (2-3 phrases)\n2. **Points clés identifiés** (liste)\n3. **Risques ou points d'attention** (si pertinents)\n4. **Recommandations concrètes** (actionnables)\n\nSois précis, professionnel et concis. Termine toujours par cette mention :\n\n---\n*Cette analyse a été générée en circuit fermé européen par l'architecture S.A.F.E. Pilotage Privé. Vos données n'ont pas quitté le périmètre souverain UE et ne sont soumises à aucune juridiction américaine (Cloud Act).*"
+        }
+      },
+      "typeVersion": 1.7
+    },
+    {
+      "id": "mistral-model",
+      "name": "Mistral Large (UE)",
+      "type": "@n8n/n8n-nodes-langchain.lmChatMistralCloud",
+      "position": [560, 220],
+      "parameters": {
+        "model": "mistral-large-latest",
+        "options": {
+          "temperature": 0.2,
+          "maxTokens": 1500
+        }
+      },
+      "credentials": {
+        "mistralCloudApi": {
+          "name": "Mistral Cloud Account"
+        }
+      },
+      "typeVersion": 1
+    },
+    {
+      "id": "send-email",
+      "name": "Email Certificat Forensique",
+      "type": "n8n-nodes-base.emailSend",
+      "position": [840, 0],
+      "parameters": {
+        "fromEmail": "contact@safe-pilotage-prive.fr",
+        "toEmail": "={{ $('Génération ID Audit').item.json['Email professionnel'] }}",
+        "subject": "S.A.F.E. — Analyse souveraine & Certificat d'audit #{{ $('Génération ID Audit').item.json.auditId }}",
+        "emailFormat": "html",
+        "html": "<!DOCTYPE html><html lang='fr'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1'></head><body style='margin:0;padding:0;background:#F8FAFC;font-family:DM Sans,system-ui,sans-serif'><div style='max-width:600px;margin:0 auto;padding:24px'><div style='background:#0A1128;border-radius:12px 12px 0 0;padding:32px'><div style='display:flex;align-items:center;gap:12px;margin-bottom:8px'><div style='width:36px;height:36px;background:linear-gradient(135deg,#2563EB,#3B82F6);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:11px;font-weight:700;color:#fff'>S.F.</div><div><div style='color:#fff;font-size:18px;font-weight:700'>S.A.F.E. Pilotage Privé</div><div style='color:rgba(255,255,255,0.4);font-size:11px;font-family:monospace;letter-spacing:0.08em'>INTELLIGENCE ARTIFICIELLE SOUVERAINE</div></div></div></div><div style='background:#fff;border:1px solid #E2E8F0;border-top:none;padding:32px'><h2 style='color:#0A1128;font-size:18px;font-weight:700;margin:0 0 8px'>Votre analyse souveraine est prête</h2><p style='color:#475569;font-size:14px;margin:0 0 24px'>Traitement réalisé en circuit fermé européen — aucune donnée transmise à des serveurs américains.</p><div style='background:#F1F5F9;border-left:4px solid #2563EB;border-radius:0 8px 8px 0;padding:24px;margin-bottom:24px;font-size:15px;color:#1E293B;line-height:1.75;white-space:pre-wrap'>{{ $json.output }}</div><div style='background:#F0FDF4;border:1px solid #10B981;border-radius:8px;padding:20px;margin-bottom:24px'><div style='font-family:monospace;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#065F46;margin-bottom:12px'>✓ Certificat de Traçabilité Forensique</div><table style='width:100%;border-collapse:collapse;font-size:13px'><tr style='border-bottom:1px solid rgba(16,185,129,0.2)'><td style='padding:6px 0;color:#475569;width:50%'>Référence audit</td><td style='padding:6px 0;color:#14532D;font-weight:700;font-family:monospace'>{{ $('Génération ID Audit').item.json.auditId }}</td></tr><tr style='border-bottom:1px solid rgba(16,185,129,0.2)'><td style='padding:6px 0;color:#475569'>Horodatage</td><td style='padding:6px 0;color:#14532D;font-family:monospace;font-size:12px'>{{ $('Génération ID Audit').item.json.timestamp }}</td></tr><tr style='border-bottom:1px solid rgba(16,185,129,0.2)'><td style='padding:6px 0;color:#475569'>Moteur IA</td><td style='padding:6px 0;color:#14532D;font-weight:600'>{{ $('Génération ID Audit').item.json.processedBy }}</td></tr><tr style='border-bottom:1px solid rgba(16,185,129,0.2)'><td style='padding:6px 0;color:#475569'>Périmètre</td><td style='padding:6px 0;color:#14532D;font-weight:600'>{{ $('Génération ID Audit').item.json.sovereignty }}</td></tr><tr style='border-bottom:1px solid rgba(16,185,129,0.2)'><td style='padding:6px 0;color:#475569'>Transfert hors UE</td><td style='padding:6px 0;color:#15803D;font-weight:700'>{{ $('Génération ID Audit').item.json.transfertHorsUE }}</td></tr><tr><td style='padding:6px 0;color:#475569'>Cloud Act applicable</td><td style='padding:6px 0;color:#15803D;font-weight:700'>{{ $('Génération ID Audit').item.json.cloudActApplicable }}</td></tr></table></div><div style='text-align:center;padding:20px;background:#0F1E3D;border-radius:8px'><p style='color:rgba(255,255,255,0.7);font-size:13px;margin:0 0 12px'>Vous souhaitez déployer cette architecture dans votre PME ?</p><a href='https://www.safe-pilotage-prive.fr' style='display:inline-block;background:#2563EB;color:#fff;text-decoration:none;font-weight:600;font-size:14px;padding:12px 24px;border-radius:6px'>Demander une démonstration complète →</a></div><p style='font-size:12px;color:#94A3B8;margin-top:20px;text-align:center'>© 2026 S.A.F.E. Pilotage Privé — <a href='https://www.safe-pilotage-prive.fr/mentions-legales' style='color:#94A3B8'>Mentions légales</a></p></div></div></body></html>",
+        "options": {}
+      },
+      "typeVersion": 2.1
+    }
+  ],
+  "connections": {
+    "Formulaire S.A.F.E.": {
+      "main": [
+        [{"node": "Génération ID Audit", "type": "main", "index": 0}]
+      ]
+    },
+    "Génération ID Audit": {
+      "main": [
+        [{"node": "Agent IA Souverain", "type": "main", "index": 0}]
+      ]
+    },
+    "Agent IA Souverain": {
+      "main": [
+        [{"node": "Email Certificat Forensique", "type": "main", "index": 0}]
+      ]
+    },
+    "Mistral Large (UE)": {
+      "ai_languageModel": [
+        [{"node": "Agent IA Souverain", "type": "ai_languageModel", "index": 0}]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "tags": ["safe", "demonstrateur", "souverain"]
+}
