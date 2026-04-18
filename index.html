@@ -1445,6 +1445,92 @@
         display: block;
     }
 
+    /* ── KOS ENGINE SECTION ── */
+    .kos-section { padding: 110px 0; background: var(--navy); position: relative; overflow: hidden; }
+    .kos-section::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(37,99,235,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.03) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+    .kos-section__glow { position: absolute; top: -150px; left: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(212,163,115,0.08) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .kos-header { text-align: center; max-width: 760px; margin: 0 auto 80px; position: relative; z-index: 1; }
+    .kos-header h2 { color: var(--white); margin-bottom: 16px; }
+    .kos-header p { font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.65; }
+    .kos-header__quote { font-family: var(--font-display); font-style: italic; font-size: 18px; color: var(--gold); margin-top: 20px; padding: 18px 24px; background: rgba(212,163,115,0.06); border-left: 3px solid var(--gold); border-radius: 0 var(--radius-md) var(--radius-md) 0; text-align: left; }
+
+    /* 3-step flow */
+    .kos-flow { display: grid; grid-template-columns: 1fr 40px 1fr 40px 1fr; align-items: center; gap: 0; position: relative; z-index: 1; }
+    .kos-step { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-xl); padding: 44px 32px; transition: var(--transition); position: relative; }
+    .kos-step:hover { border-color: rgba(212,163,115,0.35); background: rgba(212,163,115,0.04); transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,0.25); }
+    .kos-step__num { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+    .kos-step__num::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--gold); }
+    .kos-step__icon { font-size: 48px; margin-bottom: 20px; display: block; }
+    .kos-step__title { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+    .kos-step__title em { color: var(--gold); font-style: normal; }
+    .kos-step__desc { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+    .kos-step__badge { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; margin-top: 20px; }
+    .kos-step__badge--gold { background: rgba(212,163,115,0.12); color: var(--gold); border: 1px solid rgba(212,163,115,0.25); }
+    .kos-step__badge--blue { background: rgba(37,99,235,0.12); color: var(--blue-light); border: 1px solid rgba(37,99,235,0.3); }
+    .kos-step__badge--green { background: rgba(16,185,129,0.1); color: #6EE7B7; border: 1px solid rgba(16,185,129,0.25); }
+    .kos-arrow { display: flex; align-items: center; justify-content: center; }
+    .kos-arrow__line { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .kos-arrow__dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(212,163,115,0.4); }
+    .kos-arrow__tip { font-size: 22px; color: var(--gold); opacity: .6; }
+
+    /* ── RAG COMPARE ── */
+    .rag-compare-section { padding: 110px 0; background: var(--navy-mid); }
+    .rag-compare-header { text-align: center; max-width: 680px; margin: 0 auto 72px; }
+    .rag-compare-header h2 { color: var(--white); margin-bottom: 14px; }
+    .rag-compare-header p { font-size: 17px; color: rgba(255,255,255,0.6); }
+    .rag-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 32px 80px rgba(0,0,0,0.3); }
+    .rag-col { padding: 0; }
+    .rag-col--bad { background: #0d0505; border: 2px solid rgba(239,68,68,0.15); border-right: none; border-radius: var(--radius-xl) 0 0 var(--radius-xl); }
+    .rag-col--good { background: linear-gradient(160deg, #020e1f 0%, #051528 100%); border: 2px solid rgba(16,185,129,0.2); border-left: none; border-radius: 0 var(--radius-xl) var(--radius-xl) 0; }
+    .rag-col__head { padding: 32px 36px 28px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .rag-col__badge { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; margin-bottom: 14px; }
+    .rag-col--bad .rag-col__badge { background: rgba(239,68,68,0.1); color: #FCA5A5; border: 1px solid rgba(239,68,68,0.25); }
+    .rag-col--good .rag-col__badge { background: rgba(16,185,129,0.1); color: #6EE7B7; border: 1px solid rgba(16,185,129,0.25); }
+    .rag-col__name { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--white); }
+    .rag-col--good .rag-col__name em { color: var(--gold); font-style: normal; }
+    .rag-col__sub { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 4px; }
+    .rag-rows { padding: 8px 0 32px; }
+    .rag-row { display: flex; align-items: flex-start; gap: 14px; padding: 18px 36px; border-bottom: 1px solid rgba(255,255,255,0.04); transition: var(--transition); }
+    .rag-row:last-child { border-bottom: none; }
+    .rag-row:hover { background: rgba(255,255,255,0.02); }
+    .rag-row__icon { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; margin-top: 2px; }
+    .rag-col--bad .rag-row__icon { background: rgba(239,68,68,0.1); color: #FCA5A5; }
+    .rag-col--good .rag-row__icon { background: rgba(16,185,129,0.1); color: #6EE7B7; }
+    .rag-row__body { flex: 1; }
+    .rag-row__label { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: .08em; font-family: var(--font-mono); margin-bottom: 3px; font-size: 10px; }
+    .rag-row__text { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.55; }
+    .rag-row__text strong { color: var(--white); }
+    .rag-col--good .rag-row__text strong { color: #6EE7B7; }
+    .rag-col--bad .rag-row__text strong { color: #FCA5A5; }
+
+    /* ── SOVEREIGNTY BADGES ── */
+    .sovereignty-section { padding: 80px 0; background: var(--navy); border-top: 1px solid rgba(255,255,255,0.06); }
+    .sovereignty-header { text-align: center; max-width: 600px; margin: 0 auto 60px; }
+    .sovereignty-header h2 { color: var(--white); margin-bottom: 12px; font-size: clamp(22px, 3vw, 36px); }
+    .sovereignty-header p { font-size: 16px; color: rgba(255,255,255,0.55); }
+    .sovereignty-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .sov-badge { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-lg); padding: 32px 24px; text-align: center; transition: var(--transition); }
+    .sov-badge:hover { border-color: rgba(212,163,115,0.3); background: rgba(212,163,115,0.04); transform: translateY(-4px); }
+    .sov-badge__icon { font-size: 36px; display: block; margin-bottom: 14px; }
+    .sov-badge__title { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 8px; line-height: 1.3; }
+    .sov-badge__desc { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.55; }
+
+    /* responsive KOS */
+    @media (max-width: 1024px) {
+      .kos-flow { grid-template-columns: 1fr; }
+      .kos-arrow { transform: rotate(90deg); margin: 4px auto; }
+      .sovereignty-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .rag-compare { grid-template-columns: 1fr; }
+      .rag-col--bad { border-right: 2px solid rgba(239,68,68,0.15); border-bottom: none; border-radius: var(--radius-xl) var(--radius-xl) 0 0; }
+      .rag-col--good { border-left: 2px solid rgba(16,185,129,0.2); border-top: none; border-radius: 0 0 var(--radius-xl) var(--radius-xl); }
+      .sovereignty-grid { grid-template-columns: 1fr 1fr; }
+      .kos-section { padding: 70px 0; }
+      .rag-compare-section { padding: 70px 0; }
+      .sovereignty-section { padding: 60px 0; }
+    }
+
     </style>
   <!-- Favicon S.A.F.E. -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -1877,6 +1963,218 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================  KOS ENGINE  =========================== -->
+<section class="kos-section" id="moteur" aria-labelledby="kos-title">
+  <div class="kos-section__glow" aria-hidden="true"></div>
+  <div class="container">
+    <div class="kos-header fade-in">
+      <div class="label label--gold"><span class="dot"></span>Le Moteur S.A.F.E.</div>
+      <h2 id="kos-title">De l'IA classique au <em style="color:var(--gold);font-style:italic;">Knowledge<br>Operating System</em></h2>
+      <p>Votre entreprise n'a pas de mémoire institutionnelle. Elle a des fichiers.<br>S.A.F.E. change ça en profondeur — pas avec un chatbot, avec une architecture.</p>
+      <div class="kos-header__quote">"L'IA ne travaille plus sur des PDF bruts. Elle travaille sur une connaissance organisée, interconnectée, et souveraine."</div>
+    </div>
+
+    <div class="kos-flow">
+      <!-- Étape 1 -->
+      <div class="kos-step fade-in">
+        <div class="kos-step__num">Étape 01</div>
+        <span class="kos-step__icon">🗂️</span>
+        <h3 class="kos-step__title">Le Vault <em>Obsidian</em></h3>
+        <p class="kos-step__desc">Tous vos documents, procédures, contrats et décisions sont stockés en <strong style="color:var(--white);">Markdown local</strong> dans un vault Obsidian. Format ouvert, lisible par un humain, auditable à tout moment. Les <strong style="color:var(--white);">liens bidirectionnels</strong> créent un graphe de connaissances naturel : chaque note connaît ses connexions.</p>
+        <span class="kos-step__badge kos-step__badge--gold">🔒 100% souverain · Local ou cloud privé</span>
+      </div>
+
+      <div class="kos-arrow" aria-hidden="true">
+        <div class="kos-arrow__line">
+          <div class="kos-arrow__dot"></div>
+          <div class="kos-arrow__dot"></div>
+          <div class="kos-arrow__dot"></div>
+          <div class="kos-arrow__tip">▶</div>
+        </div>
+      </div>
+
+      <!-- Étape 2 -->
+      <div class="kos-step fade-in">
+        <div class="kos-step__num">Étape 02</div>
+        <span class="kos-step__icon">🧠</span>
+        <h3 class="kos-step__title">Le Wiki Compilé <em>(Pattern Karpathy)</em></h3>
+        <p class="kos-step__desc">Le SAFE Brain™ synthétise en continu votre vault en un <strong style="color:var(--white);">wiki interne structuré</strong>. Au lieu d'explorer les documents à l'aveugle à chaque question, l'IA lit ce contexte pré-compilé au démarrage de chaque session. Résultat : <strong style="color:var(--white);">90% d'économie de tokens</strong> et zéro hallucination sur vos données internes.</p>
+        <span class="kos-step__badge kos-step__badge--blue">⚡ −90% tokens · Mémoire vivante et persistante</span>
+      </div>
+
+      <div class="kos-arrow" aria-hidden="true">
+        <div class="kos-arrow__line">
+          <div class="kos-arrow__dot"></div>
+          <div class="kos-arrow__dot"></div>
+          <div class="kos-arrow__dot"></div>
+          <div class="kos-arrow__tip">▶</div>
+        </div>
+      </div>
+
+      <!-- Étape 3 -->
+      <div class="kos-step fade-in">
+        <div class="kos-step__num">Étape 03</div>
+        <span class="kos-step__icon">🚀</span>
+        <h3 class="kos-step__title">Antigravity <em>RAG-Q™</em></h3>
+        <p class="kos-step__desc">Le protocole <strong style="color:var(--white);">MCP (Model Context Protocol)</strong> connecte l'IA à votre vault en temps réel. Elle interroge le graphe de connaissances directement — sans re-lecture de documents, sans latence. Les réponses sont <strong style="color:var(--white);">sourcées, traçables</strong>, et ne quittent jamais votre infrastructure.</p>
+        <span class="kos-step__badge kos-step__badge--green">✓ Réponses sourcées · Zéro fuite · MCP sécurisé</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================  RAG COMPARE  =========================== -->
+<section class="rag-compare-section" aria-labelledby="rag-title">
+  <div class="container">
+    <div class="rag-compare-header fade-in">
+      <div class="label label--white"><span class="dot"></span>Comparaison objective</div>
+      <h2 id="rag-title" style="color:var(--white);">RAG classique vs <span style="color:var(--gold);">RAG-Q™ + Obsidian</span></h2>
+      <p>Voici exactement ce qui différencie S.A.F.E. de n'importe quel chatbot d'entreprise générique.</p>
+    </div>
+
+    <div class="rag-compare fade-in">
+      <!-- Colonne MAUVAIS -->
+      <div class="rag-col rag-col--bad">
+        <div class="rag-col__head">
+          <div class="rag-col__badge">✗ IA Classique (RAG)</div>
+          <div class="rag-col__name">ChatGPT Enterprise<br>/ Copilot / RAG générique</div>
+          <div class="rag-col__sub">Ce que vous avez (peut-être) aujourd'hui</div>
+        </div>
+        <div class="rag-rows">
+          <div class="rag-row">
+            <div class="rag-row__icon">✗</div>
+            <div class="rag-row__body">
+              <div class="rag-row__label">Mémoire</div>
+              <div class="rag-row__text">Réponses <strong>ponctuelles et éphémères</strong>. Chaque session repart de zéro. Aucune accumulation de connaissance.</div>
+            </div>
+          </div>
+          <div class="rag-row">
+            <div class="rag-row__icon">✗</div>
+            <div class="rag-row__body">
+              <div class="rag-row__label">Traitement</div>
+              <div class="rag-row__text"><strong>Relecture constante des PDF</strong> bruts à chaque requête. Coûteux en temps et en tokens. Résultats variables.</div>
+            </div>
+          </div>
+          <div class="rag-row">
+            <div class="rag-row__icon">✗</div>
+            <div class="rag-row__body">
+              <div class="rag-row__label">Transparence</div>
+              <div class="rag-row__text"><strong>Boîtes noires opaques</strong> (embeddings). Impossible d'auditer pourquoi l'IA a répondu ceci plutôt que cela.</div>
+            </div>
+          </div>
+          <div class="rag-row">
+            <div class="rag-row__icon">✗</div>
+            <div class="rag-row__body">
+              <div class="rag-row__label">Souveraineté</div>
+              <div class="rag-row__text">Vos données <strong>transitent par des serveurs tiers</strong> (USA, UK). Risque RGPD, risque concurrentiel, risque de fuite.</div>
+            </div>
+          </div>
+          <div class="rag-row">
+            <div class="rag-row__icon">✗</div>
+            <div class="rag-row__body">
+              <div class="rag-row__label">Coût total</div>
+              <div class="rag-row__text">Abonnement mensuel croissant + <strong>coûts de tokens élevés</strong>. Dépendance fournisseur sans alternative.</div>
+            </div>
+          </div>
+          <div class="rag-row">
+            <div class="rag-row__icon">✗</div>
+            <div class="rag-row__body">
+              <div class="rag-row__label">Hallucinations</div>
+              <div class="rag-row__text">Fréquentes sur vos données internes. <strong>L'IA invente</strong> des procédures ou des chiffres qu'elle n'a pas trouvés.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Colonne BON -->
+      <div class="rag-col rag-col--good">
+        <div class="rag-col__head">
+          <div class="rag-col__badge">✓ S.A.F.E. (Obsidian + Antigravity)</div>
+          <div class="rag-col__name"><em>SAFE Brain™</em> + RAG-Q™<br>+ Obsidian Vault</div>
+          <div class="rag-col__sub">Le Knowledge Operating System de votre entreprise</div>
+        </div>
+        <div class="rag-rows">
+          <div class="rag-row">
+            <div class="rag-row__icon">✓</div>
+            <div class="rag-row__body">
+              <div class="rag-row__label">Mémoire</div>
+              <div class="rag-row__text"><strong>Connaissance accumulée (LLM Wiki)</strong>. La mémoire s'enrichit à chaque interaction. L'entreprise devient plus intelligente chaque jour.</div>
+            </div>
+          </div>
+          <div class="rag-row">
+            <div class="rag-row__icon">✓</div>
+            <div class="rag-row__body">
+              <div class="rag-row__label">Traitement</div>
+              <div class="rag-row__text">Contexte <strong>pré-compilé lu au démarrage</strong>. −90% de tokens par session. Réponses instantanées, cohérentes, reproductibles.</div>
+            </div>
+          </div>
+          <div class="rag-row">
+            <div class="rag-row__icon">✓</div>
+            <div class="rag-row__body">
+              <div class="rag-row__label">Transparence</div>
+              <div class="rag-row__text"><strong>Format Markdown lisible et auditable</strong>. Vous voyez exactement ce que l'IA sait et comment elle l'a appris. Zéro boîte noire.</div>
+            </div>
+          </div>
+          <div class="rag-row">
+            <div class="rag-row__icon">✓</div>
+            <div class="rag-row__body">
+              <div class="rag-row__label">Souveraineté</div>
+              <div class="rag-row__text"><strong>Données 100% locales</strong> ou cloud SecNumCloud français. Aucun transit tiers. RGPD natif. Secret professionnel préservé.</div>
+            </div>
+          </div>
+          <div class="rag-row">
+            <div class="rag-row__icon">✓</div>
+            <div class="rag-row__body">
+              <div class="rag-row__label">Coût total</div>
+              <div class="rag-row__text">Investissement unique + maintenance réduite. <strong>−90% de tokens</strong> = coûts d'inférence divisés par 10. Aucun enfermement propriétaire.</div>
+            </div>
+          </div>
+          <div class="rag-row">
+            <div class="rag-row__icon">✓</div>
+            <div class="rag-row__body">
+              <div class="rag-row__label">Hallucinations</div>
+              <div class="rag-row__text"><strong>Éliminées sur vos données internes</strong>. L'IA travaille sur un graphe structuré, pas sur de la recherche vectorielle approximative.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================  SOVEREIGNTY  =========================== -->
+<section class="sovereignty-section" aria-labelledby="sov-title">
+  <div class="container">
+    <div class="sovereignty-header fade-in">
+      <div class="label label--gold"><span class="dot"></span>Infrastructure &amp; Garanties</div>
+      <h2 id="sov-title" style="color:var(--white);">Souveraineté absolue.<br><span style="color:var(--gold);">Pas un argument marketing.</span></h2>
+      <p>Quatre piliers techniques non négociables, vérifiables, auditables.</p>
+    </div>
+    <div class="sovereignty-grid">
+      <div class="sov-badge fade-in">
+        <span class="sov-badge__icon">🏠</span>
+        <div class="sov-badge__title">Données 100% locales ou SecNumCloud</div>
+        <div class="sov-badge__desc">Votre vault Obsidian reste sur vos serveurs. Aucune donnée ne transite par AWS, Azure ou Google Cloud public.</div>
+      </div>
+      <div class="sov-badge fade-in">
+        <span class="sov-badge__icon">📂</span>
+        <div class="sov-badge__title">Aucun enfermement propriétaire</div>
+        <div class="sov-badge__desc">Format Markdown ouvert. Vos fichiers restent lisibles sans S.A.F.E., sans logiciel spécifique. Vous êtes toujours libres de partir.</div>
+      </div>
+      <div class="sov-badge fade-in">
+        <span class="sov-badge__icon">🔗</span>
+        <div class="sov-badge__title">Protocole MCP sécurisé</div>
+        <div class="sov-badge__desc">Le Model Context Protocol connecte l'IA à votre vault en local, sans exposition réseau. Chaque accès est traçable et révocable.</div>
+      </div>
+      <div class="sov-badge fade-in">
+        <span class="sov-badge__icon">🔍</span>
+        <div class="sov-badge__title">Auditabilité totale</div>
+        <div class="sov-badge__desc">Le wiki compilé est un fichier texte. Vous lisez exactement ce que l'IA sait sur votre entreprise. Zéro opacité, zéro surprise.</div>
       </div>
     </div>
   </div>
