@@ -1345,7 +1345,7 @@
     /* === FAQ Section === */
     .faq-section {
         padding: 80px 0;
-        background: linear-gradient(180deg, #0d1635 0%, #0a1128 100%);
+        background: var(--navy-mid);
         border-top: 1px solid rgba(255,255,255,0.08);
     }
     .faq-section .container {
@@ -1358,23 +1358,26 @@
         margin-bottom: 48px;
     }
     .faq-section__tag {
-        display: inline-block;
-        background: rgba(37,99,235,0.15);
-        border: 1px solid rgba(37,99,235,0.4);
-        color: #60a5fa;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--font-mono);
         font-size: 11px;
-        font-weight: 600;
+        font-weight: 500;
         letter-spacing: 0.12em;
         text-transform: uppercase;
         padding: 6px 14px;
-        border-radius: 4px;
-        margin-bottom: 16px;
+        border-radius: 100px;
+        margin-bottom: 20px;
+        background: rgba(37,99,235,0.12);
+        color: var(--blue-light);
+        border: 1px solid rgba(37,99,235,0.3);
     }
     .faq-section__title {
-        font-family: 'Playfair Display', Georgia, serif;
-        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        font-family: var(--font-display);
+        font-size: clamp(28px, 4vw, 48px);
         font-weight: 700;
-        color: #ffffff;
+        color: var(--white);
         margin: 0;
     }
     .faq-list {
@@ -1388,9 +1391,9 @@
     .faq-item {
         background: rgba(255,255,255,0.04);
         border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 10px;
+        border-radius: var(--radius-md);
         overflow: hidden;
-        transition: border-color 0.2s ease;
+        transition: border-color var(--transition);
     }
     .faq-item:hover {
         border-color: rgba(37,99,235,0.4);
@@ -1406,14 +1409,14 @@
         gap: 16px;
         cursor: pointer;
         text-align: left;
-        color: #e2e8f0;
-        font-family: 'DM Sans', sans-serif;
+        color: var(--gray-200);
+        font-family: var(--font-body);
         font-size: 1rem;
         font-weight: 600;
         line-height: 1.4;
     }
     .faq-item__question:hover {
-        color: #ffffff;
+        color: var(--white);
     }
     .faq-item__icon {
         flex-shrink: 0;
@@ -1424,8 +1427,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: transform 0.3s ease, background 0.2s ease;
-        color: #60a5fa;
+        transition: transform 0.3s ease, background var(--transition);
+        color: var(--blue-light);
         font-size: 18px;
         line-height: 1;
     }
@@ -1435,13 +1438,12 @@
     }
     .faq-item__answer {
         display: none;
-        padding: 0 24px 20px 24px;
-        color: #94a3b8;
-        font-family: 'DM Sans', sans-serif;
+        padding: 16px 24px 20px;
+        color: var(--gray-400);
+        font-family: var(--font-body);
         font-size: 0.95rem;
         line-height: 1.7;
         border-top: 1px solid rgba(255,255,255,0.06);
-        padding-top: 16px;
     }
     .faq-item.open .faq-item__answer {
         display: block;
@@ -1482,8 +1484,8 @@
     .rag-compare-header p { font-size: 17px; color: rgba(255,255,255,0.6); }
     .rag-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 32px 80px rgba(0,0,0,0.3); }
     .rag-col { padding: 0; }
-    .rag-col--bad { background: #0d0505; border: 2px solid rgba(239,68,68,0.15); border-right: none; border-radius: var(--radius-xl) 0 0 var(--radius-xl); }
-    .rag-col--good { background: linear-gradient(160deg, #020e1f 0%, #051528 100%); border: 2px solid rgba(16,185,129,0.2); border-left: none; border-radius: 0 var(--radius-xl) var(--radius-xl) 0; }
+    .rag-col--bad { background: var(--navy); border: 2px solid rgba(239,68,68,0.15); border-right: none; border-radius: var(--radius-xl) 0 0 var(--radius-xl); }
+    .rag-col--good { background: var(--navy-light); border: 2px solid rgba(16,185,129,0.2); border-left: none; border-radius: 0 var(--radius-xl) var(--radius-xl) 0; }
     .rag-col__head { padding: 32px 36px 28px; border-bottom: 1px solid rgba(255,255,255,0.06); }
     .rag-col__badge { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; margin-bottom: 14px; }
     .rag-col--bad .rag-col__badge { background: rgba(239,68,68,0.1); color: #FCA5A5; border: 1px solid rgba(239,68,68,0.25); }
@@ -1508,7 +1510,7 @@
     /* ── SOVEREIGNTY BADGES ── */
     .sovereignty-section { padding: 80px 0; background: var(--navy); border-top: 1px solid rgba(255,255,255,0.06); }
     .sovereignty-header { text-align: center; max-width: 600px; margin: 0 auto 60px; }
-    .sovereignty-header h2 { color: var(--white); margin-bottom: 12px; font-size: clamp(22px, 3vw, 36px); }
+    .sovereignty-header h2 { color: var(--white); margin-bottom: 12px; }
     .sovereignty-header p { font-size: 16px; color: rgba(255,255,255,0.55); }
     .sovereignty-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
     .sov-badge { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-lg); padding: 32px 24px; text-align: center; transition: var(--transition); }
@@ -1525,8 +1527,8 @@
     }
     @media (max-width: 768px) {
       .rag-compare { grid-template-columns: 1fr; }
-      .rag-col--bad { border-right: 2px solid rgba(239,68,68,0.15); border-bottom: none; border-radius: var(--radius-xl) var(--radius-xl) 0 0; }
-      .rag-col--good { border-left: 2px solid rgba(16,185,129,0.2); border-top: none; border-radius: 0 0 var(--radius-xl) var(--radius-xl); }
+      .rag-col--bad { background: var(--navy); border-right: 2px solid rgba(239,68,68,0.15); border-bottom: none; border-radius: var(--radius-xl) var(--radius-xl) 0 0; }
+      .rag-col--good { background: var(--navy-light); border-left: 2px solid rgba(16,185,129,0.2); border-top: none; border-radius: 0 0 var(--radius-xl) var(--radius-xl); }
       .sovereignty-grid { grid-template-columns: 1fr 1fr; }
       .kos-section { padding: 70px 0; }
       .rag-compare-section { padding: 70px 0; }
