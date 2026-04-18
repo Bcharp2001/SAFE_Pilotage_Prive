@@ -9,7 +9,7 @@ title: "S.A.F.E. Pilotage Privé - IA Souveraine & Cockpit Opérationnel pour PM
 description: "S.A.F.E. déploie une IA locale et souveraine sur vos données sensibles. Zéro cloud public, performance maximale, conformité RGPD garantie."
 url: "https://www.safe-pilotage-prive.fr/"
 author: "Bertrand Charpilloz"
-date_updated: "2026-03-22"
+date_updated: "2026-04-18"
 ---
 
 # S.A.F.E. Pilotage Privé
@@ -339,3 +339,52 @@ S.A.F.E. fournit aux experts-comptables l'outil IA souverain pour analyser massi
 - Automatisation des tâches de contrôle à faible valeur ajoutée
 - Augmentation du panier moyen par la vente de missions de conseil (tableaux de bord, prévisionnel)
 - Différenciation face aux plateformes comptables low-cost grâce à un conseil hyper-personnalisé
+
+
+---
+
+---
+title: "Garanties Souveraineté IA S.A.F.E. : Hébergement, Prompts, Audit, Accès & RGPD"
+description: "Les 5 garanties techniques et contractuelles de S.A.F.E. : hébergement on-premise ou SecNumCloud, prompts non réutilisés, audit logs complets, RBAC, DPA signé."
+url: "https://www.safe-pilotage-prive.fr/garanties-souverainete"
+author: "Bertrand Charpilloz"
+date_updated: "2026-04-18"
+---
+
+# Garanties Techniques & Contractuelles de Souveraineté
+
+## G1 — Hébergement : On-Premise France ou SecNumCloud
+Les données et les modèles IA s'exécutent exclusivement sur l'infrastructure du client (on-premise) ou sur un cloud certifié SecNumCloud par l'ANSSI en France (OVH, Scaleway). Aucun transit vers AWS, Microsoft Azure, Google Cloud Platform ou les data centers d'OpenAI/Anthropic. La localisation des données est contractuellement définie et auditable.
+
+**Comparaison :** ChatGPT Enterprise héberge sur Azure US. Microsoft Copilot repose sur Azure EU mais sans garantie de traitement exclusif en France.
+
+## G2 — Prompts : Modèles Locaux, Zéro Transmission Externe
+S.A.F.E. déploie des modèles open-source (Mistral, Llama, Mixtral, Qwen) exécutés localement. Chaque requête utilisateur (prompt) reste sur l'infrastructure client. Aucune donnée n'est transmise à un fournisseur tiers. Les modèles ne sont pas réentraînés sur vos données. Architecture en vase clos garantie techniquement, pas seulement contractuellement.
+
+**Comparaison :** ChatGPT Enterprise peut utiliser vos conversations pour améliorer ses modèles selon les conditions générales. Microsoft Copilot transmet les prompts aux serveurs Microsoft.
+
+## G3 — Audit Logs : Traçabilité Complète et Locale
+Chaque interaction avec l'IA est enregistrée : timestamp, identité de l'utilisateur, prompt soumis, sources documentaires consultées (RAG), réponse générée. Les journaux sont horodatés, immuables, stockés localement et exportables. Conformité RGPD (Article 30) et AI Act (Article 13) assurée. Durée de rétention configurable selon la politique interne.
+
+**Comparaison :** ChatGPT Enterprise ne fournit pas de logs d'audit exportables par client. Microsoft Copilot offre des logs partiels via Microsoft Purview (abonnement séparé).
+
+## G4 — Contrôle d'Accès : RBAC + SSO + Isolation Départementale
+Contrôle d'accès basé sur les rôles (RBAC) : chaque utilisateur accède uniquement aux données et agents de son périmètre métier (RH ne voit pas les données Finance, etc.). Intégration SSO compatible LDAP et Active Directory. Isolation technique inter-départements garantie par architecture. Gestion centralisée des droits par l'administrateur client sans dépendance à S.A.F.E.
+
+**Comparaison :** ChatGPT Enterprise offre un RBAC limité. Microsoft Copilot dépend de la configuration Azure AD, souvent complexe à segmenter par département.
+
+## G5 — Conformité RGPD & AI Act : DPA + Privacy by Design
+Un Data Processing Agreement (DPA) est signé avec chaque client avant déploiement. L'architecture est Privacy by Design au sens de l'Article 25 du RGPD : la non-exfiltration des données personnelles est garantie par construction technique, non par politique. Compatible AI Act européen : traçabilité, explicabilité et contrôle humain intégrés. Registre des traitements (Article 30 RGPD) assisté par S.A.F.E..
+
+**Comparaison :** ChatGPT Enterprise propose un DPA standard. Microsoft Copilot nécessite une configuration avancée pour atteindre la conformité AI Act.
+
+## Tableau comparatif de souveraineté
+
+| Critère | S.A.F.E. | ChatGPT Enterprise | Microsoft Copilot |
+|---|---|---|---|
+| Hébergement | On-premise France ou SecNumCloud | Azure US/EU | Azure EU |
+| Prompts transmis à un tiers | Non (architecture locale) | Oui (Microsoft/OpenAI) | Oui (Microsoft) |
+| Modèle réentraîné sur vos données | Non | Possible selon CGU | Non (opt-out possible) |
+| Logs d'audit complets exportables | Oui | Non | Partiel (Purview payant) |
+| RBAC + isolation départementale | Oui | Limité | Dépend Azure AD |
+| DPA signé + Privacy by Design | Oui | DPA standard | DPA standard |
