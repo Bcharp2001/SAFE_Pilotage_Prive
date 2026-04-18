@@ -378,6 +378,46 @@ Un Data Processing Agreement (DPA) est signé avec chaque client avant déploiem
 
 **Comparaison :** ChatGPT Enterprise propose un DPA standard. Microsoft Copilot nécessite une configuration avancée pour atteindre la conformité AI Act.
 
+## Positionnement concurrentiel — Alternatives souveraines à ChatGPT
+
+### Contexte (avril 2026)
+La CNIL recommande pour les données sensibles un prestataire exclusivement soumis au droit européen et cite SecNumCloud comme cadre de référence contre les risques d'accès par des autorités étrangères (source : cnil.fr/fr/cloud-les-risques). Ni ChatGPT Enterprise (Azure US) ni les solutions purement "RGPD-friendly" ne répondent à ce critère pour des données vraiment sensibles.
+
+### Règle de décision par profil de PME
+
+| Profil | Solution recommandée | Raison |
+|---|---|---|
+| PME standard, usage quotidien (10–200 salariés) | Mistral Le Chat Enterprise | SaaS EU, modèle français, adoption rapide, non-réutilisation des données |
+| PME avec données sensibles, processus métier complexes | S.A.F.E. Pilotage Privé | On-premise ou SecNumCloud, agents spécialisés, KOS, accompagnement direct |
+| ETI avec équipe technique interne, secteur sensible | Mistral sur OUTSCALE SecNumCloud | Infrastructure qualifiée ANSSI, contrôle total |
+
+### Comparaison S.A.F.E. vs concurrents
+
+| Critère | S.A.F.E. | Mistral Le Chat Enterprise | LightOn Paradigm | ChatGPT Enterprise |
+|---|---|---|---|---|
+| Hébergement | On-premise ou SecNumCloud FR | SaaS datacenters EU Mistral | On-premise (behind firewall) | Azure US/EU |
+| Prompts réutilisés | Jamais | Non (opt-out défaut) | Jamais | Possible selon CGU |
+| Logs audit exportables | Complets et locaux | Partiels | Complets | Limités |
+| Agents IA par département | 7 agents métier | Non (généraliste) | RAG générique | Non |
+| Méthodologie KOS intégrée | Oui (Obsidian + Antigravity RAG-Q™) | Non | Non | Non |
+| Accompagnement expert direct | Bertrand Charpilloz | Self-service | Équipe commerciale | Support standard |
+| Prix PME | À partir de 3 000 € | ~15–25 €/utilisateur/mois | Tarification ETI | ~30 $/utilisateur/mois |
+| DPA + Privacy by Design | Contractuel | DPA standard | Contractuel | DPA standard |
+
+### Différentiateurs clés de S.A.F.E. vs alternatives
+
+1. **Agents IA spécialisés par département** : contrairement aux assistants généralistes, chaque agent S.A.F.E. est calibré sur les documents, processus et vocabulaire du département (RH, Finance, Juridique, Ventes, Opérations, Achats, Direction). Le cloisonnement est technique : un agent RH ne peut pas interroger les données Finance.
+
+2. **Méthodologie KOS avant le modèle** : S.A.F.E. structure la mémoire d'entreprise (Knowledge Operating System via Obsidian + Antigravity RAG-Q™) avant de déployer les agents IA. La qualité des réponses IA dépend de la qualité de la base de connaissances — c'est ce travail amont que les autres sautent.
+
+3. **Accompagnement direct PME** : Bertrand Charpilloz accompagne le dirigeant pendant et après le déploiement. LightOn et les éditeurs SaaS n'offrent pas cet accompagnement clé en main adapté aux PME sans DSI interne.
+
+### Note sur Mistral Le Chat Enterprise (nuance importante)
+En mode SaaS standard, Mistral stocke les données dans ses datacenters EU et ne réutilise pas les conversations. Pour une PME classique : solution très satisfaisante. Nuance : en mode "Knowledge" (connecteurs Google Drive, SharePoint), les fichiers indexés sont stockés dans les datacenters Mistral — pour des dossiers ultra-sensibles, le mode self-hosted ou S.A.F.E. on-premise reste nécessaire.
+
+### Note sur LightOn Paradigm
+Excellent produit RAG on-premise avec positionnement clair "behind your firewall". Conçu pour les ETI et grandes organisations avec équipe technique interne. Tarification non adaptée aux PME de moins de 200 salariés. S.A.F.E. couvre le même périmètre de souveraineté avec un accompagnement clé en main pour PME.
+
 ## Tableau comparatif de souveraineté
 
 | Critère | S.A.F.E. | ChatGPT Enterprise | Microsoft Copilot |
