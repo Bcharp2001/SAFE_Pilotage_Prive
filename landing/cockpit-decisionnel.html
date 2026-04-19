@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cockpit Décisionnel IA — Pilotez vos KPI en langage naturel | S.A.F.E.</title>
-  <meta name="description" content="Interrogez vos indicateurs comme vous posez une question. S.A.F.E. connecte vos données ERP, CRM, compta et vous donne un cockpit décisionnel souverain en 30 jours." />
+  <title>Cockpit Décisionnel SAFE Brain™ — Pilotage souverain sans hallucinations | S.A.F.E.</title>
+  <meta name="description" content="Le premier cockpit décisionnel fondé sur l'architecture Antigravity : IA souveraine sans hallucinations, capable de corréler vos flux ERP, CRM et Finance en circuit fermé. Déployé en 30 jours." />
   <meta name="robots" content="noindex, follow" />
   <link rel="canonical" href="https://www.safe-pilotage-prive.fr/landing/cockpit-decisionnel" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/landing/landing.css" />
   <link rel="icon" href="/favicon.ico" />
+
   <!-- Tracking Google Ads -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-CONVERSION_ID"></script>
   <script>
@@ -20,6 +21,123 @@
     gtag('js', new Date());
     gtag('config', 'AW-CONVERSION_ID');
   </script>
+
+  <style>
+    /* === PAGE-SPECIFIC STYLES === */
+
+    /* Sticky trust bar */
+    .sticky-trust {
+      position: fixed; top: 68px; left: 0; right: 0; z-index: 90;
+      background: rgba(10,17,40,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 8px 32px;
+      display: flex; align-items: center; justify-content: center; gap: 24px;
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em;
+      text-transform: uppercase; color: rgba(255,255,255,0.45);
+      flex-wrap: wrap;
+    }
+    .sticky-trust__item { display: flex; align-items: center; gap: 6px; }
+    .sticky-trust__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--success); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    @media (max-width: 640px) { .sticky-trust { display: none; } }
+
+    /* Architecture tech pills in solution */
+    .tech-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+      padding: 4px 12px; border-radius: 100px; margin-right: 8px; margin-top: 6px;
+    }
+    .tech-pill--blue  { background: rgba(37,99,235,0.15); color: var(--blue-light); border: 1px solid rgba(37,99,235,0.3); }
+    .tech-pill--gold  { background: rgba(212,163,115,0.12); color: var(--gold); border: 1px solid rgba(212,163,115,0.25); }
+    .tech-pill--green { background: rgba(16,185,129,0.12); color: var(--success); border: 1px solid rgba(16,185,129,0.25); }
+
+    /* Sector query cards */
+    .sector-grid { display: flex; flex-direction: column; gap: 32px; margin-top: 48px; }
+    .sector-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px; overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .sector-card:hover { border-color: rgba(212,163,115,0.25); }
+    .sector-card__header {
+      padding: 22px 32px; border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: center; gap: 14px;
+    }
+    .sector-badge {
+      font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+      padding: 4px 12px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    .sector-badge--industry { background: rgba(37,99,235,0.2); color: var(--blue-light); border: 1px solid rgba(37,99,235,0.35); }
+    .sector-badge--legal    { background: rgba(212,163,115,0.15); color: var(--gold); border: 1px solid rgba(212,163,115,0.3); }
+    .sector-badge--finance  { background: rgba(16,185,129,0.15); color: var(--success); border: 1px solid rgba(16,185,129,0.3); }
+    .sector-card__title { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--white); }
+    .sector-card__body { padding: 28px 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+    @media (max-width: 700px) { .sector-card__body { grid-template-columns: 1fr; } }
+    .sector-query {
+      background: rgba(37,99,235,0.07); border: 1px solid rgba(37,99,235,0.2);
+      border-radius: 12px; padding: 18px 20px;
+    }
+    .sector-query__label { font-family: var(--font-mono); font-size: 9px; color: var(--blue-light); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 10px; }
+    .sector-query__text { font-family: var(--font-display); font-size: 15px; font-style: italic; color: rgba(255,255,255,0.9); line-height: 1.55; }
+    .sector-response { }
+    .sector-response__label { font-family: var(--font-mono); font-size: 9px; color: var(--success); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 10px; }
+    .sector-response__text { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 14px; }
+    .sector-gain {
+      font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+      background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2);
+      border-radius: 8px; padding: 9px 14px; color: var(--success); margin-bottom: 18px;
+    }
+    .sector-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--cta-color); color: var(--navy);
+      font-family: var(--font-body); font-size: 13px; font-weight: 700;
+      padding: 11px 20px; border-radius: var(--radius-md);
+      text-decoration: none; transition: var(--transition);
+    }
+    .sector-cta:hover { background: var(--cta-hover); transform: translateY(-2px); }
+
+    /* Architecture schema */
+    .arch-schema {
+      background: rgba(37,99,235,0.06); border: 1px solid rgba(37,99,235,0.2);
+      border-radius: 16px; padding: 28px 32px; margin-top: 32px;
+    }
+    .arch-schema__title { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-light); margin-bottom: 20px; }
+    .arch-flow { display: flex; align-items: center; gap: 0; flex-wrap: wrap; justify-content: center; }
+    .arch-node {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px; padding: 12px 16px; text-align: center; min-width: 110px;
+    }
+    .arch-node__icon { font-size: 22px; margin-bottom: 5px; }
+    .arch-node__name { font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,0.6); font-weight: 700; }
+    .arch-node__sub  { font-family: var(--font-mono); font-size: 9px; color: rgba(255,255,255,0.3); margin-top: 2px; }
+    .arch-arrow { font-size: 18px; color: rgba(37,99,235,0.5); padding: 0 8px; }
+    .arch-node--highlight { border-color: rgba(37,99,235,0.5); background: rgba(37,99,235,0.12); box-shadow: 0 0 20px rgba(37,99,235,0.2); }
+    .arch-node--highlight .arch-node__name { color: var(--blue-light); }
+    @media (max-width: 640px) { .arch-flow { gap: 8px; } .arch-arrow { display: none; } }
+
+    /* Gouvernance section */
+    .gouvernance {
+      padding: 80px 0;
+      background: var(--navy-light);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .gouvernance__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    @media (max-width: 768px) { .gouvernance__inner { grid-template-columns: 1fr; gap: 32px; } }
+    .gouvernance__visual { text-align: center; }
+    .gouvernance__icon { font-size: 80px; margin-bottom: 16px; display: block; }
+    .gouvernance__quote {
+      font-family: var(--font-display); font-size: 18px; font-style: italic;
+      color: rgba(255,255,255,0.7); line-height: 1.55;
+      border-left: 3px solid var(--gold); padding-left: 20px;
+    }
+    .gouvernance__tag { font-family: var(--font-mono); font-size: 10px; color: var(--gold); margin-top: 16px; display: block; }
+    .gouvernance__text { font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 24px; }
+    .gouvernance__points { display: flex; flex-direction: column; gap: 14px; }
+    .gouvernance__point { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: rgba(255,255,255,0.8); line-height: 1.5; }
+    .gouvernance__point-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+  </style>
 </head>
 <body>
 
@@ -35,7 +153,8 @@
       </a>
       <div class="mini-nav__trust">
         <span class="mini-nav__badge">🔒 Données hébergées en France</span>
-        <span class="mini-nav__badge">✅ RGPD</span>
+        <span class="mini-nav__badge">✅ RGPD · AI Act 2026</span>
+        <span class="mini-nav__badge">🇫🇷 SecNumCloud éligible</span>
       </div>
       <div class="mini-nav__cta">
         <a href="https://calendly.com/bertrand-charpilloz/30min" target="_blank" rel="noopener" class="btn btn--cta">
@@ -45,40 +164,50 @@
     </div>
   </nav>
 
+  <!-- ====== STICKY TRUST BAR ====== -->
+  <div class="sticky-trust">
+    <div class="sticky-trust__item"><div class="sticky-trust__dot"></div> SecNumCloud éligible</div>
+    <div class="sticky-trust__item"><div class="sticky-trust__dot"></div> RGPD · DPA contractualisé</div>
+    <div class="sticky-trust__item"><div class="sticky-trust__dot"></div> Cloud Act : 0 risque</div>
+    <div class="sticky-trust__item"><div class="sticky-trust__dot"></div> AI Act 2026 conforme</div>
+    <div class="sticky-trust__item"><div class="sticky-trust__dot"></div> Hébergement 100% souverain</div>
+  </div>
+
   <!-- ====== HERO ====== -->
-  <section class="hero-lp hero-lp--split">
+  <section class="hero-lp hero-lp--split" style="padding-top:160px">
     <div class="hero-lp__grid-bg"></div>
     <div class="hero-lp__glow"></div>
     <div class="hero-lp__glow-2"></div>
     <div class="container">
       <div class="hero-lp__content fade-in">
-        <div class="label label--gold"><span class="dot"></span> Cockpit Décisionnel — Intelligence des données</div>
+        <div class="label label--gold"><span class="dot"></span> Cockpit Décisionnel · Architecture Antigravity</div>
         <h1 class="hero-lp__punchline">
-          Vos données sont là.<br>
-          Mais personne ne sait<br>
-          <em>quoi en faire en temps réel</em>.
+          Votre PME ne manque pas<br>
+          de données. Elle manque<br>
+          d'une <em>mémoire souveraine</em><br>
+          pour les piloter.
         </h1>
         <p class="hero-lp__subtitle">
-          Marge brute, trésorerie, taux de transformation, satisfaction client — tout est dans vos outils. Mais sortir un tableau de bord fiable prend des heures. S.A.F.E. connecte vos sources et vous laisse poser vos questions en français. En 3 secondes.
+          Le premier Cockpit Décisionnel fondé sur l'architecture <strong style="color:var(--gold)">Antigravity</strong> : une IA souveraine sans hallucinations, capable de corréler vos flux ERP, CRM et Finance en circuit fermé. Interrogez votre <strong style="color:var(--white)">SAFE Brain™</strong> en langage naturel. Obtenez une vision à 360° en 3 secondes.
         </p>
         <div class="hero-lp__ctas">
           <a href="https://calendly.com/bertrand-charpilloz/30min" target="_blank" rel="noopener" class="btn btn--cta-lg">
-            📅 Réserver ma visioconférence de 30 min
+            📅 Réserver ma visioconférence de ½ heure
           </a>
-          <a href="#solution" class="btn btn--ghost">Voir comment ça fonctionne →</a>
+          <a href="#secteurs" class="btn btn--ghost">Voir des exemples sectoriels →</a>
         </div>
         <div class="hero-lp__social-proof">
           <div class="hero-lp__proof-item">
-            <span class="hero-lp__proof-num">−80%</span>
-            <span class="hero-lp__proof-label">temps de préparation des reportings</span>
+            <span class="hero-lp__proof-num">÷3</span>
+            <span class="hero-lp__proof-label">temps consacré au reporting financier</span>
           </div>
           <div class="hero-lp__proof-item">
-            <span class="hero-lp__proof-num">30j</span>
-            <span class="hero-lp__proof-label">pour déployer votre cockpit IA</span>
+            <span class="hero-lp__proof-num">J+2</span>
+            <span class="hero-lp__proof-label">clôture comptable au lieu de J+15</span>
           </div>
           <div class="hero-lp__proof-item">
-            <span class="hero-lp__proof-num">100%</span>
-            <span class="hero-lp__proof-label">données restent dans votre infrastructure</span>
+            <span class="hero-lp__proof-num">0</span>
+            <span class="hero-lp__proof-label">donnée sortante — protection Cloud Act totale</span>
           </div>
         </div>
       </div>
@@ -90,7 +219,7 @@
             <div class="mockup__dot mockup__dot--r"></div>
             <div class="mockup__dot mockup__dot--y"></div>
             <div class="mockup__dot mockup__dot--g"></div>
-            <span class="mockup__title">SAFE Cockpit · Pilotage temps réel</span>
+            <span class="mockup__title">SAFE Brain™ · Cockpit · Antigravity RAG-Q™</span>
           </div>
           <div class="mockup__body">
             <div class="kpi-row">
@@ -100,9 +229,9 @@
                 <div class="kpi-card__trend kpi-trend--up">↑ +2.1 pts</div>
               </div>
               <div class="kpi-card">
-                <div class="kpi-card__label">Trésorerie</div>
+                <div class="kpi-card__label">Trésorerie 90j</div>
                 <div class="kpi-card__value">91k€</div>
-                <div class="kpi-card__trend kpi-trend--up">↑ J+32</div>
+                <div class="kpi-card__trend kpi-trend--up">↑ prév. +8%</div>
               </div>
               <div class="kpi-card">
                 <div class="kpi-card__label">Pipeline</div>
@@ -127,11 +256,11 @@
             </div>
             <div class="query-bar">
               <span class="query-bar__icon">🔍</span>
-              <span class="query-bar__text">Quelle est ma marge par ligne produit ?<span class="query-cursor"></span></span>
+              <span class="query-bar__text">Impact hausse acier +12% sur marge nette ?<span class="query-cursor"></span></span>
             </div>
             <div class="query-answer">
-              Produit A : <strong style="color:#fff">41.2%</strong> · Produit B : <strong style="color:#fff">33.8%</strong> · Produit C : <strong style="color:#fff">29.4%</strong>
-              <div class="query-answer__src">✓ Source : Sage Compta · Maj il y a 3 min · 100% local</div>
+              Dérive marge estimée : <strong style="color:#fff">−1.8 pts</strong> sur contrats en cours · 3 contrats exposés · Alertes fournisseurs déclenchées
+              <div class="query-answer__src">✓ Source : ERP · Engagement fournisseurs · Pipeline CRM · 100% local · 0 hallucination</div>
             </div>
           </div>
         </div>
@@ -150,120 +279,279 @@
         </div>
         <div class="proof-bar__item">
           <span class="proof-bar__num">6h/sem</span>
-          <span class="proof-bar__label">perdues à consolider des fichiers Excel entre services</span>
+          <span class="proof-bar__label">perdues à consolider manuellement des données entre services</span>
+        </div>
+        <div class="proof-bar__item">
+          <span class="proof-bar__num">J+15</span>
+          <span class="proof-bar__label">âge moyen des données sur lesquelles vous décidez aujourd'hui</span>
         </div>
         <div class="proof-bar__item">
           <span class="proof-bar__num">3 sec</span>
-          <span class="proof-bar__label">pour obtenir n'importe quel KPI avec SAFE Cockpit</span>
+          <span class="proof-bar__label">pour corréler ERP, CRM et Finance avec SAFE Cockpit</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ====== PAIN ====== -->
+  <!-- ====== BLOC 1 : LA DOULEUR ====== -->
   <section class="section section--light" id="probleme">
     <div class="container">
       <div class="section-header fade-in">
-        <div class="label label--red"><span class="dot"></span> Le problème</div>
-        <h2 class="section-title">Pourquoi piloter une PME <em style="font-style:italic;color:#EF4444">à l'aveugle coûte cher</em></h2>
-        <p class="section-subtitle">Vos données sont éparpillées entre votre ERP, votre CRM, votre compta, et des dizaines de fichiers Excel. Personne n'a la vue d'ensemble.</p>
+        <div class="label label--red"><span class="dot"></span> L'aveuglement stratégique</div>
+        <h2 class="section-title">Le coût caché du pilotage<br><em style="color:#EF4444;font-style:italic">« au doigt mouillé »</em></h2>
+        <p class="section-subtitle">Vos données sont là. Mais elles sont piégées dans des silos — Sage, Salesforce, Excel — et les croiser prend des jours à vos cadres. Pendant ce temps, vous subissez l'urgence plutôt que d'anticiper.</p>
       </div>
       <div class="pain-grid" style="margin-top:48px">
         <div class="pain-card fade-in">
-          <div class="pain-card__icon">📊</div>
-          <div class="pain-card__title">Les données existent — le sens, non</div>
-          <p class="pain-card__desc">Vous avez un ERP, un CRM, une compta. Mais croiser ces données pour prendre une décision prend des heures à vos équipes — et reste souvent approximatif.</p>
-          <div class="pain-stat">⚠ 6h par semaine perdues en consolidation manuelle en moyenne</div>
-        </div>
-        <div class="pain-card fade-in">
-          <div class="pain-card__icon">⏰</div>
-          <div class="pain-card__title">Le reporting arrive trop tard</div>
-          <p class="pain-card__desc">Vous recevez vos indicateurs clés en fin de mois. Mais les décisions, elles, ne peuvent pas attendre. Vous pilotez avec des données déjà périmées.</p>
-          <div class="pain-stat">⚠ Décisions prises sur données vieilles de 3 à 6 semaines</div>
-        </div>
-        <div class="pain-card fade-in">
-          <div class="pain-card__icon">🔗</div>
-          <div class="pain-card__title">Chaque outil parle une langue différente</div>
-          <p class="pain-card__desc">Votre DAF extrait du Sage, votre commercial sort du Salesforce, votre RH travaille sous Excel. Personne ne voit la même réalité au même moment.</p>
+          <div class="pain-card__icon">🧩</div>
+          <div class="pain-card__title">Le paradoxe de la donnée fragmentée</div>
+          <p class="pain-card__desc">Votre ERP, votre CRM et votre comptabilité parlent des langues différentes. Croiser ces flux pour construire un indicateur fiable prend des heures à vos équipes — et le résultat reste approximatif.</p>
           <div class="pain-stat">⚠ 3 à 5 versions différentes du même KPI selon l'interlocuteur</div>
+        </div>
+        <div class="pain-card fade-in">
+          <div class="pain-card__icon">🔭</div>
+          <div class="pain-card__title">L'effet rétroviseur</div>
+          <p class="pain-card__desc">Piloter avec des chiffres de J+15 ou J+20, c'est conduire en regardant en arrière. Les risques de trésorerie ou les dérives de marge sont déjà réalisés quand vos tableaux de bord les signalent.</p>
+          <div class="pain-stat">⚠ 6h par semaine perdues en consolidation manuelle — pour des données déjà périmées</div>
+        </div>
+        <div class="pain-card fade-in">
+          <div class="pain-card__icon">💸</div>
+          <div class="pain-card__title">Le coût de l'absence de mémoire</div>
+          <p class="pain-card__desc">Chaque départ d'un cadre emporte des années de contexte décisionnel. Chaque onboarding repart à zéro. Sans mémoire institutionnelle structurée, votre IA ne peut pas comprendre le lien entre un retard de production et votre EBITDA.</p>
+          <div class="pain-stat">⚠ Un dirigeant sur deux ne dispose d'aucune vision transversale à 90 jours</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ====== SOLUTION ====== -->
+  <!-- ====== BLOC 2 : LA SOLUTION ====== -->
   <section class="section section--dark" id="solution">
     <div class="container">
       <div class="section-header fade-in">
-        <div class="label label--blue"><span class="dot"></span> La solution S.A.F.E.</div>
-        <h2 class="section-title">SAFE Cockpit — Pilotez votre PME<br><span class="text-blue">en interrogeant vos données</span></h2>
-        <p class="section-subtitle section-subtitle--light">Un système IA souverain connecté à vos sources de données existantes. Posez une question en français naturel, obtenez la réponse sourcée en 3 secondes — sans jamais quitter vos serveurs.</p>
+        <div class="label label--blue"><span class="dot"></span> SAFE Brain™ & Architecture Antigravity</div>
+        <h2 class="section-title">Plus qu'un dashboard :<br><span class="text-blue">votre Mémoire d'Entreprise vivante</span></h2>
+        <p class="section-subtitle section-subtitle--light">Contrairement aux IA génériques, S.A.F.E. ne se contente pas de répondre à des questions. Il corrèle, mémorise, et raisonne sur l'ensemble de votre capital institutionnel — sans jamais quitter votre infrastructure.</p>
       </div>
       <div style="margin-top:48px">
         <div class="solution-card fade-in">
           <div class="solution-card__num">01</div>
           <div class="solution-card__body">
-            <div class="solution-card__title">Connexion à vos sources existantes</div>
-            <p class="solution-card__desc">S.A.F.E. se connecte à vos outils en place — ERP, CRM, comptabilité, fichiers Excel, bases SQL. Pas de migration. Pas de remplacement. Votre écosystème reste intact.</p>
-            <span class="solution-badge">✓ Connecteurs natifs : Sage, Cegid, Salesforce, HubSpot, Excel, SQL</span>
+            <div class="solution-card__title">Architecture Antigravity & RAG-Q™ — Zéro hallucination</div>
+            <p class="solution-card__desc">S.A.F.E. n'est pas un chatbot connecté à un LLM générique. Il repose sur un <strong style="color:var(--white)">LLM Wiki pré-compilé</strong> — votre base de connaissances est structurée et injectée avant chaque requête. Résultat : consommation de tokens réduite de 90%, et chaque chiffre cité est 100% véridique et sourcé. Aucune invention possible.</p>
+            <div>
+              <span class="tech-pill tech-pill--blue">⚙️ Antigravity RAG-Q™</span>
+              <span class="tech-pill tech-pill--gold">🧠 LLM Wiki pré-compilé</span>
+              <span class="tech-pill tech-pill--green">✓ −90% tokens · 0 hallucination</span>
+            </div>
           </div>
         </div>
         <div class="solution-card fade-in">
           <div class="solution-card__num">02</div>
           <div class="solution-card__body">
-            <div class="solution-card__title">Questions en langage naturel, KPI instantanés</div>
-            <p class="solution-card__desc">"Quelle est notre marge brute par ligne de produit ce mois ?" — Votre DAF ou vous-même obtenez la réponse consolidée en 3 secondes, avec la source et la méthode de calcul.</p>
-            <span class="solution-badge">✓ Réponse contextuelle + traçabilité de la source de données</span>
+            <div class="solution-card__title">Vault Obsidian — Liens bidirectionnels entre vos données</div>
+            <p class="solution-card__desc">Vos données ne sont pas juste stockées — elles sont <strong style="color:var(--white)">connectées par des liens bidirectionnels</strong> dans votre Vault Obsidian. L'IA comprend la relation organique entre un retard fournisseur, une dérive de marge et votre position de trésorerie à 90 jours. Elle pense votre entreprise comme un système, pas comme une collection de fichiers.</p>
+            <div>
+              <span class="tech-pill tech-pill--gold">📁 Vault Obsidian</span>
+              <span class="tech-pill tech-pill--blue">🔗 Liens bidirectionnels</span>
+              <span class="tech-pill tech-pill--green">✓ Vision transversale 360°</span>
+            </div>
           </div>
         </div>
         <div class="solution-card fade-in">
           <div class="solution-card__num">03</div>
           <div class="solution-card__body">
-            <div class="solution-card__title">Vision unifiée, décisions souveraines</div>
-            <p class="solution-card__desc">Tous vos KPI dans un cockpit unique. Trésorerie, pipeline, charges, satisfaction client — synchronisés en temps réel. Vous gardez le contrôle total sur les accès et les données.</p>
-            <span class="solution-badge">✓ Hébergé on-premise — aucune donnée financière hors de France</span>
+            <div class="solution-card__title">Agents IA Spécialisés — Surveillance en arrière-plan</div>
+            <p class="solution-card__desc">Une équipe d'agents coordonnés travaille en continu : surveillance des signaux faibles, détection des dérives de marge, actualisation de la trésorerie prévisionnelle, synthèse de CODIR prête à l'emploi. Vos agents ne dorment jamais — et n'envoient jamais une donnée hors de France.</p>
+            <div>
+              <span class="tech-pill tech-pill--blue">🤖 Agents Finance · RH · Juridique</span>
+              <span class="tech-pill tech-pill--gold">📊 Synthèse CODIR automatisée</span>
+              <span class="tech-pill tech-pill--green">✓ 100% on-premise</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Architecture schema -->
+      <div class="arch-schema fade-in">
+        <div class="arch-schema__title">Circuit fermé souverain · Architecture Antigravity</div>
+        <div class="arch-flow">
+          <div class="arch-node">
+            <div class="arch-node__icon">🗄️</div>
+            <div class="arch-node__name">Vos sources</div>
+            <div class="arch-node__sub">ERP · CRM · Excel · SQL</div>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-node">
+            <div class="arch-node__icon">📁</div>
+            <div class="arch-node__name">Vault Obsidian</div>
+            <div class="arch-node__sub">Liens bidirectionnels</div>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-node arch-node--highlight">
+            <div class="arch-node__icon">🧠</div>
+            <div class="arch-node__name">SAFE Brain™</div>
+            <div class="arch-node__sub">Antigravity RAG-Q™</div>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-node">
+            <div class="arch-node__icon">👤</div>
+            <div class="arch-node__name">Vous décidez</div>
+            <div class="arch-node__sub">100% souverain</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ====== ROI ====== -->
-  <section class="section section--mid" id="roi">
+  <!-- ====== BLOC 3 : DIALOGUE SECTORIEL ====== -->
+  <section class="section section--mid" id="secteurs">
+    <div class="container">
+      <div class="section-header fade-in" style="text-align:center;max-width:680px;margin:0 auto">
+        <div class="label label--gold" style="justify-content:center"><span class="dot"></span> Le dialogue avec votre Capital Institutionnel</div>
+        <h2 class="section-title">Voici ce que vous pourrez demander<br><span class="text-gold">dès le premier mois</span></h2>
+        <p class="section-subtitle section-subtitle--light">L'IA ne fait pas que "discuter". Elle corrèle des données complexes issues de vos systèmes pour produire une réponse stratégique vérifiable, sourcée, et disponible en 3 secondes.</p>
+      </div>
+
+      <div class="sector-grid">
+
+        <!-- INDUSTRIE -->
+        <div class="sector-card fade-in">
+          <div class="sector-card__header">
+            <span class="sector-badge sector-badge--industry">🏭 Industrie & Supply Chain</span>
+            <span class="sector-card__title">Anticiper les risques de marge fournisseur</span>
+          </div>
+          <div class="sector-card__body">
+            <div class="sector-query">
+              <div class="sector-query__label">Question posée au SAFE Brain™</div>
+              <div class="sector-query__text">« Quel est l'impact d'une hausse de 12% du prix de l'acier sur la marge nette de nos contrats en cours d'ici la fin du trimestre ? »</div>
+            </div>
+            <div class="sector-response">
+              <div class="sector-response__label">⚡ Réponse en 3 secondes — Analyse croisée automatique</div>
+              <div class="sector-response__text">Corrélation instantanée entre vos stocks, vos engagements fournisseurs et votre pipeline de vente. Identification des 3 contrats les plus exposés. Simulation de la dérive de marge à date. Alertes préventives déclenchées.</div>
+              <div class="sector-gain">✓ Détection des risques de dérive avant qu'ils n'apparaissent en comptabilité</div>
+              <a href="https://calendly.com/bertrand-charpilloz/30min" target="_blank" rel="noopener" class="sector-cta">📅 Voir cette démo pour mon secteur</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROFESSIONS RÉGLEMENTÉES -->
+        <div class="sector-card fade-in">
+          <div class="sector-card__header">
+            <span class="sector-badge sector-badge--legal">⚖️ Professions Réglementées</span>
+            <span class="sector-card__title">Rentabilité par collaborateur et type de dossier</span>
+          </div>
+          <div class="sector-card__body">
+            <div class="sector-query">
+              <div class="sector-query__label">Question posée au SAFE Brain™</div>
+              <div class="sector-query__text">« Donne-moi le ratio de rentabilité par collaborateur sur les dossiers Fusions-Acquisitions des 12 derniers mois. »</div>
+            </div>
+            <div class="sector-response">
+              <div class="sector-response__label">⚡ Réponse en 3 secondes — Sans extraction manuelle</div>
+              <div class="sector-response__text">Consolidation automatique du temps passé (logiciel métier) versus la facturation réelle par dossier et par collaborateur. Identification des dossiers chronophages sous-facturés. Vue par associé et par type de mission.</div>
+              <div class="sector-gain">✓ Identification des missions à revaloriser · Optimisation de la stratégie tarifaire</div>
+              <a href="https://calendly.com/bertrand-charpilloz/30min" target="_blank" rel="noopener" class="sector-cta">📅 Voir cette démo pour mon cabinet</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- DIRECTION FINANCIÈRE -->
+        <div class="sector-card fade-in">
+          <div class="sector-card__header">
+            <span class="sector-badge sector-badge--finance">📈 Direction Financière & Générale</span>
+            <span class="sector-card__title">Simulation What-if sur la trésorerie à 90 jours</span>
+          </div>
+          <div class="sector-card__body">
+            <div class="sector-query">
+              <div class="sector-query__label">Question posée au SAFE Brain™</div>
+              <div class="sector-query__text">« Quelle sera notre position de trésorerie à 90 jours si nous validons le recrutement de 3 commerciaux le mois prochain ? »</div>
+            </div>
+            <div class="sector-response">
+              <div class="sector-response__label">⚡ Réponse en 3 secondes — Simulation prospective</div>
+              <div class="sector-response__text">Simulation "What-if" basée sur l'historique de votre cash-flow, vos charges fixes, le coût moyen d'intégration d'un commercial, et la montée en puissance habituelle du pipeline de votre secteur.</div>
+              <div class="sector-gain">✓ Vision prospective à 360° · Décisions d'investissement sécurisées sans navigation à vue</div>
+              <a href="https://calendly.com/bertrand-charpilloz/30min" target="_blank" rel="noopener" class="sector-cta">📅 Voir cette démo pour ma direction</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== BLOC 4 : ROI ====== -->
+  <section class="section section--dark" id="roi">
     <div class="container">
       <div class="section-header fade-in" style="text-align:center;max-width:600px;margin:0 auto 48px">
-        <div class="label label--gold"><span class="dot"></span> Résultats mesurables</div>
-        <h2 class="section-title">Ce que vos équipes<br><span class="text-gold">gagnent concrètement</span></h2>
+        <div class="label label--gold" style="justify-content:center"><span class="dot"></span> Résultats mesurables</div>
+        <h2 class="section-title">Reprenez les commandes<br><span class="text-gold">de votre rentabilité</span></h2>
       </div>
       <div class="roi-grid">
         <div class="roi-card fade-in">
-          <span class="roi-card__value">−80%</span>
-          <div class="roi-card__label">Temps de préparation<br>des reportings mensuels</div>
-        </div>
-        <div class="roi-card fade-in">
-          <span class="roi-card__value">30 j</span>
-          <div class="roi-card__label">Délai de déploiement<br>du cockpit opérationnel</div>
-        </div>
-        <div class="roi-card fade-in">
-          <span class="roi-card__value">1 vue</span>
-          <div class="roi-card__label">Unique source de vérité<br>pour toute l'équipe de direction</div>
-        </div>
-        <div class="roi-card fade-in">
-          <span class="roi-card__value">0</span>
-          <div class="roi-card__label">Donnée financière<br>envoyée hors de France</div>
-        </div>
-        <div class="roi-card fade-in">
-          <span class="roi-card__value">3 sec</span>
-          <div class="roi-card__label">Pour obtenir<br>n'importe quel KPI</div>
+          <span class="roi-card__value">÷3</span>
+          <div class="roi-card__label">Temps consacré au reporting financier mensuel</div>
         </div>
         <div class="roi-card fade-in">
           <span class="roi-card__value">J+2</span>
-          <div class="roi-card__label">Clôture mensuelle<br>au lieu de J+10 à J+15</div>
+          <div class="roi-card__label">Clôture comptable au lieu de J+10 à J+15</div>
+        </div>
+        <div class="roi-card fade-in">
+          <span class="roi-card__value">−30%</span>
+          <div class="roi-card__label">Temps passé en analyse de données pure</div>
+        </div>
+        <div class="roi-card fade-in">
+          <span class="roi-card__value">90j</span>
+          <div class="roi-card__label">Trésorerie prévisionnelle mise à jour quotidiennement</div>
+        </div>
+        <div class="roi-card fade-in">
+          <span class="roi-card__value">3 sec</span>
+          <div class="roi-card__label">Pour corréler ERP, CRM et Finance en langage naturel</div>
+        </div>
+        <div class="roi-card fade-in">
+          <span class="roi-card__value">0</span>
+          <div class="roi-card__label">Donnée sortante · Protection Cloud Act · Conformité AI Act 2026</div>
         </div>
       </div>
       <div class="roi-guarantee fade-in">
-        <p class="roi-guarantee__text">"En 30 jours, votre cockpit décisionnel IA est opérationnel, connecté à vos outils, et accessible à votre équipe de direction — sans jamais exposer vos données financières."</p>
-        <p class="roi-guarantee__sub">Bertrand Charpilloz — S.A.F.E. Pilotage Privé</p>
+        <p class="roi-guarantee__text">« En 30 jours, votre cockpit décisionnel est opérationnel, connecté à vos outils, et votre SAFE Brain™ commence à mémoriser votre entreprise — sans jamais exposer une seule donnée stratégique. »</p>
+        <p class="roi-guarantee__sub">Bertrand Charpilloz — Fondateur · S.A.F.E. Pilotage Privé</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== GOUVERNANCE HUMAINE ====== -->
+  <section class="gouvernance" id="gouvernance">
+    <div class="container">
+      <div class="gouvernance__inner">
+        <div class="gouvernance__visual fade-in">
+          <span class="gouvernance__icon">🎯</span>
+          <blockquote class="gouvernance__quote">
+            L'IA structure la complexité. La décision finale et l'arbitrage stratégique restent exclusivement entre vos mains.
+          </blockquote>
+          <span class="gouvernance__tag">Principe de Gouvernance Humaine · S.A.F.E. Pilotage Privé</span>
+        </div>
+        <div class="fade-in">
+          <div class="label label--gold"><span class="dot"></span> Commandant à l'arrivée : Vous</div>
+          <h2 style="font-family:var(--font-display);font-size:clamp(24px,3vw,36px);font-weight:700;color:var(--white);margin-bottom:20px;line-height:1.2;">L'IA prépare. Vous décidez.<br><span style="color:var(--gold)">Toujours.</span></h2>
+          <p class="gouvernance__text">S.A.F.E. n'automatise pas vos décisions — il vous libère du temps et de la complexité pour que vous puissiez décider mieux et plus vite. Chaque réponse est sourcée, tracée, auditée. Vous savez toujours d'où vient l'information.</p>
+          <div class="gouvernance__points">
+            <div class="gouvernance__point">
+              <span class="gouvernance__point-icon">🔍</span>
+              Chaque réponse cite sa source de données exacte et son horodatage
+            </div>
+            <div class="gouvernance__point">
+              <span class="gouvernance__point-icon">📋</span>
+              Audit log complet de toutes les interactions — exportable pour conformité RGPD
+            </div>
+            <div class="gouvernance__point">
+              <span class="gouvernance__point-icon">👤</span>
+              Contrôle d'accès RBAC : chaque collaborateur voit uniquement ce qui le concerne
+            </div>
+            <div class="gouvernance__point">
+              <span class="gouvernance__point-icon">🛡️</span>
+              Aucune décision ne peut être prise automatiquement sans validation humaine
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -274,27 +562,28 @@
     <div class="container">
       <div class="cta-final__content fade-in">
         <div class="cta-final__label">📅 Prochaine étape</div>
-        <h2 class="cta-final__title">Parlez de votre cockpit décisionnel<br>avec Bertrand Charpilloz</h2>
-        <p class="cta-final__subtitle">Une visioconférence de 30 minutes pour analyser vos sources de données et vous montrer comment S.A.F.E. unifie votre pilotage.</p>
+        <h2 class="cta-final__title">Analysez vos sources de données<br>avec Bertrand Charpilloz</h2>
+        <p class="cta-final__subtitle">30 minutes pour auditer vos flux actuels et vous montrer — en conditions réelles — comment votre SAFE Brain™ les corrèle instantanément. 100% confidentiel.</p>
         <div class="cta-final__card">
           <div class="cta-final__card-label">Votre interlocuteur</div>
           <div class="cta-final__card-who">Bertrand Charpilloz</div>
-          <div class="cta-final__card-role">Fondateur — S.A.F.E. Pilotage Privé · Expert IA souveraine pour PME</div>
+          <div class="cta-final__card-role">Fondateur · S.A.F.E. Pilotage Privé · Expert IA souveraine pour PME</div>
           <ul class="cta-final__promises">
-            <li>Audit de vos sources de données actuelles et de leur accessibilité</li>
-            <li>Démonstration de SAFE Cockpit en conditions réelles</li>
-            <li>Plan de connexion personnalisé à vos outils en 30 jours</li>
-            <li>Zéro engagement — zéro jargon technique</li>
+            <li>Audit de vos sources de données actuelles et de leur accessibilité croisée</li>
+            <li>Démonstration du SAFE Brain™ sur un cas concret de votre secteur</li>
+            <li>Architecture Antigravity expliquée — sans jargon, avec des chiffres réels</li>
+            <li>Plan de déploiement personnalisé · Résultats en 30 jours · Zéro engagement</li>
           </ul>
           <a href="https://calendly.com/bertrand-charpilloz/30min" target="_blank" rel="noopener" class="btn btn--cta-lg">
             📅 Réserver ma visioconférence de ½ heure
           </a>
-          <p class="cta-final__note">Gratuit · Sans engagement · Agenda disponible sous 48h</p>
+          <p class="cta-final__note">Gratuit · Sans engagement · 100% confidentiel · Agenda disponible sous 48h</p>
         </div>
         <div class="cta-final__trust">
-          <span class="trust-badge">🔒 Données hébergées en France</span>
-          <span class="trust-badge">✅ Conformité RGPD</span>
-          <span class="trust-badge">🏛 Infrastructure souveraine</span>
+          <span class="trust-badge">🔒 Hébergement 100% souverain</span>
+          <span class="trust-badge">✅ RGPD · DPA contractualisé</span>
+          <span class="trust-badge">🇫🇷 SecNumCloud éligible</span>
+          <span class="trust-badge">⚖️ Cloud Act : 0 risque</span>
           <span class="trust-badge">⚡ Résultats en 30 jours</span>
         </div>
       </div>
@@ -312,10 +601,11 @@
         <div class="footer-minimal__links">
           <a href="/">Accueil</a>
           <a href="/a-propos">À propos</a>
+          <a href="/garanties-souverainete">Garanties souveraineté</a>
           <a href="/mentions-legales">Mentions légales</a>
           <a href="mailto:contact@safe-pilotage-prive.fr">contact@safe-pilotage-prive.fr</a>
         </div>
-        <p class="footer-minimal__copy">© 2025 S.A.F.E. Pilotage Privé — Tous droits réservés</p>
+        <p class="footer-minimal__copy">© 2026 S.A.F.E. Pilotage Privé — CCA · SARL · SIREN 434 963 245</p>
       </div>
     </div>
   </footer>
@@ -325,6 +615,7 @@
       entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); } });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
     document.querySelectorAll('a[href*="calendly"]').forEach(a => {
       a.addEventListener('click', () => {
         if(typeof gtag !== 'undefined') {
