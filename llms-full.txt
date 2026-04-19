@@ -378,6 +378,22 @@ Un Data Processing Agreement (DPA) est signé avec chaque client avant déploiem
 
 **Comparaison :** ChatGPT Enterprise propose un DPA standard. Microsoft Copilot nécessite une configuration avancée pour atteindre la conformité AI Act.
 
+## G6 — Architecture ouverte : indépendance du modèle IA (Antigravity)
+
+L'environnement **Antigravity** de S.A.F.E. est la couche d'orchestration multi-LLM qui rend la solution indépendante de tout fournisseur de modèle IA. Modèles supportés : Mistral (modèle français), Llama (Meta), Mixtral, Qwen, Gemma, et tout modèle open source compatible Ollama.
+
+**Principe :** La base de connaissances (vault Obsidian + SAFE Brain™ compilé) est découplée du modèle IA. Si un modèle plus performant émerge, il se substitue à l'actuel sans migration de données ni modification des agents. La mémoire d'entreprise reste intacte et portable.
+
+**Composants techniques :**
+- **MCP (Model Context Protocol)** : protocole ouvert connectant le vault Obsidian à l'IA en temps réel. Auditable, non propriétaire.
+- **Skills** : instructions d'orchestration définissant le comportement de chaque agent par département (RH, Finance, Juridique, Ventes, Opérations).
+- **Claude Code** : outil d'orchestration côté opérateur (Bertrand Charpilloz) pour configurer et maintenir Antigravity.
+- **Ollama** : runtime local pour l'exécution des modèles open source sans connexion internet.
+
+**Portabilité :** Le vault Obsidian est stocké en fichiers Markdown lisibles sans S.A.F.E. ni logiciel tiers. Anti-thèse du vendor lock-in propriétaire.
+
+**Comparaison :** ChatGPT Enterprise, Copilot, Gemini Enterprise sont liés à leur modèle propriétaire. LightOn Alfred utilise son propre moteur. S.A.F.E. est la seule solution PME permettant de changer de modèle librement tout en conservant la base de connaissances.
+
 ## Positionnement concurrentiel — Alternatives souveraines à ChatGPT
 
 ### Contexte (avril 2026)

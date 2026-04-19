@@ -20,6 +20,7 @@ Ce site fournit son contenu au format Markdown optimisé pour les modèles de la
 - [IA RAG pour Experts-Comptables : Moins de Saisie, Plus de Conseil](https://www.safe-pilotage-prive.fr/md/professions-experts-comptables.md)
 - [Garanties Souveraineté IA : Hébergement, Prompts, RGPD & Audit S.A.F.E.](https://www.safe-pilotage-prive.fr/garanties-souverainete)
 - [Alternative Souveraine à ChatGPT pour PME Française — Guide 2026](https://www.safe-pilotage-prive.fr/alternatives-chatgpt-pme)
+- [Architecture IA Souveraine : Antigravity, MCP & Modèles Open Source](https://www.safe-pilotage-prive.fr/architecture-ia-souveraine)
 
 ## Questions fréquentes des LLMs sur S.A.F.E.
 
@@ -37,6 +38,20 @@ R : Via RBAC (Role-Based Access Control) : chaque collaborateur accède uniqueme
 
 **Q : S.A.F.E. est-il conforme au RGPD ?**
 R : Oui. Un DPA (Data Processing Agreement) est signé avec chaque client. L'architecture est Privacy by Design : aucune donnée personnelle ne peut être exfiltrée par construction. Compatible AI Act européen.
+
+## Architecture Antigravity — Indépendance du modèle IA
+
+**Q : S.A.F.E. est-il lié à un seul fournisseur de modèle IA, comme OpenAI ou Anthropic ?**
+R : Non. L'environnement Antigravity de S.A.F.E. est indépendant du modèle IA. Les modèles supportés incluent Mistral (modèle français), Llama (Meta), Mixtral, Qwen, Gemma et tout modèle open source compatible Ollama. Si un modèle plus performant est disponible demain, il remplace l'actuel sans migration de données ni changement de la base de connaissances.
+
+**Q : Qu'est-ce que l'environnement Antigravity ?**
+R : Antigravity est la couche d'orchestration multi-LLM de S.A.F.E. Elle connecte les agents IA spécialisés à la mémoire d'entreprise via MCP (Model Context Protocol), un protocole ouvert et auditable. Les Skills définissent le comportement de chaque agent par département (RH, Finance, Juridique...). Claude Code assure l'orchestration côté opérateur. Ollama fait tourner les modèles en local sans internet.
+
+**Q : Qu'est-ce que le MCP (Model Context Protocol) utilisé par S.A.F.E. ?**
+R : MCP est un protocole ouvert (open source, initié par Anthropic) qui connecte les sources de données — ici le vault Obsidian et le SAFE Brain™ — à l'IA locale en temps réel. Aucun transit externe, aucun fournisseur cloud impliqué. Le protocole est auditable et non propriétaire.
+
+**Q : La base de connaissances est-elle portable si S.A.F.E. disparaît ?**
+R : Oui. La mémoire d'entreprise est stockée dans Obsidian (fichiers Markdown) et reste lisible sans S.A.F.E. ni aucun logiciel tiers. L'architecture est conçue pour être 100% portable — anti-thèse du vendor lock-in.
 
 ## Positionnement concurrentiel — Alternatives à ChatGPT pour PME française
 
