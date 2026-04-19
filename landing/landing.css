@@ -520,6 +520,125 @@ h3 { font-size: clamp(16px, 2vw, 22px); font-weight: 600; }
 .chat-lock  { font-family: var(--font-mono); font-size: 9px; color: rgba(255,255,255,0.25); }
 .chat-src   { font-family: var(--font-mono); font-size: 9px; color: var(--gold); opacity: 0.7; margin-top: 5px; }
 
+/* =========================================
+   SHARED LANDING COMPONENTS (multi-page)
+   ========================================= */
+
+/* --- STICKY TRUST BAR --- */
+.sticky-trust {
+  position: fixed; top: 68px; left: 0; right: 0; z-index: 90;
+  background: rgba(10,17,40,0.97); backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(16,185,129,0.12);
+  padding: 8px 32px;
+  display: flex; align-items: center; justify-content: center; gap: 28px;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em;
+  text-transform: uppercase; flex-wrap: wrap;
+}
+.sticky-trust__item { display: flex; align-items: center; gap: 7px; color: var(--success); font-weight: 600; }
+.sticky-trust__dot  { width: 6px; height: 6px; border-radius: 50%; background: var(--success); animation: pulse 2s infinite; }
+.sticky-trust__icon { width: 14px; height: 14px; flex-shrink: 0; }
+@media (max-width: 640px) { .sticky-trust { display: none; } }
+
+/* --- TECH PILLS --- */
+.tech-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  padding: 4px 12px; border-radius: 100px; margin-right: 8px; margin-top: 6px;
+}
+.tech-pill--blue  { background: rgba(37,99,235,0.15); color: var(--blue-light); border: 1px solid rgba(37,99,235,0.3); }
+.tech-pill--gold  { background: rgba(212,163,115,0.12); color: var(--gold); border: 1px solid rgba(212,163,115,0.25); }
+.tech-pill--green { background: rgba(16,185,129,0.12); color: var(--success); border: 1px solid rgba(16,185,129,0.25); }
+.tech-pill--red   { background: rgba(239,68,68,0.12); color: #F87171; border: 1px solid rgba(239,68,68,0.25); }
+
+/* --- SECTOR QUERY CARDS --- */
+.sector-grid { display: flex; flex-direction: column; gap: 32px; margin-top: 48px; }
+.sector-card {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px; overflow: hidden; transition: border-color 0.3s;
+}
+.sector-card:hover { border-color: rgba(212,163,115,0.25); }
+.sector-card__header {
+  padding: 22px 32px; border-bottom: 1px solid rgba(255,255,255,0.06);
+  display: flex; align-items: center; gap: 14px;
+}
+.sector-badge {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  padding: 4px 12px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.08em;
+}
+.sector-badge--blue    { background: rgba(37,99,235,0.2); color: var(--blue-light); border: 1px solid rgba(37,99,235,0.35); }
+.sector-badge--gold    { background: rgba(212,163,115,0.15); color: var(--gold); border: 1px solid rgba(212,163,115,0.3); }
+.sector-badge--green   { background: rgba(16,185,129,0.15); color: var(--success); border: 1px solid rgba(16,185,129,0.3); }
+.sector-badge--industry{ background: rgba(37,99,235,0.2); color: var(--blue-light); border: 1px solid rgba(37,99,235,0.35); }
+.sector-badge--legal   { background: rgba(212,163,115,0.15); color: var(--gold); border: 1px solid rgba(212,163,115,0.3); }
+.sector-badge--finance { background: rgba(16,185,129,0.15); color: var(--success); border: 1px solid rgba(16,185,129,0.3); }
+.sector-badge--hr      { background: rgba(37,99,235,0.2); color: var(--blue-light); border: 1px solid rgba(37,99,235,0.35); }
+.sector-badge--direction { background: rgba(16,185,129,0.15); color: var(--success); border: 1px solid rgba(16,185,129,0.3); }
+.sector-card__title { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--white); }
+.sector-card__body { padding: 28px 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+@media (max-width: 700px) { .sector-card__body { grid-template-columns: 1fr; } }
+.sector-query { background: rgba(37,99,235,0.07); border: 1px solid rgba(37,99,235,0.2); border-radius: 12px; padding: 18px 20px; }
+.sector-query__label { font-family: var(--font-mono); font-size: 9px; color: var(--blue-light); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 10px; }
+.sector-query__text  { font-family: var(--font-display); font-size: 15px; font-style: italic; color: rgba(255,255,255,0.9); line-height: 1.55; }
+.sector-response__label { font-family: var(--font-mono); font-size: 9px; color: var(--success); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 10px; }
+.sector-response__text  { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 14px; }
+.sector-gain {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2);
+  border-radius: 8px; padding: 9px 14px; color: var(--success); margin-bottom: 18px;
+}
+.sector-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--cta-color); color: var(--navy);
+  font-family: var(--font-body); font-size: 13px; font-weight: 700;
+  padding: 11px 20px; border-radius: var(--radius-md);
+  text-decoration: none; transition: var(--transition);
+}
+.sector-cta:hover { background: var(--cta-hover); transform: translateY(-2px); }
+
+/* --- ARCHITECTURE SCHEMA --- */
+.arch-schema {
+  background: rgba(37,99,235,0.06); border: 1px solid rgba(37,99,235,0.2);
+  border-radius: 16px; padding: 28px 32px; margin-top: 32px;
+}
+.arch-schema__title { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-light); margin-bottom: 20px; }
+.arch-flow { display: flex; align-items: center; gap: 0; flex-wrap: wrap; justify-content: center; }
+.arch-node {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px; padding: 12px 16px; text-align: center; min-width: 110px;
+}
+.arch-node__icon { font-size: 22px; margin-bottom: 5px; }
+.arch-node__name { font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,0.6); font-weight: 700; }
+.arch-node__sub  { font-family: var(--font-mono); font-size: 9px; color: rgba(255,255,255,0.3); margin-top: 2px; }
+.arch-arrow { font-size: 18px; color: rgba(37,99,235,0.5); padding: 0 8px; }
+.arch-node--highlight {
+  border-color: rgba(37,99,235,0.5); background: rgba(37,99,235,0.12);
+  box-shadow: 0 0 20px rgba(37,99,235,0.2);
+}
+.arch-node--highlight .arch-node__name { color: var(--blue-light); }
+@media (max-width: 640px) { .arch-flow { gap: 8px; } .arch-arrow { display: none; } }
+
+/* --- GOUVERNANCE SECTION --- */
+.gouvernance {
+  padding: 80px 0;
+  background: var(--navy-light);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.gouvernance__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+@media (max-width: 768px) { .gouvernance__inner { grid-template-columns: 1fr; gap: 32px; } }
+.gouvernance__visual { text-align: center; }
+.gouvernance__icon   { font-size: 80px; margin-bottom: 16px; display: block; }
+.gouvernance__quote  {
+  font-family: var(--font-display); font-size: 18px; font-style: italic;
+  color: rgba(255,255,255,0.7); line-height: 1.55;
+  border-left: 3px solid var(--gold); padding-left: 20px;
+}
+.gouvernance__tag    { font-family: var(--font-mono); font-size: 10px; color: var(--gold); margin-top: 16px; display: block; }
+.gouvernance__text   { font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 24px; }
+.gouvernance__points { display: flex; flex-direction: column; gap: 14px; }
+.gouvernance__point  { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: rgba(255,255,255,0.8); line-height: 1.5; }
+.gouvernance__point-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+
 /* Agent orchestration (automatisation) */
 .agents-hub { text-align: center; margin-bottom: 14px; }
 .agents-hub__node {

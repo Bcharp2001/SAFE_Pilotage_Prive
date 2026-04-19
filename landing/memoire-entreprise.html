@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mémoire d'Entreprise IA — Protégez votre capital intellectuel | S.A.F.E.</title>
-  <meta name="description" content="Quand un expert clé part, il emporte avec lui années de savoir-faire. S.A.F.E. Pilotage Privé capture et valorise la mémoire de votre entreprise. Souverain, sécurisé, on-premise." />
+  <title>Mémoire d'Entreprise KOS — Stoppez l'hémorragie de capital intellectuel | S.A.F.E.</title>
+  <meta name="description" content="Chaque départ emporte des années de savoir-faire. Le SAFE Brain™ capture, structure et sécurise votre mémoire institutionnelle dans un environnement 100% souverain. Architecture Antigravity · Vault Obsidian · 0 hallucination." />
   <meta name="robots" content="noindex, follow" />
   <link rel="canonical" href="https://www.safe-pilotage-prive.fr/landing/memoire-entreprise" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/landing/landing.css" />
   <link rel="icon" href="/favicon.ico" />
+
   <!-- Tracking Google Ads -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-CONVERSION_ID"></script>
   <script>
@@ -20,6 +21,30 @@
     gtag('js', new Date());
     gtag('config', 'AW-CONVERSION_ID');
   </script>
+
+  <style>
+    /* === PAGE-SPECIFIC STYLES === */
+
+    /* Shadow AI danger pain card */
+    .pain-card--shadow {
+      border-top-color: var(--danger);
+      background: rgba(239,68,68,0.03);
+    }
+    .pain-card--shadow:hover { border-top-color: var(--danger); box-shadow: 0 8px 32px rgba(239,68,68,0.1); }
+
+    /* Knowledge graph node viz (hero mockup enhancement) */
+    .vault-graph { margin-top: 10px; }
+    .vault-graph__title { font-family: var(--font-mono); font-size: 9px; color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+    .vault-link-row {
+      display: flex; align-items: center; gap: 6px; padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 10px;
+    }
+    .vault-link-row:last-child { border-bottom: none; }
+    .vault-link-src  { font-family: var(--font-mono); font-size: 9px; color: var(--blue-light); flex-shrink: 0; }
+    .vault-link-arr  { color: rgba(37,99,235,0.4); font-size: 11px; flex-shrink: 0; }
+    .vault-link-dest { font-family: var(--font-mono); font-size: 9px; color: rgba(255,255,255,0.45); }
+    .vault-link-type { font-family: var(--font-mono); font-size: 8px; color: rgba(255,255,255,0.2); margin-left: auto; flex-shrink: 0; }
+  </style>
 </head>
 <body>
 
@@ -35,7 +60,8 @@
       </a>
       <div class="mini-nav__trust">
         <span class="mini-nav__badge">🔒 Données hébergées en France</span>
-        <span class="mini-nav__badge">✅ RGPD</span>
+        <span class="mini-nav__badge">✅ RGPD · AI Act 2026</span>
+        <span class="mini-nav__badge">🇫🇷 SecNumCloud éligible</span>
       </div>
       <div class="mini-nav__cta">
         <a href="https://calendly.com/bertrand-charpilloz/30min" target="_blank" rel="noopener" class="btn btn--cta">
@@ -45,68 +71,92 @@
     </div>
   </nav>
 
+  <!-- ====== STICKY TRUST BAR ====== -->
+  <div class="sticky-trust">
+    <div class="sticky-trust__item">
+      <svg class="sticky-trust__icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 2L3 5v5c0 4.418 3.134 8.55 7 9.5C13.866 18.55 17 14.418 17 10V5l-7-3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      SecNumCloud éligible
+    </div>
+    <div class="sticky-trust__item">
+      <svg class="sticky-trust__icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      RGPD · DPA contractualisé
+    </div>
+    <div class="sticky-trust__item">
+      <svg class="sticky-trust__icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="9" width="12" height="9" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7 9V6a3 3 0 016 0v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Cloud Act : 0 risque
+    </div>
+    <div class="sticky-trust__item">
+      <svg class="sticky-trust__icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 2L3 5v5c0 4.418 3.134 8.55 7 9.5C13.866 18.55 17 14.418 17 10V5l-7-3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      AI Act 2026 conforme
+    </div>
+    <div class="sticky-trust__item">
+      <svg class="sticky-trust__icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 10c0-3.866 3.134-7 7-7s7 3.134 7 7-3.134 7-7 7-7-3.134-7-7z" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v4l2.5 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Mémoire persistante · 0 fuite
+    </div>
+  </div>
+
   <!-- ====== HERO ====== -->
-  <section class="hero-lp hero-lp--split">
+  <section class="hero-lp hero-lp--split" style="padding-top:160px">
     <div class="hero-lp__grid-bg"></div>
     <div class="hero-lp__glow"></div>
     <div class="hero-lp__glow-2"></div>
     <div class="container">
       <div class="hero-lp__content fade-in">
-        <div class="label label--gold"><span class="dot"></span> Mémoire d'Entreprise — Protection Turnover</div>
+        <div class="label label--red"><span class="dot"></span> Mémoire d'Entreprise · Knowledge Operating System</div>
         <h1 class="hero-lp__punchline">
-          Votre entreprise ne manque pas<br>
-          d'informations.<br>
-          Elle manque d'une <em>mémoire</em>.
+          Arrêtez l'hémorragie<br>
+          de votre <em>capital intellectuel.</em><br>
+          <span class="accent-gold">Gravez-le dans un Vault souverain.</span>
         </h1>
         <p class="hero-lp__subtitle">
-          Chaque départ emporte des années de savoir-faire. Chaque onboarding recommence à zéro. S.A.F.E. capture, structure et rend accessible la connaissance de votre entreprise — à jamais, et sous votre contrôle exclusif.
+          Le premier <strong style="color:var(--gold)">Knowledge Operating System (KOS)</strong> pour PME : l'architecture <strong style="color:var(--white)">Antigravity</strong> capture, structure et sécurise votre mémoire institutionnelle dans le <strong style="color:var(--blue-light)">Vault Obsidian</strong>. Zéro hallucination. Zéro donnée sortante. Une mémoire qui reste — même quand vos experts partent.
         </p>
         <div class="hero-lp__ctas">
           <a href="https://calendly.com/bertrand-charpilloz/30min" target="_blank" rel="noopener" class="btn btn--cta-lg">
-            📅 Réserver ma visioconférence de 30 min
+            📅 Réserver mon diagnostic turnover
           </a>
-          <a href="#solution" class="btn btn--ghost">Voir comment ça fonctionne →</a>
+          <a href="#solution" class="btn btn--ghost">Voir le Vault en action →</a>
         </div>
         <div class="hero-lp__social-proof">
           <div class="hero-lp__proof-item">
             <span class="hero-lp__proof-num">−50%</span>
-            <span class="hero-lp__proof-label">temps d'onboarding moyen</span>
+            <span class="hero-lp__proof-label">temps d'onboarding avec le SAFE Brain™</span>
           </div>
           <div class="hero-lp__proof-item">
             <span class="hero-lp__proof-num">30j</span>
-            <span class="hero-lp__proof-label">pour déployer la mémoire d'entreprise</span>
+            <span class="hero-lp__proof-label">pour déployer votre première mémoire</span>
           </div>
           <div class="hero-lp__proof-item">
-            <span class="hero-lp__proof-num">100%</span>
-            <span class="hero-lp__proof-label">données restent dans votre infrastructure</span>
+            <span class="hero-lp__proof-num">0</span>
+            <span class="hero-lp__proof-label">donnée envoyée hors de France</span>
           </div>
         </div>
       </div>
 
-      <!-- VISUAL: Knowledge vault mockup -->
+      <!-- VISUAL: Vault + Graph mockup -->
       <div class="hero-lp__visual fade-in">
         <div class="mockup">
           <div class="mockup__bar">
             <div class="mockup__dot mockup__dot--r"></div>
             <div class="mockup__dot mockup__dot--y"></div>
             <div class="mockup__dot mockup__dot--g"></div>
-            <span class="mockup__title">SAFE Brain™ · Mémoire d'entreprise</span>
+            <span class="mockup__title">SAFE Brain™ · Vault Obsidian · Antigravity RAG-Q™</span>
           </div>
           <div class="mockup__body">
             <div class="vault-header">
               <div class="vault-header__icon">🧠</div>
-              <span class="vault-header__title">Base de connaissances — 4 départements</span>
+              <span class="vault-header__title">Base de connaissances · 4 départements</span>
               <span class="vault-header__badge">✓ En ligne</span>
             </div>
             <div class="vault-dept">
               <div class="vault-dept__row">
                 <span class="vault-dept__icon">👥</span>
                 <span class="vault-dept__name">Ressources Humaines</span>
-                <span class="vault-dept__count">142 notes</span>
+                <span class="vault-dept__count">142 notes · 38 liens</span>
               </div>
               <div class="vault-dept__docs">
                 <span class="vault-doc">Onboarding-commercial.md</span>
-                <span class="vault-doc">Procédure-paie.md</span>
+                <span class="vault-doc">Convention-collective.md</span>
                 <span class="vault-doc">+14</span>
               </div>
             </div>
@@ -114,34 +164,44 @@
               <div class="vault-dept__row">
                 <span class="vault-dept__icon">📊</span>
                 <span class="vault-dept__name">Finance & Comptabilité</span>
-                <span class="vault-dept__count">98 notes</span>
+                <span class="vault-dept__count">98 notes · 22 liens</span>
               </div>
               <div class="vault-dept__docs">
                 <span class="vault-doc">Clôture-mensuelle.md</span>
-                <span class="vault-doc">KPI-direction.md</span>
+                <span class="vault-doc">Politique-achats.md</span>
                 <span class="vault-doc">+8</span>
               </div>
             </div>
-            <div class="vault-dept">
-              <div class="vault-dept__row">
-                <span class="vault-dept__icon">⚖️</span>
-                <span class="vault-dept__name">Juridique & Compliance</span>
-                <span class="vault-dept__count">67 notes</span>
+            <!-- Bidirectional links graph preview -->
+            <div class="vault-graph">
+              <div class="vault-graph__title">⟷ Liens bidirectionnels actifs</div>
+              <div class="vault-link-row">
+                <span class="vault-link-src">Onboarding-commercial</span>
+                <span class="vault-link-arr">⟶</span>
+                <span class="vault-link-dest">Convention-collective.md</span>
+                <span class="vault-link-type">clause art.12</span>
               </div>
-              <div class="vault-dept__docs">
-                <span class="vault-doc">Contrats-types.md</span>
-                <span class="vault-doc">RGPD-DPA.md</span>
+              <div class="vault-link-row">
+                <span class="vault-link-src">Procédure-paie</span>
+                <span class="vault-link-arr">⟶</span>
+                <span class="vault-link-dest">Grille-salaire-2024.md</span>
+                <span class="vault-link-type">ref. annexe B</span>
+              </div>
+              <div class="vault-link-row">
+                <span class="vault-link-src">KPI-direction</span>
+                <span class="vault-link-arr">⟶</span>
+                <span class="vault-link-dest">Objectifs-commerciaux.md</span>
+                <span class="vault-link-type">Q2 2024</span>
               </div>
             </div>
-            <div class="vault-dept">
-              <div class="vault-dept__row">
-                <span class="vault-dept__icon">📈</span>
-                <span class="vault-dept__name">Ventes & Commercial</span>
-                <span class="vault-dept__count">211 notes</span>
-              </div>
+            <div class="query-bar" style="margin-top:10px">
+              <span class="query-bar__icon">🔍</span>
+              <span class="query-bar__text">Étapes d'intégration pour un commercial B2B ?<span class="query-cursor"></span></span>
             </div>
-            <div class="vault-alert">
-              ✓ Mémoire accessible instantanément · 100% local · Zéro fuite
+            <div class="query-answer">
+              8 documents trouvés · Convention art.12 · Grille salaire · Process formation ·
+              <strong style="color:#fff">Réponse structurée en 3 sec</strong>
+              <div class="query-answer__src">✓ Source : Vault Obsidian local · 100% souverain · 0 hallucination</div>
             </div>
           </div>
         </div>
@@ -156,124 +216,283 @@
       <div class="proof-bar__inner">
         <div class="proof-bar__item">
           <span class="proof-bar__num">68%</span>
-          <span class="proof-bar__label">des PME ont déjà perdu un expert-clé sans transmission</span>
+          <span class="proof-bar__label">des PME ont déjà perdu un savoir critique lors d'un départ</span>
         </div>
         <div class="proof-bar__item">
           <span class="proof-bar__num">4 mois</span>
-          <span class="proof-bar__label">durée moyenne d'onboarding sans support IA</span>
+          <span class="proof-bar__label">durée moyenne d'onboarding sans support IA souverain</span>
+        </div>
+        <div class="proof-bar__item">
+          <span class="proof-bar__num">30%</span>
+          <span class="proof-bar__label">du temps des managers à répéter les mêmes instructions</span>
         </div>
         <div class="proof-bar__item">
           <span class="proof-bar__num">∞</span>
-          <span class="proof-bar__label">la mémoire S.A.F.E. ne part jamais à la retraite</span>
+          <span class="proof-bar__label">la mémoire SAFE Brain™ ne part jamais à la retraite</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ====== PAIN ====== -->
+  <!-- ====== BLOC 1 : LA DOULEUR ====== -->
   <section class="section section--light" id="probleme">
     <div class="container">
       <div class="section-header fade-in">
-        <div class="label label--red"><span class="dot"></span> Le problème</div>
+        <div class="label label--red"><span class="dot"></span> L'hémorragie silencieuse</div>
         <h2 class="section-title">Ce qui se passe <em style="font-style:italic;color:#EF4444">chaque fois qu'un expert part</em></h2>
-        <p class="section-subtitle">Le turnover n'est pas seulement un problème RH. C'est une hémorragie silencieuse de capital intellectuel.</p>
+        <p class="section-subtitle">Le turnover n'est pas seulement un problème RH. C'est une hémorragie silencieuse de capital intellectuel qui érode la compétitivité de votre PME — et vos collaborateurs comblent le vide avec des outils qui exposent vos secrets.</p>
       </div>
       <div class="pain-grid" style="margin-top:48px">
         <div class="pain-card fade-in">
           <div class="pain-card__icon">🧠</div>
-          <div class="pain-card__title">Le savoir-faire disparaît</div>
-          <p class="pain-card__desc">Les procédures, les contextes clients, les décisions historiques — tout est dans la tête des experts. Quand ils partent, ça part avec eux.</p>
-          <div class="pain-stat">⚠ Perte estimée : 6 à 18 mois de productivité</div>
+          <div class="pain-card__title">Le savoir piégé dans les têtes</div>
+          <p class="pain-card__desc">Les procédures, les contextes clients, les décisions historiques — tout est implicite. 68% des PME ont déjà perdu un savoir critique lors d'un départ. Quand l'expert part, les années de contexte s'évaporent avec lui.</p>
+          <div class="pain-stat">⚠ 6 à 18 mois de productivité perdus par départ d'expert</div>
         </div>
         <div class="pain-card fade-in">
           <div class="pain-card__icon">🔄</div>
-          <div class="pain-card__title">L'onboarding recommence à zéro</div>
-          <p class="pain-card__desc">Chaque nouveau collaborateur repose les mêmes questions. Les managers répètent les mêmes explications. Les erreurs se reproduisent.</p>
-          <div class="pain-stat">⚠ Coût moyen : 3 à 6 mois de salaire par recrutement</div>
+          <div class="pain-card__title">L'onboarding interminable</div>
+          <p class="pain-card__desc">Sans support IA, une nouvelle recrue met 3 à 6 mois pour être réellement productive. Vos managers passent 30% de leur temps à répéter les mêmes instructions. Les erreurs de contexte se reproduisent, coûteuses et évitables.</p>
+          <div class="pain-stat">⚠ Coût réel : 3 à 6 mois de salaire par recrutement raté</div>
         </div>
-        <div class="pain-card fade-in">
-          <div class="pain-card__icon">📂</div>
-          <div class="pain-card__title">Les documents existent, l'accès non</div>
-          <p class="pain-card__desc">Vous avez des centaines de fichiers, e-mails, comptes-rendus. Mais personne ne sait où est quoi, ni comment croiser les informations.</p>
-          <div class="pain-stat">⚠ 30% du temps de travail perdu à chercher</div>
+        <div class="pain-card pain-card--shadow fade-in">
+          <div class="pain-card__icon">⚠️</div>
+          <div class="pain-card__title">Le danger invisible du Shadow AI</div>
+          <p class="pain-card__desc">Vos collaborateurs utilisent déjà ChatGPT, Gemini et Copilot pour travailler. Ils posent des questions sur vos clients, vos contrats, vos procédures internes — et les envoient sur des serveurs américains soumis au Cloud Act. Sans gouvernance, sans trace.</p>
+          <div class="pain-stat" style="color:#EF4444">🚨 Exposition Cloud Act · Violation RGPD · 0 audit · 0 contrôle</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ====== SOLUTION ====== -->
+  <!-- ====== BLOC 2 : LA SOLUTION ====== -->
   <section class="section section--dark" id="solution">
     <div class="container">
       <div class="section-header fade-in">
-        <div class="label label--blue"><span class="dot"></span> La solution S.A.F.E.</div>
-        <h2 class="section-title">SAFE Brain — La mémoire vivante<br><span class="text-blue">de votre entreprise</span></h2>
-        <p class="section-subtitle section-subtitle--light">Un système RAG (Retrieval-Augmented Generation) souverain qui indexe, connecte et rend interrogeable l'ensemble du savoir de votre organisation — en langage naturel.</p>
+        <div class="label label--blue"><span class="dot"></span> SAFE Brain™ & Architecture Antigravity</div>
+        <h2 class="section-title">Plus qu'un moteur de recherche :<br><span class="text-blue">un Oracle Institutionnel souverain</span></h2>
+        <p class="section-subtitle section-subtitle--light">Contrairement aux chatbots génériques, S.A.F.E. ne "cherche" pas — il <em>comprend</em>. L'architecture Antigravity et le Vault Obsidian forment un graphe de connaissance vivant qui lie vos documents entre eux. Chaque réponse est extraite de votre patrimoine, sourcée, vérifiable.</p>
       </div>
       <div style="margin-top:48px">
         <div class="solution-card fade-in">
           <div class="solution-card__num">01</div>
           <div class="solution-card__body">
-            <div class="solution-card__title">Capture intelligente de la connaissance</div>
-            <p class="solution-card__desc">S.A.F.E. ingère vos documents internes (procédures, e-mails, comptes-rendus, bases de données) et les structure dans un index sémantique. Chaque information devient interrogeable.</p>
-            <span class="solution-badge">✓ Hébergé on-premise ou SecNumCloud — jamais sur les serveurs d'OpenAI</span>
+            <div class="solution-card__title">Architecture Antigravity & LLM Wiki — Zéro hallucination garantie</div>
+            <p class="solution-card__desc">S.A.F.E. repose sur un <strong style="color:var(--white)">LLM Wiki pré-compilé</strong> — votre base de connaissances est structurée et injectée avant chaque requête. L'IA ne peut pas inventer de faits : elle répond uniquement à partir de votre Vault. Résultat : consommation de tokens réduite de 90%, chaque chiffre cité est 100% véridique et sourcé.</p>
+            <div>
+              <span class="tech-pill tech-pill--blue">⚙️ Antigravity RAG-Q™</span>
+              <span class="tech-pill tech-pill--gold">🧠 LLM Wiki pré-compilé</span>
+              <span class="tech-pill tech-pill--green">✓ −90% tokens · 0 hallucination</span>
+            </div>
           </div>
         </div>
         <div class="solution-card fade-in">
           <div class="solution-card__num">02</div>
           <div class="solution-card__body">
-            <div class="solution-card__title">Questions en langage naturel, réponses sourcées</div>
-            <p class="solution-card__desc">"Quel est notre tarif remise standard pour les clients Industrie ?" — Votre collaborateur obtient une réponse précise, avec la source, en 3 secondes. Fini les relances par e-mail.</p>
-            <span class="solution-badge">✓ Réponse contextuelle + citation de la source documentaire</span>
+            <div class="solution-card__title">Vault Obsidian — Le graphe vivant de votre savoir institutionnel</div>
+            <p class="solution-card__desc">Vos documents ne sont plus des fichiers isolés — ils sont <strong style="color:var(--white)">connectés par des liens bidirectionnels</strong> dans votre Vault Obsidian. L'IA comprend que votre procédure de paie est liée à votre convention collective, que votre grille tarifaire dépend de vos contrats fournisseurs. Elle raisonne sur votre entreprise comme un système cohérent — pas comme une collection de fichiers.</p>
+            <div>
+              <span class="tech-pill tech-pill--gold">📁 Vault Obsidian</span>
+              <span class="tech-pill tech-pill--blue">🔗 Liens bidirectionnels</span>
+              <span class="tech-pill tech-pill--green">✓ Graphe de connaissance vivant</span>
+            </div>
           </div>
         </div>
         <div class="solution-card fade-in">
           <div class="solution-card__num">03</div>
           <div class="solution-card__body">
-            <div class="solution-card__title">Gouvernance humaine totale</div>
-            <p class="solution-card__desc">Vous contrôlez quelles sources sont indexées, qui y accède, et avec quels droits. La mémoire S.A.F.E. est la vôtre. Chaque décision IA reste validée par un humain.</p>
-            <span class="solution-badge">✓ Commandant à l'arrivée : vous</span>
+            <div class="solution-card__title">Tutorat IA & Onboarding — Le mentor souverain disponible 24h/24</div>
+            <p class="solution-card__desc">Vos recrues posent leurs questions au SAFE Brain™ plutôt qu'à leur manager. Le système répond avec précision, cite sa source documentaire, et adapte sa réponse au profil et au rôle de l'interlocuteur. Résultat : intégration accélérée de 50%, managers libérés de 60% des sollicitations récurrentes — et zéro risque que la réponse sorte de votre infrastructure.</p>
+            <div>
+              <span class="tech-pill tech-pill--blue">👤 Tutorat personnalisé RBAC</span>
+              <span class="tech-pill tech-pill--gold">📋 Réponses sourcées et tracées</span>
+              <span class="tech-pill tech-pill--green">✓ 100% on-premise · 0 donnée sortante</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Architecture schema -->
+      <div class="arch-schema fade-in">
+        <div class="arch-schema__title">Circuit fermé souverain · Knowledge Operating System</div>
+        <div class="arch-flow">
+          <div class="arch-node">
+            <div class="arch-node__icon">📂</div>
+            <div class="arch-node__name">Vos sources</div>
+            <div class="arch-node__sub">Docs · CR · E-mails · RH</div>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-node">
+            <div class="arch-node__icon">📁</div>
+            <div class="arch-node__name">Vault Obsidian</div>
+            <div class="arch-node__sub">Graphe · Liens bididir.</div>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-node arch-node--highlight">
+            <div class="arch-node__icon">🧠</div>
+            <div class="arch-node__name">SAFE Brain™</div>
+            <div class="arch-node__sub">LLM Wiki · Antigravity</div>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-node">
+            <div class="arch-node__icon">👤</div>
+            <div class="arch-node__name">Vos équipes</div>
+            <div class="arch-node__sub">Réponse sourcée · 3 sec</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ====== ROI ====== -->
-  <section class="section section--mid" id="roi">
+  <!-- ====== BLOC 3 : DIALOGUE AVEC LA MÉMOIRE ====== -->
+  <section class="section section--mid" id="exemples">
+    <div class="container">
+      <div class="section-header fade-in" style="text-align:center;max-width:680px;margin:0 auto">
+        <div class="label label--gold" style="justify-content:center"><span class="dot"></span> Le dialogue avec votre mémoire institutionnelle</div>
+        <h2 class="section-title">Ce que vos équipes pourront interroger<br><span class="text-gold">dès le premier mois</span></h2>
+        <p class="section-subtitle section-subtitle--light">Le SAFE Brain™ répond comme votre meilleur expert interne — en 3 secondes, sans jamais inventer, sans jamais exposer une donnée hors de France.</p>
+      </div>
+
+      <div class="sector-grid">
+
+        <!-- RH / ONBOARDING -->
+        <div class="sector-card fade-in">
+          <div class="sector-card__header">
+            <span class="sector-badge sector-badge--hr">👥 RH & Onboarding</span>
+            <span class="sector-card__title">Accélérer l'intégration des nouvelles recrues</span>
+          </div>
+          <div class="sector-card__body">
+            <div class="sector-query">
+              <div class="sector-query__label">Question posée au SAFE Brain™</div>
+              <div class="sector-query__text">« Quelles sont les étapes obligatoires d'intégration pour un commercial B2B junior — et quels documents dois-je lui remettre le premier jour ? »</div>
+            </div>
+            <div class="sector-response">
+              <div class="sector-response__label">⚡ Réponse en 3 secondes — Sourcée et tracée</div>
+              <div class="sector-response__text">Restitution du parcours d'intégration complet (8 étapes), liste des documents obligatoires selon la convention collective, accès aux procédures internes liées au poste, contacts RH référents. Citation des sources documentaires pour chaque point.</div>
+              <div class="sector-gain">✓ −50% temps d'onboarding · Managers libérés de 60% des sollicitations récurrentes</div>
+              <a href="https://calendly.com/bertrand-charpilloz/30min" target="_blank" rel="noopener" class="sector-cta">📅 Voir cette démo pour mon équipe RH</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- JURIDIQUE / COMPLIANCE -->
+        <div class="sector-card fade-in">
+          <div class="sector-card__header">
+            <span class="sector-badge sector-badge--legal">⚖️ Juridique & Compliance</span>
+            <span class="sector-card__title">Conformité instantanée sans cabinet externe</span>
+          </div>
+          <div class="sector-card__body">
+            <div class="sector-query">
+              <div class="sector-query__label">Question posée au SAFE Brain™</div>
+              <div class="sector-query__text">« Notre procédure de résiliation de CDI respecte-t-elle les clauses de notre convention collective et les délais légaux en vigueur ? »</div>
+            </div>
+            <div class="sector-response">
+              <div class="sector-response__label">⚡ Réponse en 3 secondes — Sans extraction manuelle</div>
+              <div class="sector-response__text">Croisement automatique entre votre convention collective, votre procédure interne et les obligations légales. Identification des points de non-conformité potentiels. Recommandations de mise à jour documentaires avec références exactes.</div>
+              <div class="sector-gain">✓ Conformité vérifiable à tout instant · Risque juridique réduit · Audit-ready</div>
+              <a href="https://calendly.com/bertrand-charpilloz/30min" target="_blank" rel="noopener" class="sector-cta">📅 Voir cette démo pour ma direction juridique</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- DIRECTION / CODIR -->
+        <div class="sector-card fade-in">
+          <div class="sector-card__header">
+            <span class="sector-badge sector-badge--direction">📈 Direction Générale</span>
+            <span class="sector-card__title">Synthèse stratégique de la mémoire décisionnelle</span>
+          </div>
+          <div class="sector-card__body">
+            <div class="sector-query">
+              <div class="sector-query__label">Question posée au SAFE Brain™</div>
+              <div class="sector-query__text">« Synthèse des décisions de CODIR des 6 derniers mois sur les investissements — quels engagements ont été pris et quels points restent en suspens ? »</div>
+            </div>
+            <div class="sector-response">
+              <div class="sector-response__label">⚡ Réponse en 3 secondes — Mémoire institutionnelle activée</div>
+              <div class="sector-response__text">Consolidation automatique des comptes-rendus de CODIR, extraction des décisions d'investissement, suivi des engagements (pris, réalisés, en cours), identification des points de blocage. Vue chronologique et thématique.</div>
+              <div class="sector-gain">✓ Continuité décisionnelle totale · Zéro perte de contexte après un départ au CODIR</div>
+              <a href="https://calendly.com/bertrand-charpilloz/30min" target="_blank" rel="noopener" class="sector-cta">📅 Voir cette démo pour ma direction</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== BLOC 4 : ROI ====== -->
+  <section class="section section--dark" id="roi">
     <div class="container">
       <div class="section-header fade-in" style="text-align:center;max-width:600px;margin:0 auto 48px">
-        <div class="label label--gold"><span class="dot"></span> Résultats mesurables</div>
-        <h2 class="section-title">Ce que vos équipes<br><span class="text-gold">gagnent concrètement</span></h2>
+        <div class="label label--gold" style="justify-content:center"><span class="dot"></span> Résultats mesurables</div>
+        <h2 class="section-title">Sécurisez votre<br><span class="text-gold">souveraineté intellectuelle</span></h2>
       </div>
       <div class="roi-grid">
         <div class="roi-card fade-in">
           <span class="roi-card__value">−50%</span>
-          <div class="roi-card__label">Temps d'onboarding<br>pour les nouvelles recrues</div>
+          <div class="roi-card__label">Temps d'intégration pour les nouvelles recrues</div>
         </div>
         <div class="roi-card fade-in">
-          <span class="roi-card__value">30 j</span>
-          <div class="roi-card__label">Délai de déploiement<br>de la première version</div>
+          <span class="roi-card__value">÷4</span>
+          <div class="roi-card__label">Temps de présélection et tri des candidatures RH</div>
         </div>
         <div class="roi-card fade-in">
-          <span class="roi-card__value">100%</span>
-          <div class="roi-card__label">Continuité de service<br>même après un départ clé</div>
+          <span class="roi-card__value">−60%</span>
+          <div class="roi-card__label">Sollicitations RH sur les questions récurrentes</div>
         </div>
         <div class="roi-card fade-in">
-          <span class="roi-card__value">0</span>
-          <div class="roi-card__label">Donnée stratégique<br>envoyée hors de France</div>
+          <span class="roi-card__value">30j</span>
+          <div class="roi-card__label">Pour déployer la première version de votre Vault</div>
         </div>
         <div class="roi-card fade-in">
           <span class="roi-card__value">3 sec</span>
-          <div class="roi-card__label">Pour retrouver<br>n'importe quelle procédure</div>
+          <div class="roi-card__label">Pour retrouver n'importe quelle procédure interne</div>
         </div>
         <div class="roi-card fade-in">
-          <span class="roi-card__value">∞</span>
-          <div class="roi-card__label">La mémoire reste,<br>même quand les experts partent</div>
+          <span class="roi-card__value">0</span>
+          <div class="roi-card__label">Donnée stratégique sortante · Protection Cloud Act totale</div>
         </div>
       </div>
       <div class="roi-guarantee fade-in">
-        <p class="roi-guarantee__text">"En 30 jours, votre capital intellectuel est indexé, sécurisé, et interrogeable par toute votre équipe — sans jamais quitter vos serveurs."</p>
-        <p class="roi-guarantee__sub">Bertrand Charpilloz — S.A.F.E. Pilotage Privé</p>
+        <p class="roi-guarantee__text">« En 30 jours, votre capital intellectuel est indexé, structuré et interrogeable par toute votre équipe — dans un Vault souverain qui ne quitte jamais vos serveurs. »</p>
+        <p class="roi-guarantee__sub">Bertrand Charpilloz — Fondateur · S.A.F.E. Pilotage Privé</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== GOUVERNANCE HUMAINE ====== -->
+  <section class="gouvernance" id="gouvernance">
+    <div class="container">
+      <div class="gouvernance__inner">
+        <div class="gouvernance__visual fade-in">
+          <span class="gouvernance__icon">🏛️</span>
+          <blockquote class="gouvernance__quote">
+            L'IA structure le savoir et le rend accessible. L'expertise, le jugement et la décision restent le patrimoine exclusif de vos collaborateurs.
+          </blockquote>
+          <span class="gouvernance__tag">Principe de Gouvernance Humaine · S.A.F.E. Pilotage Privé</span>
+        </div>
+        <div class="fade-in">
+          <div class="label label--gold"><span class="dot"></span> Commandant à l'arrivée : Vous</div>
+          <h2 style="font-family:var(--font-display);font-size:clamp(24px,3vw,36px);font-weight:700;color:var(--white);margin-bottom:20px;line-height:1.2;">L'IA mémorise.<br><span style="color:var(--gold)">Vos équipes décident. Toujours.</span></h2>
+          <p class="gouvernance__text">S.A.F.E. n'automatise pas la connaissance — il la rend accessible et pérenne. Le savoir-faire tacite de vos experts est capturé, structuré, et mis à disposition de votre équipe. Mais l'expertise finale et le jugement restent humains, traçables, gouvernés.</p>
+          <div class="gouvernance__points">
+            <div class="gouvernance__point">
+              <span class="gouvernance__point-icon">🔍</span>
+              Chaque réponse cite sa source documentaire exacte et son horodatage
+            </div>
+            <div class="gouvernance__point">
+              <span class="gouvernance__point-icon">🛡️</span>
+              Contrôle d'accès RBAC : chaque collaborateur voit uniquement ce qui le concerne
+            </div>
+            <div class="gouvernance__point">
+              <span class="gouvernance__point-icon">📋</span>
+              Audit log complet — exportable pour conformité RGPD et AI Act 2026
+            </div>
+            <div class="gouvernance__point">
+              <span class="gouvernance__point-icon">🔒</span>
+              Votre Vault reste sur votre infrastructure — jamais sur un serveur tiers
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -284,28 +503,29 @@
     <div class="container">
       <div class="cta-final__content fade-in">
         <div class="cta-final__label">📅 Prochaine étape</div>
-        <h2 class="cta-final__title">Parlez de votre mémoire d'entreprise<br>avec Bertrand Charpilloz</h2>
-        <p class="cta-final__subtitle">Une visioconférence de 30 minutes pour analyser votre situation et vous présenter ce que S.A.F.E. peut faire spécifiquement pour votre PME.</p>
+        <h2 class="cta-final__title">Stoppez l'hémorragie<br>avec Bertrand Charpilloz</h2>
+        <p class="cta-final__subtitle">30 minutes pour auditer vos risques turnover actuels et vous montrer — en conditions réelles — comment le SAFE Brain™ sécurise votre savoir-faire institutionnel. 100% confidentiel.</p>
         <div class="cta-final__card">
           <div class="cta-final__card-label">Votre interlocuteur</div>
           <div class="cta-final__card-who">Bertrand Charpilloz</div>
-          <div class="cta-final__card-role">Fondateur — S.A.F.E. Pilotage Privé · Expert IA souveraine pour PME</div>
+          <div class="cta-final__card-role">Fondateur · S.A.F.E. Pilotage Privé · Expert IA souveraine pour PME</div>
           <ul class="cta-final__promises">
-            <li>Analyse de votre risque turnover et de vos processus de transmission</li>
-            <li>Démonstration de SAFE Brain adapté à votre secteur</li>
-            <li>Plan de déploiement personnalisé en 30 jours</li>
-            <li>Zéro engagement — zéro jargon technique</li>
+            <li>Audit de votre risque turnover et de vos processus de transmission du savoir</li>
+            <li>Démonstration du SAFE Brain™ et du Vault Obsidian sur un cas concret de votre secteur</li>
+            <li>Analyse de votre exposition au Shadow AI et au Cloud Act</li>
+            <li>Plan de déploiement KOS personnalisé · Résultats en 30 jours · Zéro engagement</li>
           </ul>
           <a href="https://calendly.com/bertrand-charpilloz/30min" target="_blank" rel="noopener" class="btn btn--cta-lg">
-            📅 Réserver ma visioconférence de ½ heure
+            📅 Réserver mon diagnostic turnover gratuit
           </a>
-          <p class="cta-final__note">Gratuit · Sans engagement · Agenda disponible sous 48h</p>
+          <p class="cta-final__note">Gratuit · Sans engagement · 100% confidentiel · Agenda disponible sous 48h</p>
         </div>
         <div class="cta-final__trust">
-          <span class="trust-badge">🔒 Données hébergées en France</span>
-          <span class="trust-badge">✅ Conformité RGPD</span>
-          <span class="trust-badge">🏛 Infrastructure souveraine</span>
-          <span class="trust-badge">⚡ Résultats en 30 jours</span>
+          <span class="trust-badge">🔒 Hébergement 100% souverain</span>
+          <span class="trust-badge">✅ RGPD · DPA contractualisé</span>
+          <span class="trust-badge">🇫🇷 SecNumCloud éligible</span>
+          <span class="trust-badge">⚖️ Cloud Act : 0 risque</span>
+          <span class="trust-badge">🧠 Vault Obsidian · 0 hallucination</span>
         </div>
       </div>
     </div>
@@ -322,21 +542,20 @@
         <div class="footer-minimal__links">
           <a href="/">Accueil</a>
           <a href="/a-propos">À propos</a>
+          <a href="/garanties-souverainete">Garanties souveraineté</a>
           <a href="/mentions-legales">Mentions légales</a>
           <a href="mailto:contact@safe-pilotage-prive.fr">contact@safe-pilotage-prive.fr</a>
         </div>
-        <p class="footer-minimal__copy">© 2025 S.A.F.E. Pilotage Privé — Tous droits réservés</p>
+        <p class="footer-minimal__copy">© 2026 S.A.F.E. Pilotage Privé — CCA · SARL · SIREN 434 963 245</p>
       </div>
     </div>
   </footer>
 
   <script>
-    // Fade-in on scroll
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); } });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
-    // Google Ads conversion tracking on CTA click
     document.querySelectorAll('a[href*="calendly"]').forEach(a => {
       a.addEventListener('click', () => {
         if(typeof gtag !== 'undefined') {
