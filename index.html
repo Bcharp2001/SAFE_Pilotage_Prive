@@ -1512,7 +1512,7 @@
     .sovereignty-header { text-align: center; max-width: 600px; margin: 0 auto 60px; }
     .sovereignty-header h2 { color: var(--white); margin-bottom: 12px; }
     .sovereignty-header p { font-size: 16px; color: rgba(255,255,255,0.55); }
-    .sovereignty-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .sovereignty-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
     .sov-badge { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-lg); padding: 32px 24px; text-align: center; transition: var(--transition); }
     .sov-badge:hover { border-color: rgba(212,163,115,0.3); background: rgba(212,163,115,0.04); transform: translateY(-4px); }
     .sov-badge__icon { font-size: 36px; display: block; margin-bottom: 14px; }
@@ -2120,8 +2120,9 @@
         <div class="kos-step__num">Étape 03</div>
         <span class="kos-step__icon">🚀</span>
         <h3 class="kos-step__title">Antigravity <em>RAG-Q™</em></h3>
-        <p class="kos-step__desc">Le protocole <strong style="color:var(--white);">MCP (Model Context Protocol)</strong> connecte l'IA à votre vault en temps réel. Elle interroge le graphe de connaissances directement — sans re-lecture de documents, sans latence. Les réponses sont <strong style="color:var(--white);">sourcées, traçables</strong>, et ne quittent jamais votre infrastructure.</p>
+        <p class="kos-step__desc">Le protocole <strong style="color:var(--white);">MCP (Model Context Protocol)</strong> connecte l'IA à votre vault en temps réel. Elle interroge le graphe de connaissances directement — sans re-lecture de documents, sans latence. Les réponses sont <strong style="color:var(--white);">sourcées, traçables</strong>, et ne quittent jamais votre infrastructure. L'environnement Antigravity est <strong style="color:var(--gold);">indépendant du modèle</strong> : Mistral, Llama (Meta), ou tout modèle open source — le meilleur du marché s'installe, sans jamais changer votre base de connaissances.</p>
         <span class="kos-step__badge kos-step__badge--green">✓ Réponses sourcées · Zéro fuite · MCP sécurisé</span>
+        <span class="kos-step__badge kos-step__badge--gold" style="margin-left:8px;">⚙️ Mistral · Llama · Modèles interchangeables</span>
       </div>
     </div>
   </div>
@@ -2274,6 +2275,11 @@
         <span class="sov-badge__icon">🔍</span>
         <div class="sov-badge__title">Auditabilité totale</div>
         <div class="sov-badge__desc">Le wiki compilé est un fichier texte. Vous lisez exactement ce que l'IA sait sur votre entreprise. Zéro opacité, zéro surprise.</div>
+      </div>
+      <div class="sov-badge fade-in">
+        <span class="sov-badge__icon">⚙️</span>
+        <div class="sov-badge__title">Modèles interchangeables</div>
+        <div class="sov-badge__desc">Mistral, Llama (Meta) ou tout modèle open source. Antigravity est indépendant du modèle — votre base de connaissances ne change jamais.</div>
       </div>
     </div>
   </div>
