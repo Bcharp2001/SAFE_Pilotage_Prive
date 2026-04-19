@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shadow AI — Reprenez le contrôle de l'IA dans votre PME | S.A.F.E.</title>
-  <meta name="description" content="68% de vos salariés utilisent ChatGPT avec des données confidentielles. S.A.F.E. déploie une IA souveraine on-premise pour stopper les fuites de données sans bloquer la productivité." />
+  <title>Shadow AI & Sécurité — IA souveraine Antigravity circuit fermé · AI Act 2026 | S.A.F.E.</title>
+  <meta name="description" content="68% de vos salariés utilisent ChatGPT avec vos données confidentielles. S.A.F.E. déploie une IA 100% souveraine en circuit fermé — Architecture Antigravity, RGPD, AI Act 2026, Cloud Act 0 risque." />
   <meta name="robots" content="noindex, follow" />
   <link rel="canonical" href="https://www.safe-pilotage-prive.fr/landing/shadow-ai-securite" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/landing/landing.css" />
   <link rel="icon" href="/favicon.ico" />
+
   <!-- Tracking Google Ads -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-CONVERSION_ID"></script>
   <script>
@@ -20,6 +21,73 @@
     gtag('js', new Date());
     gtag('config', 'AW-CONVERSION_ID');
   </script>
+
+  <style>
+    /* === PAGE-SPECIFIC STYLES === */
+
+    /* Threat level indicator (hero label) */
+    .label--threat {
+      background: rgba(239,68,68,0.12); color: #F87171;
+      border: 1px solid rgba(239,68,68,0.3);
+      animation: threatPulse 2s ease-in-out infinite;
+    }
+    @keyframes threatPulse { 0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,0)} 50%{box-shadow:0 0 12px 2px rgba(239,68,68,0.2)} }
+
+    /* Enhanced security panels */
+    .sec-panel__version {
+      font-family: var(--font-mono); font-size: 8px; color: rgba(255,255,255,0.25);
+      letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px;
+    }
+    .sec-item--highlight { color: rgba(255,255,255,0.85) !important; font-weight: 600; }
+
+    /* AI Act badge */
+    .aiact-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-mono); font-size: 9px; font-weight: 700;
+      background: rgba(212,163,115,0.12); color: var(--gold);
+      border: 1px solid rgba(212,163,115,0.3); padding: 3px 10px; border-radius: 100px;
+      margin-top: 8px;
+    }
+
+    /* Full comparison table */
+    .compare-section { padding: 80px 0; background: var(--navy-light); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .compare-table { width: 100%; border-collapse: separate; border-spacing: 0; margin-top: 40px; border-radius: 16px; overflow: hidden; }
+    .compare-table thead tr { background: rgba(255,255,255,0.04); }
+    .compare-th { padding: 18px 24px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; }
+    .compare-th--label { color: var(--gray-400); text-align: left; width: 35%; }
+    .compare-th--danger { color: #F87171; text-align: center; width: 32.5%; border-left: 1px solid rgba(239,68,68,0.15); }
+    .compare-th--safe   { color: var(--success); text-align: center; width: 32.5%; border-left: 1px solid rgba(16,185,129,0.15); }
+    .compare-row { border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .compare-row:last-child { border-bottom: none; }
+    .compare-row:hover { background: rgba(255,255,255,0.02); }
+    .compare-td { padding: 16px 24px; font-size: 14px; vertical-align: middle; }
+    .compare-td--label { color: rgba(255,255,255,0.7); font-weight: 500; }
+    .compare-td--danger { color: #F87171; text-align: center; font-family: var(--font-mono); font-size: 13px; border-left: 1px solid rgba(239,68,68,0.08); background: rgba(239,68,68,0.03); }
+    .compare-td--safe   { color: var(--success); text-align: center; font-family: var(--font-mono); font-size: 13px; border-left: 1px solid rgba(16,185,129,0.08); background: rgba(16,185,129,0.03); }
+    .compare-td--safe.highlight { background: rgba(16,185,129,0.07); font-weight: 700; }
+    @media (max-width: 640px) {
+      .compare-table { font-size: 12px; }
+      .compare-td, .compare-th { padding: 12px 14px; }
+      .compare-th--label { font-size: 9px; }
+    }
+
+    /* AI Act 2026 compliance section */
+    .aiact-section { padding: 60px 0; background: var(--navy-mid); }
+    .aiact-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 40px; }
+    @media (max-width: 768px) { .aiact-grid { grid-template-columns: 1fr; } }
+    .aiact-card {
+      background: rgba(212,163,115,0.06);
+      border: 1px solid rgba(212,163,115,0.2);
+      border-radius: var(--radius-lg); padding: 32px 24px;
+      border-top: 3px solid var(--gold-vivid);
+      transition: var(--transition);
+    }
+    .aiact-card:hover { background: rgba(212,163,115,0.1); transform: translateY(-3px); }
+    .aiact-card__icon { font-size: 28px; margin-bottom: 14px; }
+    .aiact-card__title { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .aiact-card__desc { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 14px; }
+    .aiact-card__status { font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--gold); }
+  </style>
 </head>
 <body>
 
@@ -35,7 +103,8 @@
       </a>
       <div class="mini-nav__trust">
         <span class="mini-nav__badge">🔒 Données hébergées en France</span>
-        <span class="mini-nav__badge">✅ RGPD</span>
+        <span class="mini-nav__badge">✅ RGPD · AI Act 2026</span>
+        <span class="mini-nav__badge">🇫🇷 SecNumCloud éligible</span>
       </div>
       <div class="mini-nav__cta">
         <a href="https://calendly.com/bertrand-charpilloz/30min" target="_blank" rel="noopener" class="btn btn--cta">
@@ -45,32 +114,56 @@
     </div>
   </nav>
 
+  <!-- ====== STICKY TRUST BAR ====== -->
+  <div class="sticky-trust">
+    <div class="sticky-trust__item">
+      <svg class="sticky-trust__icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 2L3 5v5c0 4.418 3.134 8.55 7 9.5C13.866 18.55 17 14.418 17 10V5l-7-3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      SecNumCloud éligible
+    </div>
+    <div class="sticky-trust__item">
+      <svg class="sticky-trust__icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      RGPD · DPA contractualisé
+    </div>
+    <div class="sticky-trust__item">
+      <svg class="sticky-trust__icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="9" width="12" height="9" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7 9V6a3 3 0 016 0v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Cloud Act : 0 risque
+    </div>
+    <div class="sticky-trust__item">
+      <svg class="sticky-trust__icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 2L3 5v5c0 4.418 3.134 8.55 7 9.5C13.866 18.55 17 14.418 17 10V5l-7-3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      AI Act 2026 conforme
+    </div>
+    <div class="sticky-trust__item">
+      <svg class="sticky-trust__icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10h12M4 6h12M4 14h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Audit log · Traçabilité totale
+    </div>
+  </div>
+
   <!-- ====== HERO ====== -->
-  <section class="hero-lp hero-lp--split">
+  <section class="hero-lp hero-lp--split" style="padding-top:160px">
     <div class="hero-lp__grid-bg"></div>
     <div class="hero-lp__glow"></div>
     <div class="hero-lp__glow-2"></div>
     <div class="container">
       <div class="hero-lp__content fade-in">
-        <div class="label label--red"><span class="dot"></span> Shadow AI — Sécurité & Souveraineté des données</div>
+        <div class="label label--threat"><span class="dot"></span> Alerte Shadow AI — Exposition Cloud Act · AI Act 2026</div>
         <h1 class="hero-lp__punchline">
           68% de vos salariés<br>
-          utilisent des IA publiques<br>
-          <em>avec vos données confidentielles</em>.
+          utilisent l'IA en cachette.<br>
+          <em>Reprenez le contrôle.</em>
         </h1>
         <p class="hero-lp__subtitle">
-          Contrats clients, brevets, RH, données financières — tout cela part vers les serveurs d'OpenAI ou Google chaque jour. Sans que vous le sachiez. S.A.F.E. vous donne une alternative souveraine que vos équipes voudront vraiment utiliser.
+          Contrats, brevets, données RH et financières — tout cela part vers des serveurs américains soumis au <strong style="color:#F87171">Cloud Act</strong>, sans audit, sans traçabilité. S.A.F.E. déploie l'architecture <strong style="color:var(--gold)">Antigravity</strong> en circuit fermé : une IA aussi puissante que ChatGPT, <strong style="color:var(--white)">100% souveraine</strong>, conforme <strong style="color:var(--blue-light)">AI Act 2026</strong> dès le déploiement.
         </p>
         <div class="hero-lp__ctas">
           <a href="https://calendly.com/bertrand-charpilloz/30min" target="_blank" rel="noopener" class="btn btn--cta-lg">
-            📅 Réserver ma visioconférence de 30 min
+            📅 Audit Shadow AI gratuit — 30 min
           </a>
-          <a href="#solution" class="btn btn--ghost">Voir comment ça fonctionne →</a>
+          <a href="#comparatif" class="btn btn--ghost">Voir le comparatif IA publique vs S.A.F.E. →</a>
         </div>
         <div class="hero-lp__social-proof">
           <div class="hero-lp__proof-item">
             <span class="hero-lp__proof-num">68%</span>
-            <span class="hero-lp__proof-label">des salariés utilisent l'IA sans cadre</span>
+            <span class="hero-lp__proof-label">des salariés utilisent l'IA sans cadre (Cisco 2024)</span>
           </div>
           <div class="hero-lp__proof-item">
             <span class="hero-lp__proof-num">0</span>
@@ -83,42 +176,49 @@
         </div>
       </div>
 
-      <!-- VISUAL: Security comparison mockup -->
+      <!-- VISUAL: Enhanced security comparison -->
       <div class="hero-lp__visual fade-in">
         <div class="mockup">
           <div class="mockup__bar">
             <div class="mockup__dot mockup__dot--r"></div>
             <div class="mockup__dot mockup__dot--y"></div>
             <div class="mockup__dot mockup__dot--g"></div>
-            <span class="mockup__title">Analyse sécurité · Shadow AI vs S.A.F.E.</span>
+            <span class="mockup__title">Analyse sécurité · Shadow AI vs S.A.F.E. Antigravity</span>
           </div>
           <div class="mockup__body">
             <div class="security-split">
               <div class="sec-panel sec-panel--danger">
                 <div class="sec-panel__head">
                   <span class="sec-panel__icon">⚠️</span>
-                  <span class="sec-panel__name">ChatGPT</span>
+                  <span class="sec-panel__name">IA Publique</span>
                 </div>
-                <div class="sec-item">❌ Données envoyées aux USA</div>
-                <div class="sec-item">❌ Réutilisation possible</div>
-                <div class="sec-item">❌ Aucun log d'audit</div>
-                <div class="sec-item">❌ RGPD risqué</div>
-                <div class="sec-item">❌ Cloud Act américain</div>
+                <div class="sec-panel__version">ChatGPT · Copilot · Gemini</div>
+                <div class="sec-item">❌ Serveurs USA · Cloud Act</div>
+                <div class="sec-item">❌ Données entraînement</div>
+                <div class="sec-item">❌ Aucun audit log</div>
+                <div class="sec-item">❌ RGPD non conforme</div>
+                <div class="sec-item">❌ AI Act 2026 à risque</div>
+                <div class="sec-item">❌ Hallucinations possibles</div>
               </div>
               <div class="sec-panel sec-panel--safe">
                 <div class="sec-panel__head">
                   <span class="sec-panel__icon">🛡️</span>
                   <span class="sec-panel__name">S.A.F.E.</span>
                 </div>
-                <div class="sec-item">✓ 100% on-premise</div>
+                <div class="sec-panel__version">Architecture Antigravity · RAG-Q™</div>
+                <div class="sec-item sec-item--highlight">✓ 100% on-premise · France</div>
                 <div class="sec-item">✓ Zéro réentraînement</div>
-                <div class="sec-item">✓ Audit log complet</div>
-                <div class="sec-item">✓ DPA contractualisé</div>
-                <div class="sec-item">✓ SecNumCloud éligible</div>
+                <div class="sec-item sec-item--highlight">✓ Audit log complet</div>
+                <div class="sec-item">✓ DPA + RGPD documenté</div>
+                <div class="sec-item sec-item--highlight">✓ AI Act 2026 conforme</div>
+                <div class="sec-item">✓ 0 hallucination (LLM Wiki)</div>
               </div>
             </div>
             <div class="sec-verdict sec-verdict--ok">
-              ✓ Votre IA interne · Données en France · Déployée en 30 jours
+              ✓ Circuit fermé souverain · Antigravity RAG-Q™ · Déployé en 30 jours
+            </div>
+            <div style="text-align:center;margin-top:6px">
+              <span class="aiact-badge">⚖️ AI Act 2026 · Article 9 · Conformité prouvée</span>
             </div>
           </div>
         </div>
@@ -133,124 +233,313 @@
       <div class="proof-bar__inner">
         <div class="proof-bar__item">
           <span class="proof-bar__num">68%</span>
-          <span class="proof-bar__label">des employés utilisent des IA grand public avec des données pro (étude Cisco 2024)</span>
+          <span class="proof-bar__label">des salariés utilisent des IA publiques avec des données pro</span>
         </div>
         <div class="proof-bar__item">
-          <span class="proof-bar__num">RGPD</span>
-          <span class="proof-bar__label">amendes pouvant atteindre 4% du CA annuel en cas de fuite</span>
+          <span class="proof-bar__num">4%</span>
+          <span class="proof-bar__label">du CA annuel — amende RGPD maximale en cas de fuite IA</span>
         </div>
         <div class="proof-bar__item">
-          <span class="proof-bar__num">100%</span>
-          <span class="proof-bar__label">des données restent sur votre infrastructure avec S.A.F.E.</span>
+          <span class="proof-bar__num">41%</span>
+          <span class="proof-bar__label">des salariés contournent les interdictions IT imposées</span>
+        </div>
+        <div class="proof-bar__item">
+          <span class="proof-bar__num">2026</span>
+          <span class="proof-bar__label">AI Act pleinement applicable — conformité obligatoire pour les PME</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ====== PAIN ====== -->
+  <!-- ====== BLOC 1 : LA DOULEUR ====== -->
   <section class="section section--light" id="probleme">
     <div class="container">
       <div class="section-header fade-in">
-        <div class="label label--red"><span class="dot"></span> Le problème</div>
-        <h2 class="section-title">Le Shadow AI : <em style="font-style:italic;color:#EF4444">une bombe à retardement</em> dans vos PME</h2>
-        <p class="section-subtitle">Vos collaborateurs ne sont pas malveillants. Ils cherchent juste à aller plus vite. Mais sans cadre souverain, ils exposent vos données les plus sensibles.</p>
+        <div class="label label--red"><span class="dot"></span> Le risque invisible</div>
+        <h2 class="section-title">Le Shadow AI : <em style="font-style:italic;color:#EF4444">une bombe à retardement</em><br>dans votre PME</h2>
+        <p class="section-subtitle">Vos collaborateurs ne sont pas malveillants — ils cherchent à être plus efficaces. Mais sans cadre souverain, ils exposent vos actifs les plus sensibles à des juridictions étrangères. Et l'interdire ne fonctionne pas.</p>
       </div>
       <div class="pain-grid" style="margin-top:48px">
         <div class="pain-card fade-in">
           <div class="pain-card__icon">📤</div>
-          <div class="pain-card__title">Vos données partent sans que vous le sachiez</div>
-          <p class="pain-card__desc">Chaque fois qu'un collaborateur colle un contrat ou un bilan dans ChatGPT, ces données sont potentiellement utilisées pour entraîner le modèle ou stockées aux États-Unis.</p>
-          <div class="pain-stat">⚠ Risque de violation RGPD — amendes jusqu'à 4% du CA</div>
-        </div>
-        <div class="pain-card fade-in">
-          <div class="pain-card__icon">🚫</div>
-          <div class="pain-card__title">Interdire l'IA ne résout rien</div>
-          <p class="pain-card__desc">La politique "zéro IA" ne tient pas. Elle crée du Shadow IT, frustre les équipes, et les pousse à utiliser l'IA encore plus discrètement. L'interdire, c'est perdre sur les deux tableaux.</p>
-          <div class="pain-stat">⚠ 41% des salariés admettent contourner les interdictions IT</div>
+          <div class="pain-card__title">Fuite massive vers les serveurs américains</div>
+          <p class="pain-card__desc">Chaque prompt envoyé à ChatGPT ou Copilot est soumis au Cloud Act américain : le gouvernement US peut y accéder sans notification. Vos contrats clients, vos brevets, vos données RH — tous potentiellement exposés à une juridiction étrangère.</p>
+          <div class="pain-stat">⚠ RGPD : amendes jusqu'à 4% du CA annuel en cas de fuite</div>
         </div>
         <div class="pain-card fade-in">
           <div class="pain-card__icon">⚖️</div>
-          <div class="pain-card__title">La conformité RGPD est engagée</div>
-          <p class="pain-card__desc">Traiter des données personnelles ou sensibles via des IA américaines engage votre responsabilité. Et en cas de contrôle ou de fuite, c'est le dirigeant qui répond.</p>
-          <div class="pain-stat">⚠ Votre DSI ne peut pas voir ce qui sort via le navigateur</div>
+          <div class="pain-card__title">Non-conformité AI Act 2026 — Le délai est compté</div>
+          <p class="pain-card__desc">L'AI Act européen est pleinement applicable en 2026. L'usage non encadré d'IA à haut risque engage votre responsabilité de dirigeant. Les entreprises sans système de gouvernance IA documenté s'exposent à des sanctions et à la perte de marchés publics et partenariats.</p>
+          <div class="pain-stat">⚠ Absence de registre IA = violation de l'AI Act Art. 9 dès 2026</div>
+        </div>
+        <div class="pain-card fade-in">
+          <div class="pain-card__icon">💡</div>
+          <div class="pain-card__title">Perte de propriété intellectuelle</div>
+          <p class="pain-card__desc">Vos stratégies, codes sources, formulations commerciales et savoir-faire techniques deviennent des données d'entraînement pour les modèles américains. Interdire l'IA ne fonctionne pas : 41% des salariés contournent les restrictions. Le seul remède : offrir une alternative souveraine meilleure.</p>
+          <div class="pain-stat">⚠ Votre DSI ne peut pas voir ce qui sort via le navigateur web</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ====== SOLUTION ====== -->
+  <!-- ====== BLOC 2 : LA SOLUTION ====== -->
   <section class="section section--dark" id="solution">
     <div class="container">
       <div class="section-header fade-in">
-        <div class="label label--blue"><span class="dot"></span> La solution S.A.F.E.</div>
-        <h2 class="section-title">SAFE Shield — L'IA que vos équipes<br><span class="text-blue">peuvent utiliser sans risque</span></h2>
-        <p class="section-subtitle section-subtitle--light">Une IA souveraine déployée dans votre infrastructure. Même puissance que ChatGPT. Zéro donnée qui sort. Une alternative que vos collaborateurs choisiront d'eux-mêmes.</p>
+        <div class="label label--blue"><span class="dot"></span> Architecture Antigravity · Circuit Fermé Souverain</div>
+        <h2 class="section-title">S.A.F.E. : la seule IA que<br><span class="text-blue">vos équipes voudront utiliser</span></h2>
+        <p class="section-subtitle section-subtitle--light">Même puissance que ChatGPT. Zéro donnée qui sort. Un déploiement en 30 jours sur votre infrastructure. L'architecture Antigravity en circuit fermé éteint le Shadow AI à la source — sans bloquer la productivité.</p>
       </div>
       <div style="margin-top:48px">
         <div class="solution-card fade-in">
           <div class="solution-card__num">01</div>
           <div class="solution-card__body">
-            <div class="solution-card__title">Déploiement on-premise ou SecNumCloud</div>
-            <p class="solution-card__desc">S.A.F.E. installe un LLM de niveau professionnel (Mistral, LLaMA, ou équivalent) directement dans votre infrastructure. Les données ne quittent jamais vos serveurs — ni pour l'inférence, ni pour l'entraînement.</p>
-            <span class="solution-badge">✓ Compatible : serveur interne, VPS français, OVHcloud SecNumCloud</span>
+            <div class="solution-card__title">Circuit Fermé — On-premise ou SecNumCloud</div>
+            <p class="solution-card__desc">S.A.F.E. installe un LLM de niveau professionnel directement dans votre infrastructure. Les données ne transitent jamais par les États-Unis — ni pour l'inférence, ni pour l'entraînement. Vos secrets d'affaires restent sur votre sol. Compatible avec votre serveur interne, VPS français ou OVHcloud SecNumCloud.</p>
+            <div>
+              <span class="tech-pill tech-pill--blue">🔒 On-premise souverain</span>
+              <span class="tech-pill tech-pill--gold">🇫🇷 SecNumCloud OVH</span>
+              <span class="tech-pill tech-pill--green">✓ Cloud Act : 0 risque</span>
+            </div>
           </div>
         </div>
         <div class="solution-card fade-in">
           <div class="solution-card__num">02</div>
           <div class="solution-card__body">
-            <div class="solution-card__title">Interface fluide — adoption immédiate</div>
-            <p class="solution-card__desc">Vos équipes ont une interface familière, aussi simple que ChatGPT. Rédaction, analyse, résumé de documents, Q&A sur vos données internes — sans aucune fuite possible.</p>
-            <span class="solution-badge">✓ Aucune formation nécessaire — prise en main en 10 minutes</span>
+            <div class="solution-card__title">Architecture Antigravity & RAG-Q™ — Zéro hallucination</div>
+            <p class="solution-card__desc">L'architecture Antigravity pré-compile votre base de connaissances dans un <strong style="color:var(--white)">LLM Wiki</strong> injecté avant chaque requête. L'IA répond uniquement à partir de vos données vérifiées — jamais en inventant. Résultat : −90% de consommation de tokens, réponses 100% véridiques et sourcées. Ce que les IA publiques ne peuvent techniquement pas garantir.</p>
+            <div>
+              <span class="tech-pill tech-pill--blue">⚙️ Antigravity RAG-Q™</span>
+              <span class="tech-pill tech-pill--gold">🧠 LLM Wiki pré-compilé</span>
+              <span class="tech-pill tech-pill--green">✓ −90% tokens · 0 hallucination</span>
+            </div>
           </div>
         </div>
         <div class="solution-card fade-in">
           <div class="solution-card__num">03</div>
           <div class="solution-card__body">
-            <div class="solution-card__title">Gouvernance et traçabilité totales</div>
-            <p class="solution-card__desc">Vous définissez les droits d'accès, les usages autorisés, et vous avez accès aux logs d'utilisation. La conformité RGPD est documentée. Le Shadow AI est éteint à la source.</p>
-            <span class="solution-badge">✓ Logs d'audit · Droits par rôle · Conformité RGPD documentée</span>
+            <div class="solution-card__title">Gouvernance Totale — Commandant à l'arrivée : Vous</div>
+            <p class="solution-card__desc">Vous définissez qui accède à quoi, avec quels droits et dans quel périmètre. Chaque interaction est loggée, horodatée, exportable — pour vos audits RGPD et votre registre AI Act. L'IA structure et prépare, mais aucune décision ne peut être prise automatiquement sans validation humaine. La souveraineté opérationnelle reste entre vos mains.</p>
+            <div>
+              <span class="tech-pill tech-pill--blue">🔐 RBAC · Droits granulaires</span>
+              <span class="tech-pill tech-pill--gold">📋 Audit log exportable</span>
+              <span class="tech-pill tech-pill--green">✓ AI Act Art. 9 conforme</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Architecture schema -->
+      <div class="arch-schema fade-in">
+        <div class="arch-schema__title">Circuit fermé étanche · Architecture Antigravity · 0 donnée sortante</div>
+        <div class="arch-flow">
+          <div class="arch-node">
+            <div class="arch-node__icon">👤</div>
+            <div class="arch-node__name">Collaborateur</div>
+            <div class="arch-node__sub">Prompt sécurisé</div>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-node arch-node--highlight">
+            <div class="arch-node__icon">🧠</div>
+            <div class="arch-node__name">SAFE Brain™</div>
+            <div class="arch-node__sub">Antigravity · On-premise</div>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-node">
+            <div class="arch-node__icon">📋</div>
+            <div class="arch-node__name">Audit log</div>
+            <div class="arch-node__sub">Traçabilité RGPD</div>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-node">
+            <div class="arch-node__icon">🛡️</div>
+            <div class="arch-node__name">Vos serveurs</div>
+            <div class="arch-node__sub">France · 0 sortant</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ====== ROI ====== -->
-  <section class="section section--mid" id="roi">
+  <!-- ====== COMPARATIF ====== -->
+  <section class="compare-section" id="comparatif">
+    <div class="container">
+      <div class="section-header fade-in" style="text-align:center;max-width:680px;margin:0 auto">
+        <div class="label label--red" style="justify-content:center"><span class="dot"></span> Comparatif objectif</div>
+        <h2 class="section-title">IA Publique vs S.A.F.E.<br><span class="text-gold">Le seul choix souverain</span></h2>
+        <p class="section-subtitle section-subtitle--light">Ce tableau montre pourquoi une IA publique, aussi performante soit-elle, ne peut pas satisfaire aux exigences de souveraineté d'une PME française en 2026.</p>
+      </div>
+      <div class="fade-in" style="overflow-x:auto">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th class="compare-th compare-th--label">Critère de souveraineté</th>
+              <th class="compare-th compare-th--danger">⚠ IA Publique<br><small style="font-weight:400;letter-spacing:0">ChatGPT · Copilot · Gemini</small></th>
+              <th class="compare-th compare-th--safe">✓ S.A.F.E. Antigravity<br><small style="font-weight:400;letter-spacing:0">Circuit fermé · On-premise</small></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="compare-row">
+              <td class="compare-td compare-td--label">Localisation des données</td>
+              <td class="compare-td compare-td--danger">Serveurs USA · Microsoft Azure</td>
+              <td class="compare-td compare-td--safe highlight">Vos serveurs · France 🇫🇷</td>
+            </tr>
+            <tr class="compare-row">
+              <td class="compare-td compare-td--label">Exposition Cloud Act</td>
+              <td class="compare-td compare-td--danger">❌ Juridiction américaine</td>
+              <td class="compare-td compare-td--safe highlight">✓ 0 risque · Hors portée</td>
+            </tr>
+            <tr class="compare-row">
+              <td class="compare-td compare-td--label">Réutilisation pour entraînement</td>
+              <td class="compare-td compare-td--danger">❌ Possible (CGU variables)</td>
+              <td class="compare-td compare-td--safe">✓ Techniquement impossible</td>
+            </tr>
+            <tr class="compare-row">
+              <td class="compare-td compare-td--label">Conformité RGPD documentée</td>
+              <td class="compare-td compare-td--danger">⚠ Partielle · DPA insuffisant</td>
+              <td class="compare-td compare-td--safe highlight">✓ DPA contractualisé · Audit-ready</td>
+            </tr>
+            <tr class="compare-row">
+              <td class="compare-td compare-td--label">Conformité AI Act 2026</td>
+              <td class="compare-td compare-td--danger">❌ Registre IA non fourni</td>
+              <td class="compare-td compare-td--safe highlight">✓ Art. 9 conforme · Registre inclus</td>
+            </tr>
+            <tr class="compare-row">
+              <td class="compare-td compare-td--label">Audit log des interactions</td>
+              <td class="compare-td compare-td--danger">❌ Inaccessible</td>
+              <td class="compare-td compare-td--safe">✓ Log complet · Exportable</td>
+            </tr>
+            <tr class="compare-row">
+              <td class="compare-td compare-td--label">Contrôle des droits d'accès</td>
+              <td class="compare-td compare-td--danger">❌ Aucun RBAC interne</td>
+              <td class="compare-td compare-td--safe">✓ RBAC granulaire par rôle</td>
+            </tr>
+            <tr class="compare-row">
+              <td class="compare-td compare-td--label">Hallucinations contrôlées</td>
+              <td class="compare-td compare-td--danger">⚠ Risque inhérent · RAG externe</td>
+              <td class="compare-td compare-td--safe highlight">✓ LLM Wiki · 0 hallucination</td>
+            </tr>
+            <tr class="compare-row">
+              <td class="compare-td compare-td--label">Consommation de tokens</td>
+              <td class="compare-td compare-td--danger">Facturation à usage · Coût variable</td>
+              <td class="compare-td compare-td--safe">✓ −90% · LLM Wiki pré-compilé</td>
+            </tr>
+            <tr class="compare-row">
+              <td class="compare-td compare-td--label">Déploiement & personnalisation</td>
+              <td class="compare-td compare-td--danger">SaaS · Pas de personnalisation</td>
+              <td class="compare-td compare-td--safe highlight">✓ On-premise · 30 jours · Votre secteur</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== AI ACT 2026 ====== -->
+  <section class="aiact-section" id="aiact">
+    <div class="container">
+      <div class="section-header fade-in" style="text-align:center;max-width:640px;margin:0 auto">
+        <div class="label label--gold" style="justify-content:center"><span class="dot"></span> AI Act 2026 — Ce que cela change pour votre PME</div>
+        <h2 class="section-title">La conformité IA n'est plus<br><span class="text-gold">une option en 2026</span></h2>
+        <p class="section-subtitle section-subtitle--light">L'AI Act européen impose des obligations documentaires à toute entreprise utilisant des systèmes d'IA. S.A.F.E. est conçu pour y répondre immédiatement.</p>
+      </div>
+      <div class="aiact-grid fade-in">
+        <div class="aiact-card">
+          <div class="aiact-card__icon">📋</div>
+          <div class="aiact-card__title">Registre IA obligatoire (Art. 9)</div>
+          <div class="aiact-card__desc">Chaque usage IA à risque doit être documenté. S.A.F.E. génère automatiquement votre registre des usages IA, horodaté et exportable pour vos audits de conformité.</div>
+          <div class="aiact-card__status">✓ Inclus dans le déploiement S.A.F.E.</div>
+        </div>
+        <div class="aiact-card">
+          <div class="aiact-card__icon">🔍</div>
+          <div class="aiact-card__title">Transparence & explicabilité</div>
+          <div class="aiact-card__desc">L'AI Act exige que chaque réponse IA soit explicable et sourcée. L'architecture Antigravity cite systématiquement sa source documentaire — satisfaisant l'exigence d'explicabilité de l'article 13.</div>
+          <div class="aiact-card__status">✓ Réponses sourcées · Traçabilité garantie</div>
+        </div>
+        <div class="aiact-card">
+          <div class="aiact-card__icon">👤</div>
+          <div class="aiact-card__title">Gouvernance humaine (Art. 14)</div>
+          <div class="aiact-card__desc">L'AI Act impose une supervision humaine sur les décisions importantes. S.A.F.E. est architecturalement conçu pour que toute décision finale reste humaine — aucune automatisation sans validation explicite.</div>
+          <div class="aiact-card__status">✓ "Commandant à l'arrivée : Vous"</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== BLOC ROI ====== -->
+  <section class="section section--dark" id="roi">
     <div class="container">
       <div class="section-header fade-in" style="text-align:center;max-width:600px;margin:0 auto 48px">
-        <div class="label label--gold"><span class="dot"></span> Résultats mesurables</div>
+        <div class="label label--gold" style="justify-content:center"><span class="dot"></span> La sécurité comme levier de performance</div>
         <h2 class="section-title">Ce que vous gagnez<br><span class="text-gold">en reprenant le contrôle</span></h2>
       </div>
       <div class="roi-grid">
         <div class="roi-card fade-in">
           <span class="roi-card__value">0</span>
-          <div class="roi-card__label">Donnée confidentielle<br>envoyée hors de France</div>
+          <div class="roi-card__label">Donnée confidentielle sortante · Protection Cloud Act totale</div>
         </div>
         <div class="roi-card fade-in">
-          <span class="roi-card__value">30 j</span>
-          <div class="roi-card__label">Pour déployer votre<br>IA interne souveraine</div>
+          <span class="roi-card__value">−90%</span>
+          <div class="roi-card__label">Consommation de tokens grâce au LLM Wiki Antigravity</div>
         </div>
         <div class="roi-card fade-in">
           <span class="roi-card__value">100%</span>
-          <div class="roi-card__label">Conformité RGPD<br>documentée et auditée</div>
+          <div class="roi-card__label">Conformité RGPD + AI Act 2026 documentée dès j+1</div>
         </div>
         <div class="roi-card fade-in">
-          <span class="roi-card__value">↑ adopt.</span>
-          <div class="roi-card__label">Vos équipes choisissent<br>l'IA interne volontairement</div>
+          <span class="roi-card__value">30j</span>
+          <div class="roi-card__label">Pour déployer votre IA souveraine et éteindre le Shadow AI</div>
         </div>
         <div class="roi-card fade-in">
           <span class="roi-card__value">0€</span>
-          <div class="roi-card__label">Amende RGPD<br>pour fuite de données IA</div>
+          <div class="roi-card__label">Amende RGPD pour fuite de données via vos outils IA</div>
         </div>
         <div class="roi-card fade-in">
           <span class="roi-card__value">∞</span>
-          <div class="roi-card__label">Niveau de confidentialité<br>sur vos données stratégiques</div>
+          <div class="roi-card__label">Confidentialité · Vos données ne quittent jamais vos serveurs</div>
         </div>
       </div>
       <div class="roi-guarantee fade-in">
-        <p class="roi-guarantee__text">"En 30 jours, vos équipes ont une IA aussi puissante que ChatGPT — mais qui tourne exclusivement sur vos serveurs. Le Shadow AI s'éteint de lui-même."</p>
-        <p class="roi-guarantee__sub">Bertrand Charpilloz — S.A.F.E. Pilotage Privé</p>
+        <p class="roi-guarantee__text">« En 30 jours, vos équipes disposent d'une IA aussi performante que ChatGPT — mais qui tourne exclusivement sur vos serveurs français. Le Shadow AI s'éteint de lui-même. »</p>
+        <p class="roi-guarantee__sub">Bertrand Charpilloz — Fondateur · S.A.F.E. Pilotage Privé</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== GOUVERNANCE HUMAINE ====== -->
+  <section class="gouvernance" id="gouvernance">
+    <div class="container">
+      <div class="gouvernance__inner">
+        <div class="gouvernance__visual fade-in">
+          <span class="gouvernance__icon">⚔️</span>
+          <blockquote class="gouvernance__quote">
+            La souveraineté n'est pas un argument marketing. C'est la seule architecture qui garantit que vos données stratégiques restent sous votre contrôle exclusif — techniquement, juridiquement, opérationnellement.
+          </blockquote>
+          <span class="gouvernance__tag">Architecture Antigravity · Circuit Fermé · S.A.F.E. Pilotage Privé</span>
+        </div>
+        <div class="fade-in">
+          <div class="label label--blue"><span class="dot"></span> Commandant à l'arrivée : Vous</div>
+          <h2 style="font-family:var(--font-display);font-size:clamp(24px,3vw,36px);font-weight:700;color:var(--white);margin-bottom:20px;line-height:1.2;">L'IA agit.<br><span style="color:var(--gold)">Vous gouvernez. Toujours.</span></h2>
+          <p class="gouvernance__text">S.A.F.E. ne remplace pas votre jugement — il l'amplifie. Chaque interaction est tracée, chaque source est citée, chaque accès est contrôlé. Vous avez une vision complète de ce que fait l'IA dans votre organisation, en temps réel et en audit différé.</p>
+          <div class="gouvernance__points">
+            <div class="gouvernance__point">
+              <span class="gouvernance__point-icon">📋</span>
+              Audit log complet de toutes les interactions — exportable pour conformité RGPD et AI Act
+            </div>
+            <div class="gouvernance__point">
+              <span class="gouvernance__point-icon">🔐</span>
+              Contrôle d'accès RBAC : droits définis par rôle, département, niveau de confidentialité
+            </div>
+            <div class="gouvernance__point">
+              <span class="gouvernance__point-icon">🛡️</span>
+              Aucune décision automatique sans validation humaine — architecture conforme AI Act Art. 14
+            </div>
+            <div class="gouvernance__point">
+              <span class="gouvernance__point-icon">🔍</span>
+              Chaque réponse cite sa source documentaire — explicabilité garantie (AI Act Art. 13)
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -261,28 +550,29 @@
     <div class="container">
       <div class="cta-final__content fade-in">
         <div class="cta-final__label">📅 Prochaine étape</div>
-        <h2 class="cta-final__title">Évaluez votre exposition Shadow AI<br>avec Bertrand Charpilloz</h2>
-        <p class="cta-final__subtitle">Une visioconférence de 30 minutes pour mesurer votre niveau d'exposition réel et vous présenter comment S.A.F.E. stoppe les fuites sans bloquer vos équipes.</p>
+        <h2 class="cta-final__title">Audit Shadow AI &amp; conformité AI Act<br>avec Bertrand Charpilloz</h2>
+        <p class="cta-final__subtitle">30 minutes pour mesurer votre exposition réelle au Shadow AI, vérifier votre niveau de conformité AI Act 2026, et vous montrer comment S.A.F.E. stoppe les fuites sans bloquer vos équipes. 100% confidentiel.</p>
         <div class="cta-final__card">
           <div class="cta-final__card-label">Votre interlocuteur</div>
           <div class="cta-final__card-who">Bertrand Charpilloz</div>
-          <div class="cta-final__card-role">Fondateur — S.A.F.E. Pilotage Privé · Expert IA souveraine pour PME</div>
+          <div class="cta-final__card-role">Fondateur · S.A.F.E. Pilotage Privé · Expert IA souveraine pour PME</div>
           <ul class="cta-final__promises">
-            <li>Audit de votre exposition Shadow AI actuelle</li>
-            <li>Démonstration de SAFE Shield en conditions réelles</li>
-            <li>Plan de déploiement on-premise personnalisé en 30 jours</li>
-            <li>Zéro engagement — zéro jargon technique</li>
+            <li>Audit de votre exposition Shadow AI actuelle et des vecteurs de fuite identifiés</li>
+            <li>Analyse de votre conformité AI Act 2026 — obligations et délais pour votre secteur</li>
+            <li>Démonstration de l'architecture Antigravity en circuit fermé sur un cas concret</li>
+            <li>Plan de déploiement souverain · Résultats en 30 jours · Zéro engagement</li>
           </ul>
           <a href="https://calendly.com/bertrand-charpilloz/30min" target="_blank" rel="noopener" class="btn btn--cta-lg">
-            📅 Réserver ma visioconférence de ½ heure
+            📅 Réserver mon audit Shadow AI gratuit
           </a>
-          <p class="cta-final__note">Gratuit · Sans engagement · Agenda disponible sous 48h</p>
+          <p class="cta-final__note">Gratuit · Sans engagement · 100% confidentiel · Agenda disponible sous 48h</p>
         </div>
         <div class="cta-final__trust">
-          <span class="trust-badge">🔒 Données hébergées en France</span>
-          <span class="trust-badge">✅ Conformité RGPD</span>
-          <span class="trust-badge">🏛 Infrastructure souveraine</span>
-          <span class="trust-badge">⚡ Résultats en 30 jours</span>
+          <span class="trust-badge">🔒 Hébergement 100% souverain</span>
+          <span class="trust-badge">✅ RGPD · DPA contractualisé</span>
+          <span class="trust-badge">🇫🇷 SecNumCloud éligible</span>
+          <span class="trust-badge">⚖️ AI Act 2026 conforme</span>
+          <span class="trust-badge">📋 Audit log · Traçabilité totale</span>
         </div>
       </div>
     </div>
@@ -299,10 +589,11 @@
         <div class="footer-minimal__links">
           <a href="/">Accueil</a>
           <a href="/a-propos">À propos</a>
+          <a href="/garanties-souverainete">Garanties souveraineté</a>
           <a href="/mentions-legales">Mentions légales</a>
           <a href="mailto:contact@safe-pilotage-prive.fr">contact@safe-pilotage-prive.fr</a>
         </div>
-        <p class="footer-minimal__copy">© 2025 S.A.F.E. Pilotage Privé — Tous droits réservés</p>
+        <p class="footer-minimal__copy">© 2026 S.A.F.E. Pilotage Privé — CCA · SARL · SIREN 434 963 245</p>
       </div>
     </div>
   </footer>
