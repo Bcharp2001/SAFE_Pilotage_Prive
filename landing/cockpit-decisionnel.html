@@ -28,16 +28,19 @@
     /* Sticky trust bar */
     .sticky-trust {
       position: fixed; top: 68px; left: 0; right: 0; z-index: 90;
-      background: rgba(10,17,40,0.95); backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      background: rgba(10,17,40,0.97); backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(16,185,129,0.12);
       padding: 8px 32px;
-      display: flex; align-items: center; justify-content: center; gap: 24px;
-      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em;
-      text-transform: uppercase; color: rgba(255,255,255,0.45);
+      display: flex; align-items: center; justify-content: center; gap: 28px;
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em;
+      text-transform: uppercase;
       flex-wrap: wrap;
     }
-    .sticky-trust__item { display: flex; align-items: center; gap: 6px; }
-    .sticky-trust__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--success); animation: pulse 2s infinite; }
+    .sticky-trust__item {
+      display: flex; align-items: center; gap: 7px;
+      color: var(--success); font-weight: 600;
+    }
+    .sticky-trust__icon { width: 14px; height: 14px; flex-shrink: 0; }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
     @media (max-width: 640px) { .sticky-trust { display: none; } }
 
@@ -166,11 +169,26 @@
 
   <!-- ====== STICKY TRUST BAR ====== -->
   <div class="sticky-trust">
-    <div class="sticky-trust__item"><div class="sticky-trust__dot"></div> SecNumCloud éligible</div>
-    <div class="sticky-trust__item"><div class="sticky-trust__dot"></div> RGPD · DPA contractualisé</div>
-    <div class="sticky-trust__item"><div class="sticky-trust__dot"></div> Cloud Act : 0 risque</div>
-    <div class="sticky-trust__item"><div class="sticky-trust__dot"></div> AI Act 2026 conforme</div>
-    <div class="sticky-trust__item"><div class="sticky-trust__dot"></div> Hébergement 100% souverain</div>
+    <div class="sticky-trust__item">
+      <svg class="sticky-trust__icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 2L3 5v5c0 4.418 3.134 8.55 7 9.5C13.866 18.55 17 14.418 17 10V5l-7-3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      SecNumCloud éligible
+    </div>
+    <div class="sticky-trust__item">
+      <svg class="sticky-trust__icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      RGPD · DPA contractualisé
+    </div>
+    <div class="sticky-trust__item">
+      <svg class="sticky-trust__icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="9" width="12" height="9" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7 9V6a3 3 0 016 0v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Cloud Act : 0 risque
+    </div>
+    <div class="sticky-trust__item">
+      <svg class="sticky-trust__icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 2L3 5v5c0 4.418 3.134 8.55 7 9.5C13.866 18.55 17 14.418 17 10V5l-7-3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      AI Act 2026 conforme
+    </div>
+    <div class="sticky-trust__item">
+      <svg class="sticky-trust__icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 10c0-3.866 3.134-7 7-7s7 3.134 7 7-3.134 7-7 7-7-3.134-7-7z" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v4l2.5 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Hébergement 100% souverain
+    </div>
   </div>
 
   <!-- ====== HERO ====== -->
