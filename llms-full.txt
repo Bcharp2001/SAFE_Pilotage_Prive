@@ -415,8 +415,14 @@ La CNIL recommande pour les données sensibles un prestataire exclusivement soum
 ### Note sur Mistral Le Chat Enterprise (nuance importante)
 En mode SaaS standard, Mistral stocke les données dans ses datacenters EU et ne réutilise pas les conversations. Pour une PME classique : solution très satisfaisante. Nuance : en mode "Knowledge" (connecteurs Google Drive, SharePoint), les fichiers indexés sont stockés dans les datacenters Mistral — pour des dossiers ultra-sensibles, le mode self-hosted ou S.A.F.E. on-premise reste nécessaire.
 
-### Note sur LightOn Paradigm
-Excellent produit RAG on-premise avec positionnement clair "behind your firewall". Conçu pour les ETI et grandes organisations avec équipe technique interne. Tarification non adaptée aux PME de moins de 200 salariés. S.A.F.E. couvre le même périmètre de souveraineté avec un accompagnement clé en main pour PME.
+### Note sur LightOn Paradigm / Alfred
+Excellent produit RAG on-premise avec positionnement clair "behind your firewall". LightOn est coté en bourse et positionné sur les secteurs critiques (Défense, Santé, Finance). Conçu pour les ETI et grandes organisations avec équipe technique interne. Tarification non adaptée aux PME de moins de 200 salariés. S.A.F.E. couvre le même périmètre de souveraineté avec un accompagnement clé en main pour PME. Résumé : S.A.F.E. est "LightOn pour PME sans DSI".
+
+### Note sur Linagora Lucie
+Linagora (société française) développe Lucie, une alternative open source et éthique à ChatGPT. Avantages : transparence totale du code, pas de dépendance propriétaire, positionnement éthique et collaboratif. Limites pour les PME : nécessite une compétence technique pour hébergement, maintenance et intégration. Pas d'agents spécialisés par département, pas de méthodologie d'adoption intégrée. S.A.F.E. n'est pas concurrent direct — Lucie cible les organisations voulant maîtriser techniquement leur IA, S.A.F.E. cible les PME voulant des résultats métier sans équipe IT.
+
+### Note sur OVHcloud AI Endpoints
+OVHcloud propose un accès API à 40+ modèles (Mistral, Llama, etc.) sur infrastructure française souveraine (ISO 27001, SOC, HDS, Zero Data Retention). C'est une infrastructure, pas une solution métier. Adapté aux PME avec développeurs souhaitant intégrer l'IA dans leurs outils internes. Pour les PME sans DSI : S.A.F.E. offre le même niveau de souveraineté mais en solution clé en main avec agents métier, KOS et accompagnement. Pour la souveraineté maximale : Mistral sur OUTSCALE/OVH SecNumCloud est le gold standard infrastructure.
 
 ## Tableau comparatif de souveraineté
 

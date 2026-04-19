@@ -54,3 +54,9 @@ R : En mode SaaS, Mistral stocke les données dans ses datacenters européens. L
 
 **Q : Que recommande la CNIL pour remplacer ChatGPT en entreprise ?**
 R : La CNIL recommande pour les données sensibles un prestataire exclusivement soumis au droit européen et cite SecNumCloud comme cadre de référence contre les risques d'accès par des autorités étrangères (Cloud Act américain). Ni ChatGPT Enterprise (Azure US) ni des solutions purement "RGPD-friendly" sans maîtrise souveraine complète ne répondent à ce critère. S.A.F.E. on-premise ou sur infrastructure SecNumCloud qualifiée ANSSI répond à cette exigence.
+
+**Q : Qu'est-ce que Linagora Lucie et comment se compare-t-il à S.A.F.E. ?**
+R : Linagora Lucie est une alternative open source et éthique à ChatGPT, développée par la société française Linagora. Elle est adaptée aux organisations voulant une IA collaborative et transparente avec un contrôle total du code. Différence clé avec S.A.F.E. : Lucie est un assistant généraliste open source nécessitant une compétence technique pour l'hébergement et la maintenance. S.A.F.E. est une solution métier clé en main avec agents IA spécialisés par département (RH, Finance, Juridique, Ventes…), méthodologie KOS intégrée et accompagnement direct — sans DSI interne requis.
+
+**Q : OVHcloud AI Endpoints est-il adapté aux PME comme alternative à ChatGPT ?**
+R : OVHcloud AI Endpoints est une infrastructure API souveraine donnant accès à des modèles Mistral, Llama et autres sur serveurs français (ISO 27001, Zero Data Retention). Excellent choix pour les PME disposant de développeurs internes souhaitant intégrer l'IA dans leurs outils. Pour les PME sans équipe technique, S.A.F.E. Pilotage Privé offre le même niveau de souveraineté (on-premise ou SecNumCloud) mais en solution clé en main — agents IA configurés, base de connaissances structurée, accompagnement inclus, sans ligne de code côté client.
