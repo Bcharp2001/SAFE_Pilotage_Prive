@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Efficacité Opérationnelle IA — Divisez vos tâches répétitives par 4 | S.A.F.E.</title>
-  <meta name="description" content="Clôture à J+2, présélection RH 4x plus rapide, comptes-rendus automatiques. S.A.F.E. automatise vos processus opérationnels clés avec une IA souveraine déployée en 30 jours." />
+  <title>Efficacité Opérationnelle — Agents IA Antigravity · KOS souverain · PME | S.A.F.E.</title>
+  <meta name="description" content="Automatisez l'intelligence, pas seulement les tâches. Le SAFE Brain™ déploie une équipe d'agents IA coordonnés en circuit fermé — Antigravity RAG-Q™, Vault Obsidian, 0 hallucination, 0 fuite. Résultats en 30 jours." />
   <meta name="robots" content="noindex, follow" />
   <link rel="canonical" href="https://www.safe-pilotage-prive.fr/landing/efficacite-operationnelle" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/landing/landing.css" />
   <link rel="icon" href="/favicon.ico" />
+
   <!-- Tracking Google Ads -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-CONVERSION_ID"></script>
   <script>
@@ -20,6 +21,86 @@
     gtag('js', new Date());
     gtag('config', 'AW-CONVERSION_ID');
   </script>
+
+  <style>
+    /* === PAGE-SPECIFIC STYLES === */
+
+    /* Agent orchestration flow */
+    .agent-flow-section { padding: 80px 0; background: var(--navy); color: var(--white); }
+    .agent-flow {
+      display: flex; align-items: stretch; gap: 0;
+      margin-top: 48px; flex-wrap: wrap; justify-content: center;
+    }
+    .agent-step {
+      background: rgba(15,23,42,0.8); backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;
+      padding: 28px 24px; flex: 1; min-width: 200px; max-width: 280px;
+      transition: var(--transition);
+    }
+    .agent-step--active { border-color: rgba(37,99,235,0.45); box-shadow: 0 0 24px rgba(37,99,235,0.15); }
+    .agent-step--vault  { border-color: rgba(212,163,115,0.35); box-shadow: 0 0 24px rgba(212,163,115,0.1); }
+    .agent-step--ctrl   { border-color: rgba(16,185,129,0.35); box-shadow: 0 0 24px rgba(16,185,129,0.1); }
+    .agent-step:hover { transform: translateY(-4px); }
+    .agent-step__status {
+      display: flex; align-items: center; gap: 6px;
+      font-family: var(--font-mono); font-size: 9px; text-transform: uppercase;
+      letter-spacing: 0.12em; margin-bottom: 16px;
+    }
+    .agent-step__status--blue  { color: var(--blue-light); }
+    .agent-step__status--gold  { color: var(--gold); }
+    .agent-step__status--green { color: var(--success); }
+    .agent-dot {
+      width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+      animation: agentPulse 1.5s ease-in-out infinite;
+    }
+    .agent-dot--blue  { background: var(--blue-light); }
+    .agent-dot--gold  { background: var(--gold); }
+    .agent-dot--green { background: var(--success); }
+    @keyframes agentPulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.75)} }
+    .agent-step__icon { font-size: 36px; margin-bottom: 14px; display: block; }
+    .agent-step__name { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+    .agent-step__role { font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,0.35); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 14px; }
+    .agent-step__output { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.65; }
+    .agent-step__output strong { color: var(--white); }
+    .agent-connector {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 0 12px; gap: 4px;
+    }
+    .agent-connector__arrow { font-size: 20px; color: rgba(37,99,235,0.5); }
+    .agent-connector__label { font-family: var(--font-mono); font-size: 8px; color: rgba(255,255,255,0.2); letter-spacing: 0.08em; white-space: nowrap; }
+    @media (max-width: 860px) {
+      .agent-flow { flex-direction: column; align-items: stretch; max-width: 400px; margin-left: auto; margin-right: auto; }
+      .agent-step { max-width: none; }
+      .agent-connector { flex-direction: row; padding: 8px 0; }
+      .agent-connector__arrow { transform: rotate(90deg); }
+    }
+
+    /* Sticky CTA bar (bottom) */
+    .sticky-cta-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 80;
+      background: rgba(10,17,40,0.97); backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(245,158,11,0.25);
+      padding: 14px 32px;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+      transform: translateY(100%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    .sticky-cta-bar.active { transform: translateY(0); }
+    .sticky-cta-bar__text { font-size: 14px; color: rgba(255,255,255,0.65); flex: 1; }
+    .sticky-cta-bar__text strong { color: var(--white); display: block; margin-bottom: 2px; }
+    .sticky-cta-bar__btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--cta-color); color: var(--navy);
+      font-family: var(--font-body); font-size: 14px; font-weight: 700;
+      padding: 12px 24px; border-radius: var(--radius-lg);
+      text-decoration: none; white-space: nowrap; flex-shrink: 0;
+      box-shadow: 0 4px 20px rgba(245,158,11,0.4);
+      transition: var(--transition);
+    }
+    .sticky-cta-bar__btn:hover { background: var(--cta-hover); transform: translateY(-2px); }
+    .sticky-cta-bar__close { background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.3); font-size: 18px; padding: 4px; flex-shrink: 0; }
+    .sticky-cta-bar__close:hover { color: rgba(255,255,255,0.7); }
+    @media (max-width: 640px) { .sticky-cta-bar { flex-wrap: wrap; } .sticky-cta-bar__text { width: 100%; } }
+  </style>
 </head>
 <body>
 
@@ -35,7 +116,8 @@
       </a>
       <div class="mini-nav__trust">
         <span class="mini-nav__badge">🔒 Données hébergées en France</span>
-        <span class="mini-nav__badge">✅ RGPD</span>
+        <span class="mini-nav__badge">✅ RGPD · AI Act 2026</span>
+        <span class="mini-nav__badge">🇫🇷 SecNumCloud éligible</span>
       </div>
       <div class="mini-nav__cta">
         <a href="https://calendly.com/bertrand-charpilloz/30min" target="_blank" rel="noopener" class="btn btn--cta">
@@ -45,45 +127,69 @@
     </div>
   </nav>
 
+  <!-- ====== STICKY TRUST BAR ====== -->
+  <div class="sticky-trust">
+    <div class="sticky-trust__item">
+      <svg class="sticky-trust__icon" viewBox="0 0 20 20" fill="none"><path d="M10 2L3 5v5c0 4.418 3.134 8.55 7 9.5C13.866 18.55 17 14.418 17 10V5l-7-3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      SecNumCloud éligible
+    </div>
+    <div class="sticky-trust__item">
+      <svg class="sticky-trust__icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      RGPD · AI Act 2026
+    </div>
+    <div class="sticky-trust__item">
+      <svg class="sticky-trust__icon" viewBox="0 0 20 20" fill="none"><rect x="4" y="9" width="12" height="9" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7 9V6a3 3 0 016 0v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Cloud Act : 0 risque
+    </div>
+    <div class="sticky-trust__item">
+      <svg class="sticky-trust__icon" viewBox="0 0 20 20" fill="none"><path d="M10 2L3 5v5c0 4.418 3.134 8.55 7 9.5C13.866 18.55 17 14.418 17 10V5l-7-3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      0 hallucination · Antigravity RAG-Q™
+    </div>
+    <div class="sticky-trust__item">
+      <svg class="sticky-trust__icon" viewBox="0 0 20 20" fill="none"><path d="M10 3v3M10 14v3M3 10h3M14 10h3M5.636 5.636l2.122 2.122M12.243 12.243l2.121 2.121M5.636 14.364l2.122-2.121M12.243 7.757l2.121-2.121" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Agents coordonnés · Circuit fermé
+    </div>
+  </div>
+
   <!-- ====== HERO ====== -->
-  <section class="hero-lp hero-lp--split">
+  <section class="hero-lp hero-lp--split" style="padding-top:160px">
     <div class="hero-lp__grid-bg"></div>
     <div class="hero-lp__glow"></div>
     <div class="hero-lp__glow-2"></div>
     <div class="container">
       <div class="hero-lp__content fade-in">
-        <div class="label label--gold"><span class="dot"></span> Efficacité Opérationnelle — Automatisation intelligente</div>
+        <div class="label label--gold"><span class="dot"></span> Efficacité Opérationnelle · Knowledge Operating System</div>
         <h1 class="hero-lp__punchline">
-          Vos équipes passent<br>
-          40% de leur temps<br>
-          <em>sur des tâches que l'IA peut faire</em>.
+          Votre croissance<br>
+          ne devrait pas saturer<br>
+          vos équipes. <em>Automatisez<br>l'intelligence.</em>
         </h1>
         <p class="hero-lp__subtitle">
-          Saisie, consolidation, comptes-rendus, présélection, rapports mensuels — ces tâches à faible valeur ajoutée consomment l'énergie de vos meilleurs éléments. S.A.F.E. les automatise en gardant l'humain au commandement.
+          Le <strong style="color:var(--gold)">SAFE Brain™</strong> déploie une équipe d'agents IA coordonnés qui gèrent vos flux documentaires en circuit fermé. Architecture <strong style="color:var(--white)">Antigravity RAG-Q™</strong>, <strong style="color:var(--blue-light)">Vault Obsidian</strong> souverain — zéro hallucination, zéro fuite. <strong style="color:var(--success)">6h par semaine</strong> restituées à vos cadres dirigeants.
         </p>
         <div class="hero-lp__ctas">
           <a href="https://calendly.com/bertrand-charpilloz/30min" target="_blank" rel="noopener" class="btn btn--cta-lg">
-            📅 Réserver ma visioconférence de 30 min
+            📅 Identifier mes 3 processus à automatiser
           </a>
-          <a href="#solution" class="btn btn--ghost">Voir comment ça fonctionne →</a>
+          <a href="#agents" class="btn btn--ghost">Voir les agents en action →</a>
         </div>
         <div class="hero-lp__social-proof">
           <div class="hero-lp__proof-item">
-            <span class="hero-lp__proof-num">×4</span>
-            <span class="hero-lp__proof-label">plus rapide sur la présélection RH</span>
+            <span class="hero-lp__proof-num">−75%</span>
+            <span class="hero-lp__proof-label">temps sur les tâches répétitives documentaires</span>
           </div>
           <div class="hero-lp__proof-item">
             <span class="hero-lp__proof-num">J+2</span>
             <span class="hero-lp__proof-label">clôture comptable au lieu de J+10</span>
           </div>
           <div class="hero-lp__proof-item">
-            <span class="hero-lp__proof-num">−60%</span>
-            <span class="hero-lp__proof-label">temps sur les tâches répétitives à faible valeur</span>
+            <span class="hero-lp__proof-num">30j</span>
+            <span class="hero-lp__proof-label">pour déployer vos premiers agents souverains</span>
           </div>
         </div>
       </div>
 
-      <!-- VISUAL: Before/After process mockup -->
+      <!-- VISUAL: Process before/after with agent layer -->
       <div class="hero-lp__visual fade-in">
         <div class="mockup">
           <div class="mockup__bar">
@@ -97,32 +203,42 @@
             <div class="process-steps">
               <div class="ps ps--before">
                 <span class="ps__icon">📁</span>
-                <span class="ps__label">Recherche dans les dossiers partagés</span>
+                <span class="ps__label">Recherche manuelle dans les dossiers</span>
                 <span class="ps__time">20 min</span>
               </div>
               <div class="ps ps--before">
                 <span class="ps__icon">📞</span>
-                <span class="ps__label">Appel au collègue ou expert interne</span>
+                <span class="ps__label">Relance du collègue ou expert interne</span>
                 <span class="ps__time">+35 min</span>
               </div>
               <div class="ps ps--before">
                 <span class="ps__icon">✍️</span>
-                <span class="ps__label">Rédaction de la réponse ou rapport</span>
+                <span class="ps__label">Rédaction du rapport ou de la synthèse</span>
                 <span class="ps__time">+45 min</span>
               </div>
             </div>
             <div class="process-divider">⬇</div>
-            <div class="process-header">✅ APRÈS — Avec S.A.F.E.</div>
+            <div class="process-header">✅ APRÈS — Architecture Antigravity</div>
             <div class="process-steps">
+              <div class="ps ps--after" style="background:rgba(37,99,235,0.08);border-color:rgba(37,99,235,0.25)">
+                <span class="ps__icon">🔬</span>
+                <span class="ps__label" style="color:var(--blue-light)">Agent Analyse · Extraction Vault</span>
+                <span class="ps__time" style="color:var(--blue-light)">2 sec</span>
+              </div>
+              <div class="ps ps--after" style="background:rgba(212,163,115,0.08);border-color:rgba(212,163,115,0.25)">
+                <span class="ps__icon">🧠</span>
+                <span class="ps__label" style="color:var(--gold)">Agent Synthèse · Vault Obsidian</span>
+                <span class="ps__time" style="color:var(--gold)">4 sec</span>
+              </div>
               <div class="ps ps--after">
-                <span class="ps__icon">💬</span>
-                <span class="ps__label">Question posée en langage naturel à l'IA</span>
-                <span class="ps__time">8 sec</span>
+                <span class="ps__icon">✅</span>
+                <span class="ps__label">Agent Contrôle · Validation QC sourcée</span>
+                <span class="ps__time">2 sec</span>
               </div>
             </div>
             <div class="process-gain">
               <div class="process-gain__val">−90%</div>
-              <div class="process-gain__lbl">temps opérationnel<br>économisé par tâche</div>
+              <div class="process-gain__lbl">temps opérationnel<br>par tâche automatisée</div>
             </div>
           </div>
         </div>
@@ -137,11 +253,15 @@
       <div class="proof-bar__inner">
         <div class="proof-bar__item">
           <span class="proof-bar__num">40%</span>
-          <span class="proof-bar__label">du temps de travail en PME consacré à des tâches automatisables (McKinsey 2024)</span>
+          <span class="proof-bar__label">du temps en PME consacré à des tâches automatisables (McKinsey 2024)</span>
         </div>
         <div class="proof-bar__item">
-          <span class="proof-bar__num">J+10</span>
-          <span class="proof-bar__label">délai moyen de clôture comptable sans IA — ramené à J+2 avec S.A.F.E.</span>
+          <span class="proof-bar__num">6h</span>
+          <span class="proof-bar__label">par semaine restituées aux cadres dirigeants grâce aux agents SAFE</span>
+        </div>
+        <div class="proof-bar__item">
+          <span class="proof-bar__num">68%</span>
+          <span class="proof-bar__label">des salariés utilisent déjà l'IA en dehors de tout cadre souverain</span>
         </div>
         <div class="proof-bar__item">
           <span class="proof-bar__num">100%</span>
@@ -151,110 +271,265 @@
     </div>
   </div>
 
-  <!-- ====== PAIN ====== -->
+  <!-- ====== BLOC 1 : LA DOULEUR ====== -->
   <section class="section section--light" id="probleme">
     <div class="container">
       <div class="section-header fade-in">
-        <div class="label label--red"><span class="dot"></span> Le problème</div>
+        <div class="label label--red"><span class="dot"></span> Le plafond de verre opérationnel</div>
         <h2 class="section-title">Ce que vos équipes font<br><em style="font-style:italic;color:#EF4444">à la place de leur vrai travail</em></h2>
-        <p class="section-subtitle">Les tâches répétitives ne disparaissent pas seules. Elles s'accumulent, ralentissent vos équipes, et vous coûtent en coûts cachés bien supérieurs à votre abonnement IA.</p>
+        <p class="section-subtitle">La croissance ne crée pas seulement des opportunités — elle crée de la complexité documentaire et administrative qui sature vos meilleurs éléments avant même qu'ils puissent décider.</p>
       </div>
       <div class="pain-grid" style="margin-top:48px">
         <div class="pain-card fade-in">
-          <div class="pain-card__icon">📋</div>
-          <div class="pain-card__title">La saisie et la consolidation mangent les journées</div>
-          <p class="pain-card__desc">Re-saisir des données d'un outil à l'autre, consolider des tableaux Excel reçus par mail, préparer des rapports de synthèse — vos cadres font du travail de secrétariat.</p>
+          <div class="pain-card__icon">🧩</div>
+          <div class="pain-card__title">Surcharge cognitive — 30% du temps perdu à chercher</div>
+          <p class="pain-card__desc">Vos experts passent 30% de leur journée à chercher, trier et extraire des données au lieu de décider. Rapports de synthèse, consolidations Excel reçues par e-mail, comptes-rendus — du travail de secrétariat confié à des talents coûteux.</p>
           <div class="pain-stat">⚠ 2h à 3h par jour perdues en saisie et consolidation pour un cadre type</div>
         </div>
         <div class="pain-card fade-in">
-          <div class="pain-card__icon">🗓️</div>
-          <div class="pain-card__title">La clôture mensuelle bloque tout</div>
-          <p class="pain-card__desc">Chaque fin de mois, votre équipe compta passe une semaine à rassembler, réconcilier, valider. Pendant ce temps, personne ne sait où vous en êtes financièrement.</p>
-          <div class="pain-stat">⚠ Clôture comptable : J+10 à J+15 en moyenne pour une PME de 20-100 salariés</div>
+          <div class="pain-card__icon">📉</div>
+          <div class="pain-card__title">Baisse de qualité à l'échelle — les erreurs se glissent</div>
+          <p class="pain-card__desc">La croissance fragilise vos livrables. Lors des pics de charge, les erreurs s'infiltrent dans les rapports, les synthèses sont bâclées, la clôture mensuelle devient une semaine de pompiers. L'excellence d'hier devient le risque réputationnel de demain.</p>
+          <div class="pain-stat">⚠ Clôture comptable : J+10 à J+15 en moyenne — données stratégiques périmées</div>
         </div>
-        <div class="pain-card fade-in">
-          <div class="pain-card__icon">📧</div>
-          <div class="pain-card__title">Les comptes-rendus et synthèses gaspillent du talent</div>
-          <p class="pain-card__desc">Rédiger le CR de réunion, synthétiser 50 CVs, résumer un rapport de 80 pages — ces tâches consomment les meilleurs éléments pour des résultats que l'IA produit en secondes.</p>
-          <div class="pain-stat">⚠ 1h30 de CR par réunion — 4 réunions/semaine = 6h perdues</div>
+        <div class="pain-card fade-in" style="border-top-color:var(--danger);background:rgba(239,68,68,0.02)">
+          <div class="pain-card__icon">⚠️</div>
+          <div class="pain-card__title">Le Shadow AI — la faille invisible de vos process</div>
+          <p class="pain-card__desc">Pour gagner du temps sur les synthèses et comptes-rendus, 68% de vos salariés utilisent ChatGPT ou Copilot. Vos procédures internes, vos données contractuelles et vos savoir-faire partent sur des serveurs américains soumis au Cloud Act — sans audit, sans traçabilité.</p>
+          <div class="pain-stat" style="color:#EF4444">🚨 Exposition Cloud Act · 0 audit · Risque RGPD · AI Act 2026 non-conforme</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ====== SOLUTION ====== -->
+  <!-- ====== BLOC 2 : LA SOLUTION ====== -->
   <section class="section section--dark" id="solution">
     <div class="container">
       <div class="section-header fade-in">
-        <div class="label label--blue"><span class="dot"></span> La solution S.A.F.E.</div>
-        <h2 class="section-title">SAFE Ops — Automatisez le répétitif,<br><span class="text-blue">libérez le stratégique</span></h2>
-        <p class="section-subtitle section-subtitle--light">Des automatisations IA ciblées sur vos processus à forte friction. Chaque flux reste sous contrôle humain — S.A.F.E. suggère, vous décidez.</p>
+        <div class="label label--blue"><span class="dot"></span> SAFE Brain™ · Architecture Antigravity · Vault Obsidian</div>
+        <h2 class="section-title">Une couche invisible<br><span class="text-blue">de performance souveraine</span></h2>
+        <p class="section-subtitle section-subtitle--light">Contrairement à un simple chatbot, S.A.F.E. déploie une équipe d'agents coordonnés qui travaillent en série dans votre infrastructure — analyse, synthèse dans le Vault, contrôle qualité — sans jamais sortir de votre périmètre souverain.</p>
       </div>
       <div style="margin-top:48px">
         <div class="solution-card fade-in">
           <div class="solution-card__num">01</div>
           <div class="solution-card__body">
-            <div class="solution-card__title">Cartographie de vos processus à automatiser</div>
-            <p class="solution-card__desc">S.A.F.E. commence par identifier avec vous les 3 à 5 processus où l'IA libère le plus de temps — clôture, présélection RH, synthèses, reporting, traitement des demandes entrantes.</p>
-            <span class="solution-badge">✓ Priorisation ROI : on attaque d'abord ce qui coûte le plus cher</span>
+            <div class="solution-card__title">Orchestration Agentique — Trois cerveaux, une mission</div>
+            <p class="solution-card__desc">S.A.F.E. ne déploie pas un agent généraliste — il orchestre une <strong style="color:var(--white)">chaîne d'agents spécialisés</strong> qui travaillent en série : l'Agent Analyse extrait la donnée brute de vos sources, l'Agent Synthèse la structure dans votre <strong style="color:var(--gold)">Vault Obsidian</strong> avec liens bidirectionnels, et l'Agent Contrôle Qualité valide la conformité avant livraison. Chaque étape est sourcée et auditable.</p>
+            <div>
+              <span class="tech-pill tech-pill--blue">🔬 Agent Analyse</span>
+              <span class="tech-pill tech-pill--gold">🧠 Agent Synthèse · Vault</span>
+              <span class="tech-pill tech-pill--green">✅ Agent Contrôle QC</span>
+            </div>
           </div>
         </div>
         <div class="solution-card fade-in">
           <div class="solution-card__num">02</div>
           <div class="solution-card__body">
-            <div class="solution-card__title">Déploiement ciblé sur vos outils existants</div>
-            <p class="solution-card__desc">Pas de remplacement de votre stack. S.A.F.E. s'intègre dans vos processus actuels — ERP, messagerie, stockage de documents — et automatise les ponts entre ces outils.</p>
-            <span class="solution-badge">✓ Intégrations natives : Outlook, Teams, Sage, Cegid, SharePoint, Google Workspace</span>
+            <div class="solution-card__title">Méthode RAG-Q™ & Antigravity — Vérité documentaire garantie</div>
+            <p class="solution-card__desc">Les agents S.A.F.E. ne "devinent" pas. Ils utilisent un <strong style="color:var(--white)">LLM Wiki pré-compilé</strong> — votre base de connaissances Vault Obsidian est structurée et injectée avant chaque requête. Chaque réponse est extraite de vos documents avec une traçabilité totale. Résultat : consommation de tokens réduite de 90%, zéro hallucination possible, chaque chiffre sourcé et horodaté.</p>
+            <div>
+              <span class="tech-pill tech-pill--blue">⚙️ Antigravity RAG-Q™</span>
+              <span class="tech-pill tech-pill--gold">📁 Vault Obsidian · Liens bididir.</span>
+              <span class="tech-pill tech-pill--green">✓ −90% tokens · 0 hallucination</span>
+            </div>
           </div>
         </div>
         <div class="solution-card fade-in">
           <div class="solution-card__num">03</div>
           <div class="solution-card__body">
-            <div class="solution-card__title">Humain au commandement — toujours</div>
-            <p class="solution-card__desc">Chaque automatisation est conçue avec une étape de validation humaine. L'IA prépare, classe, synthétise — mais c'est vous qui approuvez et décidez. Zéro perte de contrôle.</p>
-            <span class="solution-badge">✓ Workflow de validation intégré — aucune décision autonome non supervisée</span>
+            <div class="solution-card__title">Zéro Hallucination, Zéro Fuite — AI Act 2026 conforme dès j+1</div>
+            <p class="solution-card__desc">L'intelligence reste locale. Vos données ne quittent jamais votre infrastructure (on-premise ou SecNumCloud). Chaque automatisation est conçue avec une étape de validation humaine obligatoire — l'IA prépare, classe, synthétise, mais c'est vous qui approuvez. Audit log complet, registre AI Act généré automatiquement, conformité RGPD documentée.</p>
+            <div>
+              <span class="tech-pill tech-pill--blue">🔒 On-premise · SecNumCloud</span>
+              <span class="tech-pill tech-pill--gold">📋 Audit log · Registre AI Act</span>
+              <span class="tech-pill tech-pill--green">✓ 100% conforme · Cloud Act 0</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ====== ROI ====== -->
+  <!-- ====== AGENT DASHBOARD ====== -->
+  <section class="agent-flow-section" id="agents">
+    <div class="container">
+      <div class="section-header fade-in" style="text-align:center;max-width:680px;margin:0 auto">
+        <div class="label label--blue" style="justify-content:center"><span class="dot"></span> Agents en action</div>
+        <h2 class="section-title">Votre équipe d'agents IA<br><span class="text-blue">travaille pendant que vous décidez</span></h2>
+        <p class="section-subtitle section-subtitle--light">Trois agents coordonnés par le SAFE Brain™, en circuit fermé souverain. Chacun est spécialisé, traçable, et ne prend jamais de décision sans validation humaine.</p>
+      </div>
+
+      <div class="agent-flow fade-in">
+
+        <div class="agent-step agent-step--active">
+          <div class="agent-step__status agent-step__status--blue">
+            <div class="agent-dot agent-dot--blue"></div>
+            Actif · Analyse en cours
+          </div>
+          <span class="agent-step__icon">🔬</span>
+          <div class="agent-step__name">Agent Analyse</div>
+          <div class="agent-step__role">Extraction · Classification · Indexation</div>
+          <div class="agent-step__output">
+            Extrait, trie et classe la donnée brute depuis vos sources (ERP, e-mails, documents, SQL).
+            <strong>Chaque élément est sourcé et horodaté.</strong>
+          </div>
+        </div>
+
+        <div class="agent-connector">
+          <div class="agent-connector__arrow">→</div>
+          <div class="agent-connector__label">Vault Obsidian</div>
+        </div>
+
+        <div class="agent-step agent-step--vault">
+          <div class="agent-step__status agent-step__status--gold">
+            <div class="agent-dot agent-dot--gold"></div>
+            Actif · Structuration Vault
+          </div>
+          <span class="agent-step__icon">🧠</span>
+          <div class="agent-step__name">Agent Synthèse</div>
+          <div class="agent-step__role">Synthèse · Vault Obsidian · Liens bididir.</div>
+          <div class="agent-step__output">
+            Structure la donnée analysée dans le <strong>Vault Obsidian</strong> avec liens bidirectionnels.
+            Produit la synthèse contextuelle, rapport ou compte-rendu.
+          </div>
+        </div>
+
+        <div class="agent-connector">
+          <div class="agent-connector__arrow">→</div>
+          <div class="agent-connector__label">RAG-Q™</div>
+        </div>
+
+        <div class="agent-step agent-step--ctrl">
+          <div class="agent-step__status agent-step__status--green">
+            <div class="agent-dot agent-dot--green"></div>
+            Actif · Validation QC
+          </div>
+          <span class="agent-step__icon">✅</span>
+          <div class="agent-step__name">Agent Contrôle QC</div>
+          <div class="agent-step__role">Vérification · Conformité · Validation</div>
+          <div class="agent-step__output">
+            Vérifie chaque affirmation contre le Vault. <strong>0 hallucination possible.</strong>
+            Soumet à validation humaine avant toute livraison.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Architecture schema -->
+      <div class="arch-schema fade-in" style="margin-top:48px">
+        <div class="arch-schema__title">Circuit fermé souverain · Antigravity · Vault Obsidian · 0 donnée sortante</div>
+        <div class="arch-flow">
+          <div class="arch-node">
+            <div class="arch-node__icon">📂</div>
+            <div class="arch-node__name">Vos sources</div>
+            <div class="arch-node__sub">ERP · Docs · E-mails</div>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-node">
+            <div class="arch-node__icon">🔬</div>
+            <div class="arch-node__name">Agent Analyse</div>
+            <div class="arch-node__sub">Extraction · Index</div>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-node arch-node--highlight">
+            <div class="arch-node__icon">📁</div>
+            <div class="arch-node__name">Vault Obsidian</div>
+            <div class="arch-node__sub">Liens bididir. · Synthèse</div>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-node">
+            <div class="arch-node__icon">✅</div>
+            <div class="arch-node__name">Contrôle QC</div>
+            <div class="arch-node__sub">Validation humaine</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== BLOC ROI ====== -->
   <section class="section section--mid" id="roi">
     <div class="container">
       <div class="section-header fade-in" style="text-align:center;max-width:600px;margin:0 auto 48px">
-        <div class="label label--gold"><span class="dot"></span> Résultats mesurables</div>
+        <div class="label label--gold" style="justify-content:center"><span class="dot"></span> Divisez la complexité, multipliez la productivité</div>
         <h2 class="section-title">Ce que vos équipes<br><span class="text-gold">récupèrent concrètement</span></h2>
       </div>
       <div class="roi-grid">
         <div class="roi-card fade-in">
-          <span class="roi-card__value">J+2</span>
-          <div class="roi-card__label">Clôture comptable<br>au lieu de J+10</div>
-        </div>
-        <div class="roi-card fade-in">
-          <span class="roi-card__value">×4</span>
-          <div class="roi-card__label">Plus rapide<br>sur la présélection RH</div>
+          <span class="roi-card__value">−75%</span>
+          <div class="roi-card__label">Temps sur le tri et l'extraction documentaire répétitive</div>
         </div>
         <div class="roi-card fade-in">
           <span class="roi-card__value">−60%</span>
-          <div class="roi-card__label">Temps sur les tâches<br>répétitives à faible valeur</div>
+          <div class="roi-card__label">Temps de rédaction des propositions commerciales</div>
         </div>
         <div class="roi-card fade-in">
-          <span class="roi-card__value">30 j</span>
-          <div class="roi-card__label">Délai de déploiement<br>des premières automatisations</div>
+          <span class="roi-card__value">−70%</span>
+          <div class="roi-card__label">Temps sur la revue de contrats et conformité</div>
+        </div>
+        <div class="roi-card fade-in">
+          <span class="roi-card__value">J+2</span>
+          <div class="roi-card__label">Clôture comptable au lieu de J+10 à J+15</div>
+        </div>
+        <div class="roi-card fade-in">
+          <span class="roi-card__value">+25%</span>
+          <div class="roi-card__label">Réactivité stratégique par remontée d'information en temps réel</div>
         </div>
         <div class="roi-card fade-in">
           <span class="roi-card__value">0</span>
-          <div class="roi-card__label">Donnée sensible<br>envoyée hors de France</div>
-        </div>
-        <div class="roi-card fade-in">
-          <span class="roi-card__value">100%</span>
-          <div class="roi-card__label">Contrôle humain<br>maintenu sur chaque décision</div>
+          <div class="roi-card__label">Donnée stratégique sortante · Circuit fermé garanti</div>
         </div>
       </div>
       <div class="roi-guarantee fade-in">
-        <p class="roi-guarantee__text">"En 30 jours, vos 3 processus les plus chronophages sont automatisés. Vos équipes se concentrent sur ce qui crée de la valeur — sans jamais perdre le contrôle."</p>
-        <p class="roi-guarantee__sub">Bertrand Charpilloz — S.A.F.E. Pilotage Privé</p>
+        <p class="roi-guarantee__text">« En 30 jours, vos 3 processus les plus chronophages sont automatisés par vos agents SAFE. Vos équipes se concentrent sur ce qui crée de la valeur — sans jamais perdre le contrôle. »</p>
+        <p class="roi-guarantee__sub">Bertrand Charpilloz — Fondateur · S.A.F.E. Pilotage Privé</p>
+      </div>
+
+      <!-- Inline mid-page CTA -->
+      <div style="text-align:center;margin-top:48px" class="fade-in">
+        <a href="https://calendly.com/bertrand-charpilloz/30min" target="_blank" rel="noopener" class="btn btn--cta-lg">
+          📅 Identifier mes 3 processus à automatiser — Gratuit
+        </a>
+        <p style="margin-top:12px;font-size:13px;color:rgba(255,255,255,0.4)">30 min · Sans engagement · 100% confidentiel</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== GOUVERNANCE HUMAINE ====== -->
+  <section class="gouvernance" id="gouvernance">
+    <div class="container">
+      <div class="gouvernance__inner">
+        <div class="gouvernance__visual fade-in">
+          <span class="gouvernance__icon">🎖️</span>
+          <blockquote class="gouvernance__quote">
+            L'IA prépare la complexité. Vous validez la décision. Le système S.A.F.E. ne remplace pas vos experts — il leur redonne leur cerveau.
+          </blockquote>
+          <span class="gouvernance__tag">Commandant à l'arrivée : Vous · S.A.F.E. Pilotage Privé</span>
+        </div>
+        <div class="fade-in">
+          <div class="label label--gold"><span class="dot"></span> Gouvernance Humaine Totale</div>
+          <h2 style="font-family:var(--font-display);font-size:clamp(24px,3vw,36px);font-weight:700;color:var(--white);margin-bottom:20px;line-height:1.2;">L'IA exécute.<br><span style="color:var(--gold)">Vos experts décident. Toujours.</span></h2>
+          <p class="gouvernance__text">Chaque agent S.A.F.E. est conçu avec une étape de validation humaine obligatoire avant livraison. L'automatisation ne supprime pas le jugement — elle le libère de la charge administrative pour le concentrer sur l'essentiel.</p>
+          <div class="gouvernance__points">
+            <div class="gouvernance__point">
+              <span class="gouvernance__point-icon">✅</span>
+              Aucune décision automatique sans validation humaine explicite
+            </div>
+            <div class="gouvernance__point">
+              <span class="gouvernance__point-icon">📋</span>
+              Audit log complet de chaque action agentique — exportable AI Act
+            </div>
+            <div class="gouvernance__point">
+              <span class="gouvernance__point-icon">🔍</span>
+              Chaque output cite sa source documentaire exacte dans le Vault
+            </div>
+            <div class="gouvernance__point">
+              <span class="gouvernance__point-icon">🔐</span>
+              Droits RBAC par rôle — chaque agent accède uniquement à son périmètre
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -265,27 +540,28 @@
     <div class="container">
       <div class="cta-final__content fade-in">
         <div class="cta-final__label">📅 Prochaine étape</div>
-        <h2 class="cta-final__title">Identifiez vos 3 processus à automatiser<br>avec Bertrand Charpilloz</h2>
-        <p class="cta-final__subtitle">Une visioconférence de 30 minutes pour cartographier vos goulots d'étranglement opérationnels et vous montrer ce que S.A.F.E. peut automatiser dès le mois prochain.</p>
+        <h2 class="cta-final__title">Identifiez vos 3 processus<br>avec Bertrand Charpilloz</h2>
+        <p class="cta-final__subtitle">30 minutes pour cartographier vos goulots d'étranglement opérationnels et vous montrer — en conditions réelles — comment vos agents SAFE les automatisent en circuit fermé. 100% confidentiel.</p>
         <div class="cta-final__card">
           <div class="cta-final__card-label">Votre interlocuteur</div>
           <div class="cta-final__card-who">Bertrand Charpilloz</div>
-          <div class="cta-final__card-role">Fondateur — S.A.F.E. Pilotage Privé · Expert IA souveraine pour PME</div>
+          <div class="cta-final__card-role">Fondateur · S.A.F.E. Pilotage Privé · Expert IA souveraine pour PME</div>
           <ul class="cta-final__promises">
-            <li>Audit de vos 5 processus les plus chronophages</li>
-            <li>Estimation du ROI concret par automatisation</li>
-            <li>Plan de déploiement personnalisé en 30 jours</li>
-            <li>Zéro engagement — zéro jargon technique</li>
+            <li>Audit de vos 5 processus les plus chronophages — estimation du ROI par automatisation</li>
+            <li>Démonstration des 3 agents SAFE en conditions réelles sur votre secteur</li>
+            <li>Analyse de votre exposition Shadow AI et stratégie de souveraineté IA</li>
+            <li>Plan de déploiement KOS · Résultats en 30 jours · Zéro engagement</li>
           </ul>
           <a href="https://calendly.com/bertrand-charpilloz/30min" target="_blank" rel="noopener" class="btn btn--cta-lg">
             📅 Réserver ma visioconférence de ½ heure
           </a>
-          <p class="cta-final__note">Gratuit · Sans engagement · Agenda disponible sous 48h</p>
+          <p class="cta-final__note">Gratuit · Sans engagement · 100% confidentiel · Agenda disponible sous 48h</p>
         </div>
         <div class="cta-final__trust">
-          <span class="trust-badge">🔒 Données hébergées en France</span>
-          <span class="trust-badge">✅ Conformité RGPD</span>
-          <span class="trust-badge">🏛 Infrastructure souveraine</span>
+          <span class="trust-badge">🔒 Hébergement 100% souverain</span>
+          <span class="trust-badge">✅ RGPD · AI Act 2026</span>
+          <span class="trust-badge">⚙️ Agents Antigravity RAG-Q™</span>
+          <span class="trust-badge">📁 Vault Obsidian · 0 fuite</span>
           <span class="trust-badge">⚡ Résultats en 30 jours</span>
         </div>
       </div>
@@ -303,19 +579,48 @@
         <div class="footer-minimal__links">
           <a href="/">Accueil</a>
           <a href="/a-propos">À propos</a>
+          <a href="/garanties-souverainete">Garanties souveraineté</a>
           <a href="/mentions-legales">Mentions légales</a>
           <a href="mailto:contact@safe-pilotage-prive.fr">contact@safe-pilotage-prive.fr</a>
         </div>
-        <p class="footer-minimal__copy">© 2025 S.A.F.E. Pilotage Privé — Tous droits réservés</p>
+        <p class="footer-minimal__copy">© 2026 S.A.F.E. Pilotage Privé — CCA · SARL · SIREN 434 963 245</p>
       </div>
     </div>
   </footer>
 
+  <!-- ====== STICKY CTA BAR ====== -->
+  <div class="sticky-cta-bar" id="stickyCta">
+    <div class="sticky-cta-bar__text">
+      <strong>Identifiez vos 3 processus à automatiser</strong>
+      30 min · Gratuit · 100% confidentiel · Avec Bertrand Charpilloz
+    </div>
+    <a href="https://calendly.com/bertrand-charpilloz/30min" target="_blank" rel="noopener" class="sticky-cta-bar__btn">
+      📅 Réserver maintenant
+    </a>
+    <button class="sticky-cta-bar__close" id="stickyCtaClose" aria-label="Fermer">✕</button>
+  </div>
+
   <script>
+    // Fade-in on scroll
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); } });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+    // Sticky CTA bar — show after scrolling past hero
+    const stickyCta = document.getElementById('stickyCta');
+    const stickyCtaClose = document.getElementById('stickyCtaClose');
+    let stickyClosed = false;
+    window.addEventListener('scroll', () => {
+      if (stickyClosed) return;
+      stickyCta.classList.toggle('active', window.scrollY > 600);
+    });
+    stickyCtaClose.addEventListener('click', () => {
+      stickyClosed = true;
+      stickyCta.classList.remove('active');
+    });
+
+    // Google Ads conversion tracking
     document.querySelectorAll('a[href*="calendly"]').forEach(a => {
       a.addEventListener('click', () => {
         if(typeof gtag !== 'undefined') {
