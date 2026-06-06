@@ -1,0 +1,31 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+
+# Env / secrets — ne JAMAIS commit
+.env
+.env.local
+.env.*.local
+*.env
+
+# Logs
+*.log
+npm-debug.log*
+
+# Vercel
+.vercel/
+
+# Node (si on ajoute des dépendances pour les serverless)
+node_modules/
+
+# Build / temporaire
+dist/
+build/
+.cache/
+.next/
+*.tmp
