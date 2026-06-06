@@ -107,10 +107,11 @@ module.exports = async function handler(req, res) {
 
   // Config env (accepte plusieurs noms de variables pour souplesse)
   const apiKey = process.env.BREVO_API_KEY
+              || process.env.BREVO_API_KEY_V2
               || process.env.CLE_API_BREVO_V2
               || process.env.CLE_API_BREVO;
   if (!apiKey) {
-    console.error('Aucune clé API Brevo trouvée. Variables tentées: BREVO_API_KEY, CLE_API_BREVO_V2, CLE_API_BREVO');
+    console.error('Aucune clé API Brevo trouvée. Variables tentées: BREVO_API_KEY, BREVO_API_KEY_V2, CLE_API_BREVO_V2, CLE_API_BREVO');
     return res.status(500).json({ ok: false, error: 'Service indisponible. Contactez-nous à contact@safe-pilotage-prive.fr' });
   }
   const senderEmail = process.env.BREVO_SENDER_EMAIL
