@@ -96,12 +96,22 @@ module.exports = async function handler(req, res) {
       SOURCE_PAGE: sourcePage,
     };
 
+    // Destinataires de la notification interne (admin + Gmail personnel)
+    const notifyEmail = process.env.CONTACT_NOTIFY_EMAIL || 'bertrand.charpilloz@gmail.com';
+    const adminRecipients = [
+      { email: adminEmail, name: 'Admin S.A.F.E.' },
+    ];
+    if (notifyEmail && notifyEmail !== adminEmail) {
+      adminRecipients.push({ email: notifyEmail, name: 'Bertrand' });
+    }
+
     await brevoRequest('/smtp/email', {
-      to: [{ email: adminEmail, name: 'Admin S.A.F.E.' }],
+      to: adminRecipients,
       sender: { email: senderEmail, name: senderName },
       templateId: adminTemplateId,
       params: adminParams,
     });
+
 
     await brevoRequest('/smtp/email', {
       to: [{ email, name: `${firstname} ${lastname}`.trim() || email }],
