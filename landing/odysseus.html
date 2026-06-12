@@ -2364,7 +2364,10 @@
         <h3 class="form-title">Demande de devis & contact</h3>
         <p class="form-subtitle">Réponse garantie sous 24h ouvrées par un expert SAFE Pilotage Privé</p>
 
-        <form id="contact-form" action="mailto:contact@safe-pilotage-prive.fr" method="post" enctype="text/plain" novalidate aria-label="Formulaire de contact et demande de devis">
+        <form id="contact-form" novalidate aria-label="Formulaire de contact et demande de devis">
+          <!-- Champ caché pour identifier la source Google Ads -->
+          <input type="hidden" name="sourcePage" value="landing-odysseus-ads" />
+          <input type="hidden" name="confirmTemplate" value="odysseus" />
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="form-nom">Nom <span aria-hidden="true">*</span></label>
@@ -2628,14 +2631,83 @@
       });
     });
 
-    /* Form submit enhancement */
+    /* Form submit — Brevo API */
     const form = document.getElementById('contact-form');
     if (form) {
-      form.addEventListener('submit', (e) => {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
         const btn = document.getElementById('form-submit-btn');
-        btn.textContent = 'Envoi en cours…';
+        const originalHTML = btn.innerHTML;
+
+        // Validation basique
+        const email = form.querySelector('#form-email').value.trim();
+        const nom   = form.querySelector('#form-nom').value.trim();
+        if (!email || !nom) {
+          showFormMessage('error', 'Veuillez remplir les champs obligatoires.');
+          return;
+        }
+
+        // État chargement
         btn.disabled = true;
+        btn.innerHTML = '<svg style="animation:spin 1s linear infinite;width:18px;height:18px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" stroke-opacity="0.3"/><path d="M12 2a10 10 0 0 1 10 10"/></svg> Envoi en cours…';
+
+        // Construction du payload
+        const data = {
+          firstname: form.querySelector('#form-prenom')?.value.trim() || '',
+          lastname:  form.querySelector('#form-nom')?.value.trim()    || '',
+          email:     email,
+          company:   form.querySelector('#form-entreprise')?.value.trim() || '',
+          poste:     form.querySelector('#form-poste')?.value.trim()  || '',
+          besoin:    form.querySelector('#form-besoin')?.value         || '',
+          message:   form.querySelector('#form-message')?.value.trim() || '',
+          sourcePage: 'landing-odysseus-ads',
+          confirmTemplate: 'odysseus',
+        };
+
+        try {
+          const resp = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+          });
+
+          if (resp.ok) {
+            // Succès
+            form.innerHTML = `
+              <div style="text-align:center;padding:48px 24px;">
+                <div style="width:64px;height:64px;background:rgba(22,163,74,0.12);border:2px solid rgba(22,163,74,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <h3 style="font-family:'Calistoga',serif;font-size:22px;color:#fff;margin-bottom:12px;">Demande bien reçue&nbsp;!</h3>
+                <p style="font-size:15px;color:rgba(255,255,255,0.6);line-height:1.7;max-width:380px;margin:0 auto 24px;">Vous allez recevoir un email de confirmation dans quelques instants. Un expert SAFE Pilotage Privé vous contactera sous 24h ouvrées.</p>
+                <p style="font-size:13px;color:rgba(255,255,255,0.35);">Vérifiez vos spams si vous ne voyez rien sous 5 minutes.</p>
+              </div>`;
+          } else {
+            const err = await resp.json().catch(() => ({}));
+            showFormMessage('error', err.error || 'Une erreur est survenue. Réessayez ou écrivez-nous directement à contact@safe-pilotage-prive.fr');
+            btn.disabled = false;
+            btn.innerHTML = originalHTML;
+          }
+        } catch (err) {
+          showFormMessage('error', 'Connexion impossible. Vérifiez votre connexion et réessayez.');
+          btn.disabled = false;
+          btn.innerHTML = originalHTML;
+        }
       });
+
+      function showFormMessage(type, text) {
+        const existing = form.querySelector('.form-api-msg');
+        if (existing) existing.remove();
+        const colors = type === 'error'
+          ? 'background:rgba(239,68,68,0.08);border-color:rgba(239,68,68,0.25);color:rgba(255,180,180,0.9);'
+          : 'background:rgba(22,163,74,0.08);border-color:rgba(22,163,74,0.25);color:rgba(134,239,172,0.9);';
+        const msg = document.createElement('div');
+        msg.className = 'form-api-msg';
+        msg.setAttribute('role', 'alert');
+        msg.style.cssText = `${colors}border:1px solid;border-radius:8px;padding:14px 16px;font-size:14px;line-height:1.5;margin-bottom:16px;`;
+        msg.textContent = text;
+        form.querySelector('#form-submit-btn').before(msg);
+      }
     }
 
     /* Hamburger (mobile) — simple toggle */
