@@ -6,6 +6,216 @@
       "source": "/ia-souveraine-definition-pme",
       "destination": "/blog/ia-souveraine-definition-pme",
       "permanent": true
+    },
+    {
+      "source": "/apropos",
+      "destination": "/a-propos",
+      "permanent": true
+    },
+    {
+      "source": "/apropos.html",
+      "destination": "/a-propos",
+      "permanent": true
+    },
+    {
+      "source": "/Ressources-Humaines",
+      "destination": "/solutions/rh-paie",
+      "permanent": true
+    },
+    {
+      "source": "/Ressources-Humaines.html",
+      "destination": "/solutions/rh-paie",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/mentions-legales.html",
+      "destination": "/mentions-legales",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/mentions-legales",
+      "destination": "/mentions-legales",
+      "permanent": true
+    },
+    {
+      "source": "/professions/mentions-legales.html",
+      "destination": "/mentions-legales",
+      "permanent": true
+    },
+    {
+      "source": "/professions/mentions-legales",
+      "destination": "/mentions-legales",
+      "permanent": true
+    },
+    {
+      "source": "/a-propos.html",
+      "destination": "/a-propos",
+      "permanent": true
+    },
+    {
+      "source": "/alternatives-chatgpt-pme.html",
+      "destination": "/alternatives-chatgpt-pme",
+      "permanent": true
+    },
+    {
+      "source": "/architecture-ia-souveraine.html",
+      "destination": "/architecture-ia-souveraine",
+      "permanent": true
+    },
+    {
+      "source": "/blog/antigravity-rag-obsidian-memoire-entreprise.html",
+      "destination": "/blog/antigravity-rag-obsidian-memoire-entreprise",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cockpit-decisionnel-ia-pme-langage-naturel.html",
+      "destination": "/blog/cockpit-decisionnel-ia-pme-langage-naturel",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ia-souveraine-definition-pme.html",
+      "destination": "/blog/ia-souveraine-definition-pme",
+      "permanent": true
+    },
+    {
+      "source": "/blog/index.html",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/memoire-entreprise-ia-souveraine-turnover.html",
+      "destination": "/blog/memoire-entreprise-ia-souveraine-turnover",
+      "permanent": true
+    },
+    {
+      "source": "/blog/rgpd-intelligence-artificielle-pme.html",
+      "destination": "/blog/rgpd-intelligence-artificielle-pme",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shadow-ai-risques-entreprise.html",
+      "destination": "/blog/shadow-ai-risques-entreprise",
+      "permanent": true
+    },
+    {
+      "source": "/demonstrateur.html",
+      "destination": "/demonstrateur",
+      "permanent": true
+    },
+    {
+      "source": "/garanties-souverainete.html",
+      "destination": "/garanties-souverainete",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/landing/agents-ia-automatisation.html",
+      "destination": "/landing/agents-ia-automatisation",
+      "permanent": true
+    },
+    {
+      "source": "/landing/cockpit-decisionnel.html",
+      "destination": "/landing/cockpit-decisionnel",
+      "permanent": true
+    },
+    {
+      "source": "/landing/efficacite-operationnelle.html",
+      "destination": "/landing/efficacite-operationnelle",
+      "permanent": true
+    },
+    {
+      "source": "/landing/memoire-entreprise.html",
+      "destination": "/landing/memoire-entreprise",
+      "permanent": true
+    },
+    {
+      "source": "/landing/shadow-ai-securite.html",
+      "destination": "/landing/shadow-ai-securite",
+      "permanent": true
+    },
+    {
+      "source": "/landing/tutorat-ia-onboarding.html",
+      "destination": "/landing/tutorat-ia-onboarding",
+      "permanent": true
+    },
+    {
+      "source": "/landing/odysseus.html",
+      "destination": "/landing/odysseus",
+      "permanent": true
+    },
+    {
+      "source": "/odysseus-landing.html",
+      "destination": "/landing/odysseus",
+      "permanent": true
+    },
+    {
+      "source": "/mentions-legales.html",
+      "destination": "/mentions-legales",
+      "permanent": true
+    },
+    {
+      "source": "/professions/avocats.html",
+      "destination": "/professions/avocats",
+      "permanent": true
+    },
+    {
+      "source": "/professions/experts-comptables.html",
+      "destination": "/professions/experts-comptables",
+      "permanent": true
+    },
+    {
+      "source": "/professions/index.html",
+      "destination": "/professions",
+      "permanent": true
+    },
+    {
+      "source": "/professions/notaires.html",
+      "destination": "/professions/notaires",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/achats-stock.html",
+      "destination": "/solutions/achats-stock",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/commercial.html",
+      "destination": "/solutions/commercial",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/direction-strategie.html",
+      "destination": "/solutions/direction-strategie",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/finance-comptabilite.html",
+      "destination": "/solutions/finance-comptabilite",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/index.html",
+      "destination": "/solutions",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/juridique-compliance.html",
+      "destination": "/solutions/juridique-compliance",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/operations.html",
+      "destination": "/solutions/operations",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/rh-paie.html",
+      "destination": "/solutions/rh-paie",
+      "permanent": true
     }
   ]
 }
