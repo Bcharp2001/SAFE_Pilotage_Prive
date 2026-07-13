@@ -148,6 +148,11 @@
       "permanent": true
     },
     {
+      "source": "/landing/safe-business-ia.html",
+      "destination": "/landing/safe-business-ia",
+      "permanent": true
+    },
+    {
       "source": "/odysseus-landing.html",
       "destination": "/landing/odysseus",
       "permanent": true
