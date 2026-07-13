@@ -80,9 +80,9 @@
     .methode-step:nth-child(4) .methode-step__num{background:var(--gold);box-shadow:0 0 30px rgba(212,163,115,0.5);}
     .methode-step__title{font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--white);margin-bottom:8px;}
     .methode-step__desc{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6;}
-    .pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px;}
-    @media(max-width:1024px){.pricing-grid{grid-template-columns:repeat(2,1fr);}}
-    @media(max-width:640px){.pricing-grid{grid-template-columns:1fr;}}
+    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:48px;}
+    @media(max-width:1024px){.pricing-grid{grid-template-columns:repeat(2,1fr);gap:30px;}}
+    @media(max-width:768px){.pricing-grid{grid-template-columns:1fr;gap:24px;}}
     .price-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-lg);padding:32px 24px;transition:var(--transition);display:flex;flex-direction:column;}
     .price-card--featured{background:rgba(245,158,11,0.06);border-color:rgba(245,158,11,0.4);transform:scale(1.02);box-shadow:0 20px 60px rgba(245,158,11,0.15);}
     .price-card:hover{border-color:rgba(255,255,255,0.25);transform:translateY(-4px);}
@@ -118,9 +118,8 @@
     .faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s ease;}
     .faq-answer.open{max-height:400px;}
     .faq-answer__inner{padding:0 24px 22px;font-size:15px;color:rgba(255,255,255,0.65);line-height:1.75;border-top:1px solid rgba(255,255,255,0.06);padding-top:18px;}
-    .results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;}
-    @media(max-width:768px){.results-grid{grid-template-columns:1fr 1fr;}}
-    @media(max-width:480px){.results-grid{grid-template-columns:1fr;}}
+    .results-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin:48px auto 0; max-width: 800px;}
+    @media(max-width:768px){.results-grid{grid-template-columns:1fr;}}
     .result-card{text-align:center;background:rgba(15,23,42,0.8);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-lg);padding:36px 20px;transition:var(--transition);}
     .result-card:hover{transform:translateY(-5px);border-color:var(--gold);}
     .result-card__value{font-family:var(--font-display);font-size:clamp(38px,4vw,54px);font-weight:900;color:var(--gold);display:block;margin-bottom:8px;letter-spacing:-2px;line-height:1;}
@@ -323,89 +322,77 @@
       </div>
     </div>
   </section>
-  <section class="section section--light" id="methode">
+  <section class="section section--dark" id="partenariat">
     <div class="container">
-      <div class="section-header fade-in" style="text-align:center;max-width:680px;margin:0 auto">
-        <div class="label label--blue" style="justify-content:center"><span class="dot"></span> La méthode SAFE</div>
-        <h2 class="section-title">Un déploiement structuré<br><span style="color:var(--blue)">en 4 étapes</span></h2>
-        <p class="section-subtitle" style="margin:0 auto">Une IA non utilisée ne sert à rien. Le vrai sujet c'est son intégration dans les habitudes de travail.</p>
+      <div class="section-header fade-in" style="text-align:center;max-width:800px;margin:0 auto 60px">
+        <div class="label label--gold" style="justify-content:center"><span class="dot"></span> Le programme d'accompagnement S.A.F.E.</div>
+        <h2 class="section-title">Un partenariat exclusif et <span class="text-gold">sur-mesure</span></h2>
+        <p class="section-subtitle section-subtitle--light">Pour garantir l'excellence, la confidentialité et un niveau d'engagement total envers votre performance, nous limitons volontairement nos accompagnements à <strong style="color:var(--white);">10 entreprises par an</strong>.</p>
       </div>
-      <div class="methode-steps fade-in">
-        <div class="methode-step"><div class="methode-step__num" style="color:white"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg></div><div class="methode-step__title">1. Diagnostic</div><div class="methode-step__desc">Identifier vos pertes de temps, tâches automatisables et premiers agents à créer. Livrable : rapport d'opportunité + plan à 90 jours.</div></div>
-        <div class="methode-step"><div class="methode-step__num" style="color:white"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="2.5"></circle><path d="m10.2 6.3-3.9 3.9"></path><circle cx="4.5" cy="12" r="2.5"></circle><path d="M7 12h10"></path><circle cx="19.5" cy="12" r="2.5"></circle><path d="m13.8 17.7 3.9-3.9"></path><circle cx="12" cy="19.5" r="2.5"></circle></svg></div><div class="methode-step__title">2. Cartographie</div><div class="methode-step__desc">Définir les missions, responsabilités, mémoires, limites et interactions de chaque collaborateur numérique.</div></div>
-        <div class="methode-step"><div class="methode-step__num" style="color:white"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"></rect><rect width="6" height="6" x="9" y="9" rx="1"></rect><path d="M15 2v2"></path><path d="M15 20v2"></path><path d="M2 15h2"></path><path d="M2 9h2"></path><path d="M20 15h2"></path><path d="M20 9h2"></path><path d="M9 2v2"></path><path d="M9 20v2"></path></svg></div><div class="methode-step__title">3. Construction</div><div class="methode-step__desc">Créer les agents, bases de connaissances, procédures, garde-fous et circuits de validation humaine.</div></div>
-        <div class="methode-step"><div class="methode-step__num" style="color:white"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg></div><div class="methode-step__title">4. Déploiement</div><div class="methode-step__desc">Accompagner vos équipes pour intégrer les agents dans leurs habitudes et améliorer progressivement les usages.</div></div>
-      </div>
-    </div>
-  </section>
-  <section class="section section--dark" id="offres">
-    <div class="container">
-      <div class="section-header fade-in" style="text-align:center;max-width:680px;margin:0 auto">
-        <div class="label label--gold" style="justify-content:center"><span class="dot"></span> Architecture commerciale SAFE</div>
-        <h2 class="section-title">Commencez par un diagnostic.<br><span class="text-gold">Pas par un abonnement.</span></h2>
-        <p class="section-subtitle section-subtitle--light" style="margin:0 auto">La question n'est pas « quel outil IA acheter ? » mais « quel collaborateur numérique mon entreprise doit-elle créer en premier ? »</p>
-      </div>
-      <div class="pricing-grid">
+
+      <div class="pricing-grid fade-in">
+        
+        <!-- Phase 1 -->
+        <div class="price-card glass-panel fade-in">
+          <span class="price-badge price-badge--essential">Phase 1</span>
+          <div class="price-card__name">L'Audit Stratégique IA</div>
+          <div class="price-card__promise" style="min-height: 48px;">Cartographie de vos processus et identification des gisements de rentabilité.</div>
+          <ul class="price-card__features" style="margin-top:24px;">
+            <li>Audit complet de vos flux d'information</li>
+            <li>Détection des goulots d'étranglement</li>
+            <li>Feuille de route technique et humaine</li>
+            <li>Calcul précis du ROI attendu</li>
+          </ul>
+        </div>
+
+        <!-- Phase 2 -->
         <div class="price-card price-card--featured glass-panel fade-in" style="position:relative; z-index:1">
           <div class="glow-radial glow-radial--gold" style="width:100%; height:100%; top:0; left:0;"></div>
-          <span class="price-badge price-badge--business">⭐ Commencer ici</span>
-          <div class="price-card__name premium-gold-text">Diagnostic Collaborateurs Numériques™</div>
-          <div class="price-card__price">990 <span>€ HT</span></div>
-          <div class="price-card__target">Pour toute PME, TPE, artisan ou profession libérale</div>
-          <div class="price-card__promise">Identifier vos gains réels avant de construire</div>
-          <ul class="price-card__features"><li>Cartographie de vos flux d'information</li><li>Identification des tâches automatisables</li><li>Livrable complet : feuille de route &amp; calcul de ROI</li><li>Plan d'action stratégique à 90 jours</li><li>Séance de restitution au comité de direction</li></ul>
-          <div class="price-card__gain">Déduit de votre mission si déploiement sous 30j</div>
-          <a href="#diagnostic" class="price-card__cta price-card__cta--primary">📋 Réserver mon audit stratégique</a>
-          <div class="price-deduction">990 € déduits de votre mission SAFE</div>
+          <span class="price-badge price-badge--business">Phase 2</span>
+          <div class="price-card__name premium-gold-text">L'Intégration Souveraine</div>
+          <div class="price-card__promise" style="min-height: 48px;">Le "Build" : déploiement de vos agents et transformation de vos méthodes.</div>
+          <ul class="price-card__features" style="margin-top:24px;">
+            <li>Installation IA locale par conteneurs sécurisés</li>
+            <li>Création et entraînement des agents sur mesure</li>
+            <li>Refonte de votre documentation métier</li>
+            <li>Création de playbooks et process commerciaux</li>
+          </ul>
         </div>
+
+        <!-- Phase 3 -->
         <div class="price-card glass-panel fade-in">
-          <span class="price-badge price-badge--essential">SAFE Essential</span>
-          <div class="price-card__name">Essential</div>
-          <div class="price-card__price">5 000 <span>€ HT</span></div>
-          <div class="price-card__target">Artisans · Professions libérales · TPE</div>
-          <div class="price-card__promise">Votre premier collaborateur numérique privé</div>
-          <ul class="price-card__features"><li>1 collaborateur numérique spécialisé</li><li>Base documentaire privée structurée</li><li>Formation demi-journée</li><li>Données hébergées localement</li></ul>
-          <div class="price-card__gain">Gain estimé : 5 à 10h par semaine</div>
-          <a href="#diagnostic" class="price-card__cta price-card__cta--secondary">Commencer par le Diagnostic →</a>
+          <span class="price-badge price-badge--exec">Phase 3</span>
+          <div class="price-card__name">Le Pilotage Privé</div>
+          <div class="price-card__promise" style="min-height: 48px;">Le "Run" : accompagnement continu du dirigeant et optimisation.</div>
+          <ul class="price-card__features" style="margin-top:24px;">
+            <li>Accompagnement stratégique sur 12 mois</li>
+            <li>Mise à jour et perfectionnement des agents</li>
+            <li>Formation continue de vos équipes</li>
+            <li>Un expert dédié à votre compétitivité</li>
+          </ul>
         </div>
-        <div class="price-card glass-panel fade-in">
-          <span class="price-badge price-badge--business">SAFE Business</span>
-          <div class="price-card__name">Business</div>
-          <div class="price-card__price">10 000 <span>€ HT</span></div>
-          <div class="price-card__target">PME de 10 à 50 salariés</div>
-          <div class="price-card__promise">Votre première équipe numérique privée</div>
-          <ul class="price-card__features"><li>4 collaborateurs numériques spécialisés</li><li>Mémoire d'entreprise structurée</li><li>Centralisation procédures et savoir-faire</li><li>Accompagnement 30 jours</li></ul>
-          <div class="price-card__gain">Gain estimé : 10 à 30h par semaine</div>
-          <a href="#diagnostic" class="price-card__cta price-card__cta--secondary">Commencer par le Diagnostic →</a>
-        </div>
-        <div class="price-card glass-panel fade-in">
-          <span class="price-badge price-badge--exec">SAFE Executive</span>
-          <div class="price-card__name">Executive</div>
-          <div class="price-card__price">Sur <span>devis</span></div>
-          <div class="price-card__target">PME structurées 50–500 salariés</div>
-          <div class="price-card__promise">Votre cockpit d'entreprise augmenté</div>
-          <ul class="price-card__features"><li>Équipe multi-agents sur mesure</li><li>Infrastructure privée locale / cloud hybride</li><li>Connexions emails, CRM, ERP, GED</li><li>Accompagnement stratégique 90 jours</li></ul>
-          <div class="price-card__gain">De 20 000 à 50 000 € HT selon périmètre</div>
-          <a href="#diagnostic" class="price-card__cta price-card__cta--secondary">Discutons de votre projet →</a>
-        </div>
+
+      </div>
+
+      <div style="text-align:center; margin-top: 60px;">
+        <a href="#diagnostic" class="btn btn--gold fade-in" style="font-size:18px; padding:20px 40px;">📋 Discutons de votre entreprise</a>
       </div>
     </div>
   </section>
+
   <section class="section section--mid" id="resultats">
     <div class="container">
       <div class="section-header fade-in" style="text-align:center;max-width:600px;margin:0 auto 0">
         <div class="label label--green" style="justify-content:center"><span class="dot"></span> Résultats mesurables</div>
-        <h2 class="section-title">Ce que SAFE Business IA<br><span class="text-gold">change concrètement</span></h2>
+        <h2 class="section-title">Ce que notre accompagnement<br><span class="text-gold">change concrètement</span></h2>
       </div>
-      <div class="results-grid">
-        <div class="result-card fade-in"><span class="result-card__value">5–10h</span><div class="result-card__label">gagnées/semaine avec SAFE Essential</div></div>
-        <div class="result-card fade-in"><span class="result-card__value">10–30h</span><div class="result-card__label">gagnées/semaine avec SAFE Business</div></div>
-        <div class="result-card fade-in"><span class="result-card__value">30j</span><div class="result-card__label">pour déployer et commencer à gagner du temps</div></div>
-        <div class="result-card fade-in"><span class="result-card__value">0</span><div class="result-card__label">donnée exposée — IA souveraine et privée</div></div>
-        <div class="result-card fade-in"><span class="result-card__value">100%</span><div class="result-card__label">des décisions restent entre vos mains</div></div>
-        <div class="result-card fade-in"><span class="result-card__value">∞</span><div class="result-card__label">savoir-faire capitalisé et transmis</div></div>
+      <div class="results-grid fade-in">
+        <div class="result-card fade-in"><span class="result-card__value">100%</span><div class="result-card__label">des décisions stratégiques restent entre vos mains</div></div>
+        <div class="result-card fade-in"><span class="result-card__value">∞</span><div class="result-card__label">savoir-faire capitalisé, sécurisé et transmis en interne</div></div>
+        <div class="result-card fade-in"><span class="result-card__value">24/7</span><div class="result-card__label">d'exécution sans faille de vos procédures métiers</div></div>
+        <div class="result-card fade-in"><span class="result-card__value">0</span><div class="result-card__label">donnée exposée — IA strictement souveraine et privée</div></div>
       </div>
-      <div class="roi-guarantee fade-in" style="margin-top:48px">
+      <div class="roi-guarantee fade-in" style="margin-top:60px">
         <p class="roi-guarantee__text">« Ce que vous ne structurez pas aujourd'hui, vos équipes continueront à le refaire demain. »</p>
         <p class="roi-guarantee__sub">Bertrand Charpilloz — Fondateur · S.A.F.E. Pilotage Privé</p>
       </div>
