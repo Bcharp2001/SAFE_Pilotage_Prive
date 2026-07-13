@@ -820,3 +820,57 @@ h3 { font-size: clamp(16px, 2vw, 22px); font-weight: 600; }
   .anatomy-card--reasoning { transform: translateY(0); }
   .anatomy-card--reasoning:hover { transform: translateY(-8px); }
 }
+
+/* ================================================
+   BENEFITS SECTION (Dirigeant)
+   ================================================ */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+}
+.benefit-card {
+  padding: 48px 40px;
+  border-radius: var(--radius-lg);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+.benefit-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+.benefit-card__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.benefit-card__title {
+  color: var(--navy-dark);
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.benefit-card__desc {
+  color: var(--gray-600);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .benefits-grid { grid-template-columns: 1fr; gap: 24px; }
+  .benefit-card { padding: 32px 24px; }
+}
