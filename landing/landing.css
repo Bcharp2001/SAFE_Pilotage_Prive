@@ -970,6 +970,86 @@ h3 { font-size: clamp(16px, 2vw, 22px); font-weight: 600; }
   color: var(--white);
   font-weight: 500;
 }
+/* ================================================
+   CASE STUDY SECTION
+   ================================================ */
+.case-study-card {
+  background: var(--navy);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3), inset 0 0 0 1px rgba(212,163,115,0.2);
+}
+.case-study-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.case-study-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0;
+}
+.case-study-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-family: var(--font-mono);
+  color: rgba(255,255,255,0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.case-study-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.case-study-col-title {
+  font-size: 14px;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.case-study-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.case-study-list li {
+  color: rgba(255,255,255,0.7);
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 20px;
+}
+.case-study-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+@media (max-width: 992px) {
+  .case-study-grid { grid-template-columns: 1fr; }
+  .case-study-card { padding: 24px; }
+}
+
 @media (max-width: 768px) {
   .accordion-header { padding: 20px 24px; }
   .accordion-content-inner { padding: 0 24px 24px 24px; }
