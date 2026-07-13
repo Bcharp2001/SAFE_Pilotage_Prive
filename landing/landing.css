@@ -888,3 +888,89 @@ h3 { font-size: clamp(16px, 2vw, 22px); font-weight: 600; }
   .ceo-split-image { margin-bottom: 32px; }
   .ceo-split-image img { box-shadow: 0 12px 30px rgba(0,0,0,0.1); }
 }
+
+/* ================================================
+   ACCORDION SECTION (Workflows)
+   ================================================ */
+.accordion-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.accordion-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+.accordion-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+.accordion-header {
+  padding: 24px 32px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.accordion-icon {
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+.accordion-icon::before, .accordion-icon::after {
+  content: '';
+  position: absolute;
+  background: var(--gold);
+  border-radius: 2px;
+  transition: transform 0.3s ease;
+}
+.accordion-icon::before {
+  top: 11px; left: 0; width: 24px; height: 2px;
+}
+.accordion-icon::after {
+  top: 0; left: 11px; width: 2px; height: 24px;
+}
+.accordion-item.active .accordion-icon::after {
+  transform: rotate(90deg);
+  opacity: 0;
+}
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.accordion-content-inner {
+  padding: 0 32px 32px 32px;
+}
+.workflow-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.workflow-list li {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  padding-left: 24px;
+  position: relative;
+}
+.workflow-list li:last-child {
+  margin-bottom: 0;
+}
+.workflow-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+.workflow-list li strong {
+  color: var(--white);
+  font-weight: 500;
+}
+@media (max-width: 768px) {
+  .accordion-header { padding: 20px 24px; }
+  .accordion-content-inner { padding: 0 24px 24px 24px; }
+}
