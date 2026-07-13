@@ -28,7 +28,9 @@ async function brevoRequest(path, body) {
 
   if (!response.ok && response.status !== 204) {
     const error = await response.json().catch(() => ({}));
-    throw new Error(error.message || `Brevo API error ${response.status}`);
+    const message = error.message || `Brevo API error ${response.status}`;
+    console.error(`[brevo] ${path} → ${response.status}:`, JSON.stringify(error));
+    throw new Error(message);
   }
 
   return response.status === 204 ? null : response.json();
@@ -129,7 +131,7 @@ module.exports = async function handler(req, res) {
 
     return json(res, 200, { ok: true });
   } catch (error) {
-    console.error('Contact form error:', error);
-    return json(res, 500, { error: 'Unable to process contact request' });
+    console.error('Contact form error:', error.message, error.stack);
+    return json(res, 500, { error: 'Unable to process contact request', detail: error.message });
   }
 };
