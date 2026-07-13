@@ -756,3 +756,67 @@ h3 { font-size: clamp(16px, 2vw, 22px); font-weight: 600; }
   -webkit-text-fill-color: transparent;
 }
 
+/* ================================================
+   AGENT ANATOMY SECTION
+   ================================================ */
+.anatomy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 20px;
+}
+.anatomy-card {
+  padding: 40px 32px;
+  background: rgba(255,255,255,0.03);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.anatomy-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  border-color: rgba(255,255,255,0.15);
+}
+.anatomy-card--memory { border-top: 3px solid var(--gold); }
+.anatomy-card--reasoning { border-top: 3px solid var(--blue); transform: translateY(-16px); }
+.anatomy-card--action { border-top: 3px solid var(--danger); }
+.anatomy-card--reasoning:hover { transform: translateY(-24px); }
+
+.anatomy-card__icon { margin-bottom: 24px; }
+.anatomy-card__title {
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 22px;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+.anatomy-card__desc {
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+  font-size: 15px;
+  margin-bottom: 24px;
+}
+.anatomy-card__feature {
+  font-size: 13px;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.anatomy-card__feature--blue { color: var(--blue); }
+.anatomy-card__feature--danger { color: var(--danger); }
+
+@media (max-width: 1024px) {
+  .anatomy-grid { gap: 16px; }
+  .anatomy-card { padding: 32px 24px; }
+}
+@media (max-width: 768px) {
+  .anatomy-grid { grid-template-columns: 1fr; }
+  .anatomy-card--reasoning { transform: translateY(0); }
+  .anatomy-card--reasoning:hover { transform: translateY(-8px); }
+}
