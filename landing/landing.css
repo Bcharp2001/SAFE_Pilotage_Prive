@@ -305,11 +305,11 @@ h3 { font-size: clamp(16px, 2vw, 22px); font-weight: 600; }
 .section-subtitle--light { color: rgba(255,255,255,0.6); }
 
 /* --- PROOF BAR --- */
-.proof-bar { background: var(--navy-mid); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 32px 0; }
-.proof-bar__inner { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; align-items: center; }
-.proof-bar__item { display: flex; align-items: center; gap: 12px; }
-.proof-bar__num { font-family: var(--font-display); font-size: clamp(36px, 4vw, 52px); font-weight: 800; color: var(--gold); letter-spacing: -1px; }
-.proof-bar__label { font-size: 12px; color: rgba(255,255,255,0.5); max-width: 130px; line-height: 1.4; text-transform: uppercase; letter-spacing: 0.06em; }
+.proof-bar { background: var(--navy-mid); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 48px 0; }
+.proof-bar__inner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.proof-bar__item { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; }
+.proof-bar__num { font-family: var(--font-display); font-size: clamp(40px, 5vw, 64px); font-weight: 800; color: var(--gold); letter-spacing: -1px; line-height: 1; }
+.proof-bar__label { font-size: 13px; color: rgba(255,255,255,0.6); max-width: 220px; line-height: 1.5; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500; }
 
 /* --- FADE-IN ANIMATION --- */
 .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
@@ -355,9 +355,13 @@ h3 { font-size: clamp(16px, 2vw, 22px); font-weight: 600; }
   .solution-card__num { font-size: 28px; min-width: auto; }
   .cta-final { padding: 70px 0; }
   .cta-final__card { padding: 32px 24px; }
-  .proof-bar__inner { gap: 24px; }
+  .proof-bar__inner { grid-template-columns: repeat(2, 1fr); gap: 48px 24px; }
   .footer-minimal__inner { flex-direction: column; text-align: center; }
   .btn--cta-lg { font-size: 17px; padding: 18px 32px; }
+}
+
+@media (max-width: 480px) {
+  .proof-bar__inner { grid-template-columns: 1fr; gap: 40px; }
 }
 
 /* ================================================
