@@ -2569,7 +2569,112 @@
     </section>
     <!-- === /FAQ Section === -->
 
-    <footer class="footer">
+    
+    <!-- === Contact Section (Audit) === -->
+<section class="contact-form-section" id="diagnostic">
+    <div class="contact-form-section__glow"></div>
+    <div class="container">
+      <div style="text-align:center;max-width:680px;margin:0 auto 48px;position:relative;z-index:1;">
+        <div class="label label--gold" style="justify-content:center"><span class="dot"></span> Première étape</div>
+        <h2 style="font-family:var(--font-display);font-size:clamp(28px,3.5vw,44px);font-weight:800;color:var(--white);margin-bottom:16px;line-height:1.2;">Demandez votre Audit<br><span style="color:var(--gold)">Stratégique IA</span></h2>
+        <p style="font-size:17px;color:rgba(255,255,255,0.6);line-height:1.6;">Réponse garantie sous 24h ouvrées. Nous prenons un nombre limité de dossiers pour garantir l'excellence de nos accompagnements.</p>
+      </div>
+      <div class="contact-form-wrap fade-in">
+        <div class="form-progress"><div class="form-progress__fill" id="formProgress" style="width:33%"></div></div>
+        <div class="form-step active" id="step1">
+          <div class="form-step-badge">Étape 1 sur 3</div>
+          <div class="form-step-title">Votre entreprise</div>
+          <div class="form-step-sub">Pour personnaliser notre premier échange.</div>
+          <div class="form-field">
+            <label>Taille de votre entreprise *</label>
+            <div class="form-choice-grid">
+              <div class="form-choice" onclick="selectChoice(this,'size','1-5')" data-field="size"><div class="form-choice__icon">🧑‍💼</div><div class="form-choice__label">1 à 5 personnes</div><div class="form-choice__sub">Indépendant, artisan, TPE</div></div>
+              <div class="form-choice" onclick="selectChoice(this,'size','6-20')" data-field="size"><div class="form-choice__icon">👥</div><div class="form-choice__label">6 à 20 personnes</div><div class="form-choice__sub">PME en croissance</div></div>
+              <div class="form-choice" onclick="selectChoice(this,'size','21-50')" data-field="size"><div class="form-choice__icon">🏢</div><div class="form-choice__label">21 à 50 personnes</div><div class="form-choice__sub">PME structurée</div></div>
+              <div class="form-choice" onclick="selectChoice(this,'size','50+')" data-field="size"><div class="form-choice__icon">🏭</div><div class="form-choice__label">50+ personnes</div><div class="form-choice__sub">ETI / Groupe</div></div>
+            </div>
+          </div>
+          <div class="form-field"><label>Secteur d'activité *</label><select id="sector"><option value="">Sélectionnez...</option><option>Commerce / Distribution</option><option>Services aux entreprises</option><option>Professions libérales / Juridique</option><option>Industrie / Production</option><option>BTP / Artisanat</option><option>Santé / Médical</option><option>Immobilier</option><option>Communication / Marketing</option><option>Autre</option></select></div>
+          <div class="form-nav"><button class="btn-form-next" onclick="nextStep(1)">Étape suivante →</button></div>
+        </div>
+        <div class="form-step" id="step2">
+          <div class="form-step-badge">Étape 2 sur 3</div>
+          <div class="form-step-title">Votre situation</div>
+          <div class="form-step-sub">Quelles sont vos principales pertes de temps ?</div>
+          <div class="form-field">
+            <label>Votre principal défi *</label>
+            <div class="form-choice-grid">
+              <div class="form-choice" onclick="selectChoice(this,'challenge','temps')" data-field="challenge"><div class="form-choice__icon">⏱️</div><div class="form-choice__label">Trop de tâches répétitives</div><div class="form-choice__sub">Emails, devis, relances…</div></div>
+              <div class="form-choice" onclick="selectChoice(this,'challenge','memoire')" data-field="challenge"><div class="form-choice__icon">🧠</div><div class="form-choice__label">Mémoire d'entreprise</div><div class="form-choice__sub">Savoir-faire non capitalisé</div></div>
+              <div class="form-choice" onclick="selectChoice(this,'challenge','dependance')" data-field="challenge"><div class="form-choice__icon">🎯</div><div class="form-choice__label">Dépendance au dirigeant</div><div class="form-choice__sub">Décisions trop centralisées</div></div>
+              <div class="form-choice" onclick="selectChoice(this,'challenge','reactivite')" data-field="challenge"><div class="form-choice__icon">⚡</div><div class="form-choice__label">Manque de réactivité</div><div class="form-choice__sub">Délais trop longs</div></div>
+            </div>
+          </div>
+          <div class="form-field"><label>Avez-vous déjà utilisé un outil IA ?</label><select id="iaexp"><option value="">Sélectionnez...</option><option>Non, jamais</option><option>ChatGPT en usage occasionnel</option><option>Outils IA dans nos logiciels métiers</option><option>Usage avancé — agents, automatisations</option></select></div>
+          <div class="form-nav"><button class="btn-form-back" onclick="prevStep(2)">← Retour</button><button class="btn-form-next" onclick="nextStep(2)">Étape suivante →</button></div>
+        </div>
+        <div class="form-step" id="step3">
+          <div class="form-step-badge">Étape 3 sur 3</div>
+          <div class="form-step-title">Vos coordonnées</div>
+          <div class="form-step-sub">Réponse garantie sous 24h ouvrées.</div>
+          <div class="form-row"><div class="form-field"><label>Prénom</label><input type="text" id="firstname" placeholder="Jean" /></div><div class="form-field"><label>Nom</label><input type="text" id="lastname" placeholder="Dupont" /></div></div>
+          <div class="form-field"><label>Email professionnel *</label><input type="email" id="email" placeholder="jean.dupont@entreprise.fr" /></div>
+          <div class="form-error" id="formError">Une erreur est survenue. Veuillez nous contacter à <a href="mailto:contact@safe-pilotage-prive.fr" style="color:inherit;text-decoration:underline">contact@safe-pilotage-prive.fr</a></div>
+          <div class="form-nav"><button class="btn-form-back" onclick="prevStep(3)">← Retour</button><button class="btn-form-next" onclick="submitForm()" id="submitBtn">Envoyer ma demande →</button></div>
+          <div class="form-rgpd">Données traitées localement · Conformes RGPD · Jamais revendues</div>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <div class="form-success__icon">✅</div>
+          <div class="form-success__title">Demande envoyée !</div>
+          <div class="form-success__sub">Nous vous répondrons sous 24h ouvrées pour échanger sur vos enjeux et planifier votre Audit Stratégique IA.<br><br>Découvrez notre approche sur <a href="/" style="color:var(--gold)">safe-pilotage-prive.fr</a></div>
+        </div>
+      </div>
+      <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:32px;position:relative;z-index:1;">
+        <span class="trust-badge">🔒 IA souveraine</span><span class="trust-badge">✅ RGPD</span><span class="trust-badge">🇫🇷 Données en France</span><span class="trust-badge">⚡ Réponse sous 24h</span><span class="trust-badge">💼 Partenariat exclusif</span>
+      </div>
+    </div>
+  </section>
+
+    <script>
+      const formData = {size:"",challenge:""};
+      function selectChoice(el, field, value) {
+        document.querySelectorAll("[data-field=\""+field+"\"]").forEach(c => c.classList.remove("selected"));
+        el.classList.add("selected"); formData[field] = value;
+      }
+      function nextStep(current) {
+        if (current===1 && !formData.size) {alert("Veuillez sélectionner la taille de votre entreprise.");return;}
+        if (current===2 && !formData.challenge) {alert("Veuillez sélectionner votre principal défi.");return;}
+        document.getElementById("step"+current).classList.remove("active");
+        document.getElementById("step"+(current+1)).classList.add("active");
+        document.getElementById("formProgress").style.width=(((current+1)/3)*100)+"%";
+      }
+      function prevStep(current) {
+        document.getElementById("step"+current).classList.remove("active");
+        document.getElementById("step"+(current-1)).classList.add("active");
+        document.getElementById("formProgress").style.width=(((current-1)/3)*100)+"%";
+      }
+      async function submitForm() {
+        const email=document.getElementById("email").value.trim();
+        const firstname=document.getElementById("firstname").value.trim();
+        const lastname=document.getElementById("lastname").value.trim();
+        const errEl=document.getElementById("formError");
+        const btn=document.getElementById("submitBtn");
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {alert("Veuillez saisir une adresse email valide.");return;}
+        btn.textContent="Envoi en cours…";btn.disabled=true;errEl.style.display="none";
+        try {
+          const res=await fetch("/api/contact",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({firstname,lastname,email,size:formData.size,department:document.getElementById("sector")?.value || "",sourcePage:"site",confirmTemplate:"default"})});
+          if (res.ok) {
+            document.getElementById("step3").style.display="none";
+            document.getElementById("formProgress").style.width="100%";
+            document.getElementById("formSuccess").style.display="block";
+          } else {throw new Error();}
+        } catch {errEl.style.display="block";btn.textContent="Envoyer ma demande →";btn.disabled=false;}
+      }
+    </script>
+
+<!-- === /Contact Section (Audit) === -->
+
+<footer class="footer">
   <div class="container">
     <div class="footer__top">
       <div class="footer__brand">
