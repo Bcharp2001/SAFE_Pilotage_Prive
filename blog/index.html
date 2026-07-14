@@ -128,7 +128,7 @@
 <!-- NAV -->
 <nav class="navbar">
   <div class="navbar__inner">
-    <a href="../index.html" class="navbar__logo">
+    <a href="/" class="navbar__logo">
       <div class="navbar__logo-icon">S.F.</div>
       <div>
         <span class="navbar__logo-text">S.A.F.E.</span>
@@ -136,37 +136,37 @@
       </div>
     </a>
     <ul class="navbar__nav">
-      <li><a href="../index.html#architecture">Architecture</a></li>
-      <li><a href="../index.html#methode">Méthode RAG-Q</a></li>
+      <li><a href="/#architecture">Architecture</a></li>
+      <li><a href="/#methode">Méthode RAG-Q</a></li>
       <li class="navbar__dropdown">
         <a href="#">Solutions</a>
         <div class="navbar__dropdown-menu">
-          <a href="../solutions/index.html">🗂️ Toutes les solutions</a>
+          <a href="/solutions">🗂️ Toutes les solutions</a>
           <div class="dropdown-divider" style="height:1px;background:rgba(255,255,255,0.06);margin:6px 0;"></div>
-          <a href="../solutions/direction-strategie.html">👑 Direction / Stratégie</a>
-          <a href="../solutions/commercial.html">📈 Ventes / Commercial</a>
-          <a href="../solutions/rh-paie.html">👥 Ressources Humaines</a>
-          <a href="../solutions/finance-comptabilite.html">📊 Comptabilité / Finance</a>
-          <a href="../solutions/juridique-compliance.html">⚖️ Juridique / Compliance</a>
-          <a href="../solutions/operations.html">📋 Opérations / Savoir</a>
-          <a href="../solutions/achats-stock.html">📦 Achats / Stock</a>
+          <a href="/solutions/direction-strategie">👑 Direction / Stratégie</a>
+          <a href="/solutions/commercial">📈 Ventes / Commercial</a>
+          <a href="/solutions/rh-paie">👥 Ressources Humaines</a>
+          <a href="/solutions/finance-comptabilite">📊 Comptabilité / Finance</a>
+          <a href="/solutions/juridique-compliance">⚖️ Juridique / Compliance</a>
+          <a href="/solutions/operations">📋 Opérations / Savoir</a>
+          <a href="/solutions/achats-stock">📦 Achats / Stock</a>
           <div class="dropdown-divider" style="height:1px;background:rgba(255,255,255,0.06);margin:6px 0;"></div>
-          <a href="../garanties-souverainete.html">🛡️ Garanties souveraineté</a>
-          <a href="../architecture-ia-souveraine.html">⚙️ Architecture multi-LLM</a>
+          <a href="/garanties-souverainete">🛡️ Garanties souveraineté</a>
+          <a href="/architecture-ia-souveraine">⚙️ Architecture multi-LLM</a>
         </div>
       </li>
       <li class="navbar__dropdown">
         <a href="#">Professions</a>
         <div class="navbar__dropdown-menu">
-          <a href="../professions/index.html">🏢 Vue d'ensemble</a>
+          <a href="/professions">🏢 Vue d'ensemble</a>
           <div class="dropdown-divider"></div>
-          <a href="../professions/notaires.html">🏛️ Notaires</a>
-          <a href="../professions/avocats.html">⚖️ Avocats</a>
-          <a href="../professions/experts-comptables.html">📊 Experts-Comptables</a>
+          <a href="/professions/notaires">🏛️ Notaires</a>
+          <a href="/professions/avocats">⚖️ Avocats</a>
+          <a href="/professions/experts-comptables">📊 Experts-Comptables</a>
         </div>
       </li>
-      <li><a href="../a-propos.html">À propos</a></li>
-      <li><a href="index.html" class="active">Blog</a></li>
+      <li><a href="/a-propos">À propos</a></li>
+      <li><a href="/blog" class="active">Blog</a></li>
     </ul>
     <div class="navbar__actions">
       <a href="mailto:contact@safe-pilotage-prive.fr" class="btn btn--outline" style="padding:10px 16px;font-size:13px;">contact@safe-pilotage-prive.fr</a>
@@ -179,10 +179,10 @@
 </nav>
 
 <div class="navbar__mobile-menu" id="mobileMenu">
-  <a href="../index.html#architecture" onclick="closeMobileMenu()">Architecture</a>
-  <a href="../index.html#methode" onclick="closeMobileMenu()">Méthode RAG-Q™</a>
-  <a href="../a-propos.html" onclick="closeMobileMenu()">À propos</a>
-  <a href="index.html" onclick="closeMobileMenu()">Blog</a>
+  <a href="/#architecture" onclick="closeMobileMenu()">Architecture</a>
+  <a href="/#methode" onclick="closeMobileMenu()">Méthode RAG-Q™</a>
+  <a href="/a-propos" onclick="closeMobileMenu()">À propos</a>
+  <a href="/blog" onclick="closeMobileMenu()">Blog</a>
   <a href="#" class="btn btn--primary" onclick="closeMobileMenu(); openModal(event);">Demander une démo</a>
 </div>
 
@@ -191,7 +191,7 @@
   <div class="container">
     <div class="blog-hero__label">Blog</div>
     <h1>IA souveraine pour PME<br>— Guides & Ressources</h1>
-    <p>Analyses, définitions et cas pratiques sur l'intelligence artificielle souveraine. Par <a href="../a-propos.html" style="color:var(--gold);text-decoration:none;">Bertrand Charpilloz</a>, consultant IA.</p>
+    <p>Analyses, définitions et cas pratiques sur l'intelligence artificielle souveraine. Par <a href="/a-propos" style="color:var(--gold);text-decoration:none;">Bertrand Charpilloz</a>, consultant IA.</p>
   </div>
 </section>
 
@@ -199,6 +199,23 @@
 <section class="blog-grid-section">
   <div class="container">
     <div class="blog-grid">
+
+      <a href="/blog/chatgpt-vs-ia-privee-entreprise" class="article-card">
+        <img src="/blog/images/ia_privee_hero.png"
+             alt="Serveur d'Intelligence Artificielle Privée et Souveraine"
+             class="article-card__img" loading="lazy" decoding="async" />
+        <div class="article-card__body">
+          <div class="article-card__cat">Stratégie &amp; Sécurité</div>
+          <h2 class="article-card__title">ChatGPT vs IA Privée : Pourquoi les PME doivent basculer</h2>
+          <p class="article-card__desc">Découvrez pourquoi ChatGPT expose vos données et comment l'intégration d'une IA privée et souveraine permet d'automatiser vos workflows en toute sécurité.</p>
+          <div class="article-card__meta">
+            <span>Bertrand Charpilloz</span>
+            <span>·</span>
+            <span>Juillet 2026</span>
+          </div>
+          <span class="article-card__cta">Lire l'article →</span>
+        </div>
+      </a>
 
       <a href="/blog/cockpit-decisionnel-ia-pme-langage-naturel" class="article-card">
         <img src="https://res.cloudinary.com/dyhupsoe8/image/upload/f_auto,q_auto,w_800/cockpit-decisionnel-ia-pme-langage-naturel-safe-pilotage-prive.jpg"
@@ -320,32 +337,32 @@
       <div>
         <div class="footer__col-title">Solutions</div>
         <ul class="footer__links">
-          <li><a href="../solutions/direction-strategie.html">Direction</a></li>
-          <li><a href="../solutions/commercial.html">Commercial</a></li>
-          <li><a href="../solutions/rh-paie.html">RH &amp; Paie</a></li>
-          <li><a href="../solutions/finance-comptabilite.html">Finance</a></li>
-          <li><a href="../solutions/juridique-compliance.html">Juridique</a></li>
-          <li><a href="../solutions/operations.html">Opérations</a></li>
-          <li><a href="../solutions/achats-stock.html">Achats &amp; Stock</a>
+          <li><a href="/solutions/direction-strategie">Direction</a></li>
+          <li><a href="/solutions/commercial">Commercial</a></li>
+          <li><a href="/solutions/rh-paie">RH &amp; Paie</a></li>
+          <li><a href="/solutions/finance-comptabilite">Finance</a></li>
+          <li><a href="/solutions/juridique-compliance">Juridique</a></li>
+          <li><a href="/solutions/operations">Opérations</a></li>
+          <li><a href="/solutions/achats-stock">Achats &amp; Stock</a>
           <div class="dropdown-divider" style="height:1px;background:rgba(255,255,255,0.06);margin:6px 0;"></div>
-          <a href="../garanties-souverainete.html">🛡️ Garanties souveraineté</a></li>
+          <a href="/garanties-souverainete">🛡️ Garanties souveraineté</a></li>
         </ul>
       </div>
       <div>
         <div class="footer__col-title">Produit</div>
         <ul class="footer__links">
-          <li><a href="../index.html#architecture">Architecture</a></li>
-          <li><a href="../index.html#methode">Méthode RAG-Q™</a></li>
-          <li><a href="../index.html#benefices">Bénéfices</a></li>
-          <li><a href="../a-propos.html">À propos</a></li>
-          <li><a href="index.html">Blog</a></li>
+          <li><a href="/#architecture">Architecture</a></li>
+          <li><a href="/#methode">Méthode RAG-Q™</a></li>
+          <li><a href="/#benefices">Bénéfices</a></li>
+          <li><a href="/a-propos">À propos</a></li>
+          <li><a href="/blog">Blog</a></li>
         </ul>
       </div>
       <div>
         <div class="footer__col-title">Contact</div>
         <ul class="footer__links">
           <li><a href="mailto:contact@safe-pilotage-prive.fr">contact@safe-pilotage-prive.fr</a></li>
-          <li><a href="../mentions-legales.html">Mentions Légales</a></li>
+          <li><a href="/mentions-legales">Mentions Légales</a></li>
         </ul>
       </div>
     </div>
