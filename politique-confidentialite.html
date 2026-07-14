@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Politique de Confidentialité — S.A.F.E. Pilotage Privé</title>
-  <meta name="description" content="Politique de confidentialité de S.A.F.E. Pilotage Privé. Conformité RGPD, gestion des données et engagements de souveraineté." />
-  <link rel="canonical" href="https://www.safe-pilotage-prive.fr/politique-confidentialite" />
-  <meta name="robots" content="noindex, follow" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Politique de confidentialité | S.A.F.E. Pilotage Privé</title>
+  <meta name="description" content="Politique de confidentialité de S.A.F.E. Pilotage Privé : données collectées, finalités, sous-traitants (Brevo, Vercel), durées de conservation et exercice de vos droits RGPD.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.safe-pilotage-prive.fr/politique-confidentialite">
+  <meta name="theme-color" content="#0A1128">
+  <meta property="og:title" content="Politique de confidentialité | S.A.F.E. Pilotage Privé">
+  <meta property="og:description" content="Comment S.A.F.E. Pilotage Privé collecte, utilise et protège vos données personnelles — en cohérence avec ce que nous vendons : la souveraineté.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.safe-pilotage-prive.fr/politique-confidentialite">
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -99,8 +104,6 @@
     .btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-body); font-weight: 600; border-radius: var(--radius-md); cursor: pointer; text-decoration: none; transition: var(--transition); border: none; font-size: 14px; padding: 12px 24px; }
     .btn--outline { border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.8); background: transparent; }
     .btn--outline:hover { border-color: rgba(255,255,255,0.4); color: var(--white); background: rgba(255,255,255,0.04); text-decoration: none; }
-    .btn--primary { background: var(--blue); color: var(--white); }
-    .btn--primary:hover { background: var(--blue-light); }
     .navbar__hamburger { display: none; }
     @media (max-width: 900px) {
       .navbar__nav, .navbar__actions { display: none; }
@@ -127,10 +130,30 @@
     .legal-section:last-child { margin-bottom: 0; }
     .legal-section__title { color: var(--navy); border-bottom: 2px solid var(--gray-200); padding-bottom: 12px; margin-bottom: 28px; }
 
+    .legal-block {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      padding: 28px 32px;
+      margin-bottom: 16px;
+    }
+    .legal-block__label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 10px; }
+    .legal-block__title { font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 14px; }
+    .legal-block p, .legal-block address { font-size: 15px; color: var(--gray-600); line-height: 1.75; font-style: normal; }
+    .legal-block strong { color: var(--text-dark); }
+
+    .id-row { display: flex; justify-content: space-between; align-items: baseline; padding: 11px 0; border-bottom: 1px solid var(--gray-100); font-size: 14px; gap: 16px; }
+    .id-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .id-row__key { color: var(--gray-400); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; flex-shrink: 0; }
+    .id-row__val { color: var(--text-dark); font-weight: 600; text-align: right; }
+
+    .admin-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin-bottom: 0; }
+    .admin-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 20px 24px; }
+    .admin-card__name { font-weight: 700; color: var(--text-dark); font-size: 15px; margin-bottom: 5px; }
+    .admin-card__role { font-size: 13px; color: var(--gray-600); line-height: 1.5; }
+
     .legal-text { font-size: 15px; color: var(--gray-600); line-height: 1.8; }
     .legal-text + .legal-text { margin-top: 14px; }
-    .legal-text ul { margin-top: 14px; margin-left: 20px; margin-bottom: 14px; }
-    .legal-text li { font-size: 15px; color: var(--gray-600); line-height: 1.8; margin-bottom: 8px; }
 
     /* ===  FOOTER  === */
     .footer { background: var(--navy); color: rgba(255,255,255,0.6); padding: 64px 0 0; border-top: 1px solid rgba(255,255,255,0.06); }
@@ -149,195 +172,189 @@
       .container { padding: 0 20px; }
       .page-hero { padding: 48px 0 40px; }
       .legal-content { padding: 48px 0 64px; }
+      .admin-grid { grid-template-columns: 1fr; }
       .footer__top { grid-template-columns: 1fr 1fr; gap: 32px; padding-left: 20px; padding-right: 20px; }
       .footer__bottom { flex-direction: column; align-items: flex-start; padding-left: 20px; padding-right: 20px; }
     }
   </style>
+
+  <style>
+    /* Styles propres à cette page — s'appuient sur les variables du site,
+       avec fallbacks au cas où. */
+    .privacy-main { max-width: 860px; margin: 0 auto; padding: 64px 24px 96px; }
+    .privacy-main h1 { margin-bottom: 8px; }
+    .privacy-updated { color: var(--gray-400, #8a93a6); font-size: 14px; margin-bottom: 40px; }
+    .privacy-main h2 { margin-top: 48px; margin-bottom: 12px; }
+    .privacy-main h3 { margin-top: 28px; margin-bottom: 8px; }
+    .privacy-main p, .privacy-main li { font-size: 15px; line-height: 1.7; }
+    .privacy-main ul { padding-left: 22px; margin: 12px 0; }
+    .privacy-table { width: 100%; border-collapse: collapse; margin: 16px 0 8px; font-size: 14px; }
+    .privacy-table th, .privacy-table td { border: 1px solid rgba(138,147,166,0.35); padding: 10px 12px; text-align: left; vertical-align: top; }
+    .privacy-table th { background: rgba(138,147,166,0.12); }
+    .sov-box { border-left: 4px solid var(--blue, #3b6ef5); background: rgba(59,110,245,0.07); padding: 20px 24px; border-radius: 8px; margin: 32px 0; }
+    .sov-box h3 { margin-top: 0; }
+    .privacy-contact { border: 1px solid rgba(138,147,166,0.35); border-radius: 8px; padding: 20px 24px; margin-top: 40px; }
+  </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="navbar__inner">
-    <a href="/" class="navbar__logo">
-      <div class="navbar__logo-icon">S.F.</div>
-      <div>
-        <span class="navbar__logo-text">S.A.F.E.</span>
-        <span class="navbar__logo-sub">Pilotage Privé</span>
-      </div>
-    </a>
-    <ul class="navbar__nav">
-      <li class="navbar__dropdown">
-        <a href="#">1. Découvrir</a>
-        <div class="navbar__dropdown-menu">
-          <a href="/solutions">🗂️ Cas d'usages Métiers</a>
-          <a href="/professions">🏢 Professions Réglementées</a>
-          <a href="/alternatives-chatgpt-pme">⚖️ Comparatif Solutions</a>
-          <a href="/a-propos">👋 À propos de nous</a>
-        </div>
-      </li>
-      <li><a href="/projet-pilote-ia">2. Tester (Pilote)</a></li>
-      <li><a href="/cas-client-pme-batiment">3. Mesurer (ROI)</a></li>
-      <li><a href="/checklist-due-diligence">4. Auditer</a></li>
-      <li><a href="/alternatives-chatgpt-pme">Comparatif IA</a></li>
-      <li><a href="/blog">Blog</a></li>
+  
+
+  <main class="privacy-main">
+
+    <h1>Politique de confidentialité</h1>
+    <p class="privacy-updated">Dernière mise à jour : 14 juillet 2026</p>
+
+    <p>Chez S.A.F.E. Pilotage Privé, la protection des données n'est pas une case à cocher : c'est notre métier. Cette politique décrit, sans jargon inutile, quelles données personnelles nous collectons via le site <strong>www.safe-pilotage-prive.fr</strong>, pourquoi nous les collectons, avec qui nous travaillons pour les traiter, combien de temps nous les conservons et comment exercer vos droits.</p>
+
+    <h2>1. Responsable de traitement</h2>
+    <p>Le responsable de traitement des données collectées sur ce site est :</p>
+    <ul>
+      <li><strong>CCA — Conseil &amp; Conformité des Affaires</strong>, SARL immatriculée au RCS de Strasbourg sous le SIREN 434 963 245</li>
+      <li>Siège social : 4 place de la Piscine, 67350 Val-de-Moder, France</li>
+      <li>Représentée par : Bertrand Charpilloz, gérant</li>
+      <li>Contact pour toute question relative aux données personnelles : <a href="mailto:contact@safe-pilotage-prive.fr">contact@safe-pilotage-prive.fr</a></li>
     </ul>
-    <div class="navbar__actions">
-      <a href="mailto:contact@safe-pilotage-prive.fr" class="btn btn--outline" style="padding:10px 16px;font-size:13px;">contact@safe-pilotage-prive.fr</a>
-      <a href="https://meet.brevo.com/bertrand-charpilloz-1/rendez-vous-de-30-minutes" target="_blank" target="_blank" target="_blank" class="btn btn--primary">Visio gratuite (30 min)</a>
+
+    <h2>2. Données que nous collectons</h2>
+
+    <h3>2.1 Données que vous nous transmettez</h3>
+    <p>Lorsque vous remplissez notre formulaire de contact ou de demande de démonstration, nous collectons : <strong>prénom, nom, adresse email professionnelle, taille de votre entreprise et département concerné</strong> (RH, Finance, Juridique…). Nous enregistrons également l'URL de la page depuis laquelle vous nous avez contactés, afin de comprendre le contexte de votre demande et d'y répondre plus précisément.</p>
+    <p>Lorsque vous réservez une visioconférence via notre module de prise de rendez-vous (Brevo Meetings), nous collectons votre identité, votre adresse email et le créneau choisi. Le lien de visioconférence vous est envoyé par email.</p>
+
+    <h3>2.2 Données collectées automatiquement</h3>
+    <p>Comme tout site web, notre hébergeur génère des journaux techniques (adresse IP, type de navigateur, pages consultées, horodatage) nécessaires au fonctionnement et à la sécurité du site.</p>
+    <p>Sous réserve de votre consentement exprimé via notre bandeau cookies, nous utilisons un outil de mesure d'audience (Google Analytics 4) pour comprendre comment le site est utilisé : pages vues, provenance des visites, clics sur nos boutons de prise de rendez-vous. Aucun cookie de mesure d'audience n'est déposé sans votre accord.</p>
+    <p>Nous ne collectons aucune donnée dite « sensible » (santé, opinions, etc.) via ce site, et nous vous invitons à ne pas en transmettre via nos formulaires.</p>
+
+    <h2>3. Pourquoi nous traitons vos données</h2>
+    <table class="privacy-table">
+      <thead>
+        <tr>
+          <th>Finalité</th>
+          <th>Base légale (RGPD)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Répondre à vos demandes de contact et de démonstration, organiser les rendez-vous</td>
+          <td>Mesures précontractuelles prises à votre demande (art. 6.1.b)</td>
+        </tr>
+        <tr>
+          <td>Prospection commerciale B2B auprès de professionnels, en lien avec leur fonction</td>
+          <td>Intérêt légitime (art. 6.1.f) — avec droit d'opposition à tout moment</td>
+        </tr>
+        <tr>
+          <td>Mesure d'audience du site</td>
+          <td>Consentement (art. 6.1.a) — retirable à tout moment via le bandeau cookies</td>
+        </tr>
+        <tr>
+          <td>Sécurité du site et journaux techniques</td>
+          <td>Intérêt légitime (art. 6.1.f)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>4. Destinataires et sous-traitants</h2>
+    <p>Vos données ne sont ni vendues, ni louées, ni partagées à des tiers à des fins commerciales. Elles sont accessibles uniquement à Bertrand Charpilloz et traitées par les sous-traitants suivants, dans le strict cadre des finalités décrites ci-dessus :</p>
+    <table class="privacy-table">
+      <thead>
+        <tr>
+          <th>Sous-traitant</th>
+          <th>Rôle</th>
+          <th>Localisation des données</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Brevo</strong> (Sendinblue SAS, société française)</td>
+          <td>Gestion des contacts (CRM), prise de rendez-vous, envoi d'emails</td>
+          <td>Données hébergées dans l'Union européenne</td>
+        </tr>
+        <tr>
+          <td><strong>Vercel Inc.</strong> (société américaine)</td>
+          <td>Hébergement du site vitrine et de ses fonctions techniques</td>
+          <td>Transferts hors UE encadrés par des garanties appropriées (clauses contractuelles types) ; les données de formulaire ne font que transiter, de manière chiffrée, vers Brevo</td>
+        </tr>
+        <tr>
+          <td><strong>Google</strong> (Google Analytics 4)</td>
+          <td>Mesure d'audience, uniquement après consentement</td>
+          <td>Transferts hors UE encadrés par des garanties appropriées</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="sov-box">
+      <h3>🛡️ Site vitrine ≠ infrastructures de nos clients</h3>
+      <p>Une précision importante, car elle est au cœur de notre métier : ce site est une vitrine marketing, hébergée sur une plateforme cloud standard (Vercel) sur laquelle seules transitent, de façon chiffrée, les données des formulaires de contact.</p>
+      <p><strong>Les infrastructures d'intelligence artificielle que nous déployons pour nos clients n'ont rien à voir avec ce site.</strong> Elles sont installées on-premise (sur les serveurs du client) ou sur des clouds français souverains (OVHcloud, 3DS OUTSCALE SecNumCloud). Aucune donnée client, aucun document d'entreprise, aucune base de connaissances ne transite par ce site ni par ses prestataires. C'est précisément la garantie que nous vendons — elle commence par la transparence sur nos propres outils.</p>
     </div>
-    <button class="navbar__hamburger" id="hamburgerBtn" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-<div class="navbar__mobile-menu" id="mobileMenu">
-  <a href="/solutions">1. Découvrir les Cas d'usages</a>
-  <a href="/professions">1b. Découvrir les Professions</a>
-  <a href="/alternatives-chatgpt-pme">1c. Comparatif Solutions</a>
-  <a href="/projet-pilote-ia">2. Tester (Pilote 30 jours)</a>
-  <a href="/cas-client-pme-batiment">3. Mesurer (ROI)</a>
-  <a href="/checklist-due-diligence">4. Auditer (Due Diligence)</a>
-  <div class="dropdown-divider" style="height:1px;background:rgba(255,255,255,0.06);margin:10px 0;"></div>
-  <a href="/a-propos">À propos</a>
-  <a href="/alternatives-chatgpt-pme" onclick="document.getElementById(\'mobileMenu\').classList.remove(\'open\')">Comparatif IA</a>
-  <a href="/blog">Blog</a>
-  <a href="https://meet.brevo.com/bertrand-charpilloz-1/rendez-vous-de-30-minutes" target="_blank" target="_blank" target="_blank" class="btn btn--primary" style="margin-top:16px;">Visio gratuite (30 min)</a>
-</div>
 
-<!-- HERO -->
-<section class="page-hero">
-  <div class="container">
-    <div class="page-hero__label">Protection des données</div>
-    <h1>Politique de Confidentialité</h1>
-    <p class="page-hero__sub">S.A.F.E. Pilotage Privé s'engage à protéger vos données stratégiques. Découvrez nos engagements en matière de conformité RGPD, AI Act et souveraineté numérique.</p>
-  </div>
-</section>
+    <h2>5. Durées de conservation</h2>
+    <ul>
+      <li><strong>Prospects</strong> (formulaires, rendez-vous) : 3 ans à compter du dernier contact de votre part, conformément aux recommandations de la CNIL. Au-delà, vos données sont supprimées ou anonymisées.</li>
+      <li><strong>Clients</strong> : pendant la durée de la relation contractuelle, puis conformément aux obligations légales (notamment 10 ans pour les pièces comptables).</li>
+      <li><strong>Preuve du consentement cookies</strong> : 6 mois.</li>
+      <li><strong>Cookies de mesure d'audience</strong> : 13 mois maximum.</li>
+      <li><strong>Journaux techniques</strong> : 12 mois maximum.</li>
+    </ul>
 
-<!-- CONTENT -->
-<main class="legal-content">
-  <div class="container">
+    <h2>6. Cookies</h2>
+    <p>Lors de votre première visite, un bandeau vous permet d'accepter ou de refuser les cookies non essentiels. Deux catégories sont utilisées :</p>
+    <ul>
+      <li><strong>Cookies strictement nécessaires</strong> au fonctionnement du site : exemptés de consentement.</li>
+      <li><strong>Cookies de mesure d'audience</strong> (Google Analytics 4) : déposés uniquement si vous les acceptez. Vous pouvez retirer votre consentement à tout moment via le lien « Gérer les cookies » présent en pied de page.</li>
+    </ul>
+    <p>Le refus des cookies de mesure d'audience n'a aucun impact sur votre navigation.</p>
 
-    <section class="legal-section">
-      <h2 class="legal-section__title">1. Philosophie et engagements fondamentaux</h2>
-      <div class="legal-text">
-        <p>L'essence même de <strong>S.A.F.E. Pilotage Privé</strong> (édité par CCA) repose sur le contrôle absolu de vos données. Contrairement aux solutions d'intelligence artificielle hébergées sur des clouds publics, notre architecture garantit que :</p>
-        <ul>
-          <li><strong>Vos données ne servent jamais à entraîner des modèles externes.</strong></li>
-          <li>Vos documents, rapports et indicateurs restent confinés à l'intérieur de votre périmètre de sécurité.</li>
-          <li>Tous les traitements d'inférence (génération de texte, analyse) sont réalisés dans un environnement isolé (On-Premise ou Cloud Souverain Français/Européen dédié).</li>
-        </ul>
-      </div>
-    </section>
+    <h2>7. Vos droits</h2>
+    <p>Conformément au RGPD et à la loi Informatique et Libertés, vous disposez des droits suivants sur vos données : <strong>accès, rectification, effacement, limitation du traitement, opposition</strong> (notamment à la prospection), <strong>portabilité</strong>, ainsi que le droit de définir des directives relatives au sort de vos données après votre décès.</p>
+    <p>Pour exercer ces droits, écrivez-nous à <a href="mailto:contact@safe-pilotage-prive.fr">contact@safe-pilotage-prive.fr</a>. Nous vous répondrons dans un délai d'un mois. Une pièce justifiant de votre identité pourra vous être demandée en cas de doute raisonnable.</p>
+    <p>Si vous estimez, après nous avoir contactés, que vos droits ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL (Commission Nationale de l'Informatique et des Libertés) : <a href="https://www.cnil.fr/fr/plaintes" rel="noopener" target="_blank">www.cnil.fr/fr/plaintes</a>.</p>
 
-    <section class="legal-section">
-      <h2 class="legal-section__title">2. Données collectées sur le site web et Hébergement</h2>
-      <div class="legal-text">
-        <p>Lors de votre navigation sur <strong>www.safe-pilotage-prive.fr</strong>, nous collectons de manière stricte et limitée uniquement les données que vous nous soumettez volontairement (ex. : formulaire de contact, demande de démonstration ou de Pilote).</p>
-        <ul>
-          <li><strong>Données collectées :</strong> Nom, Prénom, Fonction, Entreprise, Email, et toute information que vous choisissez d'inclure dans vos messages.</li>
-          <li><strong>Finalité :</strong> Répondre à vos demandes commerciales, planifier un audit ou un déploiement, et vous envoyer des informations relatives à nos solutions.</li>
-          <li><strong>Durée de conservation :</strong> Les données prospectives sont conservées 3 ans à compter du dernier contact émanant de votre part.</li>
-        </ul>
-        <div style="margin-top:24px; padding:16px; background:rgba(37,99,235,0.1); border-left:4px solid var(--gold); border-radius:4px;">
-          <p style="margin:0; font-size:14px; color:var(--white);"><strong>Séparation stricte (Site Vitrine vs Infrastructure Client) :</strong><br>Le présent site web à vocation commerciale est hébergé de manière sécurisée par Vercel Inc. En revanche, <strong>les données collectées et les infrastructures opérationnelles de nos clients (modèles IA, Vault Obsidian) sont intégralement hébergées en France/Europe (OVHcloud, Scaleway) ou directement sur site (on-premise)</strong>. Aucune donnée métier ou document confidentiel n'est traité par l'infrastructure du site vitrine.</p>
-        </div>
-      </div>
-    </section>
+    <h2>8. Sécurité</h2>
+    <p>Nous appliquons le principe de minimisation (nous ne collectons que ce qui est nécessaire) et des mesures techniques et organisationnelles adaptées : chiffrement des échanges (TLS), accès restreint aux données, mots de passe robustes et authentification renforcée sur nos outils. Aucun système n'étant infaillible, nous nous engageons, en cas de violation de données susceptible d'engendrer un risque pour vos droits, à en notifier la CNIL et, le cas échéant, les personnes concernées, dans les conditions prévues par le RGPD.</p>
 
-    <section class="legal-section">
-      <h2 class="legal-section__title">3. Données traitées par la solution S.A.F.E. (Clients)</h2>
-      <div class="legal-text">
-        <p>Dans le cadre de l'exécution de nos contrats de prestation de services et de déploiement de l'environnement S.A.F.E., CCA agit en tant que <strong>Sous-traitant</strong> au sens du RGPD.</p>
-        <ul>
-          <li><strong>Isolation stricte :</strong> Les données ingérées par le <em>SAFE Brain™</em> sont chiffrées (au repos et en transit) et cloisonnées par client.</li>
-          <li><strong>Pas de transfert hors UE :</strong> Aucun transfert de données vers les États-Unis ou tout autre pays hors Union Européenne. Les modèles open-weights sont téléchargés et tournent localement.</li>
-          <li><strong>Dossier de Conformité :</strong> À chaque déploiement, nous fournissons un Dossier d'Architecture et de Sécurité permettant à votre DPO (Délégué à la Protection des Données) d'inscrire le traitement dans votre registre RGPD et de s'aligner avec le futur cadre de l'AI Act européen.</li>
-        </ul>
-      </div>
-    </section>
+    <h2>9. Évolution de cette politique</h2>
+    <p>Cette politique peut être mise à jour pour refléter l'évolution de nos outils ou de la réglementation. La date de dernière mise à jour figure en haut de page. En cas de modification substantielle, nous l'indiquerons de manière visible sur le site.</p>
 
-    <section class="legal-section">
-      <h2 class="legal-section__title">4. Vos droits (RGPD)</h2>
-      <div class="legal-text">
-        <p>Conformément à la réglementation européenne (RGPD), vous disposez des droits suivants concernant vos données à caractère personnel :</p>
-        <ul>
-          <li>Droit d'accès et de rectification.</li>
-          <li>Droit à l'effacement (droit à l'oubli).</li>
-          <li>Droit à la limitation du traitement et à la portabilité.</li>
-          <li>Droit d'opposition, notamment au profilage.</li>
-        </ul>
-        <p>Pour exercer ces droits, veuillez contacter notre Délégué à la Protection des Données (DPO) par email : <a href="mailto:contact@safe-pilotage-prive.fr">contact@safe-pilotage-prive.fr</a>, ou par courrier à l'adresse du siège social : CCA, 4 PL DE LA PISCINE, 67350 VAL-DE-MODER.</p>
-        <p>Vous avez également le droit d'introduire une réclamation auprès de la CNIL (www.cnil.fr).</p>
-      </div>
-    </section>
+    <div class="privacy-contact">
+      <p><strong>Une question sur vos données ?</strong> Écrivez directement à Bertrand Charpilloz : <a href="mailto:contact@safe-pilotage-prive.fr">contact@safe-pilotage-prive.fr</a> — réponse sous quelques jours ouvrés, sans formulaire labyrinthique.</p>
+    </div>
 
-    <section class="legal-section">
-      <h2 class="legal-section__title">5. Sécurité et sous-traitants</h2>
-      <div class="legal-text">
-        <p>Nous mettons en œuvre des mesures techniques et organisationnelles conformes aux standards de l'industrie (chiffrement AES-256, contrôles d'accès stricts type RBAC) pour protéger vos données contre toute destruction, perte, altération ou accès non autorisé.</p>
-        <p>La liste exacte de nos sous-traitants (hébergeurs certifiés SecNumCloud ou HDS pour les offres Cloud Souverain) est communiquée et validée lors de la phase de Due Diligence préalable au déploiement du Pilote.</p>
-      </div>
-    </section>
+  </main>
 
-  </div>
-</main>
-
-<!-- FOOTER -->
+  <!-- FOOTER -->
 <footer class="footer">
-  <div style="max-width:1200px;margin:0 auto;">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <a href="/" class="navbar__logo" style="text-decoration:none;">
-          <div class="navbar__logo-icon">S.F.</div>
-          <div>
-            <span class="navbar__logo-text">S.A.F.E.</span>
-            <span class="navbar__logo-sub">Pilotage Privé</span>
-          </div>
-        </a>
-        <p>Cockpit d'intelligence opérationnelle pour structures exigeantes. Souveraineté totale, performance maximale.</p>
-      </div>
-      <div>
-        <div class="footer__col-title">Solution</div>
-        <ul class="footer__links">
-          <li><a href="/architecture-ia-souveraine">Architecture</a></li>
-          <li><a href="/cas-client-pme-batiment">Bénéfices Métiers & ROI</a></li>
-          <li><a href="/projet-pilote-ia">Visio gratuite (30 min)</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer__col-title">Professions</div>
-        <ul class="footer__links">
-          <li><a href="/professions/notaires">Notaires</a></li>
-          <li><a href="/professions/avocats">Avocats</a></li>
-          <li><a href="/professions/experts-comptables">Experts-Comptables</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer__col-title">Contact</div>
-        <ul class="footer__links">
-          <li><a href="mailto:contact@safe-pilotage-prive.fr">contact@safe-pilotage-prive.fr</a></li>
-          <li><a href="/mentions-legales">Mentions Légales</a></li>
-          <li><a href="/politique-confidentialite" style="color:var(--white);">Confidentialité</a></li>
-          <li><a href="/a-propos">À propos</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <div class="footer__copy">© 2026 S.A.F.E. Pilotage Privé — CCA · SARL · SIREN 434 963 245</div>
-      <div class="footer__badges">
-        <div class="footer__badge">Conforme RGPD</div>
-        <div class="footer__badge">Ingénierie Française</div>
-        <div class="footer__badge">Souveraineté Garantie</div>
-      </div>
+  <div class="container">
+    <div class="footer__inner">
+      <span class="footer__copy">© 2026 S.A.F.E. Pilotage Privé — Bertrand Charpilloz</span>
+      <nav class="footer__links">
+        <a href="/">Accueil</a>
+        <a href="/garanties-souverainete">Garanties</a>
+        <a href="/a-propos">À propos</a>
+        <a href="/mentions-legales">Mentions légales</a>
+        <a href="/politique-confidentialite">Politique de confidentialité</a>
+      </nav>
     </div>
   </div>
 </footer>
 
 <script>
-  document.getElementById('hamburgerBtn').addEventListener('click', function() {
-    this.classList.toggle('active');
+  document.querySelectorAll('.navbar__dropdown > a').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      var parent = el.closest('.navbar__dropdown');
+      document.querySelectorAll('.navbar__dropdown').forEach(function(d) { if (d !== parent) d.classList.remove('open'); });
+      parent.classList.toggle('open');
+    });
+  });
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.navbar__dropdown')) {
+      document.querySelectorAll('.navbar__dropdown').forEach(function(d) { d.classList.remove('open'); });
+    }
   });
 </script>
+
 </body>
 </html>
