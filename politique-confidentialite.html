@@ -104,6 +104,8 @@
     .btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-body); font-weight: 600; border-radius: var(--radius-md); cursor: pointer; text-decoration: none; transition: var(--transition); border: none; font-size: 14px; padding: 12px 24px; }
     .btn--outline { border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.8); background: transparent; }
     .btn--outline:hover { border-color: rgba(255,255,255,0.4); color: var(--white); background: rgba(255,255,255,0.04); text-decoration: none; }
+    .btn--primary { background: var(--blue); color: var(--white); box-shadow: 0 4px 20px rgba(37,99,235,0.4); }
+    .btn--primary:hover { background: var(--blue-light); transform: translateY(-2px); }
     .navbar__hamburger { display: none; }
     @media (max-width: 900px) {
       .navbar__nav, .navbar__actions { display: none; }
@@ -197,6 +199,69 @@
   </style>
 </head>
 <body>
+
+<!-- NAV -->
+<nav class="navbar">
+  <div class="navbar__inner">
+    <a href="/" class="navbar__logo">
+      <div class="navbar__logo-icon">S.F.</div>
+      <div>
+        <span class="navbar__logo-text">S.A.F.E.</span>
+        <span class="navbar__logo-sub">Pilotage Privé</span>
+      </div>
+    </a>
+    <ul class="navbar__nav">
+      <li><a href="/#architecture">Architecture</a></li>
+      <li class="navbar__dropdown">
+        <a href="#">Solutions</a>
+        <div class="navbar__dropdown-menu">
+          <a href="/solutions">🗂️ Toutes les solutions</a>
+          <div class="dropdown-divider" style="height:1px;background:rgba(255,255,255,0.06);margin:6px 0;"></div>
+          <a href="/solutions/direction-strategie">👑 Direction / Stratégie</a>
+          <a href="/solutions/commercial">📈 Ventes / Commercial</a>
+          <a href="/solutions/rh-paie">👥 Ressources Humaines</a>
+          <a href="/solutions/finance-comptabilite">📊 Comptabilité / Finance</a>
+          <a href="/solutions/juridique-compliance">⚖️ Juridique / Compliance</a>
+          <a href="/solutions/operations">📋 Opérations / Savoir</a>
+          <a href="/solutions/achats-stock">📦 Achats / Stock</a>
+          <div class="dropdown-divider" style="height:1px;background:rgba(255,255,255,0.06);margin:6px 0;"></div>
+          <a href="/garanties-souverainete">🛡️ Garanties souveraineté</a>
+          <a href="/architecture-ia-souveraine">⚙️ Architecture multi-LLM</a>
+        </div>
+      </li>
+      <li class="navbar__dropdown">
+        <a href="#">Professions</a>
+        <div class="navbar__dropdown-menu">
+          <a href="/professions">🏢 Vue d'ensemble</a>
+          <div class="dropdown-divider"></div>
+          <a href="/professions/notaires">🏛️ Notaires</a>
+          <a href="/professions/avocats">⚖️ Avocats</a>
+          <a href="/professions/experts-comptables">📊 Experts-Comptables</a>
+        </div>
+      </li>
+      <li><a href="/a-propos">À propos</a></li>
+      <li><a href="/alternatives-chatgpt-pme">Comparatif IA</a></li>
+      <li><a href="/blog">Blog</a></li>
+    </ul>
+    <div class="navbar__actions">
+      <a href="/garanties-souverainete" class="btn btn--outline" style="padding:10px 16px;font-size:13px;">Garanties</a>
+      <a href="https://meet.brevo.com/bertrand-charpilloz-1/rendez-vous-de-30-minutes?utm_source=blog&amp;utm_medium=cta&amp;utm_campaign=visio30&amp;utm_content=politique-confidentialite" target="_blank" class="btn btn--primary" style="padding:10px 18px;font-size:13px;">Visio gratuite (30 min)</a>
+    </div>
+    <button class="navbar__hamburger" id="hamburgerBtn" onclick="document.getElementById('mobileMenu').classList.toggle('open');this.classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="navbar__mobile-menu" id="mobileMenu">
+  <a href="/" onclick="document.getElementById('mobileMenu').classList.remove('open')">Accueil</a>
+  <a href="/solutions" onclick="document.getElementById('mobileMenu').classList.remove('open')">Solutions</a>
+  <a href="/garanties-souverainete" onclick="document.getElementById('mobileMenu').classList.remove('open')">🛡️ Garanties souveraineté</a>
+  <a href="/professions" onclick="document.getElementById('mobileMenu').classList.remove('open')">Professions</a>
+  <a href="/alternatives-chatgpt-pme" onclick="document.getElementById(\'mobileMenu\').classList.remove(\'open\')">Comparatif IA</a>
+  <a href="/blog" onclick="document.getElementById('mobileMenu').classList.remove('open')">Blog</a>
+  <a href="/a-propos" onclick="document.getElementById('mobileMenu').classList.remove('open')">À propos</a>
+  <a href="https://meet.brevo.com/bertrand-charpilloz-1/rendez-vous-de-30-minutes?utm_source=blog&amp;utm_medium=cta&amp;utm_campaign=visio30&amp;utm_content=politique-confidentialite" target="_blank" class="btn btn--primary" style="padding:10px 18px;font-size:13px;">Visio gratuite (30 min)</a>
+</div>
 
   
 
