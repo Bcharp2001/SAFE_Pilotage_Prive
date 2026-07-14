@@ -323,39 +323,57 @@
     </div>
   </section>
 
-  <section class="section section--light" id="open-source" style="background: var(--off-white); border-top: 1px solid rgba(0,0,0,0.05); padding: 80px 0;">
-    <div class="container">
-      <div class="grid-2" style="align-items: center; gap: 64px;">
+  <style>
+    .open-source-split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    @media (max-width: 900px) { .open-source-split { grid-template-columns: 1fr; gap: 40px; } }
+    .os-card { background: var(--white); padding: 40px; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.05); position: relative; z-index: 2; }
+    .os-card-row { display: flex; align-items: center; justify-content: space-between; padding-bottom: 24px; margin-bottom: 24px; border-bottom: 1px solid rgba(0,0,0,0.06); }
+    .os-card-row:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+  </style>
+  <section class="section section--light" id="open-source" style="background: var(--off-white); border-top: 1px solid rgba(0,0,0,0.05); padding: 80px 0; position: relative; overflow: hidden;">
+    <div class="glow-radial glow-radial--gold" style="opacity:0.3; width:800px; height:800px; top:-400px; right:-200px; z-index:0;"></div>
+    <div class="container" style="position: relative; z-index: 1;">
+      <div class="open-source-split">
         <div class="fade-in">
           <div class="label label--blue"><span class="dot"></span> Modèle Économique</div>
-          <h2 class="section-title" style="color:var(--navy); font-size:32px;">L'Open Source : <br><span class="text-gold">La fin de la rente logicielle</span></h2>
-          <p class="section-subtitle" style="color:var(--navy-mid); font-size:18px;">
+          <h2 class="section-title" style="color:var(--navy); font-size:40px; line-height:1.2; margin-bottom:16px;">L'Open Source : <br><span class="text-gold">La fin de la rente logicielle</span></h2>
+          <p class="section-subtitle" style="color:var(--navy-mid); font-size:18px; margin-bottom: 32px;">
             Les solutions comme ChatGPT ou Copilot imposent un modèle d'abonnement (OPEX) qui explose avec la taille de vos équipes.
           </p>
-          <ul class="benefit-list" style="margin-top: 24px;">
-            <li style="color:var(--navy-mid); margin-bottom: 16px;"><strong>Zéro abonnement par utilisateur :</strong> En installant des moteurs d'IA comme <strong style="color:var(--navy);">Ollama</strong> sur votre propre serveur, le coût logiciel marginal tombe à zéro.</li>
-            <li style="color:var(--navy-mid); margin-bottom: 16px;"><strong>Des modèles de classe mondiale :</strong> Utilisez gratuitement les modèles Open Source les plus puissants du marché (Llama 3, Mistral) strictement adaptés à vos besoins.</li>
-            <li style="color:var(--navy-mid);"><strong>Un investissement maîtrisé :</strong> Vous investissez une seule fois dans l'infrastructure matérielle (CAPEX) et devenez définitivement propriétaire de votre "usine" à produire de la valeur.</li>
+          <ul class="benefit-list" style="margin-top: 24px; list-style:none; padding:0;">
+            <li style="color:var(--navy-mid); margin-bottom: 20px; display:flex; gap:12px; align-items:flex-start;">
+              <span style="color:var(--gold); font-size:20px; line-height:1.2;">✦</span>
+              <div><strong>Zéro abonnement par utilisateur :</strong> En installant des moteurs d'IA comme <strong style="color:var(--navy);">Ollama</strong> sur votre propre serveur, le coût logiciel marginal tombe à zéro.</div>
+            </li>
+            <li style="color:var(--navy-mid); margin-bottom: 20px; display:flex; gap:12px; align-items:flex-start;">
+              <span style="color:var(--gold); font-size:20px; line-height:1.2;">✦</span>
+              <div><strong>Modèles de classe mondiale :</strong> Utilisez gratuitement les modèles Open Source les plus puissants du marché (Llama 3, Mistral) strictement adaptés à vos besoins.</div>
+            </li>
+            <li style="color:var(--navy-mid); display:flex; gap:12px; align-items:flex-start;">
+              <span style="color:var(--gold); font-size:20px; line-height:1.2;">✦</span>
+              <div><strong>Investissement maîtrisé :</strong> Vous investissez une seule fois dans l'infrastructure matérielle (CAPEX) et devenez définitivement propriétaire de votre outil de production intellectuelle.</div>
+            </li>
           </ul>
         </div>
-        <div class="fade-in" style="position:relative;">
-          <div style="background: var(--white); padding: 40px; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.05);">
-            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid rgba(0,0,0,0.05);">
+        
+        <div class="fade-in">
+          <div class="os-card">
+            <div class="os-card-row">
               <div>
-                <div style="font-family:var(--font-mono); font-size:12px; color:var(--navy-mid); text-transform:uppercase;">IA Publique Cloud (SaaS)</div>
-                <div style="font-size:24px; font-weight:700; color:var(--navy);">~30€ <span style="font-size:14px; color:var(--navy-mid); font-weight:400;">/mois /salarié</span></div>
+                <div style="font-family:var(--font-mono); font-size:11px; color:var(--navy-mid); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:4px;">IA Publique Cloud (SaaS)</div>
+                <div style="font-size:28px; font-weight:800; color:var(--navy);">~30€ <span style="font-size:15px; color:var(--navy-mid); font-weight:500;">/mois /salarié</span></div>
               </div>
-              <div style="font-size:32px;">☁️</div>
+              <div style="font-size:40px; opacity:0.8;">☁️</div>
             </div>
-            <div style="display:flex; align-items:center; justify-content:space-between;">
+            
+            <div class="os-card-row">
               <div>
-                <div style="font-family:var(--font-mono); font-size:12px; color:var(--gold); text-transform:uppercase; font-weight:700;">Serveur IA Privé (Ollama)</div>
-                <div style="font-size:24px; font-weight:700; color:var(--navy);">0€ <span style="font-size:14px; color:var(--navy-mid); font-weight:400;">d'abonnement</span></div>
+                <div style="font-family:var(--font-mono); font-size:11px; color:var(--gold); text-transform:uppercase; letter-spacing:0.05em; font-weight:700; margin-bottom:4px;">Serveur IA Privé (Ollama)</div>
+                <div style="font-size:28px; font-weight:800; color:var(--navy);">0€ <span style="font-size:15px; color:var(--navy-mid); font-weight:500;">d'abonnement</span></div>
               </div>
-              <div style="font-size:32px;">🛡️</div>
+              <div style="font-size:40px; opacity:0.9;">🛡️</div>
             </div>
           </div>
-          <div class="glow-radial glow-radial--gold" style="opacity:0.2; width:150%; height:150%; top:-25%; left:-25%; z-index:-1;"></div>
         </div>
       </div>
     </div>
