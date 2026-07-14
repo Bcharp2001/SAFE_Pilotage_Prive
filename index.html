@@ -2570,7 +2570,46 @@
     <!-- === /FAQ Section === -->
 
     
-    <!-- === Contact Section (Audit) === -->
+    <style>
+.contact-form-section{background:linear-gradient(135deg,var(--navy-mid) 0%,#0F1E3D 50%,#162347 100%);padding:100px 0;position:relative;overflow:hidden;}
+    .contact-form-section__glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:500px;background:radial-gradient(ellipse,rgba(245,158,11,0.1) 0%,rgba(37,99,235,0.08) 40%,transparent 70%);border-radius:50%;}
+    .contact-form-wrap{position:relative;z-index:1;max-width:640px;margin:0 auto;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius-xl);padding:48px 40px;}
+    @media(max-width:640px){.contact-form-wrap{padding:32px 24px;}}
+    .form-step{display:none;}.form-step.active{display:block;}
+    .form-step-badge{font-family:var(--font-mono);font-size:10px;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:10px;}
+    .form-step-title{font-family:var(--font-display);font-size:26px;font-weight:800;color:var(--white);margin-bottom:8px;}
+    .form-step-sub{font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:28px;}
+    .form-progress{height:3px;background:rgba(255,255,255,0.08);border-radius:2px;margin-bottom:36px;}
+    .form-progress__fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--gold));border-radius:2px;transition:width 0.4s ease;}
+    .form-field{margin-bottom:20px;}
+    .form-field label{display:block;font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);margin-bottom:8px;}
+    .form-field input,.form-field select{width:100%;padding:14px 16px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:var(--radius-md);color:var(--white);font-size:15px;font-family:var(--font-body);transition:border-color 0.2s;outline:none;}
+    .form-field input::placeholder{color:rgba(255,255,255,0.3);}
+    .form-field input:focus,.form-field select:focus{border-color:var(--blue-light);background:rgba(37,99,235,0.08);}
+    .form-field select option{background:var(--navy);color:var(--white);}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    @media(max-width:480px){.form-row{grid-template-columns:1fr;}}
+    .form-choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    @media(max-width:480px){.form-choice-grid{grid-template-columns:1fr;}}
+    .form-choice{border:1.5px solid rgba(255,255,255,0.12);border-radius:var(--radius-md);padding:14px 16px;cursor:pointer;transition:var(--transition);background:rgba(255,255,255,0.03);}
+    .form-choice:hover{border-color:rgba(37,99,235,0.5);background:rgba(37,99,235,0.08);}
+    .form-choice.selected{border-color:var(--blue-light);background:rgba(37,99,235,0.12);}
+    .form-choice__icon{font-size:20px;margin-bottom:5px;}
+    .form-choice__label{font-size:13px;font-weight:600;color:rgba(255,255,255,0.8);}
+    .form-choice__sub{font-size:11px;color:rgba(255,255,255,0.4);}
+    .form-nav{display:flex;gap:12px;margin-top:28px;}
+    .btn-form-next{flex:1;padding:16px 24px;background:var(--cta-color);color:var(--navy);border:none;border-radius:var(--radius-md);font-size:16px;font-weight:700;cursor:pointer;transition:var(--transition);font-family:var(--font-body);}
+    .btn-form-next:hover{background:var(--cta-hover);transform:translateY(-2px);}
+    .btn-form-back{padding:16px 20px;background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius-md);font-size:14px;font-weight:600;cursor:pointer;transition:var(--transition);font-family:var(--font-body);}
+    .btn-form-back:hover{background:rgba(255,255,255,0.1);color:var(--white);}
+    .form-error{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);color:#F87171;border-radius:var(--radius-md);padding:14px 16px;font-size:14px;display:none;margin-top:12px;}
+    .form-success{display:none;text-align:center;}
+    .form-success__icon{font-size:56px;margin-bottom:16px;}
+    .form-success__title{font-family:var(--font-display);font-size:26px;font-weight:800;color:var(--white);margin-bottom:10px;}
+    .form-success__sub{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.6;}
+    .form-rgpd{font-size:11px;color:rgba(255,255,255,0.3);text-align:center;margin-top:20px;}
+  </style>
+<!-- === Contact Section (Audit) === -->
 <section class="contact-form-section" id="diagnostic">
     <div class="contact-form-section__glow"></div>
     <div class="container">
