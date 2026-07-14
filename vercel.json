@@ -118,6 +118,11 @@
       "permanent": true
     },
     {
+      "source": "/checklist-due-diligence.html",
+      "destination": "/checklist-due-diligence",
+      "permanent": true
+    },
+    {
       "source": "/index.html",
       "destination": "/",
       "permanent": true
