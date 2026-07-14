@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checklist Due Diligence Technique & Juridique | S.A.F.E. Pilotage Privé</title>
+  <meta name="description" content="Le dossier complet de Due Diligence de l'infrastructure IA Souveraine de S.A.F.E. Pilotage Privé. Destiné aux DSI, DPO et directeurs juridiques." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.safe-pilotage-prive.fr/checklist-due-diligence" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/landing/landing.css" />
+  <link rel="icon" href="/favicon.ico" />
+  <style>
+    body { background-color: var(--off-white); color: var(--text-dark); }
+    .nav { background: var(--navy); padding: 20px 0; }
+    .nav__logo { color: var(--white); text-decoration: none; font-family: var(--font-display); font-size: 24px; font-weight: 700; }
+    
+    .doc-header { padding: 80px 20px 40px; text-align: center; background: #fff; border-bottom: 1px solid var(--gray-200); }
+    .doc-title { font-family: var(--font-display); font-size: clamp(32px, 5vw, 48px); font-weight: 800; color: var(--navy); line-height: 1.1; margin-bottom: 16px; }
+    .doc-meta { font-family: var(--font-mono); font-size: 13px; color: var(--gray-600); text-transform: uppercase; letter-spacing: 0.1em; }
+    
+    .doc-body { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+    
+    .checklist-group { background: #fff; border: 1px solid var(--gray-200); border-radius: 12px; padding: 40px; margin-bottom: 40px; box-shadow: var(--shadow-sm); }
+    .checklist-group h2 { font-family: var(--font-display); font-size: 24px; color: var(--navy); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+    
+    .check-item { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--gray-100); }
+    .check-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    
+    .check-icon { color: var(--success); flex-shrink: 0; margin-top: 2px; }
+    .check-content h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--navy); }
+    .check-content p { font-size: 15px; color: var(--gray-600); line-height: 1.6; margin-bottom: 0; }
+    .check-content strong { color: var(--navy); font-weight: 600; }
+    
+    .tech-badge { display: inline-block; background: var(--gray-100); color: var(--navy); font-family: var(--font-mono); font-size: 12px; padding: 4px 8px; border-radius: 4px; margin-top: 8px; margin-right: 8px; }
+    
+    .download-cta { text-align: center; margin-top: 60px; padding: 40px; background: var(--navy); border-radius: 12px; color: white; }
+  </style>
+</head>
+<body>
+  
+  <nav class="nav">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
+      <a href="/" class="nav__logo">
+        <span class="text-gold">S.A.F.E.</span> Pilotage Privé
+      </a>
+      <a href="/landing/safe-business-ia" style="color:var(--white); text-decoration:none; font-weight:500; font-size:14px;">Retour à l'offre</a>
+    </div>
+  </nav>
+
+  <header class="doc-header">
+    <div class="container">
+      <div class="doc-meta">Document de Référence — Public</div>
+      <h1 class="doc-title">Dossier de Due Diligence : <br><span class="text-gold">IA Souveraine</span></h1>
+      <p style="color:var(--gray-600); font-size:18px; max-width:700px; margin: 16px auto 0;">
+        Ce document est destiné aux DSI, DPO, Avocats et Auditeurs. Il valide point par point les critères de souveraineté, d'isolation et de conformité des infrastructures S.A.F.E.
+      </p>
+    </div>
+  </header>
+
+  <main class="doc-body">
+
+    <!-- GROUPE 1 -->
+    <div class="checklist-group">
+      <h2>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        1. Architecture Technique & Hébergement
+      </h2>
+      
+      <div class="check-item">
+        <div class="check-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        </div>
+        <div class="check-content">
+          <h3>Localisation stricte des données (Zéro Cloud Public US)</h3>
+          <p>Le déploiement est garanti soit <strong>100% On-Premise</strong> (Serveur physique installé dans les locaux de l'entreprise cliente), soit sur un <strong>Cloud Privé qualifié SecNumCloud</strong> (OVH, Scaleway). Aucune donnée ne transite ni n'est stockée sur AWS, Azure ou GCP.</p>
+          <span class="tech-badge">On-Premise</span> <span class="tech-badge">SecNumCloud</span>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        </div>
+        <div class="check-content">
+          <h3>Isolation Réseau (Air-Gapped / Zéro Fuite)</h3>
+          <p>L'environnement peut être configuré en vase clos (Air-gapped). Les instances LLM n'effectuent <strong>aucun appel API externe</strong>. L'orchestration des données via Model Context Protocol (MCP) se fait exclusivement en local. La politique réseau (Firewall rules) interdit toute exfiltration de la data d'entreprise.</p>
+          <span class="tech-badge">Air-Gapped</span> <span class="tech-badge">Zéro appel API externe</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- GROUPE 2 -->
+    <div class="checklist-group">
+      <h2>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect></svg>
+        2. Modèles d'Intelligence Artificielle (ML)
+      </h2>
+      
+      <div class="check-item">
+        <div class="check-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        </div>
+        <div class="check-content">
+          <h3>Modèles Open Source Auditables</h3>
+          <p>S.A.F.E. n'utilise pas de modèles fermés dits "black-box" (comme GPT-4). Nous déployons les poids natifs (weights) de modèles open source reconnus : <strong>Mistral AI</strong> (France), <strong>Llama 3</strong> (Meta), ou <strong>Qwen</strong>. Le code d'inférence est exécutable et vérifiable localement via Ollama ou vLLM.</p>
+          <span class="tech-badge">Mistral AI</span> <span class="tech-badge">Llama</span> <span class="tech-badge">Ollama</span>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        </div>
+        <div class="check-content">
+          <h3>Aucun ré-entraînement avec vos données</h3>
+          <p>Vos prompts, bases documentaires et historiques de conversation ne sont <strong>jamais utilisés pour entraîner un modèle maître</strong>. L'intelligence est apportée par une architecture RAG (Retrieval-Augmented Generation) stricte. Si un fine-tuning est requis, il est réalisé et stocké 100% en local.</p>
+          <span class="tech-badge">RAG Local</span> <span class="tech-badge">No-Training Policy</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- GROUPE 3 -->
+    <div class="checklist-group">
+      <h2>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        3. Gouvernance, Logs & Juridique
+      </h2>
+      
+      <div class="check-item">
+        <div class="check-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        </div>
+        <div class="check-content">
+          <h3>Traçabilité (Logs d'Audit) & Gestion des accès</h3>
+          <p>La solution implémente le <strong>RBAC</strong> (Role-Based Access Control). Les requêtes sont enregistrées dans des journaux de logs immuables, garantissant que chaque action de l'IA (et chaque document source utilisé pour générer la réponse) est traçable pour des raisons de conformité.</p>
+          <span class="tech-badge">RBAC</span> <span class="tech-badge">Audit Logs</span>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        </div>
+        <div class="check-content">
+          <h3>Contrat DPA & Conformité RGPD / AI Act</h3>
+          <p>L'intégration de la solution est accompagnée de la signature d'un DPA (Data Processing Agreement). Le cadre opératoire respecte le principe de "Privacy by Design" et anticipe les requis de transparence algorithmique du futur <strong>AI Act européen (2026)</strong>.</p>
+          <span class="tech-badge">DPA</span> <span class="tech-badge">RGPD Compliant</span> <span class="tech-badge">AI Act Ready</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="download-cta">
+      <h3 style="font-family:var(--font-display); font-size:24px; margin-bottom:16px;">Demandez le dossier technique complet (POC)</h3>
+      <p style="color:rgba(255,255,255,0.7); margin-bottom:24px; max-width:600px; margin-left:auto; margin-right:auto;">Pour aller plus loin, nous organisons des Proof of Concepts (POC) sur vos données anonymisées, permettant à votre DSI de mesurer la latence, la qualité du RAG, et de vérifier la matrice réseau (Zero-Trust).</p>
+      <a href="mailto:contact@safe-pilotage-prive.fr" class="btn btn--gold">Contacter la Direction Technique</a>
+    </div>
+
+  </main>
+
+  <footer style="padding: 40px 20px; text-align: center; font-size: 14px; color: var(--gray-400); border-top: 1px solid var(--gray-200);">
+    <div class="container">
+      &copy; 2026 S.A.F.E. Pilotage Privé. Document public de conformité technique.
+    </div>
+  </footer>
+</body>
+</html>
