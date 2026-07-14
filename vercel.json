@@ -123,6 +123,11 @@
       "permanent": true
     },
     {
+      "source": "/cas-client-pme-batiment.html",
+      "destination": "/cas-client-pme-batiment",
+      "permanent": true
+    },
+    {
       "source": "/poc-ia-souveraine.html",
       "destination": "/poc-ia-souveraine",
       "permanent": true
