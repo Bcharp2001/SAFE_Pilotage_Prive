@@ -1730,41 +1730,22 @@
       </div>
     </a>
     <ul class="navbar__nav">
-      <li><a href="#architecture">Architecture</a></li>
-      <li><a href="#methode">Méthode RAG-Q</a></li>
       <li class="navbar__dropdown">
-        <a href="#">Solutions</a>
+        <a href="#">1. Découvrir</a>
         <div class="navbar__dropdown-menu">
-          <a href="/solutions">🗂️ Toutes les solutions</a>
-          <div class="dropdown-divider" style="height:1px;background:rgba(255,255,255,0.06);margin:6px 0;"></div>
-          <a href="/solutions/direction-strategie">👑 Direction / Stratégie</a>
-          <a href="/solutions/commercial">📈 Ventes / Commercial</a>
-          <a href="/solutions/rh-paie">👥 Ressources Humaines</a>
-          <a href="/solutions/finance-comptabilite">📊 Comptabilité / Finance</a>
-          <a href="/solutions/juridique-compliance">⚖️ Juridique / Compliance</a>
-          <a href="/solutions/operations">📋 Opérations / Savoir</a>
-          <a href="/solutions/achats-stock">📦 Achats / Stock</a>
-          <div class="dropdown-divider" style="height:1px;background:rgba(255,255,255,0.06);margin:6px 0;"></div>
-          <a href="/garanties-souverainete">🛡️ Garanties souveraineté</a>
-          <a href="/architecture-ia-souveraine">⚙️ Architecture multi-LLM</a>
+          <a href="/solutions">🗂️ Cas d'usages Métiers</a>
+          <a href="/professions">🏢 Professions Réglementées</a>
+          <a href="/a-propos">👋 À propos de nous</a>
         </div>
       </li>
-      <li class="navbar__dropdown">
-        <a href="#">Professions</a>
-        <div class="navbar__dropdown-menu">
-          <a href="/professions">🏢 Vue d'ensemble</a>
-          <div class="dropdown-divider"></div>
-          <a href="/professions/notaires">🏛️ Notaires</a>
-          <a href="/professions/avocats">⚖️ Avocats</a>
-          <a href="/professions/experts-comptables">📊 Experts-Comptables</a>
-        </div>
-      </li>
-      <li><a href="/a-propos">À propos</a></li>
+      <li><a href="/poc-ia-souveraine">2. Tester (POC)</a></li>
+      <li><a href="/cas-client-pme-batiment">3. Mesurer (ROI)</a></li>
+      <li><a href="/checklist-due-diligence">4. Auditer</a></li>
       <li><a href="/blog">Blog</a></li>
     </ul>
     <div class="navbar__actions">
       <a href="mailto:contact@safe-pilotage-prive.fr" class="btn btn--outline" style="padding:10px 16px;font-size:13px;">contact@safe-pilotage-prive.fr</a>
-      <a href="#" class="btn btn--primary" onclick="openModal(event)">Demander une démo</a>
+      <a href="/poc-ia-souveraine" class="btn btn--primary">Démarrer le POC 30 jours</a>
     </div>
     <button class="navbar__hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -1774,21 +1755,15 @@
 
 <!-- ===========================  MOBILE MENU  =========================== -->
 <div class="navbar__mobile-menu" id="mobileMenu">
-  <a href="#architecture" onclick="closeMobileMenu()">Architecture</a>
-  <a href="#methode" onclick="closeMobileMenu()">Méthode RAG-Q™</a>
-  <a href="/solutions/direction-strategie" onclick="closeMobileMenu()">👑 Direction / Stratégie</a>
-  <a href="/solutions/commercial" onclick="closeMobileMenu()">📈 Ventes / Commercial</a>
-  <a href="/solutions/rh-paie" onclick="closeMobileMenu()">👥 Ressources Humaines</a>
-  <a href="/solutions/finance-comptabilite" onclick="closeMobileMenu()">📊 Comptabilité / Finance</a>
-  <a href="/solutions/juridique-compliance" onclick="closeMobileMenu()">⚖️ Juridique / Compliance</a>
-  <a href="/solutions/operations" onclick="closeMobileMenu()">📋 Opérations / Savoir</a>
-  <a href="/solutions/achats-stock" onclick="closeMobileMenu()">📦 Achats / Stock</a>
-          <div class="dropdown-divider" style="height:1px;background:rgba(255,255,255,0.06);margin:6px 0;"></div>
-          <a href="/garanties-souverainete">🛡️ Garanties souveraineté</a>
-  <a href="/professions" onclick="closeMobileMenu()">Professions Réglementées</a>
+  <a href="/solutions" onclick="closeMobileMenu()">1. Découvrir les Cas d'usages</a>
+  <a href="/professions" onclick="closeMobileMenu()">1b. Découvrir les Professions</a>
+  <a href="/poc-ia-souveraine" onclick="closeMobileMenu()">2. Tester (POC 30 Jours)</a>
+  <a href="/cas-client-pme-batiment" onclick="closeMobileMenu()">3. Mesurer (ROI)</a>
+  <a href="/checklist-due-diligence" onclick="closeMobileMenu()">4. Auditer (Due Diligence)</a>
+  <div class="dropdown-divider" style="height:1px;background:rgba(255,255,255,0.06);margin:10px 0;"></div>
   <a href="/a-propos" onclick="closeMobileMenu()">À propos</a>
   <a href="/blog" onclick="closeMobileMenu()">Blog</a>
-  <a href="#" class="btn btn--primary" onclick="closeMobileMenu(); openModal(event);">Demander une démo</a>
+  <a href="/poc-ia-souveraine" class="btn btn--primary" style="margin-top:16px;">Démarrer le POC 30 jours</a>
 </div>
 
 <!-- ===========================  HERO  =========================== -->
@@ -2467,11 +2442,11 @@
       <h2>Vos experts méritent de se concentrer sur l'essentiel.</h2>
       <p>Offrez-leur un environnement souverain pour se recentrer sur l'analyse et la décision stratégique.</p>
       <div class="cta-section__actions">
-        <a href="#" class="btn btn--primary" onclick="openModal(event)">
+        <a href="/poc-ia-souveraine" class="btn btn--primary">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Vérifier mon éligibilité & Démo
+          Démarrer le POC 30 Jours
         </a>
-        <a href="#" class="btn btn--outline" onclick="openModal(event)">Échanger sur un cas d'usage</a>
+        <a href="/cas-client-pme-batiment" class="btn btn--outline">Voir l'étude de cas (ROI)</a>
       </div>
       <p class="cta-section__note">contact@safe-pilotage-prive.fr — Réponse sous 24h ouvrées</p>
     </div>
@@ -2566,8 +2541,8 @@
         <ul class="footer__links">
           <li><a href="#architecture">Architecture</a></li>
           <li><a href="#methode">Méthode RAG-Q™</a></li>
-          <li><a href="#benefices">Bénéfices Métiers</a></li>
-          <li><a href="#demo">Demander une démo</a></li>
+          <li><a href="/cas-client-pme-batiment">Bénéfices Métiers & ROI</a></li>
+          <li><a href="/poc-ia-souveraine">Démarrer le POC 30 Jours</a></li>
         </ul>
       </div>
       <div>
