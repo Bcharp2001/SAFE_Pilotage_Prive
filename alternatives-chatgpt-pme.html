@@ -89,7 +89,7 @@
           "name": "Qu'est-ce que Linagora Lucie et est-ce une bonne alternative à ChatGPT ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Linagora Lucie est une alternative open source et éthique à ChatGPT, développée par la société française Linagora. Elle est particulièrement adaptée aux organisations qui souhaitent une IA collaborative, transparente et maîtrisable techniquement. Son positionnement est différent de S.A.F.E. : Lucie est un assistant généraliste open source, tandis que S.A.F.E. est une solution métier spécialisée avec agents IA par département, méthodologie KOS et accompagnement clé en main pour PME."
+            "text": "Lucie est un projet de recherche académique open source porté par Linagora et OpenLLM France (France 2030), dont la plateforme publique est suspendue depuis début 2025 — ce n\'est pas à ce jour une solution déployable en entreprise."
           }
         },
         {
@@ -531,10 +531,9 @@
           <tr>
             <th style="text-align:left;">Critère</th>
             <th class="th--safe">S.A.F.E.</th>
-            <th>Mistral Le Chat</th>
+            <th>Mistral Le Chat (Vibe)</th>
             <th>LightOn (Alfred)</th>
             <th>OVHcloud AI</th>
-            <th>Linagora (Lucie)</th>
             <th>ChatGPT Enterprise</th>
             <th>Microsoft Copilot</th>
           </tr>
@@ -543,12 +542,11 @@
           <tr>
             <td><span class="crit">Hébergement</span><span class="crit-desc">Localisation des données</span></td>
             <td class="td--safe"><span class="check">✓</span><br><small style="color:var(--gray-400);font-size:12px;">On-premise ou SecNumCloud FR</small></td>
-            <td><span class="partial">⚡</span><br><small style="color:var(--gray-400);font-size:12px;">SaaS datacenters EU</small></td>
+            <td><span class="partial">⚡</span><br><small style="color:var(--gray-400);font-size:12px;">SaaS FR/EU (self-hosted possible en Enterprise, sur devis)</small></td>
             <td><span class="check">✓</span><br><small style="color:var(--gray-400);font-size:12px;">On-premise ou cloud souverain</small></td>
             <td><span class="check">✓</span><br><small style="color:var(--gray-400);font-size:12px;">OVHcloud FR (ISO 27001)</small></td>
-            <td><span class="check">✓</span><br><small style="color:var(--gray-400);font-size:12px;">On-premise ou cloud FR</small></td>
-            <td><span class="cross">✗</span><br><small style="color:var(--gray-400);font-size:12px;">Azure US/EU (OpenAI)</small></td>
-            <td><span class="cross">✗</span><br><small style="color:var(--gray-400);font-size:12px;">Azure (US/UE selon tenant)</small></td>
+            <td><span class="cross">✗</span><br><small style="color:var(--gray-400);font-size:12px;">Société US soumise au Cloud Act (résidence UE possible en Enterprise)</small></td>
+            <td><span class="cross">✗</span><br><small style="color:var(--gray-400);font-size:12px;">Azure (US/UE selon tenant, dépendance Microsoft)</small></td>
           </tr>
           <tr>
             <td><span class="crit">Prompts réutilisés</span><span class="crit-desc">Entraînement sur vos données</span></td>
@@ -556,8 +554,7 @@
             <td><span class="check">✓</span> Non (opt-out défaut)</td>
             <td><span class="check">✓</span> Jamais</td>
             <td><span class="check">✓</span> Zero data retention</td>
-            <td><span class="check">✓</span> Open source local</td>
-            <td><span class="partial">⚡</span> Possible selon CGU</td>
+            <td><span class="check">✓</span> Non (contractuel)</td>
             <td><span class="check">✓</span> Non (Enterprise)</td>
           </tr>
           <tr>
@@ -566,7 +563,6 @@
             <td><span class="partial">⚡</span> Partiels</td>
             <td><span class="check">✓</span> Complets</td>
             <td><span class="partial">⚡</span> Via infrastructure</td>
-            <td><span class="partial">⚡</span> Selon déploiement</td>
             <td><span class="partial">⚡</span> Limités</td>
             <td><span class="partial">⚡</span> Partiels (Purview/Azure)</td>
           </tr>
@@ -574,16 +570,14 @@
             <td><span class="crit">Agents IA par département</span><span class="crit-desc">RH, Finance, Juridique…</span></td>
             <td class="td--safe"><span class="check">✓</span> 7 agents métier</td>
             <td><span class="cross">✗</span> Généraliste</td>
-            <td><span class="partial">⚡</span> RAG générique</td>
+            <td><span class="partial">⚡</span> Plateforme agents (config. côté client)</td>
             <td><span class="cross">✗</span> API / infra seule</td>
             <td><span class="cross">✗</span> Généraliste</td>
-            <td><span class="cross">✗</span> Généraliste</td>
-            <td><span class="partial">⚡</span> Copilot Studio</td>
+            <td><span class="partial">⚡</span> Copilot Studio (configuration à charge du client)</td>
           </tr>
           <tr>
             <td><span class="crit">Méthodologie intégrée</span><span class="crit-desc">KOS, mémoire d'entreprise</span></td>
             <td class="td--safe"><span class="check">✓</span> KOS + Obsidian</td>
-            <td><span class="cross">✗</span></td>
             <td><span class="cross">✗</span></td>
             <td><span class="cross">✗</span></td>
             <td><span class="cross">✗</span></td>
@@ -596,19 +590,17 @@
             <td><span class="cross">✗</span> Self-service</td>
             <td><span class="cross">✗</span> Cible ETI</td>
             <td><span class="cross">✗</span> Développeurs requis</td>
-            <td><span class="cross">✗</span> Communauté / intégrateurs</td>
             <td><span class="cross">✗</span> Support standard</td>
             <td><span class="cross">✗</span> Intégrateurs MS requis</td>
           </tr>
           <tr>
             <td><span class="crit">Prix PME</span><span class="crit-desc">Adapté 10–200 salariés</span></td>
             <td class="td--safe"><span class="check">✓</span> À partir de 3 000 €</td>
-            <td><span class="check">✓</span> ~15–20 €/user/mois</td>
+            <td><span class="check">✓</span> Team 25 €/user/mois (20 € en annuel) · Enterprise sur devis</td>
             <td><span class="cross">✗</span> Tarification ETI</td>
             <td><span class="partial">⚡</span> Pay-as-you-go (infra)</td>
-            <td><span class="check">✓</span> Open source (coût infra)</td>
-            <td><span class="partial">⚡</span> ~30 $/user/mois</td>
-            <td><span class="partial">⚡</span> ~30 €/user/mois + M365</td>
+            <td><span class="cross">✗</span> ~60 $/user/mois, min. 150 sièges (Business : 20–25 $/user/mois)</td>
+            <td><span class="partial">⚡</span> 18–30 €/user/mois + M365 requis (socles M365 en hausse juil. 2026)</td>
           </tr>
           <tr>
             <td><span class="crit">DPA + Privacy by Design</span><span class="crit-desc">Conformité RGPD art. 25</span></td>
@@ -616,13 +608,12 @@
             <td><span class="partial">⚡</span> DPA standard</td>
             <td><span class="check">✓</span> Contractuel</td>
             <td><span class="check">✓</span> ISO 27001 / HDS</td>
-            <td><span class="check">✓</span> Open source auditable</td>
             <td><span class="partial">⚡</span> DPA standard</td>
-            <td><span class="partial">⚡</span> DPA standard, Cloud Act</td>
+            <td><span class="partial">⚡</span> DPA standard, transferts encadrés mais soumis au Cloud Act</td>
           </tr>
         </tbody>
         <tfoot>
-          <tr><td colspan="8" class="td--safe"><span class="note">✓ Conforme · ⚡ Partiel ou conditionnel · ✗ Non disponible — Données juillet 2026</span></td></tr>
+          <tr><td colspan="7" class="td--safe"><span class="note">✓ Conforme · ⚡ Partiel ou conditionnel · ✗ Non disponible — Données vérifiées juillet 2026</span></td></tr>
         </tfoot>
       </table>
     </div>
@@ -773,42 +764,7 @@
           Quelle est la meilleure alternative à ChatGPT pour une PME française ?
           <span class="faq-item__icon">+</span>
         </button>
-        <div class="faq-item__answer">Pour une PME française standard (10–200 salariés, adoption rapide), Mistral Le Chat Enterprise est la solution SaaS la plus simple. Pour des documents sensibles (RH, juridique, contrats), S.A.F.E. Pilotage Privé offre un RAG on-premise avec agents spécialisés par département et garanties contractuelles. Pour une exigence forte de souveraineté (secteur sensible, professions réglementées), S.A.F.E. sur infrastructure SecNumCloud est le choix le plus rigoureux.</div>
-      </li>
-      <li class="faq-item">
-        <button class="faq-item__question" onclick="this.closest('.faq-item').classList.toggle('open')" aria-expanded="false">
-          ChatGPT est-il conforme au RGPD pour une PME française ?
-          <span class="faq-item__icon">+</span>
-        </button>
-        <div class="faq-item__answer">ChatGPT héberge les données sur des serveurs américains soumis au Cloud Act. La CNIL recommande pour les données sensibles un prestataire exclusivement soumis au droit européen. ChatGPT Enterprise réduit certains risques mais ne garantit pas une souveraineté totale. Pour des données RH, financières ou juridiques, une solution on-premise ou SecNumCloud est préférable.</div>
-      </li>
-      <li class="faq-item">
-        <button class="faq-item__question" onclick="this.closest('.faq-item').classList.toggle('open')" aria-expanded="false">
-          Quelle différence entre Mistral Le Chat Enterprise et S.A.F.E. ?
-          <span class="faq-item__icon">+</span>
-        </button>
-        <div class="faq-item__answer">Mistral Le Chat Enterprise est un assistant IA SaaS généraliste — idéal pour remplacer ChatGPT dans les usages quotidiens. S.A.F.E. est une solution on-premise avec agents IA spécialisés par département (RH, Finance, Juridique, Ventes…), une méthodologie KOS intégrée et un accompagnement direct. S.A.F.E. est plus adapté aux PME ayant des données stratégiques sensibles et des processus métier complexes à outiller.</div>
-      </li>
-      <li class="faq-item">
-        <button class="faq-item__question" onclick="this.closest('.faq-item').classList.toggle('open')" aria-expanded="false">
-          LightOn Paradigm convient-il aux PME ?
-          <span class="faq-item__icon">+</span>
-        </button>
-        <div class="faq-item__answer">LightOn Paradigm est un excellent produit RAG on-premise, mais positionné pour les ETI et grandes organisations avec équipe technique interne. Son déploiement nécessite des ressources IT et un budget adapté. S.A.F.E. Pilotage Privé couvre le même périmètre de souveraineté documentaire mais avec un accompagnement clé en main pour les PME de 10 à 500 salariés, sans DSI interne requis.</div>
-      </li>
-      <li class="faq-item">
-        <button class="faq-item__question" onclick="this.closest('.faq-item').classList.toggle('open')" aria-expanded="false">
-          Qu'est-ce que S.A.F.E. apporte de plus que les autres alternatives ?
-          <span class="faq-item__icon">+</span>
-        </button>
-        <div class="faq-item__answer">Trois éléments absents des autres alternatives : (1) des agents IA spécialisés par département métier, calibrés sur vos processus internes ; (2) une méthodologie KOS (Knowledge Operating System) qui structure la mémoire d'entreprise avant le déploiement IA ; (3) l'accompagnement direct de Bertrand Charpilloz pendant et après le déploiement. Ce n'est pas un outil — c'est une transformation opérationnelle avec un interlocuteur expert dédié.</div>
-      </li>
-      <li class="faq-item">
-        <button class="faq-item__question" onclick="this.closest('.faq-item').classList.toggle('open')" aria-expanded="false">
-          Qu'est-ce que Linagora Lucie ? Est-ce une bonne alternative à ChatGPT ?
-          <span class="faq-item__icon">+</span>
-        </button>
-        <div class="faq-item__answer">Linagora Lucie est une alternative open source et éthique à ChatGPT, développée par la société française Linagora. Elle est particulièrement adaptée aux organisations souhaitant une IA collaborative et transparente. Son positionnement diffère de S.A.F.E. : Lucie est un assistant généraliste open source (nécessite un hébergement et une maintenance technique), tandis que S.A.F.E. est une solution métier avec agents IA spécialisés par département, méthodologie KOS et accompagnement clé en main — sans compétence technique requise côté client.</div>
+        <div class="faq-item__answer">Lucie est un projet de recherche académique open source porté par Linagora et OpenLLM France (France 2030), dont la plateforme publique est suspendue depuis début 2025 — ce n\'est pas à ce jour une solution déployable en entreprise.</div>
       </li>
       <li class="faq-item">
         <button class="faq-item__question" onclick="this.closest('.faq-item').classList.toggle('open')" aria-expanded="false">
