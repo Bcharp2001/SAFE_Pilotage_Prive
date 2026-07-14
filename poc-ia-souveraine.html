@@ -28,14 +28,50 @@
 </head>
 <body style="background-color: var(--navy); color: var(--white);">
   
-  <nav class="nav" style="background-color: var(--navy);">
-    <div class="container" style="display:flex; justify-content:space-between; align-items:center; padding: 20px 0;">
-      <a href="/" style="color:var(--white); text-decoration:none; font-family:var(--font-display); font-size:24px; font-weight:700;">
-        <span style="color:var(--gold);">S.A.F.E.</span> Pilotage Privé
-      </a>
-      <a href="/landing/safe-business-ia#diagnostic" class="btn btn--cta">Réserver un Appel</a>
+  <!-- NAVBAR -->
+<nav class="navbar">
+  <div class="navbar__inner">
+    <a href="/" class="navbar__logo">
+      <div class="navbar__logo-icon">S.F.</div>
+      <div>
+        <span class="navbar__logo-text">S.A.F.E.</span>
+        <span class="navbar__logo-sub">Pilotage Privé</span>
+      </div>
+    </a>
+    <ul class="navbar__nav">
+      <li class="navbar__dropdown">
+        <a href="#">1. Découvrir</a>
+        <div class="navbar__dropdown-menu">
+          <a href="/solutions">🗂️ Cas d'usages Métiers</a>
+          <a href="/professions">🏢 Professions Réglementées</a>
+          <a href="/alternatives-chatgpt-pme">⚖️ Comparatif Solutions</a>
+          <a href="/a-propos">👋 À propos de nous</a>
+        </div>
+      </li>
+      <li><a href="/poc-ia-souveraine" class="active">2. Tester (POC)</a></li>
+      <li><a href="/cas-client-pme-batiment">3. Mesurer (ROI)</a></li>
+      <li><a href="/checklist-due-diligence">4. Auditer</a></li>
+      <li><a href="/blog">Blog</a></li>
+    </ul>
+    <div class="navbar__actions">
+      <a href="mailto:contact@safe-pilotage-prive.fr" class="btn btn--outline" style="padding:10px 16px;font-size:13px;">contact@safe-pilotage-prive.fr</a>
     </div>
-  </nav>
+    <button class="navbar__hamburger" id="hamburgerBtn" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="navbar__mobile-menu" id="mobileMenu">
+  <a href="/solutions">1. Découvrir les Cas d'usages</a>
+  <a href="/professions">1b. Découvrir les Professions</a>
+  <a href="/alternatives-chatgpt-pme">1c. Comparatif Solutions</a>
+  <a href="/poc-ia-souveraine">2. Tester (POC 30 Jours)</a>
+  <a href="/cas-client-pme-batiment">3. Mesurer (ROI)</a>
+  <a href="/checklist-due-diligence">4. Auditer (Due Diligence)</a>
+  <div class="dropdown-divider" style="height:1px;background:rgba(255,255,255,0.06);margin:10px 0;"></div>
+  <a href="/a-propos">À propos</a>
+  <a href="/blog">Blog</a>
+</div>
 
   <!-- HERO SECTION -->
   <section class="hero-section" style="padding: 120px 20px 80px; text-align: center; background: linear-gradient(180deg, var(--navy) 0%, var(--navy-mid) 100%);">
@@ -48,7 +84,7 @@
       <p style="font-size: 20px; color: rgba(255,255,255,0.7); line-height: 1.6; max-width: 700px; margin: 0 auto 40px;">
         Le <strong>Proof of Concept (POC) S.A.F.E.</strong> est une mission d'immersion conçue pour les comités de direction. Nous installons un collaborateur numérique dans votre environnement, sur un périmètre restreint, pour mesurer concrètement les gains avant tout déploiement massif.
       </p>
-      <a href="/landing/safe-business-ia#diagnostic" class="btn btn--cta-lg">Planifier le POC avec la Direction Technique</a>
+      <a href="https://meet.brevo.com/bertrand-charpilloz-1/rendez-vous-de-30-minutes" target="_blank" class="btn btn--cta-lg">Demander le Dossier de Cadrage (30 min)</a>
     </div>
   </section>
 
@@ -181,7 +217,7 @@
         </div>
       </div>
 
-      <a href="/landing/safe-business-ia#diagnostic" class="btn btn--cta-lg">Demander un audit préliminaire</a>
+      <a href="https://meet.brevo.com/bertrand-charpilloz-1/rendez-vous-de-30-minutes" target="_blank" class="btn btn--cta-lg">Demander un audit préliminaire</a>
       <p style="color:rgba(255,255,255,0.4); font-size: 13px; margin-top: 16px;">Le tarif de la mission de cadrage et du POC dépend du périmètre documentaire sélectionné. Consultation initiale confidentielle.</p>
     </div>
   </section>

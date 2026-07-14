@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>S.A.F.E. Pilotage Privé | Cockpit Opérationnel & IA Souveraine — Refonte Design</title>
+  
+  <meta name="robots" content="noindex, follow" /><title>S.A.F.E. Pilotage Privé | Cockpit Opérationnel & IA Souveraine — Refonte Design</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
@@ -1314,7 +1315,7 @@
     </ul>
     <div class="navbar__actions">
       <a href="mailto:contact@safe-pilotage-prive.fr" class="btn btn--outline" style="padding:10px 16px;font-size:13px;">contact@safe-pilotage-prive.fr</a>
-      <a href="#" class="btn btn--primary" onclick="openModal(event)">Demander une démo</a>
+      <a href="https://meet.brevo.com/bertrand-charpilloz-1/rendez-vous-de-30-minutes" target="_blank" target="_blank" target="_blank" class="btn btn--primary" >Demander une démo</a>
     </div>
     <button class="navbar__hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -1328,7 +1329,7 @@
   <a href="#methode" onclick="closeMobileMenu()">Méthode RAG-Q™</a>
   <a href="#benefices" onclick="closeMobileMenu()">Bénéfices</a>
   <a href="#apropos" onclick="closeMobileMenu()">À propos</a>
-  <a href="#" class="btn btn--primary" onclick="closeMobileMenu(); openModal(event);">Demander une démo</a>
+  <a href="https://meet.brevo.com/bertrand-charpilloz-1/rendez-vous-de-30-minutes" target="_blank" target="_blank" target="_blank" class="btn btn--primary" >Demander une démo</a>
 </div>
 
 <!-- ===========================  HERO  =========================== -->
@@ -1350,7 +1351,7 @@
         <h1>Le poste de pilotage privé de vos <span class="accent">opérations stratégiques.</span></h1>
         <p class="hero__sub">S.A.F.E. déploie une intelligence locale et souveraine sur vos données les plus sensibles. Zéro compromis sur la confidentialité, performance maximale sur l'analyse.</p>
         <div class="hero__ctas">
-          <a href="#" class="btn btn--primary" onclick="openModal(event)">
+          <a href="https://meet.brevo.com/bertrand-charpilloz-1/rendez-vous-de-30-minutes" target="_blank" target="_blank" target="_blank" class="btn btn--primary" >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             Demander une démonstration
           </a>
@@ -1787,7 +1788,7 @@
       <h2>Vos experts méritent de se concentrer sur l'essentiel.</h2>
       <p>Offrez-leur un environnement souverain pour se recentrer sur l'analyse et la décision stratégique.</p>
       <div class="cta-section__actions">
-        <a href="#" class="btn btn--primary" onclick="openModal(event)">
+        <a href="https://meet.brevo.com/bertrand-charpilloz-1/rendez-vous-de-30-minutes" target="_blank" target="_blank" target="_blank" class="btn btn--primary" >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           Vérifier mon éligibilité & Démo
         </a>
@@ -1834,7 +1835,7 @@
         <div class="footer__col-title">Contact</div>
         <ul class="footer__links">
           <li><a href="mailto:contact@safe-pilotage-prive.fr">contact@safe-pilotage-prive.fr</a></li>
-          <li><a href="mentions-legales.html">Mentions Légales</a></li>
+          <li><a href="/mentions-legales">Mentions Légales</a></li>
           <li><a href="#">Confidentialité</a></li>
           <li><a href="#apropos">À propos</a></li>
         </ul>
@@ -2096,8 +2097,7 @@
     }
   });
 
-  // ── FORMULAIRE SERVERLESS — APPEL DIRECT API BREVO ──────────────────────────
-  const BREVO_API_KEY  = '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';
+  // ── FORMULAIRE SERVERLESS ──────────────────────────
   const BREVO_LIST_ID  = 3;
   const ADMIN_TPL_ID   = 5;
   // L'email de confirmation J+0 est géré par l'automation Brevo (workflow liste 3)
@@ -2107,20 +2107,28 @@
   const ADMIN_EMAIL    = 'contact@safe-pilotage-prive.fr';
 
   async function brevoRequest(endpoint, body) {
-    const res = await fetch('https://api.brevo.com/v3/' + endpoint, {
+    if (endpoint !== 'contacts') return { ok: true };
+
+    const attributes = body.attributes || {};
+    const response = await fetch('/api/contact', {
       method: 'POST',
-      headers: {
-        'accept': 'application/json',
-        'content-type': 'application/json',
-        'api-key': BREVO_API_KEY
-      },
-      body: JSON.stringify(body)
+      headers: { 'accept': 'application/json', 'content-type': 'application/json' },
+      body: JSON.stringify({
+        email: body.email,
+        firstname: attributes.PRENOM || '',
+        lastname: attributes.NOM || '',
+        size: attributes.TAILLE_ENTREPRISE || '',
+        department: attributes.DEPARTEMENT || '',
+        sourcePage: attributes.SOURCE_PAGE || 'index'
+      })
     });
-    if (!res.ok && res.status !== 204) {
-      const err = await res.json().catch(() => ({}));
-      throw new Error(err.message || 'Erreur API Brevo ' + res.status);
+
+    if (!response.ok) {
+      const err = await response.json().catch(() => ({}));
+      throw new Error(err.error || 'Erreur formulaire ' + response.status);
     }
-    return res.status === 204 ? {} : res.json();
+
+    return response.json();
   }
 
   async function submitForm() {

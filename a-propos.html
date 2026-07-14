@@ -951,7 +951,7 @@
 <!-- ===========================  NAVBAR  =========================== -->
 <nav class="navbar">
   <div class="navbar__inner">
-    <a href="index.html" class="navbar__logo">
+    <a href="/" class="navbar__logo">
       <div class="navbar__logo-icon">S.F.</div>
       <div>
         <span class="navbar__logo-text">S.A.F.E.</span>
@@ -959,40 +959,23 @@
       </div>
     </a>
     <ul class="navbar__nav">
-      <li><a href="index.html#architecture">Architecture</a></li>
-      <li><a href="index.html#methode">Méthode RAG-Q</a></li>
       <li class="navbar__dropdown">
-        <a href="#">Solutions</a>
+        <a href="#">1. Découvrir</a>
         <div class="navbar__dropdown-menu">
-          <a href="solutions/index.html">🗂️ Toutes les solutions</a>
-          <div class="dropdown-divider" style="height:1px;background:rgba(255,255,255,0.06);margin:6px 0;"></div>
-          <a href="solutions/direction-strategie.html">👑 Direction / Stratégie</a>
-          <a href="solutions/commercial.html">📈 Ventes / Commercial</a>
-          <a href="solutions/rh-paie.html">👥 Ressources Humaines</a>
-          <a href="solutions/finance-comptabilite.html">📊 Comptabilité / Finance</a>
-          <a href="solutions/juridique-compliance.html">⚖️ Juridique / Compliance</a>
-          <a href="solutions/operations.html">📋 Opérations / Savoir</a>
-          <a href="solutions/achats-stock.html">📦 Achats / Stock</a>
-          <div class="dropdown-divider" style="height:1px;background:rgba(255,255,255,0.06);margin:6px 0;"></div>
-          <a href="garanties-souverainete.html">🛡️ Garanties souveraineté</a>
-          <a href="architecture-ia-souveraine.html">⚙️ Architecture multi-LLM</a>
+          <a href="/solutions">🗂️ Cas d'usages Métiers</a>
+          <a href="/professions">🏢 Professions Réglementées</a>
+          <a href="/alternatives-chatgpt-pme">⚖️ Comparatif Solutions</a>
+          <a href="/a-propos">👋 À propos de nous</a>
         </div>
       </li>
-      <li class="navbar__dropdown">
-        <a href="#">Professions</a>
-        <div class="navbar__dropdown-menu">
-          <a href="professions/index.html">🏢 Vue d'ensemble</a>
-          <div class="dropdown-divider" style="height:1px;background:rgba(255,255,255,0.06);margin:6px 0;"></div>
-          <a href="professions/notaires.html">🏛️ Notaires</a>
-          <a href="professions/avocats.html">⚖️ Avocats</a>
-          <a href="professions/experts-comptables.html">📊 Experts-Comptables</a>
-        </div>
-      </li>
-      <li><a href="a-propos.html" class="active">À propos</a></li>
+      <li><a href="/poc-ia-souveraine">2. Tester (POC)</a></li>
+      <li><a href="/cas-client-pme-batiment">3. Mesurer (ROI)</a></li>
+      <li><a href="/checklist-due-diligence">4. Auditer</a></li>
+      <li><a href="/blog">Blog</a></li>
     </ul>
     <div class="navbar__actions">
       <a href="mailto:contact@safe-pilotage-prive.fr" class="btn btn--outline" style="padding:10px 16px;font-size:13px;">contact@safe-pilotage-prive.fr</a>
-      <a href="index.html#" class="btn btn--primary" onclick="window.location.href='index.html'; return false;">Demander une démo</a>
+      <a href="https://meet.brevo.com/bertrand-charpilloz-1/rendez-vous-de-30-minutes" target="_blank" target="_blank" target="_blank" class="btn btn--primary">Démarrer le POC 30 jours</a>
     </div>
     <button class="navbar__hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -1002,11 +985,16 @@
 
 <!-- ===========================  MOBILE MENU  =========================== -->
 <div class="navbar__mobile-menu" id="mobileMenu">
-  <a href="index.html#architecture" onclick="closeMobileMenu()">Architecture</a>
-  <a href="index.html#methode" onclick="closeMobileMenu()">Méthode RAG-Q™</a>
-  <a href="index.html#benefices" onclick="closeMobileMenu()">Bénéfices</a>
-  <a href="a-propos.html" class="active" onclick="closeMobileMenu()">À propos</a>
-  <a href="index.html" class="btn btn--primary" onclick="closeMobileMenu()">Demander une démo</a>
+  <a href="/solutions">1. Découvrir les Cas d'usages</a>
+  <a href="/professions">1b. Découvrir les Professions</a>
+  <a href="/alternatives-chatgpt-pme">1c. Comparatif Solutions</a>
+  <a href="/poc-ia-souveraine">2. Tester (POC 30 Jours)</a>
+  <a href="/cas-client-pme-batiment">3. Mesurer (ROI)</a>
+  <a href="/checklist-due-diligence">4. Auditer (Due Diligence)</a>
+  <div class="dropdown-divider" style="height:1px;background:rgba(255,255,255,0.06);margin:10px 0;"></div>
+  <a href="/a-propos">À propos</a>
+  <a href="/blog">Blog</a>
+  <a href="https://meet.brevo.com/bertrand-charpilloz-1/rendez-vous-de-30-minutes" target="_blank" target="_blank" target="_blank" class="btn btn--primary" style="margin-top:16px;">Démarrer le POC 30 jours</a>
 </div>
 
 <!-- ===========================  HERO BIOGRAPHIE  =========================== -->
@@ -1044,6 +1032,22 @@
         <p class="about-bio__text">
           Spécialisé en intelligence artificielle pour les entreprises, j'accompagne en direct les structures exigeantes qui veulent franchir le cap technologique sans jamais sacrifier la rigueur de leurs opérations.
         </p>
+        <div style="margin-top:24px; margin-bottom:24px; padding:16px; background:rgba(212,163,115,0.1); border-left:4px solid var(--gold); border-radius:4px;">
+          <ul style="list-style:none; padding:0; margin:0; font-size:14px; color:var(--white);">
+            <li style="margin-bottom:8px; display:flex; align-items:center; gap:8px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              <strong>+300 PME accompagnées</strong> (Pilotage, Stratégie, IA)
+            </li>
+            <li style="margin-bottom:8px; display:flex; align-items:center; gap:8px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              <strong>Ex-Direction Groupe CEDEC</strong> (Centre Européen d'Évolution Économique)
+            </li>
+            <li style="display:flex; align-items:center; gap:8px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <strong>Ancrage Local :</strong> Var / Région Sud
+            </li>
+          </ul>
+        </div>
         <p class="about-bio__text">
           J'ai développé <strong>S.A.F.E. Pilotage Privé</strong> face à un constat clair : les métiers d'expertise ne peuvent se permettre une adoption floue de l'intelligence artificielle. Pour en tirer un véritable bénéfice stratégique, les organisations exigent une machine encadrée, une méthode sécurisée et une <em>souveraineté maîtrisée.</em>
         </p>
@@ -1056,11 +1060,11 @@
         </div>
 
         <div class="about-bio__cta">
-          <a href="mailto:contact@safe-pilotage-prive.fr" class="btn btn--primary">
+          <a href="https://meet.brevo.com/bertrand-charpilloz-1/rendez-vous-de-30-minutes" target="_blank" target="_blank" target="_blank" class="btn btn--primary">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             Me contacter en direct
           </a>
-          <a href="index.html" class="btn btn--outline">
+          <a href="/" class="btn btn--outline">
             Découvrir S.A.F.E.
           </a>
         </div>
@@ -1160,7 +1164,7 @@
         <div class="timeline-content">
           <div class="timeline-content__year">Aujourd'hui</div>
           <h3>Déploiements sur mesure pour PME exigeantes</h3>
-          <p>Audit des besoins, installation du conteneur, création de l'équipe d'agents et des skills métiers, formation des équipes. De 5 000 à 20 000 € selon la complexité du projet.</p>
+          <p>Audit des besoins, installation du conteneur, création de l'équipe d'agents et des skills métiers, formation des équipes. Sur devis selon le périmètre du projet et le nombre de cas d'usages.</p>
         </div>
       </div>
     </div>
@@ -1176,13 +1180,11 @@
       <h2>Discutons de votre structure<br>et de vos besoins réels.</h2>
       <p>Un échange direct et confidentiel pour évaluer la faisabilité et l'adéquation de S.A.F.E. à votre organisation. Réponse sous 24h ouvrées.</p>
       <div class="about-cta__btns">
-        <a href="mailto:contact@safe-pilotage-prive.fr" class="btn btn--primary">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          contact@safe-pilotage-prive.fr
+        <a href="https://meet.brevo.com/bertrand-charpilloz-1/rendez-vous-de-30-minutes" target="_blank" target="_blank" target="_blank" class="btn btn--primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Obtenir un cadrage POC en 30 minutes
         </a>
-        <a href="index.html" class="btn btn--outline">
-          Retour à l'accueil
-        </a>
+        <a href="mailto:contact@safe-pilotage-prive.fr" class="btn btn--outline">contact@safe-pilotage-prive.fr</a>
       </div>
     </div>
   </div>
@@ -1234,15 +1236,15 @@
     <footer class="footer">
   <div class="container">
     <div class="footer__inner">
-      <a href="index.html" class="footer__logo">
+      <a href="/" class="footer__logo">
         <div class="footer__logo-icon">S.F.</div>
         <span class="footer__logo-text">S.A.F.E. Pilotage Privé</span>
       </a>
       <div class="footer__links">
-        <a href="index.html#architecture">Architecture</a>
-        <a href="index.html#methode">Méthode RAG-Q™</a>
-        <a href="index.html#benefices">Bénéfices</a>
-        <a href="a-propos.html">À propos</a>
+        <a href="/#architecture">Architecture</a>
+        <a href="/#methode">Méthode RAG-Q™</a>
+        <a href="/#benefices">Bénéfices</a>
+        <a href="/a-propos">À propos</a>
         <a href="mailto:contact@safe-pilotage-prive.fr">Contact</a>
       </div>
       <div class="footer__copy">© 2026 S.A.F.E. Pilotage Privé — Ingénierie Française</div>

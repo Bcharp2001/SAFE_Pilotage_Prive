@@ -354,17 +354,20 @@
           <a href="/solutions/achats-stock" role="menuitem">📦 Achats &amp; Stock</a>
           <a href="/solutions/operations" role="menuitem">⚙️ Opérations</a>
           <div class="sep"></div>
-          <div style="padding:6px 14px 4px;font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-400);">Professions Réglementées</div>
-          <a href="/professions/notaires" role="menuitem">⚖️ Notaires</a>
-          <a href="/professions/avocats" role="menuitem">🏛️ Avocats</a>
-          <a href="/professions/experts-comptables" role="menuitem">📊 Experts-Comptables</a>
-          <div class="sep"></div>
-          <a href="/garanties-souverainete" role="menuitem">🛡️ Garanties souveraineté</a>
-          <a href="/architecture-ia-souveraine" role="menuitem">⚙️ Architecture multi-LLM</a>
+    <ul class="navbar__nav">
+      <li class="navbar__dropdown">
+        <a href="#">1. Découvrir</a>
+        <div class="navbar__dropdown-menu">
+          <a href="/solutions">🗂️ Cas d'usages Métiers</a>
+          <a href="/professions">🏢 Professions Réglementées</a>
+          <a href="/alternatives-chatgpt-pme">⚖️ Comparatif Solutions</a>
+          <a href="/a-propos">👋 À propos de nous</a>
         </div>
       </li>
+      <li><a href="/poc-ia-souveraine">2. Tester (POC)</a></li>
+      <li><a href="/cas-client-pme-batiment">3. Mesurer (ROI)</a></li>
+      <li><a href="/checklist-due-diligence">4. Auditer</a></li>
       <li><a href="/blog">Blog</a></li>
-      <li><a href="/a-propos">À propos</a></li>
     </ul>
     <div class="navbar__actions">
       <button class="btn btn--primary" onclick="openModal()" style="font-size:13px;padding:10px 20px;">Demander une démo</button>
@@ -374,22 +377,17 @@
     </button>
   </div>
 </nav>
-<div class="navbar__mobile-menu" id="mobileMenu" role="navigation">
-  <span class="mob-section">Par Métier</span>
-  <a href="/solutions/direction-strategie">🎯 Direction &amp; Stratégie</a>
-  <a href="/solutions/rh-paie">👥 RH &amp; Paie</a>
-  <a href="/solutions/commercial">📈 Ventes &amp; Commercial</a>
-  <a href="/solutions/finance-comptabilite">💰 Finance &amp; Comptabilité</a>
-  <a href="/solutions/achats-stock">📦 Achats &amp; Stock</a>
-  <a href="/solutions/operations">⚙️ Opérations</a>
-  <span class="mob-section">Professions Réglementées</span>
-  <a href="/professions/notaires">⚖️ Notaires</a>
-  <a href="/professions/avocats">🏛️ Avocats</a>
-  <a href="/professions/experts-comptables">📊 Experts-Comptables</a>
-  <span class="mob-section">Général</span>
-  <a href="/blog">Blog</a>
+<div class="navbar__mobile-menu" id="mobileMenu">
+  <a href="/solutions">1. Découvrir les Cas d'usages</a>
+  <a href="/professions">1b. Découvrir les Professions</a>
+  <a href="/alternatives-chatgpt-pme">1c. Comparatif Solutions</a>
+  <a href="/poc-ia-souveraine">2. Tester (POC 30 Jours)</a>
+  <a href="/cas-client-pme-batiment">3. Mesurer (ROI)</a>
+  <a href="/checklist-due-diligence">4. Auditer (Due Diligence)</a>
+  <div class="dropdown-divider" style="height:1px;background:rgba(255,255,255,0.06);margin:10px 0;"></div>
   <a href="/a-propos">À propos</a>
-  <a href="#" onclick="openModal();return false;" style="margin-top:8px;background:var(--blue);color:var(--white);text-align:center;padding:14px;border-radius:var(--radius-md);border-bottom:none;font-weight:600;">Demander une démo →</a>
+  <a href="/blog">Blog</a>
+  <a href="https://meet.brevo.com/bertrand-charpilloz-1/rendez-vous-de-30-minutes" target="_blank" target="_blank" target="_blank" class="btn btn--primary" style="margin-top:16px;">Démarrer le POC 30 jours</a>
 </div>
 
 <!-- ══ HERO ══ -->
@@ -698,7 +696,7 @@
         <div class="sector-card fade-in">
           <div class="sector-card__icon">📋</div>
           <h3 class="sector-card__title">Devis Types Accélérés</h3>
-          <p class="sector-card__desc">Le Brain génère un devis type en quelques minutes à partir de vos chantiers similaires passés. Vos prix, votre style, vos clauses — pas un modèle générique.</p>
+          <p class="sector-card__desc">The Brain génère un devis type en quelques minutes à partir de vos chantiers similaires passés. Vos prix, votre style, vos clauses — pas un modèle générique.</p>
           <div class="sector-card__gain">→ −60% temps de devis · Cohérence tarifaire garantie</div>
         </div>
         <div class="sector-card fade-in">
@@ -761,106 +759,66 @@
   </div>
 </section>
 
-<!-- ══ PROFESSIONS RÉGLEMENTÉES ══ -->
-<section class="professions-strip" aria-labelledby="prof-title">
-  <div class="container">
-    <div class="text-center fade-in">
-      <div class="label label--gold"><span class="dot"></span>Secret professionnel · RGPD · Souveraineté</div>
-      <h2 id="prof-title" style="color:var(--white);">Professions réglementées :<br><em style="color:var(--gold);font-style:italic;">zéro compromis</em> sur la confidentialité.</h2>
-      <p style="color:rgba(255,255,255,0.6);font-size:17px;margin-top:12px;max-width:580px;margin-left:auto;margin-right:auto;">S.A.F.E. est la seule solution conçue dès le départ pour les professions où la confidentialité n'est pas une option — c'est une obligation légale.</p>
-    </div>
-    <div class="prof-grid">
-      <div class="prof-card fade-in">
-        <div class="prof-card__icon">⚖️</div>
-        <div class="prof-card__label">Étude Notariale</div>
-        <h3 class="prof-card__title">Pour les Notaires</h3>
-        <p class="prof-card__desc">Recherche d'antériorités divisée par 10. Rédaction d'actes assistée sans exposer le secret de l'étude. Le Brain tourne sur votre serveur — ou le nôtre, sans accès tiers.</p>
-        <a href="/professions/notaires" class="prof-card__link">Découvrir la solution →</a>
-      </div>
-      <div class="prof-card fade-in">
-        <div class="prof-card__icon">🏛️</div>
-        <div class="prof-card__label">Cabinet d'Avocats</div>
-        <h3 class="prof-card__title">Pour les Avocats</h3>
-        <p class="prof-card__desc">Analyse de centaines de pages de conclusions adverses. Recherche d'arguments dans votre propre jurisprudence interne. Zéro hallucination, zéro exposition au cloud public.</p>
-        <a href="/professions/avocats" class="prof-card__link">Découvrir la solution →</a>
-      </div>
-      <div class="prof-card fade-in">
-        <div class="prof-card__icon">📊</div>
-        <div class="prof-card__label">Cabinet Comptable</div>
-        <h3 class="prof-card__title">Pour les Experts-Comptables</h3>
-        <p class="prof-card__desc">Liasses fiscales croisées avec l'historique client. Anomalies détectées automatiquement. Synthèses narratives prêtes pour les rendez-vous bilans. Le conseil à plus haute valeur ajoutée.</p>
-        <a href="/professions/experts-comptables" class="prof-card__link">Découvrir la solution →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ══ PRICING ══ -->
 <section class="pricing-section" aria-labelledby="pricing-title">
   <div class="container">
     <div class="text-center fade-in">
-      <div class="label label--blue"><span class="dot"></span>Déploiement &amp; Investissement</div>
-      <h2 id="pricing-title">Trois niveaux de transformation.<br><em style="font-style:italic;color:var(--blue);">Un seul engagement : l'efficacité.</em></h2>
-      <p style="color:var(--gray-600);font-size:17px;margin-top:12px;max-width:560px;margin-left:auto;margin-right:auto;">Chaque palier est conçu pour livrer des résultats mesurables dès les 30 premiers jours.</p>
+      <div class="label label--blue"><span class="dot"></span>Déploiement &amp; Engagement</div>
+      <h2 id="pricing-title">Un parcours en 3 phases pour<br><em style="font-style:italic;color:var(--blue);">transformer votre PME durablement.</em></h2>
+      <p style="color:var(--gray-600);font-size:17px;margin-top:12px;max-width:560px;margin-left:auto;margin-right:auto;">Nous ne vendons pas des licences, nous transformons votre entreprise en système intelligent qui apprend.</p>
     </div>
     <div class="pricing-grid">
 
-      <!-- STARTER -->
+      <!-- PHASE 1 -->
       <div class="pricing-card fade-in">
-        <div class="pricing-card__tier">Starter</div>
-        <div class="pricing-card__price">3 000 – 5 000€</div>
-        <div class="pricing-card__price-note">Projet unique · Délai : 2 à 4 semaines</div>
-        <div class="pricing-card__name">Premier Résultat</div>
-        <p class="pricing-card__tagline">Audit, cadrage et déploiement d'un premier cas d'usage ciblé. Idéal pour valider la valeur avant d'aller plus loin.</p>
+        <div class="pricing-card__tier">Phase 1 — Tester</div>
+        <div class="pricing-card__price" style="font-size:28px;">POC 30 Jours</div>
+        <div class="pricing-card__price-note">Audit &amp; Preuve de valeur</div>
+        <div class="pricing-card__name">Audit Souverain</div>
+        <p class="pricing-card__tagline">Audit de vos processus, nettoyage de vos données et déploiement d'un agent IA sur un cas d'usage critique.</p>
         <ul class="pricing-card__features">
-          <li><span class="check">✓</span><span>Audit de vos données et processus existants</span></li>
-          <li><span class="check">✓</span><span>1 cas d'usage prioritaire déployé (ex. : paie, devis, onboarding)</span></li>
-          <li><span class="check">✓</span><span>SAFE Brain™ Starter — mémoire d'un département</span></li>
-          <li><span class="check">✓</span><span>Formation de l'équipe (2h)</span></li>
-          <li><span class="check">✓</span><span>Rapport ROI à 30 jours</span></li>
+          <li><span class="check">✓</span><span>Cartographie des gisements de productivité</span></li>
+          <li><span class="check">✓</span><span>Déploiement SAFE Brain™ sur 1 périmètre</span></li>
+          <li><span class="check">✓</span><span>Formation des équipes (ateliers)</span></li>
+          <li><span class="check">✓</span><span>Livraison du rapport ROI &amp; Roadmap</span></li>
         </ul>
-        <button class="pricing-card__btn" onclick="openModal('starter')">Démarrer l'audit →</button>
+        <button class="pricing-card__btn" onclick="window.location.href='/poc-ia-souveraine'">Démarrer le POC →</button>
       </div>
 
-      <!-- BUSINESS (featured) -->
+      <!-- PHASE 2 -->
       <div class="pricing-card pricing-card--featured fade-in">
-        <div class="pricing-card__badge">Le plus choisi</div>
-        <div class="pricing-card__tier">Business</div>
-        <div class="pricing-card__price">8 000 – 15 000€</div>
-        <div class="pricing-card__price-note">Déploiement complet · Délai : 4 à 8 semaines</div>
-        <div class="pricing-card__name">Transformation Opérationnelle</div>
-        <p class="pricing-card__tagline">Déploiement multi-départements, automations métier, intégrations à vos outils. L'entreprise commence à apprendre.</p>
+        <div class="pricing-card__badge">Recommandé</div>
+        <div class="pricing-card__tier">Phase 2 — Déployer</div>
+        <div class="pricing-card__price" style="font-size:28px;">Déploiement</div>
+        <div class="pricing-card__price-note">Intégration &amp; Automations</div>
+        <div class="pricing-card__name">Transformation</div>
+        <p class="pricing-card__tagline">Intégration profonde à vos outils (ERP, CRM, Paie). Automations métiers. L'entreprise devient autonome.</p>
         <ul class="pricing-card__features">
-          <li><span class="check">✓</span><span>Tout le Starter, plus :</span></li>
-          <li><span class="check">✓</span><span>Déploiement 2 à 4 départements simultanément</span></li>
-          <li><span class="check">✓</span><span>SAFE Brain™ Business — mémoire d'entreprise unifiée</span></li>
-          <li><span class="check">✓</span><span>Automations métier (relances, alertes, synthèses)</span></li>
-          <li><span class="check">✓</span><span>Intégration à vos outils (CRM, ERP, comptabilité)</span></li>
-          <li><span class="check">✓</span><span>Accompagnement 3 mois post-déploiement</span></li>
+          <li><span class="check">✓</span><span>Mémoire unifiée (Multi-départements)</span></li>
+          <li><span class="check">✓</span><span>Automations métiers complexes</span></li>
+          <li><span class="check">✓</span><span>Connecteurs natifs à vos logiciels</span></li>
+          <li><span class="check">✓</span><span>Coaching de pilotage dirigeant</span></li>
         </ul>
-        <button class="pricing-card__btn" onclick="openModal('business')">Réserver un audit →</button>
+        <button class="pricing-card__btn" onclick="openModal()">Demander une étude →</button>
       </div>
 
-      <!-- STRATEGIC -->
+      <!-- PHASE 3 -->
       <div class="pricing-card fade-in">
-        <div class="pricing-card__tier">Strategic</div>
-        <div class="pricing-card__price">20 000€+</div>
-        <div class="pricing-card__price-note">Sur mesure · Délai : 8 à 16 semaines</div>
-        <div class="pricing-card__name">Brain d'Entreprise Complet</div>
-        <p class="pricing-card__tagline">Un SAFE Brain™ complet avec un agent de pilotage dédié au dirigeant. L'entreprise devient un système intelligent qui apprend.</p>
+        <div class="pricing-card__tier">Phase 3 — Piloter</div>
+        <div class="pricing-card__price" style="font-size:28px;">Run</div>
+        <div class="pricing-card__price-note">Engagement de résultats</div>
+        <div class="pricing-card__name">Pilotage Privé</div>
+        <p class="pricing-card__tagline">Abonnement de run et évolution continue. Votre système apprend chaque jour de vos nouvelles données.</p>
         <ul class="pricing-card__features">
-          <li><span class="check">✓</span><span>Tout le Business, plus :</span></li>
-          <li><span class="check">✓</span><span>SAFE Brain™ Enterprise — mémoire totale de l'organisation</span></li>
-          <li><span class="check">✓</span><span>Agent IA de pilotage dédié au dirigeant (cockpit décisionnel)</span></li>
-          <li><span class="check">✓</span><span>Hébergement on-premise ou cloud privé souverain</span></li>
-          <li><span class="check">✓</span><span>SLA dédié · Évolutions continues</span></li>
-          <li><span class="check">✓</span><span>Accompagnement stratégique trimestriel</span></li>
+          <li><span class="check">✓</span><span>Maintenance &amp; Mises à jour IA</span></li>
+          <li><span class="check">✓</span><span>Hébergement souverain (Cloud ou On-prem)</span></li>
+          <li><span class="check">✓</span><span>Support stratégique prioritaire</span></li>
+          <li><span class="check">✓</span><span>Réunions de pilotage trimestrielles</span></li>
         </ul>
-        <button class="pricing-card__btn" onclick="openModal('strategic')">Contacter Bertrand →</button>
+        <button class="pricing-card__btn" onclick="openModal()">Contacter Bertrand →</button>
       </div>
 
     </div>
-    <p style="text-align:center;margin-top:28px;font-size:13px;color:var(--gray-400);">Tous les déploiements incluent : hébergement souverain · conformité RGPD · aucune donnée transmise à un tiers · garantie de résultats mesurables à 30 jours.</p>
   </div>
 </section>
 
@@ -892,16 +850,6 @@
         <p class="footer__desc">La mémoire intelligente souveraine des PME. Vos données ne quittent jamais vos murs. Résultats mesurables en 30 jours.</p>
       </div>
       <div>
-        <div class="footer__col-title">Par Métier</div>
-        <ul class="footer__links">
-          <li><a href="/solutions/direction-strategie">Direction &amp; Stratégie</a></li>
-          <li><a href="/solutions/rh-paie">RH &amp; Paie</a></li>
-          <li><a href="/solutions/commercial">Ventes &amp; Commercial</a></li>
-          <li><a href="/solutions/finance-comptabilite">Finance &amp; Comptabilité</a></li>
-          <li><a href="/solutions/achats-stock">Achats &amp; Stock</a></li>
-          <li><a href="/solutions/operations">Opérations</a></li>
-        </ul>
-      </div>
       <div>
         <div class="footer__col-title">Professions Réglementées</div>
         <ul class="footer__links">
