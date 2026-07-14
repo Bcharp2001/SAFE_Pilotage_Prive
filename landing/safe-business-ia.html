@@ -236,6 +236,22 @@
               "@type": "Answer",
               "text": "ChatGPT et Copilot sont des outils génériques. Vos données partent sur des serveurs américains et ces IA ne connaissent rien à votre entreprise. Un collaborateur numérique SAFE est spécialisé sur vos procédures, vos modèles, votre savoir-faire — dans un environnement 100% privé."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "Peut-on choisir le modèle d'IA (Mistral etc.) ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolument. Nous privilégions l'Open Source de pointe (Mistral AI, Llama 3) exécuté via Ollama. L'architecture vous permet de changer de modèle à tout moment sans dépendance."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment gérez-vous les droits d'accès en interne ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nous appliquons une gouvernance stricte (RBAC). Vos agents IA sont cloisonnés et tous les échanges tracés. Un Dossier de Conformité Opérationnelle est fourni à la livraison."
+            }
           }
         ]
       }
@@ -825,6 +841,53 @@
     </div>
   </section>
 
+  <section class="section section--light" id="architecture" style="background-color: var(--navy-mid); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+    <div class="container">
+      <div class="section-header fade-in" style="text-align:center;max-width:800px;margin:0 auto">
+        <div class="label label--gold" style="justify-content:center"><span class="dot"></span> Pour les DSI & DPO</div>
+        <h2 class="section-title">Architecture Technique & Sécurité</h2>
+        <p style="font-size: 18px; color: rgba(255,255,255,0.6); line-height: 1.6; margin-top: 16px;">
+          Une infrastructure pensée pour la souveraineté totale des données, la conformité légale et la performance d'exécution.
+        </p>
+      </div>
+
+      <div class="grid grid--3" style="margin-top: 60px;">
+        <!-- Card 1: Modèles -->
+        <div class="card fade-in" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);">
+          <div class="card-icon" style="color: var(--gold);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16.1A5 5 0 0 1 5.9 20M2 12.05A9 9 0 0 1 9.95 20M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6"></path><line x1="2" y1="20" x2="2.01" y2="20"></line></svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 600; color: var(--white); margin-bottom: 12px; font-family: var(--font-display);">Stack & Modèles IA</h3>
+          <p style="font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.6;">
+            Déploiement exclusif de modèles <strong>Open Source de pointe</strong> (Mistral AI, Meta Llama 3, Qwen) exécutés localement via <strong>Ollama ou vLLM</strong>. L'architecture RAG garantit des réponses précises sourcées uniquement sur vos documents.
+          </p>
+        </div>
+
+        <!-- Card 2: Infrastructure -->
+        <div class="card fade-in" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);">
+          <div class="card-icon" style="color: var(--gold);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 600; color: var(--white); margin-bottom: 12px; font-family: var(--font-display);">Infrastructure Zéro Cloud</h3>
+          <p style="font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.6;">
+            Deux options d'hébergement garantissant le secret industriel : <strong>100% On-Premise</strong> (Serveur Bare Metal / Mac Studio dans vos locaux) ou <strong>Cloud Privé Souverain</strong> (SecNumCloud, serveurs dédiés OVH / Scaleway en France).
+          </p>
+        </div>
+
+        <!-- Card 3: Sécurité -->
+        <div class="card fade-in" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);">
+          <div class="card-icon" style="color: var(--gold);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 600; color: var(--white); margin-bottom: 12px; font-family: var(--font-display);">Sécurité & Gouvernance</h3>
+          <p style="font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.6;">
+            Implémentation <strong>RBAC</strong> (Role Based Access Control) pour cloisonner les agents. Traçabilité complète via <strong>logs chiffrés</strong>. Remise d'un <strong>Dossier de Conformité (RGPD / AI Act)</strong> pour vos équipes légales et DPO.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section section--dark" id="faq">
     <div class="container">
       <div class="section-header fade-in" style="text-align:center;max-width:600px;margin:0 auto">
@@ -849,6 +912,8 @@
         <div class="faq-item fade-in"><div class="faq-question" onclick="toggleFaq(this)"><span class="faq-question__text">Quel retour sur investissement peut-on attendre ?</span><span class="faq-question__icon">+</span></div><div class="faq-answer"><div class="faq-answer__inner">Pour une PME, l'automatisation des tâches répétitives représente rapidement des dizaines d'heures gagnées par semaine et une sécurisation de l'information. L'Audit Stratégique initial permet d'identifier précisément vos gisements de rentabilité et le ROI attendu avant de construire quoi que ce soit.</div></div></div>
         <div class="faq-item fade-in"><div class="faq-question" onclick="toggleFaq(this)"><span class="faq-question__text">Par où commencer si je ne suis pas expert en IA ?</span><span class="faq-question__icon">+</span></div><div class="faq-answer"><div class="faq-answer__inner">Par un Audit Stratégique IA. L'Audit cartographie vos processus métier, identifie les gisements de rentabilité, et définit quels collaborateurs numériques créer en priorité — avec des chiffres concrets et une feuille de route claire.</div></div></div>
         <div class="faq-item fade-in"><div class="faq-question" onclick="toggleFaq(this)"><span class="faq-question__text">Quelle est la différence avec ChatGPT ou Copilot ?</span><span class="faq-question__icon">+</span></div><div class="faq-answer"><div class="faq-answer__inner">ChatGPT et Copilot sont des outils génériques. Vos données partent sur des serveurs américains et ces IA ne connaissent rien à votre entreprise. Un collaborateur numérique SAFE est spécialisé sur vos procédures, vos modèles, votre savoir-faire — dans un environnement 100% privé.<br><br><a href="/blog/chatgpt-vs-ia-privee-entreprise" style="color:var(--gold); font-weight:600; text-decoration:none;">→ Lire notre article d'expert détaillé sur le sujet</a></div></div></div>
+        <div class="faq-item fade-in"><div class="faq-question" onclick="toggleFaq(this)"><span class="faq-question__text">Peut-on choisir le modèle d'IA (Mistral etc.) ?</span><span class="faq-question__icon">+</span></div><div class="faq-answer"><div class="faq-answer__inner">Absolument. Nous sommes agnostiques et privilégions l'Open Source de pointe. Selon vos besoins, nous déployons la stack la plus performante : Mistral AI (France), Llama 3 (Meta), ou Qwen, exécutée via Ollama. L'architecture est conçue pour que vous puissiez changer de modèle à tout moment sans dépendance technique.</div></div></div>
+        <div class="faq-item fade-in"><div class="faq-question" onclick="toggleFaq(this)"><span class="faq-question__text">Comment gérez-vous la confidentialité et les droits d'accès en interne ?</span><span class="faq-question__icon">+</span></div><div class="faq-answer"><div class="faq-answer__inner">Nous appliquons une gouvernance stricte (RBAC). Vos agents IA sont cloisonnés : l'agent Ressources Humaines n'a pas accès aux bases de données financières. Tous les échanges sont tracés dans des journaux de logs chiffrés. À la livraison, nous fournissons un Dossier de Conformité Opérationnelle exploitable par votre DPO ou vos avocats.</div></div></div>
       </div>
     </div>
   </section>
