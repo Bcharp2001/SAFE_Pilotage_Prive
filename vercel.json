@@ -58,6 +58,16 @@
       "permanent": true
     },
     {
+      "source": "/articles/chatgpt-vs-ia-privee-entreprise",
+      "destination": "/blog/chatgpt-vs-ia-privee-entreprise",
+      "permanent": true
+    },
+    {
+      "source": "/articles/chatgpt-vs-ia-privee-entreprise.html",
+      "destination": "/blog/chatgpt-vs-ia-privee-entreprise",
+      "permanent": true
+    },
+    {
       "source": "/architecture-ia-souveraine.html",
       "destination": "/architecture-ia-souveraine",
       "permanent": true
