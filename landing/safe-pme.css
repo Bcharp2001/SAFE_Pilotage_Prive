@@ -35,8 +35,10 @@ img, svg { max-width: 100%; }
 .skip-link { position: fixed; top: 10px; left: 10px; z-index: 1000; transform: translateY(-150%); padding: 10px 16px; color: var(--white); background: var(--blue); border-radius: 6px; }
 .skip-link:focus { transform: none; }
 
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity .62s ease, transform .62s ease; }
-.reveal.is-visible { opacity: 1; transform: none; }
+.reveal { opacity: 1; transform: none; }
+.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .62s ease, transform .62s ease; }
+.js .reveal.is-visible,
+.js .hero .reveal { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
