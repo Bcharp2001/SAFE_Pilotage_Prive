@@ -4,7 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>
-    document.documentElement.dataset.offerVariant = location.pathname.includes('safe-pme-scan') ? 'scan' : 'consultation';
+    document.documentElement.classList.add('js');
+    document.documentElement.dataset.offerVariant = location.pathname.includes('safe-pme-scan')
+      || new URLSearchParams(location.search).get('variant') === 'scan'
+      ? 'scan'
+      : 'consultation';
   </script>
   <title>Assistant IA privé pour PME, opérationnel en 10 jours | SAFE PME</title>
   <meta name="description" content="SAFE PME met en service un premier assistant IA privé relié à vos documents : réponses sourcées, accès maîtrisés, règles d’usage et formation incluses.">
