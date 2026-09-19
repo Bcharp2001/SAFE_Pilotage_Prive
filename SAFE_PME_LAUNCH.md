@@ -88,7 +88,7 @@ Avant la production, authentifier le domaine d’envoi dans Brevo : SPF, DKIM et
 
 Commencer en correspondances exactes et expressions. Exclure notamment : gratuit, tutoriel, cours, emploi, stage, étudiant, image, vidéo, générateur, APK, crack, Python, LangChain, Hugging Face, Raspberry Pi, GPU, Ollama et installer soi-même.
 
-Ne pas inventer de volumes ou de CPC. Les identifiants DataForSEO ne sont pas présents dans l’environnement actuel. Une fois connectés, lancer les mots-clés ci-dessus sur Google Ads Search Volume avec `location_name=France` et `language_code=fr`, puis utiliser Keywords For Keywords pour l’expansion.
+Ne pas inventer de volumes ou de CPC. Le fichier `dataforseo_result.json` déjà présent a été généré à partir de requêtes centrées sur l’emploi et ne permet pas de dimensionner cette campagne. Les identifiants DataForSEO ne sont pas présents dans l’environnement actuel. Une fois connectés, lancer les mots-clés ci-dessus sur Google Ads Search Volume avec `location_name=France` et `language_code=fr`, puis utiliser Keywords For Keywords pour l’expansion.
 
 ## Mesure
 
