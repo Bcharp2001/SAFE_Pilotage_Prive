@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="fr" data-offer-variant="consultation">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    document.documentElement.classList.add('js');
+    document.documentElement.dataset.offerVariant = location.pathname.includes('safe-pme-scan')
+      || new URLSearchParams(location.search).get('variant') === 'scan'
+      ? 'scan'
+      : 'consultation';
+  </script>
+  <title>Assistant IA privé pour PME, opérationnel en 10 jours | SAFE PME</title>
+  <meta name="description" content="SAFE PME met en service un premier assistant IA privé relié à vos documents : réponses sourcées, accès maîtrisés, règles d’usage et formation incluses.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://www.safe-pilotage-prive.fr/landing/safe-pme-10-jours">
+  <meta name="theme-color" content="#071322">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="SAFE PME — votre assistant IA privé sur vos documents">
+  <meta property="og:description" content="Un premier périmètre opérationnel en 10 jours ouvrés, avec réponses sourcées, droits d’accès et gouvernance inclus.">
+  <meta property="og:url" content="https://www.safe-pilotage-prive.fr/landing/safe-pme-10-jours">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="safe-pme.css">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "SAFE PME",
+    "serviceType": "Déploiement d'assistant IA privé pour PME",
+    "provider": {
+      "@type": "Organization",
+      "name": "S.A.F.E. Pilotage Privé",
+      "url": "https://www.safe-pilotage-prive.fr"
+    },
+    "areaServed": "FR",
+    "description": "Mise en service d'un premier assistant documentaire IA privé et gouverné en 10 jours ouvrés, sur un périmètre pilote défini.",
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "EUR",
+      "price": "4900",
+      "description": "Pilote Essentiel à partir de 4 900 euros HT, après qualification du périmètre."
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header" data-header>
+    <div class="shell header-inner">
+      <a class="brand" href="/" aria-label="SAFE Pilotage Privé — accueil">
+        <span class="brand-mark" aria-hidden="true"><span>S</span><i></i><span>F</span></span>
+        <span class="brand-copy"><strong>S.A.F.E.</strong><small>Pilotage Privé</small></span>
+      </a>
+      <nav class="header-nav" aria-label="Navigation principale">
+        <a href="#demonstration">Démonstration</a>
+        <a href="#methode">Les 10 jours</a>
+        <a href="#offre">L’offre</a>
+      </nav>
+      <a class="button button-small header-cta variant-consultation" href="#diagnostic" data-track="nav_diagnostic">Réserver le diagnostic</a>
+      <a class="button button-small header-cta variant-scan" href="#safe-scan" data-track="nav_scan">Découvrir le SAFE Scan</a>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="hero">
+      <div class="hero-orb hero-orb-one" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-two" aria-hidden="true"></div>
+      <div class="shell hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span></span> Assistant documentaire IA pour PME</p>
+          <h1>Interrogez vos documents avec une IA <em>privée et gouvernée</em> par votre entreprise.</h1>
+          <p class="hero-lead">SAFE PME met en service en <strong>10 jours ouvrés</strong> un premier assistant relié à un corpus défini de vos documents — avec réponses sourcées, accès maîtrisés, règles d’usage et formation des équipes.</p>
+
+          <ul class="hero-checks" aria-label="Bénéfices clés">
+            <li><span aria-hidden="true">✓</span> Retrouver et synthétiser l’information interne</li>
+            <li><span aria-hidden="true">✓</span> Vérifier chaque réponse dans le document source</li>
+            <li><span aria-hidden="true">✓</span> Choisir une architecture locale, européenne ou hybride</li>
+          </ul>
+
+          <div class="hero-actions variant-consultation">
+            <a class="button button-primary" href="#diagnostic" data-track="hero_diagnostic">Réserver mon diagnostic SAFE <span>→</span></a>
+            <a class="button button-ghost" href="#demonstration" data-track="hero_demo">Voir la démonstration <span>↓</span></a>
+          </div>
+          <div class="hero-actions variant-scan">
+            <a class="button button-primary" href="#safe-scan" data-track="hero_scan">Commander mon SAFE Scan <span>→</span></a>
+            <a class="button button-ghost" href="#diagnostic" data-track="hero_talk">Échanger avant de commander <span>↓</span></a>
+          </div>
+
+          <p class="hero-note variant-consultation">30 minutes · Offert · Sans document confidentiel à transmettre</p>
+          <p class="hero-note variant-scan">790 € HT · Déduit du pilote si vous poursuivez sous 30 jours</p>
+        </div>
+
+        <div class="hero-product reveal" aria-label="Aperçu d’une réponse SAFE PME">
+          <div class="product-window">
+            <div class="window-bar">
+              <div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+              <span>SAFE · Base documentaire Qualité</span>
+              <span class="status"><i></i> espace privé</span>
+            </div>
+            <div class="product-body">
+              <div class="question">
+                <span class="avatar avatar-user">BD</span>
+                <div><small>Vous</small><p>Quelle procédure appliquer avant la réception d’un chantier&nbsp;?</p></div>
+              </div>
+              <div class="answer">
+                <span class="avatar avatar-safe">S</span>
+                <div class="answer-copy">
+                  <div class="answer-label"><small>Assistant SAFE</small><span>3 sources consultées</span></div>
+                  <p>Avant la réception, trois contrôles sont requis&nbsp;:</p>
+                  <ol>
+                    <li>compléter la fiche d’autocontrôle&nbsp;;</li>
+                    <li>documenter les réserves avec photos&nbsp;;</li>
+                    <li>faire valider le procès-verbal par le responsable.</li>
+                  </ol>
+                  <div class="source-list">
+                    <button type="button"><span>PDF</span> PROC-17 · Réception chantier <b>p. 4</b></button>
+                    <button type="button"><span>DOC</span> Manuel qualité 2026 <b>§ 8.2</b></button>
+                  </div>
+                  <p class="answer-warning"><span>!</span> À confirmer par le responsable de chantier avant envoi au client.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="floating-proof floating-proof-one"><span>↗</span><div><b>Réponse traçable</b><small>Sources accessibles en un clic</small></div></div>
+          <div class="floating-proof floating-proof-two"><span>◎</span><div><b>Droits respectés</b><small>Le corpus dépend de l’utilisateur</small></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Engagements du pilote">
+      <div class="shell trust-grid">
+        <div><span>10 jours</span><p>pour le périmètre pilote*</p></div>
+        <div><span>Sources citées</span><p>pour contrôler les réponses</p></div>
+        <div><span>Contrôle humain</span><p>intégré aux règles d’usage</p></div>
+        <div><span>Architecture documentée</span><p>locale, européenne ou hybride</p></div>
+      </div>
+      <p class="strip-note shell">* Après réception des accès et documents nécessaires, sur un périmètre défini ensemble.</p>
+    </section>
+
+    <section class="section problem-section" id="enjeux">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <p class="eyebrow eyebrow-dark"><span></span> Le problème n’est plus l’accès à l’IA</p>
+          <h2>Vos équipes l’utilisent déjà.<br>Mais l’entreprise ne la maîtrise pas encore.</h2>
+          <p>SAFE PME relie l’utilité opérationnelle de l’IA à trois exigences de dirigeant&nbsp;: la confidentialité, la fiabilité et la gouvernance.</p>
+        </div>
+        <div class="problem-grid">
+          <article class="problem-card reveal">
+            <span class="card-index">01</span>
+            <div class="icon-box" aria-hidden="true">⌕</div>
+            <h3>Documents dispersés</h3>
+            <p>Procédures, modèles et décisions sont répartis entre dossiers, messageries et collaborateurs. La recherche ralentit chaque action.</p>
+          </article>
+          <article class="problem-card reveal">
+            <span class="card-index">02</span>
+            <div class="icon-box" aria-hidden="true">◌</div>
+            <h3>Usages IA invisibles</h3>
+            <p>Chacun expérimente avec ses propres outils, sans règle commune sur les données, les résultats ou la validation humaine.</p>
+          </article>
+          <article class="problem-card reveal">
+            <span class="card-index">03</span>
+            <div class="icon-box" aria-hidden="true">◇</div>
+            <h3>Savoir-faire fragile</h3>
+            <p>Une partie de la connaissance repose sur quelques personnes. Lorsqu’elles sont absentes ou partent, l’entreprise perd du temps et de la mémoire.</p>
+          </article>
+        </div>
+        <div class="market-proof reveal">
+          <p><strong>22&nbsp;%</strong> des TPE-PME françaises déclaraient utiliser l’IA générative, soit deux fois plus en un an.</p>
+          <p><strong>52&nbsp;%</strong> des dirigeants exprimaient une préoccupation liée à la sécurité des données.</p>
+          <a href="https://www.francenum.gouv.fr/guides-et-conseils/intelligence-artificielle/comprendre-et-adopter-lia/lintelligence-artificielle-6" target="_blank" rel="noopener">Source&nbsp;: France Num ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section demo-section" id="demonstration">
+      <div class="shell demo-grid">
+        <div class="demo-copy reveal">
+          <p class="eyebrow"><span></span> Une IA qui montre d’où vient sa réponse</p>
+          <h2>De la question au document source, sans perdre le contrôle.</h2>
+          <p>Un assistant SAFE ne “connaît” pas toute votre entreprise. Il travaille sur un corpus autorisé, recherche les passages utiles et formule une réponse que l’utilisateur peut vérifier.</p>
+          <div class="demo-principles">
+            <div><span>1</span><p><b>Question métier</b><small>Formulée en langage naturel</small></p></div>
+            <div><span>2</span><p><b>Recherche contrôlée</b><small>Uniquement dans les sources autorisées</small></p></div>
+            <div><span>3</span><p><b>Réponse sourcée</b><small>Avec renvoi vers les passages utilisés</small></p></div>
+            <div><span>4</span><p><b>Décision humaine</b><small>L’utilisateur valide avant d’agir</small></p></div>
+          </div>
+        </div>
+        <div class="before-after reveal">
+          <div class="comparison comparison-before">
+            <div class="comparison-head"><span>Avant</span><small>Recherche manuelle</small></div>
+            <ul>
+              <li><i></i>Explorer plusieurs dossiers</li>
+              <li><i></i>Demander au bon collègue</li>
+              <li><i></i>Comparer les versions</li>
+              <li><i></i>Reconstituer la réponse</li>
+            </ul>
+          </div>
+          <div class="comparison-arrow" aria-hidden="true">→</div>
+          <div class="comparison comparison-after">
+            <div class="comparison-head"><span>Avec SAFE</span><small>Une interface</small></div>
+            <ul>
+              <li><i>✓</i>Poser la question</li>
+              <li><i>✓</i>Lire la synthèse</li>
+              <li><i>✓</i>Ouvrir les sources</li>
+              <li><i>✓</i>Valider la réponse</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section use-cases-section" id="cas-usage">
+      <div class="shell">
+        <div class="section-heading section-heading-light reveal">
+          <p class="eyebrow"><span></span> Commencer petit, prouver la valeur</p>
+          <h2>Un premier cas d’usage concret.<br>Pas un “grand projet IA”.</h2>
+          <p>Le pilote est volontairement borné pour être mis en service rapidement, mesuré, puis étendu uniquement si sa valeur est démontrée.</p>
+        </div>
+        <div class="use-case-tabs" role="tablist" aria-label="Cas d’usage">
+          <button class="use-tab active" type="button" role="tab" aria-selected="true" aria-controls="case-procedures" id="tab-procedures" data-tab="procedures">Qualité & procédures</button>
+          <button class="use-tab" type="button" role="tab" aria-selected="false" aria-controls="case-commercial" id="tab-commercial" data-tab="commercial">Commercial</button>
+          <button class="use-tab" type="button" role="tab" aria-selected="false" aria-controls="case-formation" id="tab-formation" data-tab="formation">Formation métier</button>
+        </div>
+        <div class="use-panels reveal">
+          <article class="use-panel active" role="tabpanel" id="case-procedures" aria-labelledby="tab-procedures">
+            <div class="use-panel-copy"><span class="panel-number">01</span><h3>Rendre les procédures accessibles au moment où elles servent.</h3><p>L’assistant retrouve la procédure applicable, résume les étapes et cite la version de référence.</p><ul><li>Modes opératoires et fiches qualité</li><li>Contrats et documents normatifs</li><li>Comptes rendus et décisions internes</li></ul></div>
+            <div class="mini-query"><small>Question</small><p>“Quelle version du protocole finition mate est applicable&nbsp;?”</p><div><span>Réponse trouvée</span><b>Protocole MAT-04 · v3.2</b><em>Validé le 12/06/2026</em></div></div>
+          </article>
+          <article class="use-panel" role="tabpanel" id="case-commercial" aria-labelledby="tab-commercial" hidden>
+            <div class="use-panel-copy"><span class="panel-number">02</span><h3>Préparer une réponse commerciale à partir des références internes.</h3><p>L’assistant rassemble les éléments pertinents sans inventer une référence absente du corpus.</p><ul><li>Références et réalisations comparables</li><li>Trames de propositions et argumentaires</li><li>Historique des échanges autorisés</li></ul></div>
+            <div class="mini-query"><small>Demande</small><p>“Prépare les points clés pour le rendez-vous Villa Horizon.”</p><div><span>Dossier préparé</span><b>5 références comparables</b><em>3 questions à clarifier</em></div></div>
+          </article>
+          <article class="use-panel" role="tabpanel" id="case-formation" aria-labelledby="tab-formation" hidden>
+            <div class="use-panel-copy"><span class="panel-number">03</span><h3>Transmettre les gestes et méthodes sans dépendre d’une seule personne.</h3><p>L’assistant guide le collaborateur vers le bon contenu et rappelle quand une validation terrain est nécessaire.</p><ul><li>Protocoles et supports de formation</li><li>FAQ issue des situations réelles</li><li>Parcours par métier ou niveau</li></ul></div>
+            <div class="mini-query"><small>Question terrain</small><p>“Quels contrôles faire avant la seconde couche&nbsp;?”</p><div><span>Guide proposé</span><b>6 points de contrôle</b><em>Validation chef d’équipe requise</em></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section method-section" id="methode">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <p class="eyebrow eyebrow-dark"><span></span> Une mise en service cadrée</p>
+          <h2>Votre premier assistant en 10 jours ouvrés.</h2>
+          <p>Le délai commence lorsque le périmètre, les accès et les documents nécessaires sont disponibles. Les intégrations complexes font l’objet d’un chiffrage distinct.</p>
+        </div>
+        <ol class="timeline">
+          <li class="reveal"><span>J1</span><div><small>Cadrer</small><h3>Objectif et mesure du succès</h3><p>Choix d’un cas d’usage, d’un référent et de critères observables.</p></div></li>
+          <li class="reveal"><span>J2–3</span><div><small>Cartographier</small><h3>Données, risques et droits</h3><p>Sources autorisées, utilisateurs, informations sensibles et architecture cible.</p></div></li>
+          <li class="reveal"><span>J4–6</span><div><small>Construire</small><h3>Corpus et assistant</h3><p>Préparation des documents, paramétrage et règles de réponse.</p></div></li>
+          <li class="reveal"><span>J7–8</span><div><small>Éprouver</small><h3>Tests sur des questions réelles</h3><p>Évaluation des réponses, des citations, des refus et des droits d’accès.</p></div></li>
+          <li class="reveal"><span>J9–10</span><div><small>Transmettre</small><h3>Formation et mise en service</h3><p>Charte, prise en main, consignes de validation et plan des 90 jours.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section deliverables-section" id="livrables">
+      <div class="shell deliverables-grid">
+        <div class="deliverables-copy reveal">
+          <p class="eyebrow"><span></span> Ce que vous recevez</p>
+          <h2>Un système utilisable et un cadre pour le piloter.</h2>
+          <p>La technologie seule ne suffit pas. Le pilote associe l’assistant, les règles de fonctionnement et la montée en compétence des utilisateurs.</p>
+          <a href="#diagnostic" class="text-link variant-consultation" data-track="deliverables_diagnostic">Vérifier l’éligibilité de mon projet <span>→</span></a>
+          <a href="#safe-scan" class="text-link variant-scan" data-track="deliverables_scan">Voir le contenu du SAFE Scan <span>→</span></a>
+        </div>
+        <div class="deliverable-list reveal">
+          <div><span>01</span><p><b>Assistant documentaire opérationnel</b><small>Configuré sur le périmètre pilote retenu.</small></p></div>
+          <div><span>02</span><p><b>Corpus initial préparé</b><small>Documents sélectionnés, structurés et testés.</small></p></div>
+          <div><span>03</span><p><b>Droits et architecture documentés</b><small>Accès, composants, localisation et dépendances explicités.</small></p></div>
+          <div><span>04</span><p><b>Socle de gouvernance</b><small>Charte, registre initial et règles de validation humaine.</small></p></div>
+          <div><span>05</span><p><b>Formation des utilisateurs</b><small>Bonnes pratiques, limites et signalement des erreurs.</small></p></div>
+          <div><span>06</span><p><b>Plan d’amélioration à 90 jours</b><small>Mesures, priorités et options d’extension.</small></p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section architecture-section" id="architecture">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <p class="eyebrow eyebrow-dark"><span></span> Pas de souveraineté de façade</p>
+          <h2>L’architecture est choisie selon vos données — puis documentée.</h2>
+          <p>Le mot “souverain” n’est utilisé que lorsque l’ensemble de la chaîne technique et contractuelle permet de le justifier.</p>
+        </div>
+        <div class="architecture-grid">
+          <article class="architecture-card reveal"><span class="arch-icon">▣</span><small>Option A</small><h3>Locale</h3><p>Modèle et documents exécutés sur une infrastructure contrôlée par l’entreprise.</p><ul><li>Contrôle renforcé</li><li>Infrastructure à dimensionner</li><li>Maintenance dédiée</li></ul></article>
+          <article class="architecture-card architecture-card-featured reveal"><span class="arch-choice">Souvent adaptée aux PME</span><span class="arch-icon">◎</span><small>Option B</small><h3>Cloud européen privé</h3><p>Application et données hébergées dans un environnement européen contractualisé.</p><ul><li>Déploiement plus rapide</li><li>Capacité évolutive</li><li>Dépendances documentées</li></ul></article>
+          <article class="architecture-card reveal"><span class="arch-icon">◈</span><small>Option C</small><h3>Hybride</h3><p>Les sources sensibles restent dans l’environnement interne, avec des services externes maîtrisés.</p><ul><li>Compromis sécurité/agilité</li><li>Flux précisément définis</li><li>Réversibilité prévue</li></ul></article>
+        </div>
+        <div class="compliance-note reveal">
+          <div class="shield" aria-hidden="true">S</div>
+          <div><h3>Ce que SAFE PME promet — et ce qu’il ne promet pas.</h3><p>Nous fournissons un socle technique et documentaire qui <strong>contribue</strong> à vos démarches RGPD et AI Act. Nous ne remplaçons ni votre DPO, ni votre conseil juridique, et nous ne promettons pas une conformité réglementaire absolue en dix jours.</p></div>
+          <a href="https://www.cnil.fr/fr/utiliser-lia-generative-dans-les-tpe-et-pme" target="_blank" rel="noopener">Recommandations CNIL ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section offer-section" id="offre">
+      <div class="shell offer-grid">
+        <div class="offer-copy reveal">
+          <p class="eyebrow"><span></span> Une première marche claire</p>
+          <h2>Le Pilote SAFE PME Essentiel</h2>
+          <p>Pour une PME qui veut valider un cas d’usage documentaire avant d’engager un déploiement plus large.</p>
+          <div class="price"><small>à partir de</small><strong>4&nbsp;900&nbsp;€</strong><span>HT</span></div>
+          <p class="price-note">Prix confirmé après qualification du corpus, des utilisateurs et de l’architecture.</p>
+        </div>
+        <div class="offer-card reveal">
+          <p class="offer-label">Périmètre Essentiel</p>
+          <ul>
+            <li><span>✓</span> Un cas d’usage et un assistant</li>
+            <li><span>✓</span> Un corpus documentaire défini</li>
+            <li><span>✓</span> Jusqu’à 5 utilisateurs pilotes</li>
+            <li><span>✓</span> Charte et registre initial des usages</li>
+            <li><span>✓</span> Session de formation et support 30 jours</li>
+            <li><span>✓</span> Plan d’amélioration à 90 jours</li>
+          </ul>
+          <a class="button button-primary variant-consultation" href="#diagnostic" data-track="offer_diagnostic">Vérifier mon éligibilité <span>→</span></a>
+          <a class="button button-primary variant-scan" href="#safe-scan" data-track="offer_scan">Commencer par le SAFE Scan <span>→</span></a>
+          <small>Aucun achat du pilote n’est demandé avant validation du périmètre.</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="section scan-section variant-scan" id="safe-scan">
+      <div class="shell scan-grid">
+        <div class="scan-copy reveal">
+          <p class="eyebrow eyebrow-dark"><span></span> Diagnostic payant à périmètre fixe</p>
+          <h2>SAFE Scan — sachez quoi déployer avant d’investir.</h2>
+          <p>Un atelier de 90 minutes suivi d’une note de décision pour prioriser votre premier cas d’usage et choisir l’architecture adaptée.</p>
+          <ul><li>Cartographie des usages et points de vigilance</li><li>Cas d’usage priorisé et critères de succès</li><li>Préconisation d’architecture</li><li>Plan d’action et budget indicatif</li></ul>
+        </div>
+        <div class="scan-checkout reveal">
+          <p>SAFE Scan</p><div><strong>790&nbsp;€</strong><span>HT</span></div><small>Déduit du Pilote SAFE PME si vous poursuivez sous 30 jours.</small>
+          <a class="button button-primary" href="/api/safe-scan-checkout?source=landing-scan" data-track="checkout_start">Commander avec Stripe <span>→</span></a>
+          <a class="text-link" href="#diagnostic">Poser une question avant l’achat</a>
+          <p class="checkout-note">Paiement sécurisé activé après validation des conditions de vente. Si le paiement n’est pas encore ouvert, vous serez redirigé vers le formulaire de contact.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fit-section">
+      <div class="shell fit-grid">
+        <div class="fit-card fit-yes reveal"><p class="fit-label">SAFE PME est adapté si…</p><ul><li>vos documents sont nombreux et dispersés&nbsp;;</li><li>au moins 5 personnes recherchent régulièrement les mêmes informations&nbsp;;</li><li>vous pouvez nommer un référent disponible&nbsp;;</li><li>vous acceptez un pilote borné et mesurable.</li></ul></div>
+        <div class="fit-card fit-no reveal"><p class="fit-label">Nous vous le dirons franchement si…</p><ul><li>vos documents ne sont pas encore exploitables&nbsp;;</li><li>le besoin relève d’abord d’une réorganisation&nbsp;;</li><li>le cas d’usage exige un dispositif juridique renforcé&nbsp;;</li><li>une solution déjà présente couvre correctement le besoin.</li></ul></div>
+      </div>
+    </section>
+
+    <section class="section founder-section">
+      <div class="shell founder-grid">
+        <div class="founder-monogram reveal" aria-hidden="true"><span>BC</span><small>CCA · SAFE</small></div>
+        <div class="founder-copy reveal">
+          <p class="eyebrow"><span></span> Pilotage avant technologie</p>
+          <h2>Une offre conçue pour le dirigeant de PME.</h2>
+          <p>Bertrand Charpilloz accompagne les entreprises dans la structuration de leur performance et l’intégration opérationnelle de l’IA. SAFE Pilotage Privé part des décisions, des métiers et des risques de l’entreprise avant de choisir les outils.</p>
+          <blockquote>« Une IA utile n’est pas celle qui impressionne en démonstration. C’est celle que l’entreprise sait utiliser, contrôler et faire progresser. »</blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq-section" id="questions">
+      <div class="shell faq-layout">
+        <div class="faq-heading reveal"><p class="eyebrow eyebrow-dark"><span></span> Questions fréquentes</p><h2>Les réponses avant votre premier échange.</h2><p>Une question plus spécifique&nbsp;? Écrivez directement à <a href="mailto:bertrand@safe-pilotage-prive.fr">bertrand@safe-pilotage-prive.fr</a>.</p></div>
+        <div class="faq-list">
+          <article class="faq-item reveal"><h3><button type="button" aria-expanded="false"><span>Nous avons déjà ChatGPT ou Microsoft Copilot. Quelle différence&nbsp;?</span><i aria-hidden="true">+</i></button></h3><div class="faq-answer"><p>SAFE PME ne remplace pas automatiquement ces outils. Il organise un cas d’usage autour d’un corpus, de droits, de sources vérifiables et de règles d’utilisation. Le diagnostic détermine si votre environnement existant peut être conservé.</p></div></article>
+          <article class="faq-item reveal"><h3><button type="button" aria-expanded="false"><span>Nos données servent-elles à entraîner un modèle&nbsp;?</span><i aria-hidden="true">+</i></button></h3><div class="faq-answer"><p>Cela dépend des composants choisis et de leurs conditions contractuelles. L’architecture remise au client précise les flux, la conservation, les sous-traitants et les conditions d’utilisation des données. Nous ne formulons pas de promesse générale sans cette vérification.</p></div></article>
+          <article class="faq-item reveal"><h3><button type="button" aria-expanded="false"><span>L’assistant peut-il se tromper&nbsp;?</span><i aria-hidden="true">+</i></button></h3><div class="faq-answer"><p>Oui. Toute IA générative peut produire une réponse inexacte. SAFE PME réduit et encadre ce risque par un corpus défini, des citations, des tests, des consignes d’abstention et une validation humaine adaptée à l’enjeu.</p></div></article>
+          <article class="faq-item reveal"><h3><button type="button" aria-expanded="false"><span>Que couvre exactement le délai de 10 jours&nbsp;?</span><i aria-hidden="true">+</i></button></h3><div class="faq-answer"><p>La mise en service d’un premier assistant sur un périmètre pilote défini. Le délai débute après réception des accès et documents nécessaires. Une migration importante, une intégration métier spécifique ou une infrastructure locale à acquérir peuvent allonger le calendrier.</p></div></article>
+          <article class="faq-item reveal"><h3><button type="button" aria-expanded="false"><span>SAFE PME garantit-il la conformité RGPD et AI Act&nbsp;?</span><i aria-hidden="true">+</i></button></h3><div class="faq-answer"><p>Non. SAFE PME fournit un socle de gouvernance et une documentation qui contribuent à votre démarche de conformité. La responsabilité et l’analyse juridique restent propres à l’entreprise et à ses usages.</p></div></article>
+          <article class="faq-item reveal"><h3><button type="button" aria-expanded="false"><span>Pourrons-nous changer de fournisseur ou récupérer nos données&nbsp;?</span><i aria-hidden="true">+</i></button></h3><div class="faq-answer"><p>Les dépendances, formats d’export et conditions de réversibilité font partie des points documentés. Le degré de portabilité dépend néanmoins de l’architecture retenue et des services externes utilisés.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section lead-section" id="diagnostic">
+      <div class="lead-glow" aria-hidden="true"></div>
+      <div class="shell lead-grid">
+        <div class="lead-copy reveal">
+          <p class="eyebrow"><span></span> Parlons de votre premier cas d’usage</p>
+          <h2 class="variant-consultation">Réservez votre diagnostic SAFE de 30 minutes.</h2>
+          <h2 class="variant-scan">Une question avant de commander le SAFE Scan&nbsp;?</h2>
+          <p class="variant-consultation">Nous vérifions la faisabilité du pilote, le niveau de sensibilité des données et l’architecture à envisager. Aucun document confidentiel n’est demandé à ce stade.</p>
+          <p class="variant-scan">Décrivez votre contexte. Nous vous répondons avant toute commande et sans vous demander de document confidentiel.</p>
+          <div class="lead-promises">
+            <div><span>01</span><p><b>Votre priorité</b><small>Un cas d’usage clairement formulé</small></p></div>
+            <div><span>02</span><p><b>Votre faisabilité</b><small>Données, équipe et contraintes</small></p></div>
+            <div><span>03</span><p><b>Votre prochaine étape</b><small>Décision claire, avec ou sans SAFE</small></p></div>
+          </div>
+          <p class="direct-contact">Ou écrivez à<br><a href="mailto:bertrand@safe-pilotage-prive.fr">bertrand@safe-pilotage-prive.fr</a></p>
+        </div>
+
+        <div class="lead-form-card reveal">
+          <form id="safeLeadForm" novalidate>
+            <input type="hidden" name="offer" value="SAFE PME 10 jours">
+            <input type="hidden" name="variant" value="consultation">
+            <input type="hidden" name="sourcePage" value="landing-safe-pme-10-jours">
+            <input type="hidden" name="startedAt" value="">
+            <input type="hidden" name="utmSource" value="">
+            <input type="hidden" name="utmMedium" value="">
+            <input type="hidden" name="utmCampaign" value="">
+            <input type="hidden" name="utmContent" value="">
+            <input type="hidden" name="utmTerm" value="">
+            <input type="hidden" name="gclid" value="">
+            <input type="hidden" name="gbraid" value="">
+            <input type="hidden" name="wbraid" value="">
+            <div class="honeypot" aria-hidden="true"><label for="website">Votre site internet</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+
+            <div class="form-header"><p>Votre projet en quelques éléments</p><span>Réponse sous 1 jour ouvré</span></div>
+
+            <fieldset>
+              <legend>Quelle est votre priorité&nbsp;?</legend>
+              <div class="choice-grid">
+                <label><input type="radio" name="priority" value="Recherche documentaire" required><span>Recherche documentaire</span></label>
+                <label><input type="radio" name="priority" value="Commercial"><span>Commercial</span></label>
+                <label><input type="radio" name="priority" value="Qualité et procédures"><span>Qualité & procédures</span></label>
+                <label><input type="radio" name="priority" value="Formation métier"><span>Formation métier</span></label>
+              </div>
+            </fieldset>
+
+            <div class="form-row">
+              <label>Nombre d’utilisateurs envisagé
+                <select name="users" required>
+                  <option value="">Sélectionner</option><option>1 à 5</option><option>6 à 20</option><option>21 à 50</option><option>Plus de 50</option>
+                </select>
+              </label>
+              <label>Vos documents sont principalement dans
+                <select name="documentLocation" required>
+                  <option value="">Sélectionner</option><option>Google Drive</option><option>Microsoft 365 / SharePoint</option><option>Serveur interne</option><option>Plusieurs systèmes</option><option>Autre / à préciser</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="form-row">
+              <label>Prénom et nom
+                <input type="text" name="fullname" autocomplete="name" maxlength="120" required placeholder="Jean Dupont">
+              </label>
+              <label>Entreprise
+                <input type="text" name="company" autocomplete="organization" maxlength="120" required placeholder="Entreprise SA">
+              </label>
+            </div>
+            <div class="form-row">
+              <label>E-mail professionnel
+                <input type="email" name="email" autocomplete="email" maxlength="160" required placeholder="jean@entreprise.fr">
+              </label>
+              <label>Téléphone <span>(facultatif)</span>
+                <input type="tel" name="phone" autocomplete="tel" maxlength="40" placeholder="06 00 00 00 00">
+              </label>
+            </div>
+            <label>Ce que vous aimeriez rendre plus simple <span>(facultatif)</span>
+              <textarea name="message" rows="3" maxlength="1200" placeholder="En quelques phrases, sans information confidentielle…"></textarea>
+            </label>
+
+            <label class="consent-row"><input type="checkbox" name="marketingConsent" value="yes"><span>J’accepte de recevoir occasionnellement les actualités de SAFE Pilotage Privé. Je pourrai me désinscrire à tout moment.</span></label>
+            <p class="privacy-copy">Les informations obligatoires servent uniquement à traiter votre demande. L’inscription aux actualités est facultative. <a href="/politique-confidentialite" target="_blank" rel="noopener">Politique de confidentialité</a>.</p>
+
+            <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+            <button class="button button-primary submit-button variant-consultation" type="submit">Recevoir mon diagnostic <span>→</span></button>
+            <button class="button button-primary submit-button variant-scan" type="submit">Être recontacté avant l’achat <span>→</span></button>
+          </form>
+
+          <div class="form-success" id="formSuccess" hidden tabindex="-1">
+            <span class="success-mark" aria-hidden="true">✓</span>
+            <h3>Votre demande est bien arrivée.</h3>
+            <p>Choisissez maintenant le créneau qui vous convient. Vos réponses permettront de préparer l’échange.</p>
+            <a class="button button-primary" href="https://meet.brevo.com/bertrand-charpilloz-1/rendez-vous-de-30-minutes" target="_blank" rel="noopener" data-track="booking_start">Choisir mon créneau <span>↗</span></a>
+            <small>Vous recevrez également une confirmation par e-mail.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div><a class="brand brand-footer" href="/"><span class="brand-mark" aria-hidden="true"><span>S</span><i></i><span>F</span></span><span class="brand-copy"><strong>S.A.F.E.</strong><small>Pilotage Privé</small></span></a><p>L’IA privée, utile et maîtrisée pour les PME.</p></div>
+      <div class="footer-links"><a href="/mentions-legales">Mentions légales</a><a href="/politique-confidentialite">Confidentialité</a><a href="mailto:bertrand@safe-pilotage-prive.fr">Contact</a></div>
+      <p class="footer-legal">© <span data-year></span> CCA · SAFE Pilotage Privé<br>Les délais et prix affichés dépendent du périmètre validé.</p>
+    </div>
+  </footer>
+
+  <a class="mobile-cta variant-consultation" href="#diagnostic" data-track="mobile_diagnostic">Diagnostic SAFE · 30 min <span>→</span></a>
+  <a class="mobile-cta variant-scan" href="#safe-scan" data-track="mobile_scan">SAFE Scan · 790 € HT <span>→</span></a>
+
+  <script src="safe-pme.js" defer></script>
+</body>
+</html>
