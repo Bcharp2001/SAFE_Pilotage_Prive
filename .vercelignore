@@ -1,0 +1,4 @@
+# Exclude landing-business-ia subfolder from existing Vercel project deployment
+# This folder is intended for a SEPARATE Vercel project with rootDirectory set
+# Prevents exposure at https://safe-pilotage-prive.fr/landing-business-ia/
+landing-business-ia/

@@ -3,29 +3,46 @@
 ## ⚠️ BLOCKERS - DO NOT DEPLOY TO PRODUCTION UNTIL RESOLVED
 
 ### 1. Video/Audio Rights (CRITICAL)
-- **Status**: ❌ BLOCKED
+- **Status**: ❌ BLOCKED - No change needed for now
 - **Issue**: Voice/Google rights for video content are unresolved
 - **Files excluded from this commit**:
   - `ia-locale-safe-pilotage-prive.mp4` (4.7MB video)
   - `ia-locale-safe-pilotage-prive.fr.vtt` (subtitle file)
 - **Current state**: Placeholder message shown instead of video
 - **Required action**: Legal clearance for voice/video rights before adding video back
-- **Contact**: Bertrand to confirm rights clearance
+- **Note**: Preparation can continue without video; it remains excluded pending rights
+- **Contact**: Bertrand to confirm rights clearance when ready
 
-### 2. Legal Information (CRITICAL)
-- **Status**: ❌ BLOCKED
-- **Issue**: SIRET and legal address not yet verified
-- **Missing**:
-  - Verified SIRET number
-  - Verified legal address
-  - Complete "Mentions légales" page
-  - Complete "Politique de confidentialité" page
-- **Current state**: Footer has minimal info, no legal pages linked
-- **Required action**: Verify and add complete legal information
-- **Note**: Do NOT invent or fabricate legal information
+### 2. Legal Information (PARTIALLY RESOLVED)
+- **Status**: ✅ Core identity verified, ⚠️ Minor details pending
+- **✅ Verified via official sources** (2026-11-08):
+  - Company: CHARPILLOZ COMPETENCES ASSOCIEES (SARL)
+  - SIREN: 434 963 245
+  - SIRET (headquarters): 434 963 245 00023
+  - Address: 4 place de la Piscine, 67350 Val-de-Moder
+  - Manager: Bertrand Charpilloz
+  - Source: recherche-entreprises.api.gouv.fr / annuaire-entreprises.data.gouv.fr
+- **✅ Created**:
+  - mentions-legales.html (with verified identity)
+  - politique-confidentialite.html (proportionate to actual processing)
+  - Footer links added to landing page
+- **⚠️ Still missing** (non-blocking for staging, can be added later):
+  - Capital social amount
+  - Numéro TVA intracommunautaire
+  - RCS registration details
+- **Note**: Missing fields noted internally but NOT invented in public pages
 
-### 3. Domain Configuration
-- **Status**: ⏸️ PENDING
+### 3. Isolation Protection (RESOLVED)
+- **Status**: ✅ FIXED
+- **Issue discovered**: Existing Vercel project with `rootDirectory: null` would serve `landing-business-ia/` at `https://safe-pilotage-prive.fr/landing-business-ia/` when merged to main
+- **Evidence**: Existing `/landing/` folder IS currently served by production site (HTTP 307 confirmed)
+- **Risk**: noindex is NOT access protection - anyone with URL could access
+- **Solution implemented**: Created `.vercelignore` in repository root excluding `landing-business-ia/`
+- **Verification needed**: After merge to main, confirm https://safe-pilotage-prive.fr/landing-business-ia/ returns 404
+- **Note**: Separate Vercel project with rootDirectory set will NOT be affected by .vercelignore
+
+### 4. Domain Configuration
+- **Status**: ⏸️ PENDING (unchanged)
 - **Domains acquired via IONOS**:
   - `mon-business-ia-prive.fr`
   - `mon-ia-pro-prive.fr`
@@ -34,10 +51,10 @@
   1. Create new Vercel project with `rootDirectory` set to `landing-business-ia`
   2. Connect domains to new project
   3. Configure DNS records
-- **Note**: Keep separate from existing `safe-pilotage-prive` project
+- **Note**: Keep completely separate from existing `safe-pilotage-prive` project
 
-### 4. A/B Testing Setup
-- **Status**: ⏸️ PENDING - DO NOT FABRICATE
+### 5. A/B Testing Setup
+- **Status**: ⏸️ PENDING - DO NOT FABRICATE (unchanged)
 - **Plan**: Two domains for future A/B testing
 - **Current state**: Same content prepared for both domains
 - **Required action**: 
@@ -45,8 +62,8 @@
   - Do NOT create fabricated variants or fake analytics
   - Decision needed: which aspect to test (headline, CTA, offer, etc.)
 
-### 5. SEO Protection
-- **Status**: ✅ OK
+### 6. SEO Protection
+- **Status**: ✅ OK (unchanged)
 - **Implementation**: `<meta name="robots" content="noindex">` present in HTML
 - **Note**: Remove noindex only after all blockers resolved and ready for production
 
@@ -60,6 +77,12 @@
 - [x] Vercel.json configured for static deployment
 - [x] No fabricated claims or unapproved testimonials
 - [x] No source ZIP or review materials committed
+- [x] **Isolation protection implemented** (.vercelignore prevents exposure via existing project)
+- [x] **Legal identity verified** via official government API
+- [x] **Mentions légales created** with verified company information
+- [x] **Politique de confidentialité created** proportionate to actual processing
+- [x] **Footer updated** with links to legal pages
+- [x] **Actual test results documented** with observed command outputs
 
 ## TESTING CHECKLIST
 
