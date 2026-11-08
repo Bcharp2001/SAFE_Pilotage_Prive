@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tests Automatisés - Analytics Consent</title>
+<style>
+body{font-family:monospace;padding:20px;background:#0f172a;color:#e6edf3;max-width:1200px;margin:0 auto}
+h1{color:#5eead4;border-bottom:2px solid #0d9488;padding-bottom:10px}
+.test{background:#1e293b;border-left:4px solid #64748b;padding:12px;margin:10px 0;border-radius:4px}
+.test.running{border-color:#fbbf24}
+.test.pass{border-color:#10b981;background:#0f3730}
+.test.fail{border-color:#ef4444;background:#3d1210}
+.test h3{margin:0 0 8px;font-size:14px}
+.test-result{font-size:13px;line-height:1.6}
+.pass-mark{color:#10b981;font-weight:bold}
+.fail-mark{color:#ef4444;font-weight:bold}
+.info{background:#1e3a8a;border-left:4px solid:#3b82f6;padding:10px;margin:10px 0;border-radius:4px;font-size:13px}
+pre{background:#0b0f14;padding:8px;border-radius:4px;overflow-x:auto;font-size:12px}
+.summary{background:#0f2d29;border:2px solid #0d9488;padding:15px;margin:20px 0;border-radius:6px}
+</style>
+</head>
+<body>
+<h1>Tests Automatisés - Google Analytics 4 avec Consentement</h1>
+
+<div class="info">
+<strong>Environnement de test:</strong> Tests structurels et comportementaux observés<br>
+<strong>Note:</strong> Tests réels nécessitent serveur local et inspection navigateur
+</div>
+
+<div id="tests-container"></div>
+<div id="summary" class="summary"></div>
+
+<script>
+const tests = [];
+let passCount = 0;
+let failCount = 0;
+
+function addTest(name, testFn) {
+  tests.push({name, testFn});
+}
+
+function runTests() {
+  const container = document.getElementById('tests-container');
+  
+  tests.forEach((test, index) => {
+    const testDiv = document.createElement('div');
+    testDiv.className = 'test running';
+    testDiv.innerHTML = `<h3>Test ${index + 1}: ${test.name}</h3><div class="test-result">En cours...</div>`;
+    container.appendChild(testDiv);
+    
+    setTimeout(() => {
+      try {
+        const result = test.testFn();
+        if (result.pass) {
+          testDiv.className = 'test pass';
+          testDiv.querySelector('.test-result').innerHTML = `<span class="pass-mark">✓ PASS</span><br>${result.message}`;
+          passCount++;
+        } else {
+          testDiv.className = 'test fail';
+          testDiv.querySelector('.test-result').innerHTML = `<span class="fail-mark">✗ FAIL</span><br>${result.message}`;
+          failCount++;
+        }
+      } catch (e) {
+        testDiv.className = 'test fail';
+        testDiv.querySelector('.test-result').innerHTML = `<span class="fail-mark">✗ ERROR</span><br>${e.message}`;
+        failCount++;
+      }
+      
+      if (index === tests.length - 1) {
+        showSummary();
+      }
+    }, (index + 1) * 100);
+  });
+}
+
+function showSummary() {
+  const summary = document.getElementById('summary');
+  const total = tests.length;
+  const status = failCount === 0 ? 'TOUS LES TESTS PASSENT' : `${failCount} TEST(S) ÉCHOUÉ(S)`;
+  const statusColor = failCount === 0 ? '#10b981' : '#ef4444';
+  
+  summary.innerHTML = `
+    <h2 style="margin:0 0 10px;color:${statusColor}">${status}</h2>
+    <p style="margin:0;font-size:14px">
+      <strong>Total:</strong> ${total} tests |
+      <strong style="color:#10b981">Pass:</strong> ${passCount} |
+      <strong style="color:#ef4444">Fail:</strong> ${failCount}
+    </p>
+  `;
+}
+
+// TEST 1: Fichiers de configuration existent
+addTest('Fichiers de configuration existent', () => {
+  // Test structural - vérifie que les fichiers sont présents dans le code
+  const hasConsentJS = document.querySelector('script[src="analytics-consent.js"]') !== null;
+  const hasConsentBanner = document.getElementById('consent-banner') !== null;
+  
+  if (hasConsentJS && hasConsentBanner) {
+    return {
+      pass: true,
+      message: 'Script analytics-consent.js et bannière présents dans le DOM'
+    };
+  } else {
+    return {
+      pass: false,
+      message: `Script présent: ${hasConsentJS}, Bannière présente: ${hasConsentBanner}`
+    };
+  }
+});
+
+// TEST 2: Configuration hostnames
+addTest('Configuration hostnames correcte', () => {
+  // Vérifier que le script contient les bons hostnames (test structurel via fetch)
+  return fetch('analytics-consent.js')
+    .then(r => r.text())
+    .then(code => {
+      const hasHost1 = code.includes('mon-business-ia-prive.fr');
+      const hasHost2 = code.includes('mon-ia-pro-prive.fr');
+      const hasId1 = code.includes('G-4NLJXHDV0M');
+      const hasId2 = code.includes('G-72J4FXPW10');
+      const noOldHost = !code.includes('safe-pilotage-prive.fr');
+      
+      if (hasHost1 && hasHost2 && hasId1 && hasId2 && noOldHost) {
+        return {
+          pass: true,
+          message: 'Hostnames et Measurement IDs corrects. Ancien hostname exclu.'
+        };
+      } else {
+        return {
+          pass: false,
+          message: `H1:${hasHost1} H2:${hasHost2} ID1:${hasId1} ID2:${hasId2} NoOld:${noOldHost}`
+        };
+      }
+    })
+    .catch(e => ({
+      pass: false,
+      message: 'Erreur lecture script: ' + e.message
+    }));
+});
+
+// TEST 3: Pas de chargement gtag avant consentement
+addTest('Pas de gtag.js chargé au démarrage', () => {
+  // Vérifier qu'aucun script gtag.js n'est présent au chargement initial
+  const gtagScripts = document.querySelectorAll('script[src*="googletagmanager.com"]');
+  
+  if (gtagScripts.length === 0) {
+    return {
+      pass: true,
+      message: 'Aucun script Google Tag Manager chargé initialement (mode strict respecté)'
+    };
+  } else {
+    return {
+      pass: false,
+      message: `${gtagScripts.length} script(s) gtag trouvé(s) - violation du mode strict`
+    };
+  }
+});
+
+// TEST 4: window.gtag n'existe pas avant consentement
+addTest('window.gtag non défini avant consentement', () => {
+  if (typeof window.gtag === 'undefined') {
+    return {
+      pass: true,
+      message: 'window.gtag non défini (pas de chargement prématuré)'
+    };
+  } else {
+    return {
+      pass: false,
+      message: 'window.gtag existe déjà - chargement prématuré détecté'
+    };
+  }
+});
+
+// TEST 5: Bannière de consentement présente
+addTest('Bannière de consentement accessible', () => {
+  const banner = document.getElementById('consent-banner');
+  const acceptBtn = document.getElementById('consent-accept');
+  const refuseBtn = document.getElementById('consent-refuse');
+  const withdrawLink = document.getElementById('consent-withdraw');
+  
+  if (banner && acceptBtn && refuseBtn && withdrawLink) {
+    return {
+      pass: true,
+      message: 'Bannière et tous les boutons de contrôle présents'
+    };
+  } else {
+    return {
+      pass: false,
+      message: `Banner:${!!banner} Accept:${!!acceptBtn} Refuse:${!!refuseBtn} Withdraw:${!!withdrawLink}`
+    };
+  }
+});
+
+// TEST 6: Liens CTA Cal.com présents pour tracking
+addTest('Liens CTA Cal.com identifiables', () => {
+  const ctaLinks = document.querySelectorAll('a[href*="cal.com"]');
+  
+  if (ctaLinks.length > 0) {
+    return {
+      pass: true,
+      message: `${ctaLinks.length} lien(s) CTA Cal.com trouvé(s) pour tracking événement clic_cta_cal`
+    };
+  } else {
+    return {
+      pass: false,
+      message: 'Aucun lien Cal.com trouvé - tracking CTA impossible'
+    };
+  }
+});
+
+// TEST 7: Pas de PII dans le code
+addTest('Pas de PII dans configuration analytics', () => {
+  return fetch('analytics-consent.js')
+    .then(r => r.text())
+    .then(code => {
+      // Chercher des patterns PII (email, numéro, etc.)
+      const hasEmailPattern = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/.test(code);
+      const hasPhonePattern = /\+?[0-9]{10,}/.test(code);
+      
+      if (!hasEmailPattern && !hasPhonePattern) {
+        return {
+          pass: true,
+          message: 'Aucun pattern PII détecté dans le code analytics'
+        };
+      } else {
+        return {
+          pass: false,
+          message: `PII potentiel détecté - Email:${hasEmailPattern} Phone:${hasPhonePattern}`
+        };
+      }
+    });
+});
+
+// TEST 8: Configuration consent mode stricte
+addTest('Configuration consent mode stricte', () => {
+  return fetch('analytics-consent.js')
+    .then(r => r.text())
+    .then(code => {
+      const hasAdDenied = code.includes("'ad_storage': 'denied'");
+      const hasAdUserDenied = code.includes("'ad_user_data': 'denied'");
+      const hasAdPersonalizationDenied = code.includes("'ad_personalization': 'denied'");
+      const hasNoGoogleSignals = code.includes("'allow_google_signals': false");
+      
+      if (hasAdDenied && hasAdUserDenied && hasAdPersonalizationDenied && hasNoGoogleSignals) {
+        return {
+          pass: true,
+          message: 'Consent mode strict configuré: tous les modes pub refusés, Google Signals désactivé'
+        };
+      } else {
+        return {
+          pass: false,
+          message: `AdDenied:${hasAdDenied} UserDenied:${hasAdUserDenied} PersonalizationDenied:${hasAdPersonalizationDenied} NoSignals:${hasNoGoogleSignals}`
+        };
+      }
+    });
+});
+
+// TEST 9: API publique disponible
+addTest('API publique LandingAnalytics exposée', () => {
+  const hasAPI = typeof window.LandingAnalytics !== 'undefined';
+  
+  if (hasAPI) {
+    const api = window.LandingAnalytics;
+    const hasMethods = typeof api.trackEvent === 'function' &&
+                      typeof api.withdraw === 'function' &&
+                      typeof api.getConsentStatus === 'function' &&
+                      typeof api.isAuthorized === 'function';
+    
+    if (hasMethods) {
+      return {
+        pass: true,
+        message: 'API LandingAnalytics complète: trackEvent, withdraw, getConsentStatus, isAuthorized'
+      };
+    } else {
+      return {
+        pass: false,
+        message: 'API incomplète - méthodes manquantes'
+      };
+    }
+  } else {
+    return {
+      pass: false,
+      message: 'window.LandingAnalytics non défini'
+    };
+  }
+});
+
+// TEST 10: Lien retrait dans footer
+addTest('Lien retrait consentement dans footer', () => {
+  const withdrawLink = document.getElementById('consent-withdraw');
+  const isInFooter = withdrawLink && withdrawLink.closest('footer') !== null;
+  
+  if (isInFooter) {
+    return {
+      pass: true,
+      message: 'Lien "Retirer consentement analytics" présent dans footer'
+    };
+  } else {
+    return {
+      pass: false,
+      message: `Lien présent: ${!!withdrawLink}, Dans footer: ${isInFooter}`
+    };
+  }
+});
+
+// Lancer les tests au chargement
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', runTests);
+} else {
+  runTests();
+}
+</script>
+
+<div class="info" style="margin-top:30px">
+<h3 style="margin:0 0 10px">Tests Observés (Structurels)</h3>
+<p style="margin:0;font-size:13px">
+Ces tests vérifient la présence et la configuration du code analytics.<br>
+<strong>Non vérifié automatiquement (nécessite inspection manuelle):</strong>
+</p>
+<ul style="margin:8px 0 0;padding-left:20px;font-size:13px">
+<li>Comportement réel du chargement GA4 après acceptation sur hostname autorisé</li>
+<li>Absence de chargement sur hostname non autorisé (localhost, preview, safe-pilotage-prive.fr)</li>
+<li>Suppression effective des cookies après retrait</li>
+<li>Envoi événement clic_cta_cal lors du clic réel</li>
+<li>Absence de double comptage sur clics multiples</li>
+<li>Expiration du consentement après 6 mois</li>
+</ul>
+<p style="margin:10px 0 0;font-size:13px">
+<strong>Inspection manuelle requise:</strong> DevTools Network, Console, Application Storage
+</p>
+</div>
+
+</body>
+</html>

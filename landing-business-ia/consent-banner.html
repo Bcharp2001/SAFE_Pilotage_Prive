@@ -1,0 +1,129 @@
+<!-- Bannière de Consentement Analytics - Mode Strict -->
+<div id="consent-banner" class="consent-banner" role="dialog" aria-labelledby="consent-title" aria-describedby="consent-desc" aria-hidden="true" style="display:none">
+  <div class="consent-content">
+    <h2 id="consent-title" class="consent-title">Mesure d'audience</h2>
+    <p id="consent-desc" class="consent-text">
+      Ce site utilise Google Analytics pour mesurer l'audience et améliorer votre expérience. 
+      Aucun cookie n'est déposé sans votre consentement. 
+      Vous pouvez accepter ou refuser. Votre choix est conservé 6 mois.
+    </p>
+    <p class="consent-info">
+      <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">Comment Google utilise les données</a> · 
+      <a href="politique-confidentialite">Notre politique</a>
+    </p>
+    <div class="consent-buttons">
+      <button id="consent-accept" class="consent-btn consent-btn-accept">Accepter</button>
+      <button id="consent-refuse" class="consent-btn consent-btn-refuse">Refuser</button>
+    </div>
+  </div>
+</div>
+
+<style>
+.consent-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(11, 15, 20, 0.98);
+  backdrop-filter: blur(10px);
+  border-top: 2px solid #0d9488;
+  padding: 20px;
+  z-index: 10000;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.consent-content {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.consent-title {
+  color: #e6edf3;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.consent-text {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.consent-info {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.consent-info a {
+  color: #5eead4;
+  text-decoration: underline;
+}
+
+.consent-info a:hover {
+  color: #99f6e4;
+}
+
+.consent-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.consent-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.consent-btn-accept {
+  background: #0d9488;
+  color: #fff;
+}
+
+.consent-btn-accept:hover {
+  background: #0f766e;
+}
+
+.consent-btn-refuse {
+  background: transparent;
+  color: #cbd5e1;
+  border: 1px solid #475569;
+}
+
+.consent-btn-refuse:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #64748b;
+}
+
+@media (max-width: 768px) {
+  .consent-banner {
+    padding: 16px;
+  }
+  
+  .consent-title {
+    font-size: 1.1rem;
+  }
+  
+  .consent-text {
+    font-size: 0.9rem;
+  }
+  
+  .consent-buttons {
+    flex-direction: column;
+  }
+  
+  .consent-btn {
+    width: 100%;
+  }
+}
+</style>
